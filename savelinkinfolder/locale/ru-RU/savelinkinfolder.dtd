@@ -1,0 +1,72 @@
+<!ENTITY savelinkinfolder.toolbar.label "Папки">
+<!ENTITY savelinkinfolder.toolbar.tooltip "Показать папки">
+<!ENTITY savelinkinfolder.context.label "Сохранить ссылку в папку...">
+<!ENTITY savelinkinfolder.options.title "Save Link in Folder - Настройки">
+<!ENTITY savelinkinfolder.options.maintab "Общие">
+<!ENTITY savelinkinfolder.options.miscellaneoustab "Разное">
+<!ENTITY savelinkinfolder.options.advancedtab "Дополнительно">
+<!ENTITY savelinkinfolder.options.new "Создать">
+<!ENTITY savelinkinfolder.options.edit "Изменить">
+<!ENTITY savelinkinfolder.options.delete "Удалить">
+<!ENTITY savelinkinfolder.options.separator "Разделитель">
+<!ENTITY savelinkinfolder.options.folders "Папки">
+<!ENTITY savelinkinfolder.options.description "Описание">
+<!ENTITY savelinkinfolder.options.path "Путь">
+<!ENTITY savelinkinfolder.options.opensaveasdialog "Сохранить как">
+<!ENTITY savelinkinfolder.options.openfolder "Открыть папку">
+<!ENTITY savelinkinfolder.options.fileprefix "Приставка">
+<!ENTITY savelinkinfolder.options.fileprefixvalue "Приставка-Значение">
+<!ENTITY savelinkinfolder.options.filename "Имя">
+<!ENTITY savelinkinfolder.options.filenamevalue "Имя-Значение">
+<!ENTITY savelinkinfolder.options.filesuffix "Суфикс">
+<!ENTITY savelinkinfolder.options.filesuffixvalue "Суфикс-Значение">
+<!ENTITY savelinkinfolder.options.duplicatefilename "Дубликат имени файла">
+<!ENTITY savelinkinfolder.options.general "Главные настройки папок">
+<!ENTITY savelinkinfolder.options.general-shiftkey "Нажмите и удерживайте Shift, чтобы выбрать другую папку и игнорировать установленные для этого пункта настройки (при выборе в контекстном меню) .">
+<!ENTITY savelinkinfolder.options.general-opensaveasdialog "Открывать окно 'Сохранить как...' перед загрузкой.">
+<!ENTITY savelinkinfolder.options.general-openfolder "Открывать папку после начала загрузки.">
+<!ENTITY savelinkinfolder.options.general-fileprefix "Файл-приставка:">
+<!ENTITY savelinkinfolder.options.general-filename "Имя файла:">
+<!ENTITY savelinkinfolder.options.general-filesuffix "Файл-суфикс:">
+<!ENTITY savelinkinfolder.options.general-duplicatefilename "Если есть дубликат имени файла...">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevaluesaveas "Показать окно 'Сохранить как...'">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevalueincrement "Автоматически увеличивать имя файла">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevaluecancel "Отменить загрузку">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevalueoverwrite "Перезаписать файл">
+<!ENTITY savelinkinfolder.options.executable "Всегда открывать папку с сохраненным файлом">
+<!ENTITY savelinkinfolder.options.executable-description "Здесь вы можете выбрать другую программу, чтобы открыть выбранную папку. Если чекбокс не установлен, то при двойном клике на папке, будет выполняться действие системы установленное по умолчанию (для Windows это 'explorer.exe').">
+<!ENTITY savelinkinfolder.options.executable-check "Открывать с помощью:">
+<!ENTITY savelinkinfolder.options.executable-arguments "Аргументы:">
+<!ENTITY savelinkinfolder.options.executable-ctrlkey "Подсказка: Если нажать и удерживать клавишу Ctrl при выборе папки в контекстном меню, то откроется папка, но файл не будет сохранен.">
+<!ENTITY savelinkinfolder.options.contextmenu "Контекстное меню">
+<!ENTITY savelinkinfolder.options.shortcut "Горячие клавиши:">
+<!ENTITY savelinkinfolder.options.numericshortcuts "Показывать номера горячих клавиш первых десяти папок.">
+<!ENTITY savelinkinfolder.options.hideinvalidfolders "Скрывать папки имеющие нерабочий путь (иначе они не будут работать).">
+<!ENTITY savelinkinfolder.options.prefs "Настройки Firefox">
+<!ENTITY savelinkinfolder.options.prefs-description "После того, как файл сохранен в папку, записать путь в настройках Firefox (prefs.js).">
+<!ENTITY savelinkinfolder.options.prefs-clear "Очистить">
+<!ENTITY savelinkinfolder.options.nofilereference "Если ссылка не прямая, открывать диалоговое окно 'Сохранить как...'.">
+<!ENTITY savelinkinfolder.options.hideunknowncontenttype "Скрывать список папок когда Firefox обнаружил неизвестный тип содержимого.">
+<!ENTITY savelinkinfolder.setfolder.title "Папка">
+<!ENTITY savelinkinfolder.setfolder.description "Описание">
+<!ENTITY savelinkinfolder.setfolder.path "Путь">
+<!ENTITY savelinkinfolder.setfolder.individual "Индивидуальные настройки папки">
+<!ENTITY savelinkinfolder.setfolder.individual-opensaveasdialog "Открывать окно 'Сохранить как...' перед загрузкой.">
+<!ENTITY savelinkinfolder.setfolder.individual-openfolder "Открывать папку после начала загрузки.">
+<!ENTITY savelinkinfolder.setfolder.individual-fileprefix "Файл-приставка:">
+<!ENTITY savelinkinfolder.setfolder.individual-filename "Имя файла:">
+<!ENTITY savelinkinfolder.setfolder.individual-filesuffix "Файл-суфикс:">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilename "Если есть дубликат имени файла...">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevaluesaveas "Показать окно 'Сохранить как...'">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevalueincrement "Автоматически увеличивать имя файла">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevaluecancel "Отменить загрузку">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevalueoverwrite "Перезаписать файл">
+<!ENTITY savelinkinfolder.notify.file "Файл:">
+<!ENTITY savelinkinfolder.notify.folder "Папка:">
+<!ENTITY savelinkinfolder.options.notification "Оповещение">
+<!ENTITY savelinkinfolder.options.notification-statusbar "Сообщение в статусной строке">
+<!ENTITY savelinkinfolder.options.notification-popupwindow "Всплывающее окно">
+<!ENTITY savelinkinfolder.options.notification-duration "Продолжительность (в секундах):">
+<!ENTITY savelinkinfolder.options.helptab "Помощь">
+<!ENTITY savelinkinfolder.options.website "ожалуйста, для получения подробных инструкций посетите этот сайт:">
+

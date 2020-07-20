@@ -1,0 +1,14 @@
+<!ENTITY nestedquoteremover.label.options.windowtitle "Options de NestedQuote Remover ">
+<!ENTITY nestedquoteremover.label.options.quotedepth "Degré maximum d'enchâssement autorisé :">
+<!ENTITY nestedquoteremover.label.options.autoremove "Supprimer automatiquement les citations imbriquées">
+<!ENTITY nestedquoteremover.label.options.contextmenu "Montrer l'option dans le menu contextuel">
+<!ENTITY nestedquoteremover.label.options.shortcut.groupbox "Raccourcis clavier:">
+<!ENTITY nestedquoteremover.label.options.shortcut.accel "Accel">
+<!ENTITY nestedquoteremover.label.options.shortcut.alt "Alt">
+<!ENTITY nestedquoteremover.label.options.shortcut.control "Control">
+<!ENTITY nestedquoteremover.label.options.shortcut.meta "Méta">
+<!ENTITY nestedquoteremover.label.options.shortcut.shift "Shift">
+<!ENTITY nestedquoteremover.label.toolbar "citations">
+<!ENTITY nestedquoteremover.label.menupopup "Supprimer les citations imbriquées">
+<!ENTITY nestedquoteremover.label.context "Supprimer les citations imbriquées">
+<!ENTITY nestedquoteremover.tooltip.toolbar "Supprime les citations imbriquées">

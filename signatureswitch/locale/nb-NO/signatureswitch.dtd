@@ -1,0 +1,69 @@
+<!ENTITY signatureswitch.label.options.windowtitle "Signatur Switch innstillinger">
+<!ENTITY signatureswitch.label.options.maintab "Generelt">
+<!ENTITY signatureswitch.label.options.advancedtab "Avansert">
+<!ENTITY signatureswitch.label.options.tree.signatures "Signaturer">
+<!ENTITY signatureswitch.label.options.tree.default "Standard">
+<!ENTITY signatureswitch.label.options.tree.description "Beskrivelse">
+<!ENTITY signatureswitch.label.options.tree.path "Sti">
+<!ENTITY signatureswitch.label.options.tree.shortcut "Hurtigtast">
+<!ENTITY signatureswitch.label.options.tree.addresses "Adresser">
+<!ENTITY signatureswitch.label.options.tree.newsgroups "Nyhetsgupper">
+<!ENTITY signatureswitch.label.options.button.new "Ny">
+<!ENTITY signatureswitch.label.options.button.edit "Rediger">
+<!ENTITY signatureswitch.label.options.button.delete "Slett">
+<!ENTITY signatureswitch.label.options.offbydefault "Slå signatur av som standard">
+<!ENTITY signatureswitch.label.options.contextmenu "Vis 'Signatur Switch' i menyen">
+<!ENTITY signatureswitch.label.options.shortcut.groupbox "Tastatur snarveier">
+<!ENTITY signatureswitch.label.options.shortcut.accel "Accelerator">
+<!ENTITY signatureswitch.label.options.shortcut.alt "Alt">
+<!ENTITY signatureswitch.label.options.shortcut.control "Ctrl">
+<!ENTITY signatureswitch.label.options.shortcut.meta "Meta">
+<!ENTITY signatureswitch.label.options.shortcut.shift "Skift">
+<!ENTITY signatureswitch.label.options.encoding "Tegnsett">
+<!ENTITY signatureswitch.label.options.encoding-description "Dette er tegnsettet som vil bli brukt for å tolke signatur-filen. Kun for avanserte brukere!">
+<!ENTITY signatureswitch.label.setsignature.title "Sett signatur">
+<!ENTITY signatureswitch.label.setsignature.description "Navn">
+<!ENTITY signatureswitch.label.setsignature.path "Sti">
+<!ENTITY signatureswitch.label.setsignature.shortcut "Hurtigtast">
+<!ENTITY signatureswitch.label.setsignature.shortcut.accel "Accelerator">
+<!ENTITY signatureswitch.label.setsignature.shortcut.alt "Alt">
+<!ENTITY signatureswitch.label.setsignature.shortcut.control "Ctrl">
+<!ENTITY signatureswitch.label.setsignature.shortcut.meta "Meta">
+<!ENTITY signatureswitch.label.setsignature.shortcut.shift "Skift">
+<!ENTITY signatureswitch.label.setsignature.autoswitch "Automatbryter (valgfri)">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.description.addresses "Når en av de ePost-adressene som er listet opp her, er blant mottakerne (ikke CC eller BCC!) velges denne signaturen automatisk.">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.description.newsgroups "Observering av registrerte nyhetsgrupper er også mulig:">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.description.wildcard1 "Spørsmålstegn ('?') kan brukes som erstatningstegn.">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.description.wildcard2 "(F.eks.: '?@mozilla.com', 'test@?.com' eller 't?t@m?a.c?' vil passe når 'test@mozilla.com' er oppgitt som mottaker.)">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.address "ePost-adresse:">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.newsgroup "Nyhetsgruppe:">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.add "Legg til &gt;">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.remove "&lt; Fjern">
+<!ENTITY signatureswitch.label.toolbar "Signatur">
+<!ENTITY signatureswitch.label.menu "Signatur Switch">
+<!ENTITY signatureswitch.label.context "Signatur Switch">
+<!ENTITY signatureswitch.tooltip.toolbar "Slå signatur på/av">
+<!ENTITY signatureswitch.label.options.helptab "Hjelp">
+<!ENTITY signatureswitch.label.options.website "For detaljert informasjon, besøk denne websiden:">
+<!ENTITY signatureswitch.label.options.composer "Komponere">
+<!ENTITY signatureswitch.label.options.composer-description "Tekstbehandler til å lage din signatur med. (Trykk OK etter endring.)">
+<!ENTITY signatureswitch.label.options.misctab "Diverse">
+<!ENTITY signatureswitch.label.create.title "Signatur oppretting">
+<!ENTITY signatureswitch.label.create.doesntexist "Signatur-filen du skrev inn finnes ikke.">
+<!ENTITY signatureswitch.label.create.question "Vil du lage den?">
+<!ENTITY signatureswitch.label.setsignature.addresstab "Adresser">
+<!ENTITY signatureswitch.label.setsignature.newsgrouptab "Nyhetsgrupper">
+<!ENTITY signatureswitch.label.setsignature.mailinglisttab "E-postlister">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.mailinglist "E-postliste:">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.description.mailinglists "Forekommer navnet til en e-postliste i mottaker-feltet kan det utløse automatbryteren også.">
+<!ENTITY signatureswitch.label.options.tree.mailinglists "E-postlister">
+<!ENTITY signatureswitch.label.mailinglist.title "E-postlister">
+<!ENTITY signatureswitch.label.mailinglist.available "Tilgjengelige e-postlister:">
+<!ENTITY signatureswitch.label.options.autoswitchpriority "Automatbryter prioritering">
+<!ENTITY signatureswitch.label.options.shortcut.onoff "På/av:">
+<!ENTITY signatureswitch.label.options.shortcut.cycle "Syklus:">
+<!ENTITY signatureswitch.label.options.preloadexecutable "Tilleggsprogram">
+<!ENTITY signatureswitch.label.options.preloadexecutable-description "Start et eksternt program før den valgte signatur-filen blir lastet inn.">
+<!ENTITY signatureswitch.label.options.preloadexecutableusage "Bruk dette programmet:">
+<!ENTITY signatureswitch.label.options.preloadexecutablewait "Vent på at programmet skal avsluttes.">
+<!ENTITY signatureswitch.label.options.preloadexecutablehelp "Se hjelp for informasjon om sending av argumenter og bruker eksempler.">

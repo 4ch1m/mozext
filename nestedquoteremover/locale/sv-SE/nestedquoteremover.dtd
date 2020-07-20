@@ -1,0 +1,14 @@
+<!ENTITY nestedquoteremover.label.options.windowtitle "Inställningar för NestedQuote Remover">
+<!ENTITY nestedquoteremover.label.options.quotedepth "Högsta tillåtna citatnivå:">
+<!ENTITY nestedquoteremover.label.options.autoremove "Ta automatiskt bort kapslade citat">
+<!ENTITY nestedquoteremover.label.options.contextmenu "Visa snabbmenyobjekt">
+<!ENTITY nestedquoteremover.label.options.shortcut.groupbox "Kortkommando:">
+<!ENTITY nestedquoteremover.label.options.shortcut.accel "Kortkommando">
+<!ENTITY nestedquoteremover.label.options.shortcut.alt "Alt">
+<!ENTITY nestedquoteremover.label.options.shortcut.control "Ctrl">
+<!ENTITY nestedquoteremover.label.options.shortcut.meta "Meta">
+<!ENTITY nestedquoteremover.label.options.shortcut.shift "Skift">
+<!ENTITY nestedquoteremover.label.toolbar "Citat">
+<!ENTITY nestedquoteremover.label.menupopup "Ta bort kapslade citat">
+<!ENTITY nestedquoteremover.label.context "Ta bort kapslade citat">
+<!ENTITY nestedquoteremover.tooltip.toolbar "Tar bort kapslade citat">

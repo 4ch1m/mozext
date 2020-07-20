@@ -1,0 +1,71 @@
+﻿<!ENTITY saveimageinfolder.toolbar.label "Mape">
+<!ENTITY saveimageinfolder.toolbar.tooltip "Brskaj po mapah">
+<!ENTITY saveimageinfolder.context.label "Shrani sliko v mapo …">
+<!ENTITY saveimageinfolder.options.title "Save Image in Folder - možnosti">
+<!ENTITY saveimageinfolder.options.maintab "Glavno">
+<!ENTITY saveimageinfolder.options.miscellaneoustab "Razno">
+<!ENTITY saveimageinfolder.options.advancedtab "Napredno">
+<!ENTITY saveimageinfolder.options.new "Nova">
+<!ENTITY saveimageinfolder.options.edit "Uredi">
+<!ENTITY saveimageinfolder.options.delete "Izbriši">
+<!ENTITY saveimageinfolder.options.separator "Ločilo">
+<!ENTITY saveimageinfolder.options.folders "Mape">
+<!ENTITY saveimageinfolder.options.description "Opis">
+<!ENTITY saveimageinfolder.options.path "Pot">
+<!ENTITY saveimageinfolder.options.opensaveasdialog "Shrani kot">
+<!ENTITY saveimageinfolder.options.openfolder "Odpri mapo">
+<!ENTITY saveimageinfolder.options.fileprefix "Predpona">
+<!ENTITY saveimageinfolder.options.fileprefixvalue "Vrednost predpone">
+<!ENTITY saveimageinfolder.options.filename "Ime">
+<!ENTITY saveimageinfolder.options.filenamevalue "Vrednost imena">
+<!ENTITY saveimageinfolder.options.filesuffix "Pripona">
+<!ENTITY saveimageinfolder.options.filesuffixvalue "Vrednost pripone">
+<!ENTITY saveimageinfolder.options.duplicatefilename "Podvojeno ime datoteke">
+<!ENTITY saveimageinfolder.options.general "Splošne nastavitve za mape">
+<!ENTITY saveimageinfolder.options.general-shiftkey "Pridržite tipko shift med izbiro predmeta vsebinskega menija, da preglasite posamezne nastavitve za mapo in uporabite naslednje.">
+<!ENTITY saveimageinfolder.options.general-opensaveasdialog "Odpri pogovorno okno 'Shrani kor …' pred prenosom.">
+<!ENTITY saveimageinfolder.options.general-openfolder "Odpri ciljno mapo, ko se prenos začne.">
+<!ENTITY saveimageinfolder.options.general-fileprefix "Predpona datoteke:">
+<!ENTITY saveimageinfolder.options.general-filename "Ime datoteke:">
+<!ENTITY saveimageinfolder.options.general-filesuffix "Pripona datoteke:">
+<!ENTITY saveimageinfolder.options.general-duplicatefilename "Če obstaja podvojeno ime datoteke …">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevaluesaveas "prikaži pogovorno okno 'Shrani kot …'">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevalueincrement "samodejno povečaj me datoteke">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevaluecancel "prekliči prenos">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevalueoverwrite "prepiši datoteko">
+<!ENTITY saveimageinfolder.options.executable "Izvedljiva datoteka za odpiranje cilne mape">
+<!ENTITY saveimageinfolder.options.executable-description "Tukaj lahko izberete drugo izvedljivo datoteko za odpiranje ciljne mape. Če je odznačeno, bo sistem ob dvokliku na mapo uporabil sistemsko privzeto dejanje (kar je običajno 'explorer.exe' na sistemih Windows).">
+<!ENTITY saveimageinfolder.options.executable-check "Uporabi to izvedljivo datoteko:">
+<!ENTITY saveimageinfolder.options.executable-arguments "Argumenti:">
+<!ENTITY saveimageinfolder.options.executable-ctrlkey "Namig: pridržanje tipke ctrl med  izbiro predmeta vsebinskega menija odpre mapo brez shranjevanja datoteke.">
+<!ENTITY saveimageinfolder.options.contextmenu "Vsebinski meni">
+<!ENTITY saveimageinfolder.options.shortcut "Tipkovna bližnjica: ">
+<!ENTITY saveimageinfolder.options.numericshortcuts "Prikaži številčne bličnjice na koncu prvih desetih vnosov map.">
+<!ENTITY saveimageinfolder.options.hideinvalidfolders "Skrij mape z neveljavno potjo (drugače se onemogočijo).">
+<!ENTITY saveimageinfolder.options.prefs " Firefoxove nastavitve">
+<!ENTITY saveimageinfolder.options.prefs-description "Po shranjevanju v mapo zapiši to pot v naslednje Firefoxove nastavitve (prefs.js).">
+<!ENTITY saveimageinfolder.options.prefs-clear "Počisti">
+<!ENTITY saveimageinfolder.options.doubleclick "Levi dvojni klik na sliko jo neposredno shrani v prejšnjo mapo (ta možnost zahteva ponovni zagon Firefoxa).">
+<!ENTITY saveimageinfolder.options.usecache "Uporabi predpmnilnik brskalnika za shranjevanje slik namesto priklica upravitelja prenosov (več zmogljivosti, vendar manj sledljivosti).">
+<!ENTITY saveimageinfolder.setfolder.title "Mapa">
+<!ENTITY saveimageinfolder.setfolder.description "Opis">
+<!ENTITY saveimageinfolder.setfolder.path "Pot">
+<!ENTITY saveimageinfolder.setfolder.individual "Nastavitve za posamzene mape">
+<!ENTITY saveimageinfolder.setfolder.individual-opensaveasdialog "Odpri pogovorno okno 'Shrani kot …' pred prenosom.">
+<!ENTITY saveimageinfolder.setfolder.individual-openfolder "Odpri ciljno mapo, ko se prenos začne.">
+<!ENTITY saveimageinfolder.setfolder.individual-fileprefix "Predpona datoeke:">
+<!ENTITY saveimageinfolder.setfolder.individual-filename "Ime datoteke:">
+<!ENTITY saveimageinfolder.setfolder.individual-filesuffix "Pripona datoteke:">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilename "Če obstaja podvojeno ime datoteke …">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevaluesaveas "prikaži pogovorno okno 'Shrani kot …'">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevalueincrement "samodejno povečaj ime datoteke">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevaluecancel "prekliči prenos">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevalueoverwrite "prepiši datoteko">
+<!ENTITY saveimageinfolder.notify.file "Datoteka:">
+<!ENTITY saveimageinfolder.notify.folder "Mapa:">
+<!ENTITY saveimageinfolder.options.notification "Obvestilo">
+<!ENTITY saveimageinfolder.options.notification-statusbar "Sporočilo vrtice stanja">
+<!ENTITY saveimageinfolder.options.notification-popupwindow "Pojavno okno">
+<!ENTITY saveimageinfolder.options.notification-duration "Trajanje (s):">
+<!ENTITY saveimageinfolder.options.helptab "Pomoč">
+<!ENTITY saveimageinfolder.options.website "Za podrobna navodila obiščite to spletno stran:">

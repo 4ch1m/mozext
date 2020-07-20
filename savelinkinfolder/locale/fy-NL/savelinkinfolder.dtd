@@ -1,0 +1,71 @@
+<!ENTITY savelinkinfolder.toolbar.label "Mappen">
+<!ENTITY savelinkinfolder.toolbar.tooltip "Blêdzje troch mappen">
+<!ENTITY savelinkinfolder.context.label "Bewarje keppeling yn Map">
+<!ENTITY savelinkinfolder.options.title "Bewarje keppeling yn Map - Opsjes">
+<!ENTITY savelinkinfolder.options.maintab "Haad">
+<!ENTITY savelinkinfolder.options.miscellaneoustab "Ferskaat">
+<!ENTITY savelinkinfolder.options.advancedtab "Avansearre">
+<!ENTITY savelinkinfolder.options.new "Nij">
+<!ENTITY savelinkinfolder.options.edit "Bewurkje">
+<!ENTITY savelinkinfolder.options.delete "Fuortsmite">
+<!ENTITY savelinkinfolder.options.separator "Skiedingsteken">
+<!ENTITY savelinkinfolder.options.folders "Mappen">
+<!ENTITY savelinkinfolder.options.description "Beskriuwing">
+<!ENTITY savelinkinfolder.options.path "Paad">
+<!ENTITY savelinkinfolder.options.opensaveasdialog "Bewarje As">
+<!ENTITY savelinkinfolder.options.openfolder "Iepen Map">
+<!ENTITY savelinkinfolder.options.fileprefix "Foarheaksel">
+<!ENTITY savelinkinfolder.options.fileprefixvalue "Foarheaksel-Wearde">
+<!ENTITY savelinkinfolder.options.filename "Namme">
+<!ENTITY savelinkinfolder.options.filenamevalue "Namme-Wearde">
+<!ENTITY savelinkinfolder.options.filesuffix "Taheaksel">
+<!ENTITY savelinkinfolder.options.filesuffixvalue "Taheaksel-Wearde">
+<!ENTITY savelinkinfolder.options.duplicatefilename "Dûbele bestânsanmme">
+<!ENTITY savelinkinfolder.options.general "Algemiene mapynstellings">
+<!ENTITY savelinkinfolder.options.general-shiftkey "Hâld de Shift-toets yndrukt wylst jo in kontekst-menu item selektearje om de individuele mapynstellings te negearjen en de fogjende te brûken.">
+<!ENTITY savelinkinfolder.options.general-opensaveasdialog "Iepen in 'Bewarje As...'-dialooch foar it ynladen.">
+<!ENTITY savelinkinfolder.options.general-openfolder "Iepen de doelmap as de ynlaad start.">
+<!ENTITY savelinkinfolder.options.general-fileprefix "Bestânsfoarheaksel:">
+<!ENTITY savelinkinfolder.options.general-filename "Bestânsnamme:">
+<!ENTITY savelinkinfolder.options.general-filesuffix "Bestânstaheaksel:">
+<!ENTITY savelinkinfolder.options.general-duplicatefilename "As de namme al bestiet...">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevaluesaveas "Lit 'Bewarje As...'-dialooch sjen">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevalueincrement "Automatysk bestânsnamme opheegje">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevaluecancel "Annulearje it ynladen">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevalueoverwrite "Oerskriuw it bestân">
+<!ENTITY savelinkinfolder.options.executable "Utfierber bestân foar it iepenjen fan de doalmap">
+<!ENTITY savelinkinfolder.options.executable-description "Hjir kinne jo in oar útfierber bestân kieze om de doelmap mei te iepenjen. As it net oanfinkt is sil de útwreiding de systeem standert brûke as jo dûbel klikke op de map. (Meastentiids explore.exe op Windows.)">
+<!ENTITY savelinkinfolder.options.executable-check "Brûk dit úfierber bestân:">
+<!ENTITY savelinkinfolder.options.executable-arguments "Argumenten:">
+<!ENTITY savelinkinfolder.options.executable-ctrlkey "Tip: As jo in kontekst-menu item selektearje wylst jo de Ctrl-toest yndrukt hâlde, iepent dit de map sûnder it bestân te bewarjen.">
+<!ENTITY savelinkinfolder.options.contextmenu "Kontekst-Menu">
+<!ENTITY savelinkinfolder.options.shortcut "Fluchtoets">
+<!ENTITY savelinkinfolder.options.numericshortcuts "Toan fluchkaainûmers foar de earste tsjien ûnderdielen yn de map.">
+<!ENTITY savelinkinfolder.options.hideinvalidfolders "Ferbergje mappen mei ferkearde paden (oers wurde se útskeakele).">
+<!ENTITY savelinkinfolder.options.prefs "Firefox foarkarren">
+<!ENTITY savelinkinfolder.options.prefs-description "Nei it bewarjen nei in folder skriuw it paad yn de folgjende Firefox foarkarren (prefs.js).">
+<!ENTITY savelinkinfolder.options.prefs-clear "Leechmeitsje">
+<!ENTITY savelinkinfolder.options.nofilereference "Keppelings sûnder referensje nei in bestân wurde iepene mei in 'Bewarje As...'-dialooch.">
+<!ENTITY savelinkinfolder.options.hideunknowncontenttype "Ferstop maplist as Firefox in ûnbekende content-type fynt.">
+<!ENTITY savelinkinfolder.setfolder.title "Map">
+<!ENTITY savelinkinfolder.setfolder.description "Beskriuwing">
+<!ENTITY savelinkinfolder.setfolder.path "Paad">
+<!ENTITY savelinkinfolder.setfolder.individual "Individuele mapynstellings">
+<!ENTITY savelinkinfolder.setfolder.individual-opensaveasdialog "Iepen in 'Bewarje As...'-dialooch foar it ynladen.">
+<!ENTITY savelinkinfolder.setfolder.individual-openfolder "Iepen de doelmap as it ynladen start.">
+<!ENTITY savelinkinfolder.setfolder.individual-fileprefix "Bestânsfoarheaksel:">
+<!ENTITY savelinkinfolder.setfolder.individual-filename "Bestânsnamme:">
+<!ENTITY savelinkinfolder.setfolder.individual-filesuffix "Bestânstaheaksel:">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilename "As der in dûbele bestânsnamme is...">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevaluesaveas "Toan 'Bearje As...'-dialooch">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevalueincrement "Automatysk bestânsnamme opheegje">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevaluecancel "It ynladen annulearje">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevalueoverwrite "It bestân oerskriuwe">
+<!ENTITY savelinkinfolder.notify.file "???File:">
+<!ENTITY savelinkinfolder.notify.folder "???Folder:">
+<!ENTITY savelinkinfolder.options.notification "???Notification">
+<!ENTITY savelinkinfolder.options.notification-statusbar "???Status-Bar message">
+<!ENTITY savelinkinfolder.options.notification-popupwindow "???Popup window">
+<!ENTITY savelinkinfolder.options.notification-duration "???Duration (seconds):">
+<!ENTITY savelinkinfolder.options.helptab "???Help">
+<!ENTITY savelinkinfolder.options.website "???Please visit this website for detailed instructions:">

@@ -1,0 +1,4 @@
+<!ENTITY newmailexecute.options.windowtitle "NewMail Execute - Options">
+<!ENTITY newmailexecute.options.executable "Executable">
+<!ENTITY newmailexecute.options.path "Path:">
+<!ENTITY newmailexecute.options.arguments "Arguments:">

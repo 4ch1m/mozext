@@ -1,0 +1,69 @@
+<!ENTITY signatureswitch.label.options.windowtitle "Signature Switch Opties">
+<!ENTITY signatureswitch.label.options.maintab "Algemeen">
+<!ENTITY signatureswitch.label.options.advancedtab "Geavanceerd">
+<!ENTITY signatureswitch.label.options.tree.signatures "Ondertekingen">
+<!ENTITY signatureswitch.label.options.tree.default "Standaard">
+<!ENTITY signatureswitch.label.options.tree.description "Beschrijving">
+<!ENTITY signatureswitch.label.options.tree.path "Pad">
+<!ENTITY signatureswitch.label.options.tree.shortcut "Snelkoppeling">
+<!ENTITY signatureswitch.label.options.tree.addresses "Adressen">
+<!ENTITY signatureswitch.label.options.tree.newsgroups "Nieuwsgroepen">
+<!ENTITY signatureswitch.label.options.button.new "Nieuw">
+<!ENTITY signatureswitch.label.options.button.edit "Bewerk">
+<!ENTITY signatureswitch.label.options.button.delete "Verwijder">
+<!ENTITY signatureswitch.label.options.offbydefault "Ondertekening standaard uitschakelen">
+<!ENTITY signatureswitch.label.options.contextmenu "'Signature Switch in het rechterklikmenu laten zien">
+<!ENTITY signatureswitch.label.options.shortcut.groupbox "Sneltoetsen">
+<!ENTITY signatureswitch.label.options.shortcut.accel "Sneltoets">
+<!ENTITY signatureswitch.label.options.shortcut.alt "Alt">
+<!ENTITY signatureswitch.label.options.shortcut.control "Control">
+<!ENTITY signatureswitch.label.options.shortcut.meta "Meta">
+<!ENTITY signatureswitch.label.options.shortcut.shift "Shift">
+<!ENTITY signatureswitch.label.options.encoding "Tekensetcodering">
+<!ENTITY signatureswitch.label.options.encoding-description "Deze tekensetcodering zal worden gebruikt voor het converteren van het geladen ondertekeningbestand. Verander het alleen indien u weet wat u doet!"><!ENTITY signatureswitch.label.setsignature.title "Ondertekening veranderen">
+<!ENTITY signatureswitch.label.setsignature.title "Ondertekening veranderen">
+<!ENTITY signatureswitch.label.setsignature.description "Beschrijving">
+<!ENTITY signatureswitch.label.setsignature.path "Pad">
+<!ENTITY signatureswitch.label.setsignature.shortcut "Snelkoppeling">
+<!ENTITY signatureswitch.label.setsignature.shortcut.accel "Sneltoets">
+<!ENTITY signatureswitch.label.setsignature.shortcut.alt "Alt">
+<!ENTITY signatureswitch.label.setsignature.shortcut.control "Control">
+<!ENTITY signatureswitch.label.setsignature.shortcut.meta "Meta">
+<!ENTITY signatureswitch.label.setsignature.shortcut.shift "Shift">
+<!ENTITY signatureswitch.label.setsignature.autoswitch "AutoSwitch (optioneel):">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.description.addresses "Automatisch deze ondertekening kiezen wanneer een van onderstaande adressen in de lijst van ontvangers (niet CC of BCC!) staat.">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.description.newsgroups "Het bekijken van ingevoerde nieuwsgroep-hosts is ook mogelijk:">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.description.wildcard1 "Het vraagteken ('?') kan als jokerteken worden gebruikt.">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.description.wildcard2 "(Voorbeeld: '?@mozilla.com', 'test@?.com' of 't?t@m?a.c?' zal overeenkomen met 'test@mozilla.com' als ontvanger.)">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.address "e-mailadres">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.newsgroup "Nieuwsgroep:">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.add "Toevoegen &gt;">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.remove "&lt; Verwijderen">
+<!ENTITY signatureswitch.label.toolbar "Ondertekening">
+<!ENTITY signatureswitch.label.menu "Signature Switch">
+<!ENTITY signatureswitch.label.context "Signature Switch">
+<!ENTITY signatureswitch.tooltip.toolbar "Ondertekening aan/uitschakelen">
+<!ENTITY signatureswitch.label.options.helptab "Help">
+<!ENTITY signatureswitch.label.options.website "Kijk op deze webstek voor meer informatie:">
+<!ENTITY signatureswitch.label.options.composer "Ondertekening bewerken">
+<!ENTITY signatureswitch.label.options.composer-description "Editor waarmee ondertekeningen bewerkt kunnen worden. (Klik op OK na wijzigingen.)">
+<!ENTITY signatureswitch.label.options.misctab "Overig">
+<!ENTITY signatureswitch.label.create.title "Ondertekening">
+<!ENTITY signatureswitch.label.create.doesntexist "Het bestand bestaat niet.">
+<!ENTITY signatureswitch.label.create.question "Wilt u deze creeren?">
+<!ENTITY signatureswitch.label.setsignature.addresstab "Adressen">
+<!ENTITY signatureswitch.label.setsignature.newsgrouptab "Nieuwsgroepen">
+<!ENTITY signatureswitch.label.setsignature.mailinglisttab "Nieuwsbrieven">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.mailinglist "Nieuwsbrieven:">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.description.mailinglists "De naam van de nieuwsbrief in het ontvangersveld activeert ook de autoswitch.">
+<!ENTITY signatureswitch.label.options.tree.mailinglists "Nieuwsbrieven">
+<!ENTITY signatureswitch.label.mailinglist.title "Nieuwsbrieven">
+<!ENTITY signatureswitch.label.mailinglist.available "Beschikbare nieuwsbrieven:">
+<!ENTITY signatureswitch.label.options.autoswitchpriority "AutoSwitch prioriteit">
+<!ENTITY signatureswitch.label.options.shortcut.onoff "Aan/Uit:">
+<!ENTITY signatureswitch.label.options.shortcut.cycle "Wisselen:">
+<!ENTITY signatureswitch.label.options.preloadexecutable "Executable bij start inladen">
+<!ENTITY signatureswitch.label.options.preloadexecutable-description "Start een extern programma voordat de gekozen ondertekening geladen wordt.">
+<!ENTITY signatureswitch.label.options.preloadexecutableusage "Gebruik deze executable:">
+<!ENTITY signatureswitch.label.options.preloadexecutablewait "Wacht tot de executable klaar is.">
+<!ENTITY signatureswitch.label.options.preloadexecutablehelp "Bekijk de help voor informatie over doorgegeven argumenten en gebruiksvoorbeelden.">

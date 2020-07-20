@@ -1,0 +1,232 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/"?>
+<?xml-stylesheet href="chrome://signatureswitch/skin/options.css" type="text/css"?>
+
+<!DOCTYPE dialog SYSTEM "chrome://signatureswitch/locale/signatureswitch.dtd">
+
+<dialog
+
+        id="SignatureSwitchoptions"
+        title="&signatureswitch.label.options.windowtitle;"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        buttons="accept, cancel"
+        onload="onLoad();">
+
+    <script type="application/x-javascript" src="chrome://signatureswitch/content/options.js"/>
+
+    <tabbox id="ssTabBox">
+        <tabs>
+            <tab label="&signatureswitch.label.options.maintab;"/>
+            <tab label="&signatureswitch.label.options.misctab;"/>
+            <tab label="&signatureswitch.label.options.advancedtab;"/>
+            <tab label="&signatureswitch.label.options.helptab;"/>
+        </tabs>
+        <tabpanels flex="1">
+            <tabpanel id="maintab" flex="1" orient="vertical">
+                    <groupbox orient="horizontal" align="center">
+                        <caption label="&signatureswitch.label.options.tree.signatures;"/>
+                        <hbox flex="1">
+                            <tree id="signatureswitchTree" flex="1" rows="4" onselect="return onSelectItem();" ondblclick="return editItem();">
+                              <treecols>
+                                <treecol id="default" label="&signatureswitch.label.options.tree.default;" persist="width" cycler="true"/>
+                                <splitter class="tree-splitter"/>
+                                <treecol id="description" label="&signatureswitch.label.options.tree.description;" flex="1" persist="width"/>
+                                <splitter class="tree-splitter"/>
+                                <treecol id="path" label="&signatureswitch.label.options.tree.path;" flex="1" persist="width"/>
+                                <splitter class="tree-splitter"/>
+                                <treecol id="shortcut" label="&signatureswitch.label.options.tree.shortcut;" flex="1" persist="width" hidden="true"/>
+                                <splitter class="tree-splitter"/>
+                                <treecol id="addresses" label="&signatureswitch.label.options.tree.addresses;" flex="1" persist="width" hidden="true"/>
+                                <splitter class="tree-splitter"/>
+                                <treecol id="newsgroups" label="&signatureswitch.label.options.tree.newsgroups;" flex="1" persist="width" hidden="true"/>
+                                <splitter class="tree-splitter"/>
+                                <treecol id="mailinglists" label="&signatureswitch.label.options.tree.mailinglists;" flex="1" persist="width" hidden="true"/>
+                              </treecols>
+                              <treechildren/>
+                            </tree>
+                            <vbox>
+                                <button class="new"
+                                        label="&signatureswitch.label.options.button.new;"
+                                        id="button-new"
+                                        oncommand="return newItem();"/>
+                                <button class="edit"
+                                        label="&signatureswitch.label.options.button.edit;"
+                                        id="button-edit"
+                                        oncommand="return editItem();"/>
+                                <button class="delete"
+                                        label="&signatureswitch.label.options.button.delete;"
+                                        id="button-delete"
+                                        oncommand="return deleteItem();"/>
+                                <hbox>
+                                    <button class="up"
+                                            id="button-up"
+                                            oncommand="return moveItem(true);"/>
+                                    <spacer flex="1"/>
+                                    <button class="down"
+                                            id="button-down"
+                                            oncommand="return moveItem(false);"/>
+                                </hbox>
+                            </vbox>
+                        </hbox>
+                    </groupbox>
+                    <groupbox>
+                        <caption label="&signatureswitch.label.options.shortcut.groupbox;"/>
+                        <grid flex="1">
+                            <columns>
+                                <column/>
+                                <column/>
+                                <column/>
+                                <column/>
+                                <column/>
+                                <column/>
+                                <column/>
+                            </columns>
+                            <rows>
+                                <row>
+                                    <label style="margin-top:7px;" value="&signatureswitch.label.options.shortcut.onoff;"/>
+                                    <menulist id="shortcut_onoff_key" prefstring="extensions.signatureswitch.shortcut_onoff_key" defaultpref="Y">
+                                        <menupopup>
+                                            <menuseparator/>
+                                            <menuitem label="A"/>
+                                            <menuitem label="B"/>
+                                            <menuitem label="C"/>
+                                            <menuitem label="D"/>
+                                            <menuitem label="E"/>
+                                            <menuitem label="F"/>
+                                            <menuitem label="G"/>
+                                            <menuitem label="H"/>
+                                            <menuitem label="I"/>
+                                            <menuitem label="J"/>
+                                            <menuitem label="K"/>
+                                            <menuitem label="L"/>
+                                            <menuitem label="M"/>
+                                            <menuitem label="N"/>
+                                            <menuitem label="O"/>
+                                            <menuitem label="P"/>
+                                            <menuitem label="Q"/>
+                                            <menuitem label="R"/>
+                                            <menuitem label="S"/>
+                                            <menuitem label="T"/>
+                                            <menuitem label="U"/>
+                                            <menuitem label="V"/>
+                                            <menuitem label="W"/>
+                                            <menuitem label="X"/>
+                                            <menuitem label="Y"/>
+                                            <menuitem label="Z"/>
+                                        </menupopup>
+                                    </menulist>
+                                    <checkbox id="shortcut_onoff_modifier_accel" label="&signatureswitch.label.options.shortcut.accel;" prefstring="extensions.signatureswitch.shortcut_onoff_modifier_accel" defaultpref="false"/>
+                                    <checkbox id="shortcut_onoff_modifier_alt" label="&signatureswitch.label.options.shortcut.alt;" prefstring="extensions.signatureswitch.shortcut_onoff_modifier_alt" defaultpref="false"/>
+                                    <checkbox id="shortcut_onoff_modifier_control" label="&signatureswitch.label.options.shortcut.control;" prefstring="extensions.signatureswitch.shortcut_onoff_modifier_control" defaultpref="true"/>
+                                    <checkbox id="shortcut_onoff_modifier_meta" label="&signatureswitch.label.options.shortcut.meta;" prefstring="extensions.signatureswitch.shortcut_onoff_modifier_meta" defaultpref="false"/>
+                                    <checkbox id="shortcut_onoff_modifier_shift" label="&signatureswitch.label.options.shortcut.shift;" prefstring="extensions.signatureswitch.shortcut_onoff_modifier_shift" defaultpref="true"/>
+                                </row>
+                                <row>
+                                    <label style="margin-top:7px;" value="&signatureswitch.label.options.shortcut.cycle;"/>
+                                    <menulist id="shortcut_cycle_key" prefstring="extensions.signatureswitch.shortcut_cycle_key" defaultpref="C">
+                                        <menupopup>
+                                            <menuseparator/>
+                                            <menuitem label="A"/>
+                                            <menuitem label="B"/>
+                                            <menuitem label="C"/>
+                                            <menuitem label="D"/>
+                                            <menuitem label="E"/>
+                                            <menuitem label="F"/>
+                                            <menuitem label="G"/>
+                                            <menuitem label="H"/>
+                                            <menuitem label="I"/>
+                                            <menuitem label="J"/>
+                                            <menuitem label="K"/>
+                                            <menuitem label="L"/>
+                                            <menuitem label="M"/>
+                                            <menuitem label="N"/>
+                                            <menuitem label="O"/>
+                                            <menuitem label="P"/>
+                                            <menuitem label="Q"/>
+                                            <menuitem label="R"/>
+                                            <menuitem label="S"/>
+                                            <menuitem label="T"/>
+                                            <menuitem label="U"/>
+                                            <menuitem label="V"/>
+                                            <menuitem label="W"/>
+                                            <menuitem label="X"/>
+                                            <menuitem label="Y"/>
+                                            <menuitem label="Z"/>
+                                        </menupopup>
+                                    </menulist>
+                                    <checkbox id="shortcut_cycle_modifier_accel" label="&signatureswitch.label.options.shortcut.accel;" prefstring="extensions.signatureswitch.shortcut_cycle_modifier_accel" defaultpref="false"/>
+                                    <checkbox id="shortcut_cycle_modifier_alt" label="&signatureswitch.label.options.shortcut.alt;" prefstring="extensions.signatureswitch.shortcut_cycle_modifier_alt" defaultpref="false"/>
+                                    <checkbox id="shortcut_cycle_modifier_control" label="&signatureswitch.label.options.shortcut.control;" prefstring="extensions.signatureswitch.shortcut_cycle_modifier_control" defaultpref="true"/>
+                                    <checkbox id="shortcut_cycle_modifier_meta" label="&signatureswitch.label.options.shortcut.meta;" prefstring="extensions.signatureswitch.shortcut_cycle_modifier_meta" defaultpref="false"/>
+                                    <checkbox id="shortcut_cycle_modifier_shift" label="&signatureswitch.label.options.shortcut.shift;" prefstring="extensions.signatureswitch.shortcut_cycle_modifier_shift" defaultpref="true"/>
+                                </row>
+                             </rows>
+                        </grid>
+                    </groupbox>
+                    <checkbox id="offbydefault" label="&signatureswitch.label.options.offbydefault;" prefstring="extensions.signatureswitch.offbydefault" defaultpref="false"/>
+                    <checkbox id="contextmenu" label="&signatureswitch.label.options.contextmenu;" prefstring="extensions.signatureswitch.contextmenu" defaultpref="true"/>
+            </tabpanel>
+            <tabpanel id="miscelleneoustab" flex="1" orient="vertical">
+                <groupbox orient="vertical">
+                    <caption label="&signatureswitch.label.options.composer;"/>
+                        <description width="450">&signatureswitch.label.options.composer-description;</description>
+                        <grid flex="1">
+                            <columns>
+                                <column flex="1"/>
+                                <column/>
+                            </columns>
+                            <rows>
+                                <row>
+                                    <textbox id="composerpath" prefstring="extensions.signatureswitch.composerpath" defaultpref="/usr/bin/xed"/>
+                                    <button class="browse" id="button-composer-pick" oncommand="return onPickComposer();"/>
+                                </row>
+                            </rows>
+                        </grid>
+                </groupbox>
+                <groupbox orient="horizontal" align="center">
+                    <caption label="&signatureswitch.label.options.autoswitchpriority;"/>
+                    <richlistbox id="priorityList" rows="3" onselect="return onSelectPriority();"/>
+                    <hbox>
+                        <button class="up" id="button-priorityUp" oncommand="return movePriority(true);"/>
+                        <spacer flex="1"/>
+                        <button class="down" id="button-priorityDown" oncommand="return movePriority(false);"/>
+                    </hbox>
+                </groupbox>
+            </tabpanel>
+            <tabpanel id="advancedtab" flex="1" orient="vertical">
+                <groupbox orient="vertical">
+                    <caption label="&signatureswitch.label.options.encoding;"/>
+                        <description width="450">&signatureswitch.label.options.encoding-description;</description>
+                        <textbox id="encoding" prefstring="extensions.signatureswitch.encoding" defaultpref="UTF-8"/>
+                </groupbox>
+                <groupbox orient="vertical">
+                    <caption label="&signatureswitch.label.options.preloadexecutable;"/>
+                        <description width="450">&signatureswitch.label.options.preloadexecutable-description;</description>
+                        <grid flex="1">
+                            <columns>
+                                <column/>
+                                <column flex="1"/>
+                                <column/>
+                            </columns>
+                            <rows>
+                                <row>
+                                    <checkbox id="preloadexecutable" label="&signatureswitch.label.options.preloadexecutableusage;" prefstring="extensions.signatureswitch.preloadexecutable" defaultpref="false"/>
+                                    <textbox id="preloadexecutablepath" prefstring="extensions.signatureswitch.preloadexecutablepath" defaultpref=""/>
+                                    <button class="browse" id="button-preloadexecutablepick" oncommand="return onPickPreLoadExecutable();"/>
+                                </row>
+                                <checkbox id="preloadexecutablewait" label="&signatureswitch.label.options.preloadexecutablewait;" prefstring="extensions.signatureswitch.preloadexecutablewait" defaultpref="true"/>
+                            </rows>
+                        </grid>
+                        <description width="450" style="margin-top:10px;">&signatureswitch.label.options.preloadexecutablehelp;</description>
+                </groupbox>
+            </tabpanel>
+            <tabpanel id="helptab" flex="1" orient="vertical">
+                <description width="450">&signatureswitch.label.options.website;</description>
+                <label id="website" class="text-link" onclick="openURL('http://mozext.achimonline.de');" style="margin-left:25px;" value="mozext.achimonline.de"/>
+            </tabpanel>
+        </tabpanels>
+    </tabbox>
+    <textbox id="initdelay" prefstring="extensions.signatureswitch.initdelay" defaultpref="1000" hidden="true"/>
+    <textbox id="autoswitchpriority" prefstring="extensions.signatureswitch.autoswitchpriority" defaultpref="ANM" hidden="true"/>
+</dialog>

@@ -1,0 +1,7 @@
+#siif_toolbarbutton {
+  list-style-image: url("chrome://saveimageinfolder/skin/saveimageinfolder24.png");
+}
+
+toolbar[iconsize="small"] #siif_toolbarbutton {
+  list-style-image: url("chrome://saveimageinfolder/skin/saveimageinfolder16.png");
+}

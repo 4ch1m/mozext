@@ -1,0 +1,14 @@
+<!ENTITY nestedquoteremover.label.options.windowtitle "Možnosti rozšíření NestedQuote Remover">
+<!ENTITY nestedquoteremover.label.options.quotedepth "Maximální povolené množství citací:">
+<!ENTITY nestedquoteremover.label.options.autoremove "Automaticky odstraňovať vloženou citaci">
+<!ENTITY nestedquoteremover.label.options.contextmenu "Zobrazovat položku v kontextové nabídce">
+<!ENTITY nestedquoteremover.label.options.shortcut.groupbox "Klávesová zkratka:">
+<!ENTITY nestedquoteremover.label.options.shortcut.accel "Akcelerátor">
+<!ENTITY nestedquoteremover.label.options.shortcut.alt "Alt">
+<!ENTITY nestedquoteremover.label.options.shortcut.control "Control">
+<!ENTITY nestedquoteremover.label.options.shortcut.meta "Meta">
+<!ENTITY nestedquoteremover.label.options.shortcut.shift "Shift">
+<!ENTITY nestedquoteremover.label.toolbar "Citace">
+<!ENTITY nestedquoteremover.label.menupopup "Odstranit vloženou citaci">
+<!ENTITY nestedquoteremover.label.context "Odstranit vloženou citaci">
+<!ENTITY nestedquoteremover.tooltip.toolbar "Odstraní vloženou citaci">

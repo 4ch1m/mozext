@@ -1,0 +1,14 @@
+﻿<!ENTITY nestedquoteremover.label.options.windowtitle "Možnosti NestedQuote Remover">
+<!ENTITY nestedquoteremover.label.options.quotedepth "Največja dovoljena globina navedkov:">
+<!ENTITY nestedquoteremover.label.options.autoremove "Samodejno odstrani ugnezdene navedke">
+<!ENTITY nestedquoteremover.label.options.contextmenu "Prikaži vnos vsebinskega menija">
+<!ENTITY nestedquoteremover.label.options.shortcut.groupbox "Tipkovna bližnjica:">
+<!ENTITY nestedquoteremover.label.options.shortcut.accel "Pospeševalnik">
+<!ENTITY nestedquoteremover.label.options.shortcut.alt "Alt">
+<!ENTITY nestedquoteremover.label.options.shortcut.control "Control">
+<!ENTITY nestedquoteremover.label.options.shortcut.meta "Meta">
+<!ENTITY nestedquoteremover.label.options.shortcut.shift "Shift">
+<!ENTITY nestedquoteremover.label.toolbar "Navedki">
+<!ENTITY nestedquoteremover.label.menupopup "Odstrani ugnezdene navedke">
+<!ENTITY nestedquoteremover.label.context "Odstrani ugnezdene navedke">
+<!ENTITY nestedquoteremover.tooltip.toolbar "Odstrani ugnezdene navedke">

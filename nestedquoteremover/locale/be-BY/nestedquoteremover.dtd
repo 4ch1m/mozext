@@ -1,0 +1,14 @@
+<!ENTITY nestedquoteremover.label.options.windowtitle "Налады NestedQuote Remover">
+<!ENTITY nestedquoteremover.label.options.quotedepth "Макимальная дапушчальная глыбіня цытавання:">
+<!ENTITY nestedquoteremover.label.options.autoremove "Выдаляць лішнія цытаванні аўтаматычна">
+<!ENTITY nestedquoteremover.label.options.contextmenu "Паказваць у кантэкстным меню">
+<!ENTITY nestedquoteremover.label.options.shortcut.groupbox "Гарачая клавіша:">
+<!ENTITY nestedquoteremover.label.options.shortcut.accel "Accelerator">
+<!ENTITY nestedquoteremover.label.options.shortcut.alt "Alt">
+<!ENTITY nestedquoteremover.label.options.shortcut.control "Control">
+<!ENTITY nestedquoteremover.label.options.shortcut.meta "Meta">
+<!ENTITY nestedquoteremover.label.options.shortcut.shift "Shift">
+<!ENTITY nestedquoteremover.label.toolbar "Цытаванні">
+<!ENTITY nestedquoteremover.label.menupopup "Выдаліць лішнія цытаванні">
+<!ENTITY nestedquoteremover.label.context "Выдаліць лішнія цытаванні">
+<!ENTITY nestedquoteremover.tooltip.toolbar "Выдаляе лішнія цытаванні">

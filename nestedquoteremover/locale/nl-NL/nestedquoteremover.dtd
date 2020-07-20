@@ -1,0 +1,14 @@
+<!ENTITY nestedquoteremover.label.options.windowtitle "NestedQuote Remover Opties">
+<!ENTITY nestedquoteremover.label.options.quotedepth "Maximale diepte van de citaten:">
+<!ENTITY nestedquoteremover.label.options.autoremove "Geneste citaten automatisch verwijderen">
+<!ENTITY nestedquoteremover.label.options.contextmenu "Item in rechterklikmenu laten zien">
+<!ENTITY nestedquoteremover.label.options.shortcut.groupbox "Sneltoets:">
+<!ENTITY nestedquoteremover.label.options.shortcut.accel "Sneltoets">
+<!ENTITY nestedquoteremover.label.options.shortcut.alt "Alt">
+<!ENTITY nestedquoteremover.label.options.shortcut.control "Control">
+<!ENTITY nestedquoteremover.label.options.shortcut.meta "Meta">
+<!ENTITY nestedquoteremover.label.options.shortcut.shift "Shift">
+<!ENTITY nestedquoteremover.label.toolbar "Citaten">
+<!ENTITY nestedquoteremover.label.menupopup "Geneste citaten verwijderen">
+<!ENTITY nestedquoteremover.label.context "Geneste citaten verwijderen">
+<!ENTITY nestedquoteremover.tooltip.toolbar "Verwijdert geneste citaten">

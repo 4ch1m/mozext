@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://saveimageinfolder/skin/saveimageinfolder.css" type="text/css"?>
+
+<!DOCTYPE overlay SYSTEM "chrome://saveimageinfolder/locale/saveimageinfolder.dtd">
+
+<overlay id="saveimageinfolderOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+    <script type="application/x-javascript" src="chrome://saveimageinfolder/content/saveimageinfolder.js"/>
+
+    <stringbundleset id="stringbundleset">
+        <stringbundle id="saveimageinfolder.locale" src="chrome://saveimageinfolder/locale/saveimageinfolder.properties"/>
+    </stringbundleset>
+
+    <toolbarpalette id="BrowserToolbarPalette">
+        <toolbarbutton
+            class="toolbarbutton-1"
+            id="siif_toolbarbutton"
+            type="menu-button"
+            label="&saveimageinfolder.toolbar.label;"
+            tooltiptext="&saveimageinfolder.toolbar.tooltip;"
+            oncommand="siif_main.createHtmlIndex(event); event.stopPropagation();">
+                <menupopup id="siif_menupopup-toolbar" onpopupshowing="siif_main.initMenuPopup('toolbar');"/>
+        </toolbarbutton>
+    </toolbarpalette>
+
+    <popup id="contentAreaContextMenu">
+        <menu id="siif_menu" label="&saveimageinfolder.context.label;" insertafter="context-saveimage" accesskey="I">
+            <menupopup id="siif_menupopup-context" onpopupshowing="siif_main.initMenuPopup('context');"/>
+        </menu>
+    </popup>
+
+</overlay>

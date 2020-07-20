@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+        <Description about="urn:mozilla:install-manifest">
+                <em:id>{5e594888-3e8e-47da-b2c6-b0b545112f84}</em:id>
+                <em:type>2</em:type>
+                <em:name>Save Image in Folder</em:name>
+                <em:description>Easily save images in personally customized folders.</em:description>
+                <em:creator>Achim Seufert</em:creator>
+                <em:version>1.3.18</em:version>
+                <em:iconURL>chrome://saveimageinfolder/skin/saveimageinfolder32.png</em:iconURL>
+                <em:homepageURL>http://mozext.achimonline.de</em:homepageURL>
+                <em:optionsURL>chrome://saveimageinfolder/content/options.xul</em:optionsURL>
+                <em:targetApplication>
+                        <Description>
+                                <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+                                <em:minVersion>1.0</em:minVersion>
+                                <em:maxVersion>42.*</em:maxVersion>
+                        </Description>
+                </em:targetApplication>
+                <em:file>
+                        <Description about="urn:mozilla:extension:file:saveimageinfolder.jar">
+                                <em:package>content/</em:package>
+                                <em:skin>skin/classic/</em:skin>
+                                <em:locale>locale/en-US/</em:locale>
+                                <em:locale>locale/de-DE/</em:locale>
+                                <em:locale>locale/it-IT/</em:locale>
+                                <em:locale>locale/es-ES/</em:locale>
+                                <em:locale>locale/nl-NL/</em:locale>
+                                <em:locale>locale/fr-FR/</em:locale>
+                                <em:locale>locale/zh-TW/</em:locale>
+                                <em:locale>locale/pl-PL/</em:locale>
+                                <em:locale>locale/ja-JP/</em:locale>
+                                <em:locale>locale/hu-HU/</em:locale>
+                                <em:locale>locale/ru-RU/</em:locale>
+                                <em:locale>locale/tr-TR/</em:locale>
+                                <em:locale>locale/sk-SK/</em:locale>
+                           <!-- <em:locale>locale/fy-NL/</em:locale> -->
+                                <em:locale>locale/pt-BR/</em:locale>
+                           <!-- <em:locale>locale/uk-UA/</em:locale> -->
+                           <!-- <em:locale>locale/be-BY/</em:locale> -->
+                                <em:locale>locale/sv-SE/</em:locale>
+                                <em:locale>locale/sr-YU/</em:locale>
+                                <em:locale>locale/zh-CN/</em:locale>
+                                <em:locale>locale/sl-SL/</em:locale>
+                        </Description>
+                </em:file>
+                <em:localized><Description><em:locale>en-US</em:locale><em:name>Save Image in Folder</em:name><em:description>Easily save images in personally customized folders.                                                 </em:description></Description></em:localized>
+                <em:localized><Description><em:locale>de-DE</em:locale><em:name>Save Image in Folder</em:name><em:description>Speichert Bilder in individuell vorgegebene Ordner.                                                  </em:description></Description></em:localized>
+                <em:localized><Description><em:locale>it-IT</em:locale><em:name>Save Image in Folder</em:name><em:description>Permette di salvare facilmente le immagini in cartelle personali impostate                           </em:description></Description></em:localized>
+                <em:localized><Description><em:locale>es-ES</em:locale><em:name>Save Image in Folder</em:name><em:description>Guarda las imágenes en carpetas personalizadas.                                                      </em:description></Description></em:localized>
+                <em:localized><Description><em:locale>nl-NL</em:locale><em:name>Save Image in Folder</em:name><em:description>Makkelijk afbeeldingen opslaan in persoonlijk ingestelde mappen.                                     </em:description></Description></em:localized>
+                <em:localized><Description><em:locale>fr-FR</em:locale><em:name>Save Image in Folder</em:name><em:description>Enregistrer facilement les images dans des dossiers personnalisés.                                   </em:description></Description></em:localized>
+                <em:localized><Description><em:locale>zh-TW</em:locale><em:name>Save Image in Folder</em:name><em:description>輕鬆的將圖片存到自訂的資料夾                                                                             </em:description></Description></em:localized>
+                <em:localized><Description><em:locale>pl-PL</em:locale><em:name>Save Image in Folder</em:name><em:description>Łatwy zapis obrazów w definiowalnych folderach.                                                      </em:description></Description></em:localized>
+                <em:localized><Description><em:locale>ja-JP</em:locale><em:name>Save Image in Folder</em:name><em:description>好きな場所への画像の保存を簡単に。                                                                        </em:description></Description></em:localized>
+                <em:localized><Description><em:locale>hu-HU</em:locale><em:name>Save Image in Folder</em:name><em:description>Képek mentése könnyedén, tetszőlegesen megadott mappákba.                                            </em:description></Description></em:localized>
+                <em:localized><Description><em:locale>ru-RU</em:locale><em:name>Save Image in Folder</em:name><em:description>Позволяет легко сохранять изображения в выбранные вами папки.                                        </em:description></Description></em:localized>
+                <em:localized><Description><em:locale>tr-TR</em:locale><em:name>Save Image in Folder</em:name><em:description>Resim dosyalarını kendi tanımladığınız özel dosyalarda kolayca saklamanıza yarayan güzel bir eklenti.</em:description></Description></em:localized>
+                <em:localized><Description><em:locale>sk-SK</em:locale><em:name>Save Image in Folder</em:name><em:description>Umožňuje jednoducho ukladať obrázky do vami definovaných priečinkov.                                 </em:description></Description></em:localized>
+           <!-- <em:localized><Description><em:locale>fy-NL</em:locale><em:name>Save Image in Folder</em:name><em:description>Gemaklik ôfbyldings bewarje yn eigen oanpaste mappen.                                                </em:description></Description></em:localized> -->
+                <em:localized><Description><em:locale>pt-BR</em:locale><em:name>Save Image in Folder</em:name><em:description>Salve facilmente suas imagens em pastas personalizadas.                                              </em:description></Description></em:localized>
+           <!-- <em:localized><Description><em:locale>uk-UA</em:locale><em:name>Save Image in Folder</em:name><em:description>Easily save images in personally customized folders.                                                 </em:description></Description></em:localized> -->
+           <!-- <em:localized><Description><em:locale>be-BY</em:locale><em:name>Save Image in Folder</em:name><em:description>Easily save images in personally customized folders.                                                 </em:description></Description></em:localized> -->
+                <em:localized><Description><em:locale>sv-SE</em:locale><em:name>Save Image in Folder</em:name><em:description>Spara enkelt bilder i valfri mapp.                                                                   </em:description></Description></em:localized>
+                <em:localized><Description><em:locale>sr-YU</em:locale><em:name>Save Image in Folder</em:name><em:description>Сачувајте слике у лично прилагођене фолдере на једноставан начин.                                    </em:description></Description></em:localized>
+                <em:localized><Description><em:locale>zh-CN</em:locale><em:name>Save Image in Folder</em:name><em:description>轻松的将图片存到自订的文件夹                                                                             </em:description></Description></em:localized>
+                <em:localized><Description><em:locale>sl-SL</em:locale><em:name>Save Image in Folder</em:name><em:description>Enostavno shranite slike v osebne mape po meri.                                                      </em:description></Description></em:localized>
+        </Description>
+</RDF>

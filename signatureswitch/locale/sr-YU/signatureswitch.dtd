@@ -1,0 +1,69 @@
+<!ENTITY signatureswitch.label.options.windowtitle "Опције за Signature Switch">
+<!ENTITY signatureswitch.label.options.maintab "Главно">
+<!ENTITY signatureswitch.label.options.advancedtab "Напредно">
+<!ENTITY signatureswitch.label.options.tree.signatures "Потписи">
+<!ENTITY signatureswitch.label.options.tree.default "Подразумевано">
+<!ENTITY signatureswitch.label.options.tree.description "Опис">
+<!ENTITY signatureswitch.label.options.tree.path "Путања">
+<!ENTITY signatureswitch.label.options.tree.shortcut "Пречица">
+<!ENTITY signatureswitch.label.options.tree.addresses "Адресе">
+<!ENTITY signatureswitch.label.options.tree.newsgroups "Newsgroups">
+<!ENTITY signatureswitch.label.options.button.new "Нов">
+<!ENTITY signatureswitch.label.options.button.edit "Уреди">
+<!ENTITY signatureswitch.label.options.button.delete "Обриши">
+<!ENTITY signatureswitch.label.options.offbydefault "Преклопник потписа подразумевано искључен">
+<!ENTITY signatureswitch.label.options.contextmenu "Прикажи 'Преклопник потписа' у контекстном менију">
+<!ENTITY signatureswitch.label.options.shortcut.groupbox "Пречице на тастатури">
+<!ENTITY signatureswitch.label.options.shortcut.accel "Убрзавач">
+<!ENTITY signatureswitch.label.options.shortcut.alt "Alt">
+<!ENTITY signatureswitch.label.options.shortcut.control "Control">
+<!ENTITY signatureswitch.label.options.shortcut.meta "Mета">
+<!ENTITY signatureswitch.label.options.shortcut.shift "Shift">
+<!ENTITY signatureswitch.label.options.encoding "Кодна страна">
+<!ENTITY signatureswitch.label.options.encoding-description "Ово је кодна страна која ће бити коришћена за конвертовање учитаних потпис-датотека. Молим, промените је само ако тачно знате шта радите!">
+<!ENTITY signatureswitch.label.setsignature.title "Постави потпис">
+<!ENTITY signatureswitch.label.setsignature.description "Опис">
+<!ENTITY signatureswitch.label.setsignature.path "Путања">
+<!ENTITY signatureswitch.label.setsignature.shortcut "Пречица">
+<!ENTITY signatureswitch.label.setsignature.shortcut.accel "Убрзавач">
+<!ENTITY signatureswitch.label.setsignature.shortcut.alt "Alt">
+<!ENTITY signatureswitch.label.setsignature.shortcut.control "Control">
+<!ENTITY signatureswitch.label.setsignature.shortcut.meta "Мета">
+<!ENTITY signatureswitch.label.setsignature.shortcut.shift "Shift">
+<!ENTITY signatureswitch.label.setsignature.autoswitch "АутоПреклопник (опционо):">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.description.addresses "Кад год је међу примаоцима једна од овде наведених eMail-адреса (не у CC или BCC!) овај потпис ће аутоматски бити изабран.">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.description.newsgroups "Праћење newsgroup-сервера је такође могуће:">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.description.wildcard1 "Знак '?' може да се користи као џокер.">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.description.wildcard2 "(Пример: '?@mozilla.com', 'test@?.com' or 't?t@m?a.c?' ће бити упарено када се као прималац унесе 'test@mozilla.com'.)">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.address "eMail-адреса:">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.newsgroup "Newsgroup:">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.add "Додај &gt;">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.remove "&lt; Уклони">
+<!ENTITY signatureswitch.label.toolbar "Потпис">
+<!ENTITY signatureswitch.label.menu "Преклопник потписа">
+<!ENTITY signatureswitch.label.context "Преклопник потписа">
+<!ENTITY signatureswitch.tooltip.toolbar "Укључи/искључи потпис">
+<!ENTITY signatureswitch.label.options.helptab "Помоћ">
+<!ENTITY signatureswitch.label.options.website "Молим посетите ову веб страну за детаљне инструкције:">
+<!ENTITY signatureswitch.label.options.composer "Едитор">
+<!ENTITY signatureswitch.label.options.composer-description "Текст-едитор за састављање потписа. (Притисните OK након промене.)">
+<!ENTITY signatureswitch.label.options.misctab "Разно">
+<!ENTITY signatureswitch.label.create.title "Креирање потписа">
+<!ENTITY signatureswitch.label.create.doesntexist "Датотека потписа коју сте унели не постоји.">
+<!ENTITY signatureswitch.label.create.question "Да ли желите да је креирате?">
+<!ENTITY signatureswitch.label.setsignature.addresstab "Адресе">
+<!ENTITY signatureswitch.label.setsignature.newsgrouptab "News групе">
+<!ENTITY signatureswitch.label.setsignature.mailinglisttab "Мејлинг листе">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.mailinglist "Мејлинг листа:">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.description.mailinglists "Име мејлинг листе које се појављује у пољу примаоца такође може да окине АутоПреклопник.">
+<!ENTITY signatureswitch.label.options.tree.mailinglists "Мејлинг листе">
+<!ENTITY signatureswitch.label.mailinglist.title "Мејлинг листе">
+<!ENTITY signatureswitch.label.mailinglist.available "Тренутно доступне мејлинг листе:">
+<!ENTITY signatureswitch.label.options.autoswitchpriority "Приоритет за АутоПреклопник">
+<!ENTITY signatureswitch.label.options.shortcut.onoff "Укључи/искључи:">
+<!ENTITY signatureswitch.label.options.shortcut.cycle "Циклично:">
+<!ENTITY signatureswitch.label.options.preloadexecutable "Прво учитај извршну датотеку">
+<!ENTITY signatureswitch.label.options.preloadexecutable-description "Покреће екстерни програм пре него што се учита изабрана потпис-датотека.">
+<!ENTITY signatureswitch.label.options.preloadexecutableusage "Користи ову извршну датотеку:">
+<!ENTITY signatureswitch.label.options.preloadexecutablewait "Сачекај да извршна датотека заврши са радом.">
+<!ENTITY signatureswitch.label.options.preloadexecutablehelp "Погледај помоћ за информације о прослеђивању аргумената и примере употребе.">

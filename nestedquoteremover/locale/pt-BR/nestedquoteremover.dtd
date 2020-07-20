@@ -1,0 +1,14 @@
+<!ENTITY nestedquoteremover.label.options.windowtitle "Opções do NestedQuote Remover">
+<!ENTITY nestedquoteremover.label.options.quotedepth "Aninhamento máximo de citações permitido:">
+<!ENTITY nestedquoteremover.label.options.autoremove "Remover citações aninhadas automaticamente">
+<!ENTITY nestedquoteremover.label.options.contextmenu "Exibir opção no menu de contexto">
+<!ENTITY nestedquoteremover.label.options.shortcut.groupbox "Atalho do teclado:">
+<!ENTITY nestedquoteremover.label.options.shortcut.accel "Accel">
+<!ENTITY nestedquoteremover.label.options.shortcut.alt "Alt">
+<!ENTITY nestedquoteremover.label.options.shortcut.control "Control">
+<!ENTITY nestedquoteremover.label.options.shortcut.meta "Meta">
+<!ENTITY nestedquoteremover.label.options.shortcut.shift "Shift">
+<!ENTITY nestedquoteremover.label.toolbar "Citações">
+<!ENTITY nestedquoteremover.label.menupopup "Remover citações aninhadas">
+<!ENTITY nestedquoteremover.label.context "Remover citações aninhadas">
+<!ENTITY nestedquoteremover.tooltip.toolbar "Remover citações aninhadas">

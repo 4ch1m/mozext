@@ -1,0 +1,72 @@
+<!ENTITY saveimageinfolder.toolbar.label "Priečinky">
+<!ENTITY saveimageinfolder.toolbar.tooltip "Prehľadá priečinky">
+<!ENTITY saveimageinfolder.context.label "Uložiť obrázok do priečinka...">
+<!ENTITY saveimageinfolder.options.title "Nastavenia rozšírenia Save Image in Folder">
+<!ENTITY saveimageinfolder.options.maintab "Hlavné">
+<!ENTITY saveimageinfolder.options.miscellaneoustab "Rôzne">
+<!ENTITY saveimageinfolder.options.advancedtab "Rozšírené">
+<!ENTITY saveimageinfolder.options.new "Nový">
+<!ENTITY saveimageinfolder.options.edit "Upraviť">
+<!ENTITY saveimageinfolder.options.delete "Odstrániť">
+<!ENTITY saveimageinfolder.options.separator "Oddeľovač">
+<!ENTITY saveimageinfolder.options.folders "Priečinky">
+<!ENTITY saveimageinfolder.options.description "Popis">
+<!ENTITY saveimageinfolder.options.path "Cesta">
+<!ENTITY saveimageinfolder.options.opensaveasdialog "Uložiť ako">
+<!ENTITY saveimageinfolder.options.openfolder "Otvoriť priečinok">
+<!ENTITY saveimageinfolder.options.fileprefix "Predpona">
+<!ENTITY saveimageinfolder.options.fileprefixvalue "Hodnota predpony">
+<!ENTITY saveimageinfolder.options.filename "Názov">
+<!ENTITY saveimageinfolder.options.filenamevalue "Názov-hodnota">
+<!ENTITY saveimageinfolder.options.filesuffix "Prípona">
+<!ENTITY saveimageinfolder.options.filesuffixvalue "Hodnota prípony">
+<!ENTITY saveimageinfolder.options.duplicatefilename "Duplikáty">
+<!ENTITY saveimageinfolder.options.general "Všeobecné nastavenia priečinka">
+<!ENTITY saveimageinfolder.options.general-shiftkey "Pri vyberaní položky v kontextovej ponuke podržte stlačený kláves shift, ak chcete pre daný preičinok použiť tieto globálne nastavenia namiesto individuálnych.">
+<!ENTITY saveimageinfolder.options.general-opensaveasdialog "Pred začatím sťahovania zobraziť dialógové okno 'Uložiť ako...'">
+<!ENTITY saveimageinfolder.options.general-openfolder "Pri začatí sťahovania otvoriť cieľový priečinok">
+<!ENTITY saveimageinfolder.options.general-fileprefix "Predpona súboru:">
+<!ENTITY saveimageinfolder.options.general-filename "Súbor-názov:">
+<!ENTITY saveimageinfolder.options.general-filesuffix "Prípona súboru:">
+<!ENTITY saveimageinfolder.options.general-duplicatefilename "Ak súbor už existuje...">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevaluesaveas "Zobraziť dialógové okno 'Uložiť ako...'">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevalueincrement "Automaticky zvýšiť číslo v názve súboru">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevaluecancel "Zrušiť sťahovanie">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevalueoverwrite "Prepísať súbor">
+<!ENTITY saveimageinfolder.options.executable "Aplikácia na otváranie cieľového prečinka">
+<!ENTITY saveimageinfolder.options.executable-description "Tu môžete určiť inú aplikáciu na otváranie priečinkov. Ak nie je začiarknuté, rozšírenie bude používať predvolenú systémovú akciu (v systémoch Windows je to spustenie aplikácie 'explorer.exe')">
+<!ENTITY saveimageinfolder.options.executable-check "Použiť túto aplikáciu:">
+<!ENTITY saveimageinfolder.options.executable-arguments "Parametre:">
+<!ENTITY saveimageinfolder.options.executable-ctrlkey "Rada: Ak pri vyberaní položky v kontextovej ponuke podržíte stlačený kláves ctrl, otvorí sa daný priečinok bez uloženia súboru.">
+<!ENTITY saveimageinfolder.options.contextmenu "Kontextová ponuka">
+<!ENTITY saveimageinfolder.options.shortcut "Klávesová skratka: ">
+<!ENTITY saveimageinfolder.options.numericshortcuts "Pred názvom priečinka zobraziť číslo kláv. skratky.">
+<!ENTITY saveimageinfolder.options.hideinvalidfolders "Skryť priečinky s neplatnou cestou (inak budú zakázané).">
+<!ENTITY saveimageinfolder.options.prefs "Nastavenia prehliadača Firefox">
+<!ENTITY saveimageinfolder.options.prefs-description "Po uložení do priečinka zapísať danú cestu do nasledujúcich nastavení Firefoxu (prefs.js)">
+<!ENTITY saveimageinfolder.options.prefs-clear "Vymazať">
+<!ENTITY saveimageinfolder.options.doubleclick "Obrázok bude po dvojitom kliknutí naň uložený do naposledy použitého priečinka. (Vyžaduje reštart Firefoxu.)">
+<!ENTITY saveimageinfolder.options.usecache "Použiť vyrovnávaciu pamäť prehliadača namiesto otvárania správcu sťahovania. (Vyšší výkon, menšia spoľahlivosť.)">
+<!ENTITY saveimageinfolder.setfolder.title "Priečinok">
+<!ENTITY saveimageinfolder.setfolder.description "Popis">
+<!ENTITY saveimageinfolder.setfolder.path "Cesta">
+<!ENTITY saveimageinfolder.setfolder.individual "Individuálne nastavenia pre tento priečinok">
+<!ENTITY saveimageinfolder.setfolder.individual-opensaveasdialog "Pred začatím sťahovania zobraziť dialógové okno 'Uložiť ako...'">
+<!ENTITY saveimageinfolder.setfolder.individual-openfolder "Pri začatí sťahovania otvoriť cieľový priečinok">
+<!ENTITY saveimageinfolder.setfolder.individual-fileprefix "Predpona súboru:">
+<!ENTITY saveimageinfolder.setfolder.individual-filename "Súbor-názov:">
+<!ENTITY saveimageinfolder.setfolder.individual-filesuffix "Prípona súboru:">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilename "Ak názov súboru už existuje...">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevaluesaveas "Zobraziť dialógové okno 'Uložiť ako...'">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevalueincrement "Automaticky zvýšiť číslo sťahovaného súboru">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevaluecancel "Zrušiť sťahovanie">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevalueoverwrite "Prepísať súbor">
+<!ENTITY saveimageinfolder.notify.file "Súbor:">
+<!ENTITY saveimageinfolder.notify.folder "Priečinok:">
+<!ENTITY saveimageinfolder.options.notification "Upozornenie">
+<!ENTITY saveimageinfolder.options.notification-statusbar "Správa v stavovom riadku">
+<!ENTITY saveimageinfolder.options.notification-popupwindow "Vyskakovacie okno">
+<!ENTITY saveimageinfolder.options.notification-duration "Trvanie (sekúnd):">
+<!ENTITY saveimageinfolder.options.helptab "Pomocník">
+<!ENTITY saveimageinfolder.options.website "Ak chcete podrobnejšie informácie, navštívte stránku:">
+

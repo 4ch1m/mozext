@@ -1,0 +1,72 @@
+<!ENTITY saveimageinfolder.toolbar.label "Dizinler">
+<!ENTITY saveimageinfolder.toolbar.tooltip "Dizinleri gösterir">
+<!ENTITY saveimageinfolder.context.label "Hedefi bu dosyada kaydet...">
+<!ENTITY saveimageinfolder.options.title "Save Image in Folder - Seçenekleri">
+<!ENTITY saveimageinfolder.options.maintab "Temel">
+<!ENTITY saveimageinfolder.options.miscellaneoustab "Değişik">
+<!ENTITY saveimageinfolder.options.advancedtab "Gelişmiş">
+<!ENTITY saveimageinfolder.options.new "Yeni">
+<!ENTITY saveimageinfolder.options.edit "Düzenle">
+<!ENTITY saveimageinfolder.options.delete "Sil">
+<!ENTITY saveimageinfolder.options.separator "Ayraç">
+<!ENTITY saveimageinfolder.options.folders "Dizin">
+<!ENTITY saveimageinfolder.options.description "Tanım">
+<!ENTITY saveimageinfolder.options.path "Kısayol">
+<!ENTITY saveimageinfolder.options.opensaveasdialog "Farklı kaydet">
+<!ENTITY saveimageinfolder.options.openfolder "Dizin aç">
+<!ENTITY saveimageinfolder.options.fileprefix "Önek">
+<!ENTITY saveimageinfolder.options.fileprefixvalue "Önek değeri">
+<!ENTITY saveimageinfolder.options.filename "İsim">
+<!ENTITY saveimageinfolder.options.filenamevalue "İsim değeri">
+<!ENTITY saveimageinfolder.options.filesuffix "Sonek">
+<!ENTITY saveimageinfolder.options.filesuffixvalue "Sonek değeri">
+<!ENTITY saveimageinfolder.options.duplicatefilename "Çift dosya isimleri">
+<!ENTITY saveimageinfolder.options.general "Genl dizin ayarları">
+<!ENTITY saveimageinfolder.options.general-shiftkey "Bireysel dizin ayarlarını tanımlayabilmek için içerik menü verilerinin seçiminde seçimi SHIFT tuşu ile basılı tutun.">
+<!ENTITY saveimageinfolder.options.general-opensaveasdialog "İndirmeden önce 'Farklı kaydet'  penceresini göster.">
+<!ENTITY saveimageinfolder.options.general-openfolder "İndirme başlamadan önce hedef kayıt penceresini göster.">
+<!ENTITY saveimageinfolder.options.general-fileprefix "Dosya öneki:">
+<!ENTITY saveimageinfolder.options.general-filename "Dosya ismi:">
+<!ENTITY saveimageinfolder.options.general-filesuffix "Dosya soneki:">
+<!ENTITY saveimageinfolder.options.general-duplicatefilename "Eğer dosya ismi mevcut ise, ">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevaluesaveas "'farklı kaydet' penceresini göster">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevalueincrement "dosya ismini otomatik olarak değiştir">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevaluecancel "indirmekten vazgeç">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevalueoverwrite "dosyanın üstüne yaz">
+<!ENTITY saveimageinfolder.options.executable "Dizini açacak program">
+<!ENTITY saveimageinfolder.options.executable-description "Burada dizini açacak olan başka bir program seçebilirsiniz.  Etkinleitirmez iseniz öntanımlı olarak çift tıklama ile yapılacak olan işlem yapılır. Windows sistemlerinde genelde explorer açılır.">
+<!ENTITY saveimageinfolder.options.executable-check "Bu programı kullan:">
+<!ENTITY saveimageinfolder.options.executable-arguments "Parametre:">
+<!ENTITY saveimageinfolder.options.executable-ctrlkey "İpucu: CTRL tuşuna basılı tutarak dizini açabilirsiniz ve dosya kaydolmaz.">
+<!ENTITY saveimageinfolder.options.contextmenu "İçerik menüsü">
+<!ENTITY saveimageinfolder.options.shortcut "Kısayol tuşları:">
+<!ENTITY saveimageinfolder.options.numericshortcuts "İlk 10 daki kelime tuşlarını göster">
+<!ENTITY saveimageinfolder.options.hideinvalidfolders "Geçersiz kısayolları gizle (aksi takdirde etkisizleştir)">
+<!ENTITY saveimageinfolder.options.prefs "Firefox ayarları">
+<!ENTITY saveimageinfolder.options.prefs-description "Kaydolma bittikten sonra gerekli ayarları Firefox öntanımlı dizininde saklar (pref.js içinde)">
+<!ENTITY saveimageinfolder.options.prefs-clear "Sil">
+<!ENTITY saveimageinfolder.options.doubleclick "Bir resme çift tıklama ile resim dosyasını doğrudan tanımlı dizin altına kayıt edebilirsiniz(Bu seçenek Firefox uygulamasını tekrar başlatılmasını gerektirir)">
+<!ENTITY saveimageinfolder.options.usecache "İndirme yöneticisi yerine tarayıcının önbelleğini kullan. (Büyük performans fakat düşük izlenebilirlik sağlar)">
+<!ENTITY saveimageinfolder.setfolder.title "Dizin">
+<!ENTITY saveimageinfolder.setfolder.description "Tanımlama">
+<!ENTITY saveimageinfolder.setfolder.path "Kısayol">
+<!ENTITY saveimageinfolder.setfolder.individual "Bireysel dizin tercihleri">
+<!ENTITY saveimageinfolder.setfolder.individual-opensaveasdialog "İndirmeden önce 'Farklı kaydet' penceresini göster.">
+<!ENTITY saveimageinfolder.setfolder.individual-openfolder "İndirme başlamadan önce hedef dizinini göster.">
+<!ENTITY saveimageinfolder.setfolder.individual-fileprefix "Dosya öneki:">
+<!ENTITY saveimageinfolder.setfolder.individual-filename "Dosya ismi:">
+<!ENTITY saveimageinfolder.setfolder.individual-filesuffix "Dosya soneki:">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilename "Eğer dosya önceden mevcut ise, ">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevaluesaveas "'Farklı kaydet' penceresini göster">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevalueincrement "dosya ismini otomatik olarak değiştir">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevaluecancel "indirmekten vazgeç">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevalueoverwrite "dosyanın üstüne yaz">
+<!ENTITY saveimageinfolder.notify.file "Dosya:">
+<!ENTITY saveimageinfolder.notify.folder "Dizin:">
+<!ENTITY saveimageinfolder.options.notification "Uyarılar">
+<!ENTITY saveimageinfolder.options.notification-statusbar "Durum çubuğu mesajı">
+<!ENTITY saveimageinfolder.options.notification-popupwindow "Açılır kapanır pencere">
+<!ENTITY saveimageinfolder.options.notification-duration "Duraklama (saniye):">
+<!ENTITY saveimageinfolder.options.helptab "Yardım">
+<!ENTITY saveimageinfolder.options.website "Lütfen detaylar için web sayfasını ziyaret ediniz:">
+

@@ -1,0 +1,72 @@
+<!ENTITY saveimageinfolder.toolbar.label "Cartelle">
+<!ENTITY saveimageinfolder.toolbar.tooltip "Sfoglia le cartelle">
+<!ENTITY saveimageinfolder.context.label "Salva immagine nella cartella...">
+<!ENTITY saveimageinfolder.options.title "Opzioni di Save Image in Folder">
+<!ENTITY saveimageinfolder.options.maintab "Principali">
+<!ENTITY saveimageinfolder.options.miscellaneoustab "Varie">
+<!ENTITY saveimageinfolder.options.advancedtab "Avanzate">
+<!ENTITY saveimageinfolder.options.new "Nuovo">
+<!ENTITY saveimageinfolder.options.edit "Modifica">
+<!ENTITY saveimageinfolder.options.delete "Elimina">
+<!ENTITY saveimageinfolder.options.separator "Separatore">
+<!ENTITY saveimageinfolder.options.folders "Cartelle">
+<!ENTITY saveimageinfolder.options.description "Descrizione">
+<!ENTITY saveimageinfolder.options.path "Percorso">
+<!ENTITY saveimageinfolder.options.opensaveasdialog "Salva destinazione come">
+<!ENTITY saveimageinfolder.options.openfolder "Apri la cartella">
+<!ENTITY saveimageinfolder.options.fileprefix "Prefisso">
+<!ENTITY saveimageinfolder.options.fileprefixvalue "Valore prefisso">
+<!ENTITY saveimageinfolder.options.filename "Nome">
+<!ENTITY saveimageinfolder.options.filenamevalue "Valore nome">
+<!ENTITY saveimageinfolder.options.filesuffix "Suffisso">
+<!ENTITY saveimageinfolder.options.filesuffixvalue "Valore suffisso">
+<!ENTITY saveimageinfolder.options.duplicatefilename "Nome del file già presente">
+<!ENTITY saveimageinfolder.options.general "Impostazioni generali delle cartelle">
+<!ENTITY saveimageinfolder.options.general-shiftkey "Tenere premuto il tasto MAIUSC mentre si seleziona una voce del menu contestuale per escludere le impostazioni individuali delle cartelle ed usare queste seguenti">
+<!ENTITY saveimageinfolder.options.general-opensaveasdialog "Apri la finestra di dialogo 'Salva destinazione come...' prima del download">
+<!ENTITY saveimageinfolder.options.general-openfolder "Apri la cartella prescelta quando inizia il download">
+<!ENTITY saveimageinfolder.options.general-fileprefix "Prefisso:">
+<!ENTITY saveimageinfolder.options.general-filename "Nome file:">
+<!ENTITY saveimageinfolder.options.general-filesuffix "Suffisso:">
+<!ENTITY saveimageinfolder.options.general-duplicatefilename "In caso esista già un file con lo stesso nome...">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevaluesaveas "Visualizza la finestra di dialogo 'Salva destinazione come...'">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevalueincrement "Incrementa automaticamente di un numero il nome del file">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevaluecancel "Annulla il download">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevalueoverwrite "Sovrascrivi il file">
+<!ENTITY saveimageinfolder.options.executable "Eseguibile usato per aprire la cartella indicata">
+<!ENTITY saveimageinfolder.options.executable-description "Qui è possibile scegliere un altro eseguibile per aprire la cartella indicata. In caso non si selezioni questa opzione, l'estensione assegnerà al doppio clic sulla cartella l'azione predefinita del proprio sistema operativo. (Solitamente 'explorer.exe' in ambiente Windows)">
+<!ENTITY saveimageinfolder.options.executable-check "Usa questo eseguibile:">
+<!ENTITY saveimageinfolder.options.executable-arguments "Argomenti:">
+<!ENTITY saveimageinfolder.options.executable-ctrlkey "Nota: tenere premuto CTRL+tasto scelto mentre si seleziona una voce del menu contestuale unicamente per aprire la cartella, senza salvare il file">
+<!ENTITY saveimageinfolder.options.contextmenu "Menu contestuale">
+<!ENTITY saveimageinfolder.options.shortcut "Scorciatoia da tastiera:">
+<!ENTITY saveimageinfolder.options.numericshortcuts "Visualizza le scorciatoie da tastiera numeriche collegate ai primi dieci elementi della cartella">
+<!ENTITY saveimageinfolder.options.hideinvalidfolders "Nascondi le cartelle con un percorso non valido (altrimenti verranno comunque disattivate)">
+<!ENTITY saveimageinfolder.options.prefs "Impostazioni di Firefox">
+<!ENTITY saveimageinfolder.options.prefs-description "Dopo aver salvato nella cartella scrivere il percorso nelle seguenti impostazioni di Firefox (prefs.js)">
+<!ENTITY saveimageinfolder.options.prefs-clear "Svuota">
+<!ENTITY saveimageinfolder.options.doubleclick "Facendo doppio clic con il pulsante sinistro del mouse direttamente su un'immagine la si salva nella cartella usata precedentemente. (Riavviare Firefox per rendere effettive le modifiche)">
+<!ENTITY saveimageinfolder.options.usecache "Utilizzare la cache invece di effettuare il download per salvare le immagini. (Maggiori prestazioni ma minore traceability)">
+<!ENTITY saveimageinfolder.setfolder.title "Cartella">
+<!ENTITY saveimageinfolder.setfolder.description "Descrizione">
+<!ENTITY saveimageinfolder.setfolder.path "Percorso">
+<!ENTITY saveimageinfolder.setfolder.individual "Impostazioni individuali delle cartelle">
+<!ENTITY saveimageinfolder.setfolder.individual-opensaveasdialog "Apri la finestra di dialogo 'Salva destinazione come...' prima del download">
+<!ENTITY saveimageinfolder.setfolder.individual-openfolder "Apri la cartella prescelta quando inizia il download.">
+<!ENTITY saveimageinfolder.setfolder.individual-fileprefix "Prefisso:">
+<!ENTITY saveimageinfolder.setfolder.individual-filename "Nome file:">
+<!ENTITY saveimageinfolder.setfolder.individual-filesuffix "Suffisso:">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilename "In caso esista già un file con lo stesso nome...">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevaluesaveas "Visualizza la finestra di dialogo 'Salva destinazione come...'">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevalueincrement "Incrementa automaticamente di un numero il nome del file">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevaluecancel "Annulla il download">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevalueoverwrite "Sovrascrivi il file">
+<!ENTITY saveimageinfolder.notify.file "File:">
+<!ENTITY saveimageinfolder.notify.folder "Cartella:">
+<!ENTITY saveimageinfolder.options.notification "Notifica">
+<!ENTITY saveimageinfolder.options.notification-statusbar "Messaggio nella barra di stato">
+<!ENTITY saveimageinfolder.options.notification-popupwindow "Finestra pop-up">
+<!ENTITY saveimageinfolder.options.notification-duration "Durata (in secondi):">
+<!ENTITY saveimageinfolder.options.helptab "?">
+<!ENTITY saveimageinfolder.options.website "Per informazioni dettagliate visita il sito web:">
+

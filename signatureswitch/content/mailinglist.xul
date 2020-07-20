@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/"?>
+
+<!DOCTYPE dialog SYSTEM "chrome://signatureswitch/locale/signatureswitch.dtd">
+
+<dialog id="SignatureSwitchMailinglists"
+        title="&signatureswitch.label.mailinglist.title;"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        buttons="accept,cancel"
+        onload="onDialogLoad();">
+
+        <script type="application/x-javascript" src="chrome://signatureswitch/content/mailinglist.js"/>
+
+        <description id="desc" value="&signatureswitch.label.mailinglist.available;"/>
+        <richlistbox id="mailinglists" seltype="single" rows="8" flex="1" ondblclick="return acceptDialog();"/>
+
+</dialog>

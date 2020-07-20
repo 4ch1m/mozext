@@ -1,0 +1,60 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+.up {
+  min-width: 16px;
+  list-style-image: url("chrome://saveimageinfolder/skin/up.png");
+}
+
+.up[disabled="true"] {
+  min-width: 16px;
+  list-style-image: url("chrome://saveimageinfolder/skin/up.png");
+  -moz-opacity: 0.5;
+}
+
+.down {
+  min-width: 16px;
+  list-style-image: url("chrome://saveimageinfolder/skin/down.png");
+}
+
+.down[disabled="true"] {
+  min-width: 16px;
+  list-style-image: url("chrome://saveimageinfolder/skin/down.png");
+  -moz-opacity: 0.5;
+}
+
+.new {
+  min-width: 16px;
+  list-style-image: url("chrome://saveimageinfolder/skin/new.png");
+}
+
+.edit {
+  min-width: 16px;
+  list-style-image: url("chrome://saveimageinfolder/skin/edit.png");
+}
+
+.edit[disabled="true"] {
+  min-width: 16px;
+  list-style-image: url("chrome://saveimageinfolder/skin/edit.png");
+  -moz-opacity: 0.5;
+}
+
+.delete {
+  min-width: 16px;
+  list-style-image: url("chrome://saveimageinfolder/skin/delete.png");
+}
+
+.delete[disabled="true"] {
+  min-width: 16px;
+  list-style-image: url("chrome://saveimageinfolder/skin/delete.png");
+  -moz-opacity: 0.5;
+}
+
+.separator {
+  min-width: 16px;
+  list-style-image: url("chrome://saveimageinfolder/skin/separator.png");
+}
+
+.browse {
+  min-width: 16px;
+  list-style-image: url("chrome://saveimageinfolder/skin/browse.png");
+}

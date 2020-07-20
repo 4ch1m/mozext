@@ -1,0 +1,72 @@
+<!ENTITY saveimageinfolder.toolbar.label "Foldery">
+<!ENTITY saveimageinfolder.toolbar.tooltip "Przeglądaj">
+<!ENTITY saveimageinfolder.context.label "Save Image in Folder...">
+<!ENTITY saveimageinfolder.options.title "Save Image in Folder - Opcje">
+<!ENTITY saveimageinfolder.options.maintab "Główne">
+<!ENTITY saveimageinfolder.options.miscellaneoustab "Różne">
+<!ENTITY saveimageinfolder.options.advancedtab "Zaawansowane">
+<!ENTITY saveimageinfolder.options.new "Nowy">
+<!ENTITY saveimageinfolder.options.edit "Edytuj">
+<!ENTITY saveimageinfolder.options.delete "Usuń">
+<!ENTITY saveimageinfolder.options.separator "Separator">
+<!ENTITY saveimageinfolder.options.folders "Foldery">
+<!ENTITY saveimageinfolder.options.description "Opis">
+<!ENTITY saveimageinfolder.options.path "Ścieżka">
+<!ENTITY saveimageinfolder.options.opensaveasdialog "Zapisz jako">
+<!ENTITY saveimageinfolder.options.openfolder "Otwórz Folder">
+<!ENTITY saveimageinfolder.options.fileprefix "Prefiks">
+<!ENTITY saveimageinfolder.options.fileprefixvalue "Wartość prefiksu">
+<!ENTITY saveimageinfolder.options.filename "Nazwa pliku">
+<!ENTITY saveimageinfolder.options.filenamevalue "Nazwa-Wartość">
+<!ENTITY saveimageinfolder.options.filesuffix "Sufiks">
+<!ENTITY saveimageinfolder.options.filesuffixvalue "Wartość sufiksu">
+<!ENTITY saveimageinfolder.options.duplicatefilename "Konflikt nazw">
+<!ENTITY saveimageinfolder.options.general "Ustawienia ogólne folderu">
+<!ENTITY saveimageinfolder.options.general-shiftkey "Przytrzymaj wciśnięty klawisz [shift] podczas zaznaczania pozycji menu kontekstowego aby nadpisać ustawienia indywidualne folderu i użyć bieżących.">
+<!ENTITY saveimageinfolder.options.general-opensaveasdialog "Otwórz okno 'Zapisz jako...' przed pobieraniem.">
+<!ENTITY saveimageinfolder.options.general-openfolder "Otwórz folder docelowy po rozpoczęciu pobierania.">
+<!ENTITY saveimageinfolder.options.general-fileprefix "Prefiks pliku:">
+<!ENTITY saveimageinfolder.options.general-filename "Nazwa pliku:">
+<!ENTITY saveimageinfolder.options.general-filesuffix "Sufiks pliku:">
+<!ENTITY saveimageinfolder.options.general-duplicatefilename "Jeśli istnieje plik o tej samej nazwie...">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevaluesaveas "Pokaż okno 'Zapisz jako...'">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevalueincrement "Automatycznie zwiększ licznik w nazwie pliku">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevaluecancel "Anuluj pobieranie">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevalueoverwrite "Nadpisz plik">
+<!ENTITY saveimageinfolder.options.executable "Aplikacja do otwarcia folderu docelowego">
+<!ENTITY saveimageinfolder.options.executable-description "Możesz wybrać aplikację do otwarcia folderu docelowego. Nie zaznaczenie opcji spowoduje, że rozszerzenie użyje domyślnej aplikacji systemowej (W systemach Windows jest zwykle 'explorer.exe').">
+<!ENTITY saveimageinfolder.options.executable-check "Użyj tego programu:">
+<!ENTITY saveimageinfolder.options.executable-arguments "Parametry:">
+<!ENTITY saveimageinfolder.options.executable-ctrlkey "Podpowiedź: Wciśnięty klawisz [shift] podczas zaznaczania pozycji menu kontekstowego otworzy folder bez zapisywania pliku.">
+<!ENTITY saveimageinfolder.options.contextmenu "Menu kontekstowe">
+<!ENTITY saveimageinfolder.options.shortcut "Skróty klawiaturowe: ">
+<!ENTITY saveimageinfolder.options.numericshortcuts "Wyświetl skróty numeryczne dla pierwszych dziesięciu folderów.">
+<!ENTITY saveimageinfolder.options.hideinvalidfolders "Ukryj foldery z niepoprawną ścieżką (w przeciwnym wypadku zostaną wyłączone).">
+<!ENTITY saveimageinfolder.options.prefs "Preferencje Firefoksa">
+<!ENTITY saveimageinfolder.options.prefs-description "Po zapisaniu w folderze zapisz następujące ścieżki w pliku preferencji Firefksa (prefs.js).">
+<!ENTITY saveimageinfolder.options.prefs-clear "Wyczyść">
+<!ENTITY saveimageinfolder.options.doubleclick "Podwójne kliknięcie na obrazku zapisze go w ostatnio użytym folderze. (Wymagane ponowne uruchomienie przeglądarki.)">
+<!ENTITY saveimageinfolder.options.usecache "Użyj folderu cache przeglądarki do zapisywania obrazów (Większa szybkość ale mniejsze możliwości śledzenia).">
+<!ENTITY saveimageinfolder.setfolder.title "Folder">
+<!ENTITY saveimageinfolder.setfolder.description "Opis">
+<!ENTITY saveimageinfolder.setfolder.path "Ścieżka">
+<!ENTITY saveimageinfolder.setfolder.individual "Indywidualne ustawienia folderu">
+<!ENTITY saveimageinfolder.setfolder.individual-opensaveasdialog "Otwórz okno 'Zapisz jako...' przed pobieraniem.">
+<!ENTITY saveimageinfolder.setfolder.individual-openfolder "Otwórz folder docelowy po rozpoczęciu pobierania.">
+<!ENTITY saveimageinfolder.setfolder.individual-fileprefix "Prefiks pliku:">
+<!ENTITY saveimageinfolder.setfolder.individual-filename "Nazwa pliku:">
+<!ENTITY saveimageinfolder.setfolder.individual-filesuffix "Sufiks pliku:">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilename "Jeśli istnieje plik o tej samej nazwie...">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevaluesaveas "Pokaż okno 'Zapisz jako...'">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevalueincrement "Automatycznie zwiększ licznik w nazwie pliku">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevaluecancel "Anuluj pobieranie">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevalueoverwrite "Nadpisz plik">
+<!ENTITY saveimageinfolder.notify.file "Plik:">
+<!ENTITY saveimageinfolder.notify.folder "Folder:">
+<!ENTITY saveimageinfolder.options.notification "Powiadomienie">
+<!ENTITY saveimageinfolder.options.notification-statusbar "Wiadomość na pasku statusu">
+<!ENTITY saveimageinfolder.options.notification-popupwindow "Wyskakujące okno">
+<!ENTITY saveimageinfolder.options.notification-duration "Czas trwania (sekundy):">
+<!ENTITY saveimageinfolder.options.helptab "Pomoc">
+<!ENTITY saveimageinfolder.options.website "Szczegółowe instrukcje dostępne na poniższej stronie:">
+

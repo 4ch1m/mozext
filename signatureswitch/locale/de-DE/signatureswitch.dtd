@@ -1,0 +1,69 @@
+<!ENTITY signatureswitch.label.options.windowtitle "Signature Switch Optionen">
+<!ENTITY signatureswitch.label.options.maintab "Grundlegendes">
+<!ENTITY signatureswitch.label.options.advancedtab "Fortgeschrittenes">
+<!ENTITY signatureswitch.label.options.tree.signatures "Signaturen">
+<!ENTITY signatureswitch.label.options.tree.default "Standard">
+<!ENTITY signatureswitch.label.options.tree.description "Beschreibung">
+<!ENTITY signatureswitch.label.options.tree.path "Pfad">
+<!ENTITY signatureswitch.label.options.tree.shortcut "Kürzel">
+<!ENTITY signatureswitch.label.options.tree.addresses "Adressen">
+<!ENTITY signatureswitch.label.options.tree.newsgroups "Newsgroups">
+<!ENTITY signatureswitch.label.options.button.new "Neu">
+<!ENTITY signatureswitch.label.options.button.edit "Bearbeiten">
+<!ENTITY signatureswitch.label.options.button.delete "Löschen">
+<!ENTITY signatureswitch.label.options.offbydefault "Signatur standardmässig ausschalten">
+<!ENTITY signatureswitch.label.options.contextmenu "'Signature Switch' im Kontextmenu anzeigen">
+<!ENTITY signatureswitch.label.options.shortcut.groupbox "Tastenkürzel">
+<!ENTITY signatureswitch.label.options.shortcut.accel "Schnellzugriff">
+<!ENTITY signatureswitch.label.options.shortcut.alt "Alt">
+<!ENTITY signatureswitch.label.options.shortcut.control "Steuerung">
+<!ENTITY signatureswitch.label.options.shortcut.meta "Meta">
+<!ENTITY signatureswitch.label.options.shortcut.shift "Umschalt">
+<!ENTITY signatureswitch.label.options.encoding "Kodierung">
+<!ENTITY signatureswitch.label.options.encoding-description "Dies ist die Zeichensatz-Kodierung, die zur Konvertierung der geladenen Signatur verwendet wird. Bitte nur ändern, wenn man weiss was man tut!">
+<!ENTITY signatureswitch.label.setsignature.title "Signatur">
+<!ENTITY signatureswitch.label.setsignature.description "Beschreibung">
+<!ENTITY signatureswitch.label.setsignature.path "Pfad">
+<!ENTITY signatureswitch.label.setsignature.shortcut "Kürzel">
+<!ENTITY signatureswitch.label.setsignature.shortcut.accel "Schnellzugriff">
+<!ENTITY signatureswitch.label.setsignature.shortcut.alt "Alt">
+<!ENTITY signatureswitch.label.setsignature.shortcut.control "Steuerung">
+<!ENTITY signatureswitch.label.setsignature.shortcut.meta "Meta">
+<!ENTITY signatureswitch.label.setsignature.shortcut.shift "Umschalt">
+<!ENTITY signatureswitch.label.setsignature.autoswitch "AutoUmschalten (optional):">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.description.addresses "Sobald eine der hier gelisteten E-Mail-Adressen unter den Empfängern (nicht CC oder BCC!) ist, wird diese Signatur automatisch gewählt.">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.description.newsgroups "Eingegebene Newsgroup-Adressen können ebenfalls überwacht werden:">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.description.wildcard1 "Das '?'-Zeichen kann als Joker gesetzt werden.">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.description.wildcard2 "(Beispiel: '?@mozilla.com', 'test@?.com' oder 't?t@m?a.c?' stimmen überein, wenn 'test@mozilla.com' als Empfänger eingegeben wird.)">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.address "E-Mail-Adresse:">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.newsgroup "Newsgroup:">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.add "Hinzufügen &gt;">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.remove "&lt; Entfernen">
+<!ENTITY signatureswitch.label.toolbar "Signatur">
+<!ENTITY signatureswitch.label.menu "Signature Switch">
+<!ENTITY signatureswitch.label.context "Signature Switch">
+<!ENTITY signatureswitch.tooltip.toolbar "Schaltet die Signatur ein/aus">
+<!ENTITY signatureswitch.label.options.helptab "Hilfe">
+<!ENTITY signatureswitch.label.options.website "Detailierte Informationen sind auf dieser Webseite zu finden:">
+<!ENTITY signatureswitch.label.options.composer "Editor">
+<!ENTITY signatureswitch.label.options.composer-description "Der Text-Editor zum Bearbeiten einer Signatur. (Nach der Änderung auf OK drücken.)">
+<!ENTITY signatureswitch.label.options.misctab "Verschiedenes">
+<!ENTITY signatureswitch.label.create.title "Signatur erstellen">
+<!ENTITY signatureswitch.label.create.doesntexist "Die angegebene Signatur-Datei exisitert nicht.">
+<!ENTITY signatureswitch.label.create.question "Soll sie erstellt werden?">
+<!ENTITY signatureswitch.label.setsignature.addresstab "Adressen">
+<!ENTITY signatureswitch.label.setsignature.newsgrouptab "Newsgroups">
+<!ENTITY signatureswitch.label.setsignature.mailinglisttab "Mailinglisten">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.mailinglist "Mailingliste:">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.description.mailinglists "Der Name einer Mailingliste im Empfängerfeld kann ebenfalls das automatische Umschalten auslösen.">
+<!ENTITY signatureswitch.label.options.tree.mailinglists "Mailinglisten">
+<!ENTITY signatureswitch.label.mailinglist.title "Mailinglisten">
+<!ENTITY signatureswitch.label.mailinglist.available "Derzeit verfügbare Mailinglisten:">
+<!ENTITY signatureswitch.label.options.autoswitchpriority "AutoUmschalten Priorität">
+<!ENTITY signatureswitch.label.options.shortcut.onoff "An/Aus:">
+<!ENTITY signatureswitch.label.options.shortcut.cycle "Durchlauf:">
+<!ENTITY signatureswitch.label.options.preloadexecutable "Vorangestelltes Programm">
+<!ENTITY signatureswitch.label.options.preloadexecutable-description "Ein externes Programm aufrufen bevor die ausgewählte Signatur geladen wird.">
+<!ENTITY signatureswitch.label.options.preloadexecutableusage "Diese Programmdatei verwenden:">
+<!ENTITY signatureswitch.label.options.preloadexecutablewait "Auf Beendigung des Programms warten.">
+<!ENTITY signatureswitch.label.options.preloadexecutablehelp "Für Informationen über weitergereichte Argumente und Beispielanwendungen siehe Hilfe.">

@@ -1,0 +1,72 @@
+<!ENTITY savelinkinfolder.toolbar.label "Foldery">
+<!ENTITY savelinkinfolder.toolbar.tooltip "Przeglądaj foldery">
+<!ENTITY savelinkinfolder.context.label "Save Link in Folder...">
+<!ENTITY savelinkinfolder.options.title "Save Link in Folder - Opcje">
+<!ENTITY savelinkinfolder.options.maintab "Główne">
+<!ENTITY savelinkinfolder.options.miscellaneoustab "Różne">
+<!ENTITY savelinkinfolder.options.advancedtab "Zaawansowane">
+<!ENTITY savelinkinfolder.options.new "Nowy">
+<!ENTITY savelinkinfolder.options.edit "Edytuj">
+<!ENTITY savelinkinfolder.options.delete "Usuń">
+<!ENTITY savelinkinfolder.options.separator "Separator">
+<!ENTITY savelinkinfolder.options.folders "Foldery">
+<!ENTITY savelinkinfolder.options.description "Opis">
+<!ENTITY savelinkinfolder.options.path "Ścieżka">
+<!ENTITY savelinkinfolder.options.opensaveasdialog "Zapisz jako">
+<!ENTITY savelinkinfolder.options.openfolder "Otwórz Folder">
+<!ENTITY savelinkinfolder.options.fileprefix "Prefiks">
+<!ENTITY savelinkinfolder.options.fileprefixvalue "Wartość prefiksu">
+<!ENTITY savelinkinfolder.options.filename "Nazwa pliku">
+<!ENTITY savelinkinfolder.options.filenamevalue "Nazwa-Wartość">
+<!ENTITY savelinkinfolder.options.filesuffix "Sufiks">
+<!ENTITY savelinkinfolder.options.filesuffixvalue "Wartość sufiksu">
+<!ENTITY savelinkinfolder.options.duplicatefilename "Konflikt nazw">
+<!ENTITY savelinkinfolder.options.general "Ustawienia ogólne folderu">
+<!ENTITY savelinkinfolder.options.general-shiftkey "Przytrzymaj wciśnięty klawisz [shift] podczas zaznaczania pozycji menu kontekstowego aby nadpisać ustawienia indywidualne folderu i użyć bieżących.">
+<!ENTITY savelinkinfolder.options.general-opensaveasdialog "Otwórz okno 'Zapisz jako...' przed pobieraniem.">
+<!ENTITY savelinkinfolder.options.general-openfolder "Otwórz folder docelowy po rozpoczęciu pobierania.">
+<!ENTITY savelinkinfolder.options.general-fileprefix "Prefiks pliku:">
+<!ENTITY savelinkinfolder.options.general-filename "Nazwa pliku:">
+<!ENTITY savelinkinfolder.options.general-filesuffix "Sufiks pliku:">
+<!ENTITY savelinkinfolder.options.general-duplicatefilename "Jeśli istnieje plik o tej samej nazwie...">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevaluesaveas "Pokaż okno 'Zapisz jako...'">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevalueincrement "Automatycznie zwiększ licznik w nazwie pliku">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevaluecancel "Anuluj pobieranie">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevalueoverwrite "Nadpisz plik">
+<!ENTITY savelinkinfolder.options.executable "Aplikacja do otwarcia folderu docelowego">
+<!ENTITY savelinkinfolder.options.executable-description "Możesz wybrać inną aplikację, w której chcesz otworzyć folder docelowy. W innym przypadku rozszerzenie użyje domyślnej aplikacji systemowej (Zwykle 'explorer.exe' w systemach Windows).">
+<!ENTITY savelinkinfolder.options.executable-check "Użyj tego programu:">
+<!ENTITY savelinkinfolder.options.executable-arguments "Parametry:">
+<!ENTITY savelinkinfolder.options.executable-ctrlkey "Podpowiedź: Przytrzymaj wciśnięty klawisz [shift] podczas zaznaczania pozycji menu kontekstowego otworzy folder bez zapisywania pliku.">
+<!ENTITY savelinkinfolder.options.contextmenu "Menu kontekstowe">
+<!ENTITY savelinkinfolder.options.shortcut "Skróty klawiaturowe: ">
+<!ENTITY savelinkinfolder.options.numericshortcuts "Wyświetl skróty numeryczne dla pierwszych dziesięciu folderów.">
+<!ENTITY savelinkinfolder.options.hideinvalidfolders "Ukryj foldery z niepoprawną ścieżką (w przeciwnym wypadku zostaną wyłączone).">
+<!ENTITY savelinkinfolder.options.prefs "Preferencje Firefoksa">
+<!ENTITY savelinkinfolder.options.prefs-description "Po zapisaniu w folderze zapisz następujące ścieżki w pliku preferencji Firefksa (prefs.js).">
+<!ENTITY savelinkinfolder.options.prefs-clear "Wyczyść">
+<!ENTITY savelinkinfolder.options.nofilereference "Odnośniki bez bezpośredniego odwołania do pliku zostaną otwarte w oknie 'Zapisz jako...'.">
+<!ENTITY savelinkinfolder.options.hideunknowncontenttype "Ukryj listę folderów gdy zostanie wykryty nieznany typ pliku.">
+<!ENTITY savelinkinfolder.setfolder.title "Folder">
+<!ENTITY savelinkinfolder.setfolder.description "Opis">
+<!ENTITY savelinkinfolder.setfolder.path "Ścieżka">
+<!ENTITY savelinkinfolder.setfolder.individual "Indywidualne ustawienia folderu">
+<!ENTITY savelinkinfolder.setfolder.individual-opensaveasdialog "Otwórz okno 'Zapisz jako...' przed pobieraniem.">
+<!ENTITY savelinkinfolder.setfolder.individual-openfolder "Otwórz folder docelowy po rozpoczęciu pobierania.">
+<!ENTITY savelinkinfolder.setfolder.individual-fileprefix "Prefiks pliku:">
+<!ENTITY savelinkinfolder.setfolder.individual-filename "Nazwa pliku:">
+<!ENTITY savelinkinfolder.setfolder.individual-filesuffix "Sufiks pliku:">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilename "Jeśli istnieje plik o tej samej nazwie...">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevaluesaveas "Pokaż okno 'Zapisz jako...'">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevalueincrement "Automatycznie zwiększ licznik w nazwie pliku">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevaluecancel "Anuluj pobieranie">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevalueoverwrite "Nadpisz plik">
+<!ENTITY savelinkinfolder.notify.file "Plik:">
+<!ENTITY savelinkinfolder.notify.folder "Folder:">
+<!ENTITY savelinkinfolder.options.notification "Powiadomienie">
+<!ENTITY savelinkinfolder.options.notification-statusbar "Wiadomość na pasku statusu">
+<!ENTITY savelinkinfolder.options.notification-popupwindow "Wyskakujące okno">
+<!ENTITY savelinkinfolder.options.notification-duration "Czas trwania (sekundy):">
+<!ENTITY savelinkinfolder.options.helptab "Pomoc">
+<!ENTITY savelinkinfolder.options.website "Szczegółowe instrukcje dostępne na poniższej stronie:">
+

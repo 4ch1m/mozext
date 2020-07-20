@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<!DOCTYPE window SYSTEM "chrome://saveimageinfolder/locale/saveimageinfolder.dtd">
+
+<window xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        id="siifNotify"
+        windowtype="alert:alert"
+        align="start"
+        onload="onNotifyLoad();">
+
+        <script type="application/x-javascript" src="chrome://saveimageinfolder/content/notify.js"/>
+
+        <hbox style="border-color:#000000; border-width:2px; border-style:solid; padding:10px">
+            <hbox align="center" valign="top">
+                <image src="chrome://saveimageinfolder/skin/saveimageinfolder32.png" autostretch="never"/>
+            </hbox>
+            <vbox style="margin-left:5px;">
+                <label id="siifNotifyHeader" class="header" value="Save Image in Folder ..."/>
+                <grid flex="1" style="margin-left:10px; margin-top:5px;">
+                    <columns>
+                        <column/>
+                        <column flex="1"/>
+                    </columns>
+                    <rows>
+                        <row align="center">
+                            <label class="plain" value="&saveimageinfolder.notify.file;"/>
+                            <label id="siifNotifyFile" class="text-link" onclick="onNotifyClick(fullfilepath);"/>
+                        </row>
+                        <row align="center">
+                            <label class="plain" value="&saveimageinfolder.notify.folder;"/>
+                            <label id="siifNotifyFolder" class="text-link" onclick="onNotifyClick(filepath);"/>
+                        </row>
+                    </rows>
+                </grid>
+            </vbox>
+        </hbox>
+
+</window>

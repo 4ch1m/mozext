@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<RDF:RDF xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:chrome="http://www.mozilla.org/rdf/chrome#">
+
+  <RDF:Seq about="urn:mozilla:locale:root">
+    <RDF:li resource="urn:mozilla:locale:be-BY"/>
+  </RDF:Seq>
+
+  <RDF:Description
+        about="urn:mozilla:locale:be-BY"
+        chrome:displayName="Belarussian(BY)"
+        chrome:author="Achim Seufert"
+        chrome:name="be-BY">
+        
+        <chrome:packages>
+          <RDF:Seq about="urn:mozilla:locale:be-BY:packages">
+            <RDF:li resource="urn:mozilla:locale:be-BY:signatureswitch"/>
+          </RDF:Seq>
+        </chrome:packages>
+        
+  </RDF:Description>
+
+</RDF:RDF>

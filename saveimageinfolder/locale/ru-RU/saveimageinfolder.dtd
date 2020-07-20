@@ -1,0 +1,72 @@
+<!ENTITY saveimageinfolder.toolbar.label "Папки">
+<!ENTITY saveimageinfolder.toolbar.tooltip "Показать папки">
+<!ENTITY saveimageinfolder.context.label "Сохранить изображение в папку...">
+<!ENTITY saveimageinfolder.options.title "Save Image in Folder - Настройки">
+<!ENTITY saveimageinfolder.options.maintab "Общие">
+<!ENTITY saveimageinfolder.options.miscellaneoustab "Разное">
+<!ENTITY saveimageinfolder.options.advancedtab "Дополнительно">
+<!ENTITY saveimageinfolder.options.new "Создать">
+<!ENTITY saveimageinfolder.options.edit "Изменить">
+<!ENTITY saveimageinfolder.options.delete "Удалить">
+<!ENTITY saveimageinfolder.options.separator "Разделитель">
+<!ENTITY saveimageinfolder.options.folders "Папки">
+<!ENTITY saveimageinfolder.options.description "Описание">
+<!ENTITY saveimageinfolder.options.path "Путь">
+<!ENTITY saveimageinfolder.options.opensaveasdialog "Сохранить как">
+<!ENTITY saveimageinfolder.options.openfolder "Открыть папку">
+<!ENTITY saveimageinfolder.options.fileprefix "Приставка">
+<!ENTITY saveimageinfolder.options.fileprefixvalue "Приставка-Значение">
+<!ENTITY saveimageinfolder.options.filename "Имя">
+<!ENTITY saveimageinfolder.options.filenamevalue "Имя-Значение">
+<!ENTITY saveimageinfolder.options.filesuffix "Суфикс">
+<!ENTITY saveimageinfolder.options.filesuffixvalue "Суфикс-Значение">
+<!ENTITY saveimageinfolder.options.duplicatefilename "Дубликат имени файла">
+<!ENTITY saveimageinfolder.options.general "Главные настройки папок">
+<!ENTITY saveimageinfolder.options.general-shiftkey "Нажмите и удерживайте Shift, чтобы выбрать другую папку и игнорировать установленные для этого пункта настройки (при выборе в контекстном меню) .">
+<!ENTITY saveimageinfolder.options.general-opensaveasdialog "Открывать окно 'Сохранить как...' перед загрузкой.">
+<!ENTITY saveimageinfolder.options.general-openfolder "Открывать папку после начала загрузки.">
+<!ENTITY saveimageinfolder.options.general-fileprefix "Файл-приставка:">
+<!ENTITY saveimageinfolder.options.general-filename "Имя файла:">
+<!ENTITY saveimageinfolder.options.general-filesuffix "Файл-суфикс:">
+<!ENTITY saveimageinfolder.options.general-duplicatefilename "Если есть дубликат имени файла...">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevaluesaveas "Показать окно 'Сохранить как...'">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevalueincrement "Автоматически увеличивать имя файла">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevaluecancel "Отменить загрузку">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevalueoverwrite "Перезаписать файл">
+<!ENTITY saveimageinfolder.options.executable "Всегда открывать папку с сохраненным файлом">
+<!ENTITY saveimageinfolder.options.executable-description "Здесь вы можете выбрать другую программу, чтобы открыть выбранную папку. Если чекбокс не установлен, то при двойном клике на папке, будет выполняться действие системы установленное по умолчанию (для Windows это 'explorer.exe').">
+<!ENTITY saveimageinfolder.options.executable-check "Открывать с помощью:">
+<!ENTITY saveimageinfolder.options.executable-arguments "Аргументы:">
+<!ENTITY saveimageinfolder.options.executable-ctrlkey "Подсказка: Если нажать и удерживать клавишу Ctrl при выборе папки в контекстном меню, то откроется папка, но файл не будет сохранен.">
+<!ENTITY saveimageinfolder.options.contextmenu "Контекстное меню">
+<!ENTITY saveimageinfolder.options.shortcut "Горячие клавиши">
+<!ENTITY saveimageinfolder.options.numericshortcuts "Показывать номера горячих клавиш первых десяти папок.">
+<!ENTITY saveimageinfolder.options.hideinvalidfolders "Скрывать папки имеющие нерабочий путь (иначе они не будут работать).">
+<!ENTITY saveimageinfolder.options.prefs "Настройки Firefox">
+<!ENTITY saveimageinfolder.options.prefs-description "После того, как файл сохранен в папку, записать путь в настройках Firefox (prefs.js).">
+<!ENTITY saveimageinfolder.options.prefs-clear "Очистить">
+<!ENTITY saveimageinfolder.options.doubleclick "Двойной клик левой кнопкой мыши на изображении сохраняет его в предварительно выбранную папку. (Для вступления изменений в силу требуется перезагрузка браузера.)">
+<!ENTITY saveimageinfolder.options.usecache "Использовать кэш браузера, вместо менеджера загрузки для того, чтобы сохранять изображения. (Повышает производительность, но для пользователя делает процесс менее прозрачным.)">
+<!ENTITY saveimageinfolder.setfolder.title "Папка">
+<!ENTITY saveimageinfolder.setfolder.description "Описание">
+<!ENTITY saveimageinfolder.setfolder.path "Путь">
+<!ENTITY saveimageinfolder.setfolder.individual "Индивидуальные настройки папки">
+<!ENTITY saveimageinfolder.setfolder.individual-opensaveasdialog "Открывать окно 'Сохранить как...' перед загрузкой.">
+<!ENTITY saveimageinfolder.setfolder.individual-openfolder "Открывать папку после начала загрузки.">
+<!ENTITY saveimageinfolder.setfolder.individual-fileprefix "Файл-приставка:">
+<!ENTITY saveimageinfolder.setfolder.individual-filename "Имя файла:">
+<!ENTITY saveimageinfolder.setfolder.individual-filesuffix "Файл-суфикс:">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilename "Если есть дубликат имени файла...">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevaluesaveas "Показать окно 'Сохранить как...'">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevalueincrement "Автоматически увеличивать имя файла">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevaluecancel "Отменить загрузку">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevalueoverwrite "Перезаписать файл">
+<!ENTITY saveimageinfolder.notify.file "Файл:">
+<!ENTITY saveimageinfolder.notify.folder "Папка:">
+<!ENTITY saveimageinfolder.options.notification "Оповещение">
+<!ENTITY saveimageinfolder.options.notification-statusbar "Сообщение в статусной строке">
+<!ENTITY saveimageinfolder.options.notification-popupwindow "Всплывающее окно">
+<!ENTITY saveimageinfolder.options.notification-duration "Продолжительность (в секундах):">
+<!ENTITY saveimageinfolder.options.helptab "Помощь">
+<!ENTITY saveimageinfolder.options.website "Пожалуйста, для получения подробных инструкций посетите этот сайт:">
+

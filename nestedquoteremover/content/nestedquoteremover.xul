@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://nestedquoteremover/skin/nestedquoteremover.css" type="text/css"?>
+
+<!DOCTYPE window SYSTEM "chrome://nestedquoteremover/locale/nestedquoteremover.dtd" >
+
+<overlay id="NestedQuoteRemoverOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+ <toolbarpalette id="MsgComposeToolbarPalette">
+  <toolbarbutton
+    class="toolbarbutton-1"
+    id="NestedQuoteRemoverButton"
+    label="&nestedquoteremover.label.toolbar;"
+    tooltiptext="&nestedquoteremover.tooltip.toolbar;"
+    oncommand="nqr_main.nestedQuoteRemover();"/>
+ </toolbarpalette>
+
+ <keyset id="editorKeys">
+    <key    id="NestedQuoteRemoverKey"
+            key="N"
+            modifiers="control,shift"
+            oncommand="nqr_main.nestedQuoteRemover();"/>
+ </keyset>
+
+ <menupopup id="optionsMenuPopup">
+    <menu   id="NestedQuoteRemoverMenu"
+            label="NestedQuote Remover"
+            insertafter="menu_checkspelling">
+        <menupopup>
+            <menuitem label="&nestedquoteremover.label.menupopup;"
+                      key="NestedQuoteRemoverKey"
+                      oncommand="nqr_main.nestedQuoteRemover();"/>
+            <menuitem label="Options"
+                      oncommand="nqr_main.openOptions(false);"/>
+        </menupopup>
+    </menu>
+ </menupopup>
+
+ <popup id="msgComposeContext">
+    <menuitem   id="NestedQuoteRemoverContext"
+                label="&nestedquoteremover.label.context;"
+                key="NestedQuoteRemoverKey"
+                oncommand="nqr_main.nestedQuoteRemover();"
+                insertafter="context-delete"/>
+ </popup>
+
+ <script type="application/x-javascript" src="chrome://nestedquoteremover/content/nestedquoteremover.js"/>
+
+</overlay>

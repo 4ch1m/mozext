@@ -1,0 +1,23 @@
+content nestedquoteremover jar:chrome/nestedquoteremover.jar!/content/
+skin    nestedquoteremover classic/1.0 jar:chrome/nestedquoteremover.jar!/skin/classic/
+overlay chrome://messenger/content/messengercompose/messengercompose.xul chrome://nestedquoteremover/content/nestedquoteremover.xul
+style chrome://messenger/content/customizeToolbar.xul chrome://nestedquoteremover/skin/nestedquoteremover.css
+locale nestedquoteremover en-US jar:chrome/nestedquoteremover.jar!/locale/en-US/
+locale nestedquoteremover de-DE jar:chrome/nestedquoteremover.jar!/locale/de-DE/
+locale nestedquoteremover it-IT jar:chrome/nestedquoteremover.jar!/locale/it-IT/
+locale nestedquoteremover es-ES jar:chrome/nestedquoteremover.jar!/locale/es-ES/
+locale nestedquoteremover nl-NL jar:chrome/nestedquoteremover.jar!/locale/nl-NL/
+locale nestedquoteremover fr-FR jar:chrome/nestedquoteremover.jar!/locale/fr-FR/
+locale nestedquoteremover zh-TW jar:chrome/nestedquoteremover.jar!/locale/zh-TW/
+locale nestedquoteremover pl-PL jar:chrome/nestedquoteremover.jar!/locale/pl-PL/
+locale nestedquoteremover ja-JP jar:chrome/nestedquoteremover.jar!/locale/ja-JP/
+locale nestedquoteremover pt-BR jar:chrome/nestedquoteremover.jar!/locale/pt-BR/
+locale nestedquoteremover ru-RU jar:chrome/nestedquoteremover.jar!/locale/ru-RU/
+locale nestedquoteremover hu-HU jar:chrome/nestedquoteremover.jar!/locale/hu-HU/
+locale nestedquoteremover sk-SK jar:chrome/nestedquoteremover.jar!/locale/sk-SK/
+locale nestedquoteremover ca-AD jar:chrome/nestedquoteremover.jar!/locale/ca-AD/
+locale nestedquoteremover be-BY jar:chrome/nestedquoteremover.jar!/locale/be-BY/
+locale nestedquoteremover sr-YU jar:chrome/nestedquoteremover.jar!/locale/sr-YU/
+locale nestedquoteremover cs-CZ jar:chrome/nestedquoteremover.jar!/locale/cs-CZ/
+locale nestedquoteremover sv-SE jar:chrome/nestedquoteremover.jar!/locale/sv-SE/
+locale nestedquoteremover sl-SL jar:chrome/nestedquoteremover.jar!/locale/sl-SL/

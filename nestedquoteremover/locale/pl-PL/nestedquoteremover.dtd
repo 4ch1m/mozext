@@ -1,0 +1,14 @@
+<!ENTITY nestedquoteremover.label.options.windowtitle "Opcje NestedQuote Remover">
+<!ENTITY nestedquoteremover.label.options.quotedepth "Maksymalna dozwolona głębokość cytatu:">
+<!ENTITY nestedquoteremover.label.options.autoremove "Automatycznie usuń zagnieżdzone cytaty">
+<!ENTITY nestedquoteremover.label.options.contextmenu "Pokaż pozycję w menu kontekstowym">
+<!ENTITY nestedquoteremover.label.options.shortcut.groupbox "Klawisz skrótu:">
+<!ENTITY nestedquoteremover.label.options.shortcut.accel "Accelerator">
+<!ENTITY nestedquoteremover.label.options.shortcut.alt "Alt">
+<!ENTITY nestedquoteremover.label.options.shortcut.control "Ctrl">
+<!ENTITY nestedquoteremover.label.options.shortcut.meta "Meta">
+<!ENTITY nestedquoteremover.label.options.shortcut.shift "Shift">
+<!ENTITY nestedquoteremover.label.toolbar "Cytaty">
+<!ENTITY nestedquoteremover.label.menupopup "Usuń zagnieżdzone cytaty">
+<!ENTITY nestedquoteremover.label.context "Usuń zagnieżdzone cytaty">
+<!ENTITY nestedquoteremover.tooltip.toolbar "Usuwa zagnieżdzone cytaty">

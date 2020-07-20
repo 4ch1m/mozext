@@ -1,0 +1,72 @@
+<!ENTITY saveimageinfolder.toolbar.label "Mappar">
+<!ENTITY saveimageinfolder.toolbar.tooltip "Bläddra">
+<!ENTITY saveimageinfolder.context.label "Spara bild i mapp...">
+<!ENTITY saveimageinfolder.options.title "Spara bild i mapp - Inställningar">
+<!ENTITY saveimageinfolder.options.maintab "Generella">
+<!ENTITY saveimageinfolder.options.miscellaneoustab "Övrigt">
+<!ENTITY saveimageinfolder.options.advancedtab "Avancerat">
+<!ENTITY saveimageinfolder.options.new "Ny">
+<!ENTITY saveimageinfolder.options.edit "Redigera">
+<!ENTITY saveimageinfolder.options.delete "Ta bort">
+<!ENTITY saveimageinfolder.options.separator "Avskiljare">
+<!ENTITY saveimageinfolder.options.folders "Mappar">
+<!ENTITY saveimageinfolder.options.description "Beskrivning">
+<!ENTITY saveimageinfolder.options.path "Sökväg">
+<!ENTITY saveimageinfolder.options.opensaveasdialog "Spara som">
+<!ENTITY saveimageinfolder.options.openfolder "Öppna mapp">
+<!ENTITY saveimageinfolder.options.fileprefix "Prefix">
+<!ENTITY saveimageinfolder.options.fileprefixvalue "Prefix-Värde">
+<!ENTITY saveimageinfolder.options.filename "Namn">
+<!ENTITY saveimageinfolder.options.filenamevalue "Namn-Värde">
+<!ENTITY saveimageinfolder.options.filesuffix "Suffix">
+<!ENTITY saveimageinfolder.options.filesuffixvalue "Suffix-Värde">
+<!ENTITY saveimageinfolder.options.duplicatefilename "Filen finns redan">
+<!ENTITY saveimageinfolder.options.general "Generella mappinställningar">
+<!ENTITY saveimageinfolder.options.general-shiftkey "Håll ner Shift vid val av innehåll för högerklicksmeny för att åsidosätta mapparnas individuella inställningar och använd följande istället.">
+<!ENTITY saveimageinfolder.options.general-opensaveasdialog "Visa en 'Spara som...'-dialog innan nerladdning.">
+<!ENTITY saveimageinfolder.options.general-openfolder "Öppna målmappen när nerladdning startar.">
+<!ENTITY saveimageinfolder.options.general-fileprefix "Fil-prefix:">
+<!ENTITY saveimageinfolder.options.general-filename "Fil-namn:">
+<!ENTITY saveimageinfolder.options.general-filesuffix "Fil-suffix:">
+<!ENTITY saveimageinfolder.options.general-duplicatefilename "Om filen redan finns...">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevaluesaveas "Visa 'Spara som...'-dialog">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevalueincrement "Utöka filnamn automatiskt">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevaluecancel "Avbryt nerladdning">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevalueoverwrite "Skriv över filen">
+<!ENTITY saveimageinfolder.options.executable "Exekverbar fil som används för att öppna målmapp">
+<!ENTITY saveimageinfolder.options.executable-description "Ange här exekverbar fil för att öppna målmapp med. Om ej ikryssad kommer tillägget att använda systemets standard för dubbelklick på en mapp (vanligtvis start av 'explorer.exe' i Windows).">
+<!ENTITY saveimageinfolder.options.executable-check "Använd denna exekverbara fil:">
+<!ENTITY saveimageinfolder.options.executable-arguments "Variabler:">
+<!ENTITY saveimageinfolder.options.executable-ctrlkey "Tips: Hål ner Ctrl vid val i högerklicksmeny för att öppna mappen, utan att spara filen.">
+<!ENTITY saveimageinfolder.options.contextmenu "Meny vid högerklick">
+<!ENTITY saveimageinfolder.options.shortcut "Snabbkommando: ">
+<!ENTITY saveimageinfolder.options.numericshortcuts "Visa numeriskt värde för snabbkommando efter de 10 första mapparna.">
+<!ENTITY saveimageinfolder.options.hideinvalidfolders "Dölj mappar med felaktig sökväg (annars inaktiverade).">
+<!ENTITY saveimageinfolder.options.prefs "Firefox-inställningar">
+<!ENTITY saveimageinfolder.options.prefs-description "Efter att ha sparat till en mapp, skriv mappens sökväg till följande Firefox-inställning (prefs.js).">
+<!ENTITY saveimageinfolder.options.prefs-clear "Rensa">
+<!ENTITY saveimageinfolder.options.doubleclick "Dubbelklick med vänster musknapp på en bild, sparar bilden direkt till föregående vald mapp (kräver omstart av Firefox för att börja gälla).">
+<!ENTITY saveimageinfolder.options.usecache "Använd webbläsarens buffer för att spara bild istället för att starta Filhämtaren (högre prestanda men sämre spårmöjligheter).">
+<!ENTITY saveimageinfolder.setfolder.title "Mapp">
+<!ENTITY saveimageinfolder.setfolder.description "Beskrivning">
+<!ENTITY saveimageinfolder.setfolder.path "Sökväg">
+<!ENTITY saveimageinfolder.setfolder.individual "Individuell mappinställning">
+<!ENTITY saveimageinfolder.setfolder.individual-opensaveasdialog "Visa en 'Spara som...'-dialog innan nerladdning.">
+<!ENTITY saveimageinfolder.setfolder.individual-openfolder "Öppna målmapp när nerladdning startar.">
+<!ENTITY saveimageinfolder.setfolder.individual-fileprefix "Fil-prefix:">
+<!ENTITY saveimageinfolder.setfolder.individual-filename "Fil-namn:">
+<!ENTITY saveimageinfolder.setfolder.individual-filesuffix "Fil-suffix:">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilename "Om filen redan finns...">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevaluesaveas "Visa 'Spara som...'-dialog">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevalueincrement "Utöka filnamn automatiskt">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevaluecancel "Avbryt nerladdning">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevalueoverwrite "Skriv över filen">
+<!ENTITY saveimageinfolder.notify.file "Fil:">
+<!ENTITY saveimageinfolder.notify.folder "Mapp:">
+<!ENTITY saveimageinfolder.options.notification "Meddelande">
+<!ENTITY saveimageinfolder.options.notification-statusbar "Meddelande i statusfält">
+<!ENTITY saveimageinfolder.options.notification-popupwindow "Popup-ruta">
+<!ENTITY saveimageinfolder.options.notification-duration "Varaktighet (sekunder):">
+<!ENTITY saveimageinfolder.options.helptab "Hjälp">
+<!ENTITY saveimageinfolder.options.website "Besök hemsidan för utförlig bruksanvisning:">
+

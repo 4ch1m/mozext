@@ -1,0 +1,71 @@
+<!ENTITY savelinkinfolder.toolbar.label "����">
+<!ENTITY savelinkinfolder.toolbar.tooltip "����� ���">
+<!ENTITY savelinkinfolder.context.label "Save Link in Folder...">
+<!ENTITY savelinkinfolder.options.title "Save Link in Folder - ������������">
+<!ENTITY savelinkinfolder.options.maintab "�������">
+<!ENTITY savelinkinfolder.options.miscellaneoustab "г��">
+<!ENTITY savelinkinfolder.options.advancedtab "��������">
+<!ENTITY savelinkinfolder.options.new "�����">
+<!ENTITY savelinkinfolder.options.edit "����������">
+<!ENTITY savelinkinfolder.options.delete "��������">
+<!ENTITY savelinkinfolder.options.separator "���������">
+<!ENTITY savelinkinfolder.options.folders "����">
+<!ENTITY savelinkinfolder.options.description "����">
+<!ENTITY savelinkinfolder.options.path "����">
+<!ENTITY savelinkinfolder.options.opensaveasdialog "�������� ��">
+<!ENTITY savelinkinfolder.options.openfolder "³������ ����">
+<!ENTITY savelinkinfolder.options.fileprefix "���������">
+<!ENTITY savelinkinfolder.options.fileprefixvalue "�������� ���������">
+<!ENTITY savelinkinfolder.options.filename "???Name">
+<!ENTITY savelinkinfolder.options.filenamevalue "???Name-Value">
+<!ENTITY savelinkinfolder.options.filesuffix "�����">
+<!ENTITY savelinkinfolder.options.filesuffixvalue "�������� ������">
+<!ENTITY savelinkinfolder.options.duplicatefilename "������� ���� �����">
+<!ENTITY savelinkinfolder.options.general "������ ������������ ���">
+<!ENTITY savelinkinfolder.options.general-shiftkey "�������� � ��������� Shift, ��� ������� ���� ���� � ���������� ���������� ��� ����� ������ ������������.">
+<!ENTITY savelinkinfolder.options.general-opensaveasdialog "³�������� ���� '�������� ��...' ����� �������������.">
+<!ENTITY savelinkinfolder.options.general-openfolder "³������ ������ ���� ���� ������� ������������.">
+<!ENTITY savelinkinfolder.options.general-fileprefix "��������� �����:">
+<!ENTITY savelinkinfolder.options.general-filename "???File-name:">
+<!ENTITY savelinkinfolder.options.general-filesuffix "����� �����:">
+<!ENTITY savelinkinfolder.options.general-duplicatefilename "���� � ������� ���� �����...">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevaluesaveas "���������� ���� '�������� ��...'">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevalueincrement "����������� ���������� ��'� �����">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevaluecancel "³������ ������������">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevalueoverwrite "���������� ����">
+<!ENTITY savelinkinfolder.options.executable "��������, ��������������� ��� �������� ������ ����">
+<!ENTITY savelinkinfolder.options.executable-description "��� �� ������ ������� ���� ��������, ��� ������� ������� ����. ���� ������� �� �����������, �� ��� ��������� ��� �� ���, ���������������� �� ������� ����������� �� ���������� (��� Windows �� &apos;explorer.exe&apos;).">
+<!ENTITY savelinkinfolder.options.executable-check "�������������� �� ��������:">
+<!ENTITY savelinkinfolder.options.executable-arguments "���������:">
+<!ENTITY savelinkinfolder.options.executable-ctrlkey "ϳ������: ���� ��������� � ���������� ������ Ctrl ��� ����� ���� � ������������ ����, �� ��������� ����, ��� ���� �� ���� ����������.">
+<!ENTITY savelinkinfolder.options.contextmenu "���������� ����">
+<!ENTITY savelinkinfolder.options.shortcut "��������� ����������: ">
+<!ENTITY savelinkinfolder.options.numericshortcuts "���������� ������ ���������� ��� ������ ������ ���.">
+<!ENTITY savelinkinfolder.options.hideinvalidfolders "����������� ���� � �������������� ������ (������ ���� ������ ����� ����������).">
+<!ENTITY savelinkinfolder.options.prefs "������������ Firefox">
+<!ENTITY savelinkinfolder.options.prefs-description "ϳ��� ����, �� ���� ���������� � ����, �������� ���� � ������������� Firefox (prefs.js).">
+<!ENTITY savelinkinfolder.options.prefs-clear "��������">
+<!ENTITY savelinkinfolder.options.nofilereference "���� ��������� �� �����, ��������� �������� ���� '�������� ��...'.">
+<!ENTITY savelinkinfolder.options.hideunknowncontenttype "����������� ������ ����� ���� Firefox ������ �������� ��� �����.">
+<!ENTITY savelinkinfolder.setfolder.title "����">
+<!ENTITY savelinkinfolder.setfolder.description "����">
+<!ENTITY savelinkinfolder.setfolder.path "����">
+<!ENTITY savelinkinfolder.setfolder.individual "����������� ������������ ���">
+<!ENTITY savelinkinfolder.setfolder.individual-opensaveasdialog "³�������� ���� '�������� ��...' ����� �������������.">
+<!ENTITY savelinkinfolder.setfolder.individual-openfolder "³������ ������ ���� ���� ������� ������������.">
+<!ENTITY savelinkinfolder.setfolder.individual-fileprefix "��������� �����:">
+<!ENTITY savelinkinfolder.setfolder.individual-filename "???File-name:">
+<!ENTITY savelinkinfolder.setfolder.individual-filesuffix "����� �����:">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilename "���� � ������� ���� �����...">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevaluesaveas "�������� ���� '�������� ��...'">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevalueincrement "����������� ���������� ��'� �����">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevaluecancel "³������ ������������">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevalueoverwrite "������������ ����">
+<!ENTITY savelinkinfolder.notify.file "???File:">
+<!ENTITY savelinkinfolder.notify.folder "???Folder:">
+<!ENTITY savelinkinfolder.options.notification "???Notification">
+<!ENTITY savelinkinfolder.options.notification-statusbar "???Status-Bar message">
+<!ENTITY savelinkinfolder.options.notification-popupwindow "???Popup window">
+<!ENTITY savelinkinfolder.options.notification-duration "???Duration (seconds):">
+<!ENTITY savelinkinfolder.options.helptab "???Help">
+<!ENTITY savelinkinfolder.options.website "???Please visit this website for detailed instructions:">

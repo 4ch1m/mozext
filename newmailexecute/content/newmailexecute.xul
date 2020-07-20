@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE window SYSTEM "chrome://newmailexecute/locale/newmailexecute.dtd" >
+
+<overlay id="NewMailExecuteOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+ <script type="application/x-javascript" src="chrome://newmailexecute/content/newmailexecute.js"/>
+
+</overlay>

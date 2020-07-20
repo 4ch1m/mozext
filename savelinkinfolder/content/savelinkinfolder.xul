@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://savelinkinfolder/skin/savelinkinfolder.css" type="text/css"?>
+
+<!DOCTYPE overlay SYSTEM "chrome://savelinkinfolder/locale/savelinkinfolder.dtd">
+
+<overlay id="savelinkinfolderOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+    <script type="application/x-javascript" src="chrome://savelinkinfolder/content/savelinkinfolder.js"/>
+
+    <stringbundleset id="stringbundleset">
+        <stringbundle id="savelinkinfolder.locale" src="chrome://savelinkinfolder/locale/savelinkinfolder.properties"/>
+    </stringbundleset>
+
+    <toolbarpalette id="BrowserToolbarPalette">
+        <toolbarbutton
+            class="toolbarbutton-1"
+            id="slif_toolbarbutton"
+            type="menu-button"
+            label="&savelinkinfolder.toolbar.label;"
+            tooltiptext="&savelinkinfolder.toolbar.tooltip;"
+            oncommand="slif_main.createHtmlIndex(event); event.stopPropagation();">
+                <menupopup id="slif_menupopup-toolbar" onpopupshowing="slif_main.initMenuPopup('toolbar');"/>
+        </toolbarbutton>
+    </toolbarpalette>
+
+    <popup id="contentAreaContextMenu">
+        <menu id="slif_menu" label="&savelinkinfolder.context.label;" insertafter="context-savelink" accesskey="L">
+            <menupopup id="slif_menupopup-context" onpopupshowing="slif_main.initMenuPopup('context');"/>
+        </menu>
+    </popup>
+
+</overlay>

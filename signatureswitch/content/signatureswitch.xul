@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://signatureswitch/skin/signatureswitch.css" type="text/css"?>
+
+<!DOCTYPE window SYSTEM "chrome://signatureswitch/locale/signatureswitch.dtd">
+
+<overlay id="SignatureSwitchOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+ <toolbarpalette id="MsgComposeToolbarPalette">
+    <toolbarbutton
+        class="toolbarbutton-1"
+        id="SignatureSwitchButton"
+        type="menu-button"
+        label="&signatureswitch.label.toolbar;"
+        tooltiptext="&signatureswitch.tooltip.toolbar;"
+        oncommand="ss_main.signatureSwitch();">
+            <menupopup id="SignatureSwitchMenuPopup-toolbar" onpopupshowing="ss_main.initMenuPopup('toolbar');"/>
+    </toolbarbutton>
+ </toolbarpalette>
+
+ <keyset id="editorKeys">
+    <key id="SignatureSwitchKey_onoff" key="Y" modifiers="control,shift" oncommand="ss_main.signatureSwitch();"/>
+    <key id="SignatureSwitchKey_cycle" key="C" modifiers="control,shift" oncommand="ss_main.cycleSignature();"/>
+    <keyset id="SignatureSwitchShortcuts"/>
+ </keyset>
+
+ <menupopup id="optionsMenuPopup">
+    <menu   id="SignatureSwitchMenu"
+            label="&signatureswitch.label.menu;"
+            insertafter="menu_checkspelling">
+                <menupopup id="SignatureSwitchMenuPopup-menu" onpopupshowing="ss_main.initMenuPopup('menu');"/>
+    </menu>
+ </menupopup>
+
+ <popup id="msgComposeContext">
+    <menu   id="SignatureSwitchContext"
+            label="&signatureswitch.label.context;"
+            insertafter="context-selectAll">
+                <menupopup id="SignatureSwitchMenuPopup-context" onpopupshowing="ss_main.initMenuPopup('context');"/>
+    </menu>
+ </popup>
+
+ <script type="application/x-javascript" src="chrome://signatureswitch/content/signatureswitch.js"/>
+
+</overlay>

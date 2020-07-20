@@ -1,0 +1,71 @@
+<!ENTITY savelinkinfolder.toolbar.label "Ordner">
+<!ENTITY savelinkinfolder.toolbar.tooltip "Ordner anzeigen">
+<!ENTITY savelinkinfolder.context.label "Ziel in Ordner speichern...">
+<!ENTITY savelinkinfolder.options.title "Save Link in Folder - Optionen">
+<!ENTITY savelinkinfolder.options.maintab "Grundlegendes">
+<!ENTITY savelinkinfolder.options.miscellaneoustab "Verschiedenes">
+<!ENTITY savelinkinfolder.options.advancedtab "Fortgeschrittenes">
+<!ENTITY savelinkinfolder.options.new "Neu">
+<!ENTITY savelinkinfolder.options.edit "Bearbeiten">
+<!ENTITY savelinkinfolder.options.delete "Löschen">
+<!ENTITY savelinkinfolder.options.separator "Trennmarke">
+<!ENTITY savelinkinfolder.options.folders "Ordner">
+<!ENTITY savelinkinfolder.options.description "Beschreibung">
+<!ENTITY savelinkinfolder.options.path "Pfad">
+<!ENTITY savelinkinfolder.options.opensaveasdialog "Speichern unter">
+<!ENTITY savelinkinfolder.options.openfolder "Ordner öffnen">
+<!ENTITY savelinkinfolder.options.fileprefix "Präfix">
+<!ENTITY savelinkinfolder.options.fileprefixvalue "Präfix-Wert">
+<!ENTITY savelinkinfolder.options.filename "Name">
+<!ENTITY savelinkinfolder.options.filenamevalue "Name-Wert">
+<!ENTITY savelinkinfolder.options.filesuffix "Suffix">
+<!ENTITY savelinkinfolder.options.filesuffixvalue "Suffix-Wert">
+<!ENTITY savelinkinfolder.options.duplicatefilename "Doppelter Dateiname">
+<!ENTITY savelinkinfolder.options.general "Allgemeine Ordner-Einstellungen">
+<!ENTITY savelinkinfolder.options.general-shiftkey "Die Umschalttaste während der Auswahl eines Kontextmenu-Eintrags gedrückt halten, um die individuellen Ordner-Einstellungen zu umgehen und stattdessen folgende zu verwenden.">
+<!ENTITY savelinkinfolder.options.general-opensaveasdialog "Öffne einen 'Speichern unter...'-Dialog vor dem Download.">
+<!ENTITY savelinkinfolder.options.general-openfolder "Öffne den Zielordner bei Downloadbeginn.">
+<!ENTITY savelinkinfolder.options.general-fileprefix "Datei-Präfix:">
+<!ENTITY savelinkinfolder.options.general-filename "Datei-name:">
+<!ENTITY savelinkinfolder.options.general-filesuffix "Datei-Suffix:">
+<!ENTITY savelinkinfolder.options.general-duplicatefilename "Wenn der Dateiname bereits exisitert...">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevaluesaveas "einen 'Speichern unter...'-Dialog anzeigen">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevalueincrement "den Dateinamen automatisch erhöhen">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevaluecancel "den Download abbrechen">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevalueoverwrite "die Datei überschreiben">
+<!ENTITY savelinkinfolder.options.executable "Programm zum Öffnen des Ordners">
+<!ENTITY savelinkinfolder.options.executable-description "Hier kann ein anderes Programm zum Öffnen des Zielordners gewählt werden. Bei Nichtaktivierung benutzt die Erweiterung die Standardaktion des Systems beim Doppelclick auf einen Ordner. (Auf Windows-Systemen meist der Start von 'explorer.exe'.)">
+<!ENTITY savelinkinfolder.options.executable-check "Dieses Programm verwenden:">
+<!ENTITY savelinkinfolder.options.executable-arguments "Parameter:">
+<!ENTITY savelinkinfolder.options.executable-ctrlkey "Tipp: Die Strg-Taste während der Auswahl eines Kontextmenu-Eintrags gedrückt halten, um lediglich den Ordner zu öffnen und die Datei nicht zu speichern.">
+<!ENTITY savelinkinfolder.options.contextmenu "Kontextmenu">
+<!ENTITY savelinkinfolder.options.shortcut "Tastaturkürzel: ">
+<!ENTITY savelinkinfolder.options.numericshortcuts "Numerische Tastenkürzel hinter den ersten zehn Ordnern anzeigen.">
+<!ENTITY savelinkinfolder.options.hideinvalidfolders "Ordner mit ungültigem Pfad verbergen (andernfalls lediglich deaktiviert).">
+<!ENTITY savelinkinfolder.options.prefs "Firefox Einstellungen">
+<!ENTITY savelinkinfolder.options.prefs-description "Nach der Speicherung in einen Ordner, dessen Pfad in folgende Firefox Einstellungen schreiben. (prefs.js)">
+<!ENTITY savelinkinfolder.options.prefs-clear "Löschen">
+<!ENTITY savelinkinfolder.options.nofilereference "Ziele ohne direkten Verweis auf eine Datei werden mit einem 'Speichern unter...'-Dialog geöffnet.">
+<!ENTITY savelinkinfolder.options.hideunknowncontenttype "Ordnerliste verbergen, wenn Firefox einen unbekannten Dateityp feststellt.">
+<!ENTITY savelinkinfolder.setfolder.title "Ordner">
+<!ENTITY savelinkinfolder.setfolder.description "Beschreibung">
+<!ENTITY savelinkinfolder.setfolder.path "Pfad">
+<!ENTITY savelinkinfolder.setfolder.individual "Individuelle Ordner-Einstellungen">
+<!ENTITY savelinkinfolder.setfolder.individual-opensaveasdialog "Öffne einen 'Speichern unter...'-Dialog vor dem Download.">
+<!ENTITY savelinkinfolder.setfolder.individual-openfolder "Öffne den Zielordner bei Downloadbeginn.">
+<!ENTITY savelinkinfolder.setfolder.individual-fileprefix "Datei-Präfix:">
+<!ENTITY savelinkinfolder.setfolder.individual-filename "Datei-Name:">
+<!ENTITY savelinkinfolder.setfolder.individual-filesuffix "Datei-Suffix:">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilename "Wenn der Dateiname bereits exisitert...">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevaluesaveas "einen 'Speichern unter...'-Dialog anzeigen">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevalueincrement "den Dateinamen automatisch erhöhen">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevaluecancel "den Download abbrechen">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevalueoverwrite "die Datei überschreiben">
+<!ENTITY savelinkinfolder.notify.file "Datei:">
+<!ENTITY savelinkinfolder.notify.folder "Ordner:">
+<!ENTITY savelinkinfolder.options.notification "Benachrichtigung">
+<!ENTITY savelinkinfolder.options.notification-statusbar "Statusleiste">
+<!ENTITY savelinkinfolder.options.notification-popupwindow "Popup-Fenster">
+<!ENTITY savelinkinfolder.options.notification-duration "Dauer (Sekunden):">
+<!ENTITY savelinkinfolder.options.helptab "Hilfe">
+<!ENTITY savelinkinfolder.options.website "Detailierte Informationen sind auf dieser Webseite zu finden:">

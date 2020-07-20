@@ -1,0 +1,72 @@
+<!ENTITY savelinkinfolder.toolbar.label "Mappar">
+<!ENTITY savelinkinfolder.toolbar.tooltip "Bläddra">
+<!ENTITY savelinkinfolder.context.label "Spara länk i mapp...">
+<!ENTITY savelinkinfolder.options.title "Spara länk i mapp - Inställningar">
+<!ENTITY savelinkinfolder.options.maintab "Generella">
+<!ENTITY savelinkinfolder.options.miscellaneoustab "Övrigt">
+<!ENTITY savelinkinfolder.options.advancedtab "Avancerat">
+<!ENTITY savelinkinfolder.options.new "Ny">
+<!ENTITY savelinkinfolder.options.edit "Redigera">
+<!ENTITY savelinkinfolder.options.delete "Ta bort">
+<!ENTITY savelinkinfolder.options.separator "Avskiljare">
+<!ENTITY savelinkinfolder.options.folders "Mappar">
+<!ENTITY savelinkinfolder.options.description "Beskrivning">
+<!ENTITY savelinkinfolder.options.path "Sökväg">
+<!ENTITY savelinkinfolder.options.opensaveasdialog "Spara som">
+<!ENTITY savelinkinfolder.options.openfolder "Öppna mapp">
+<!ENTITY savelinkinfolder.options.fileprefix "Prefix">
+<!ENTITY savelinkinfolder.options.fileprefixvalue "Prefix-Värde">
+<!ENTITY savelinkinfolder.options.filename "Namn">
+<!ENTITY savelinkinfolder.options.filenamevalue "Namn-Värde">
+<!ENTITY savelinkinfolder.options.filesuffix "Suffix">
+<!ENTITY savelinkinfolder.options.filesuffixvalue "Suffix-Värde">
+<!ENTITY savelinkinfolder.options.duplicatefilename "Filen finns redan">
+<!ENTITY savelinkinfolder.options.general "Generella mappinställningar">
+<!ENTITY savelinkinfolder.options.general-shiftkey "Håll ner Shift vid val av innehåll för högerklicksmeny för att åsidosätta mapparnas individuella inställningar och använd följande istället.">
+<!ENTITY savelinkinfolder.options.general-opensaveasdialog "Visa en 'Spara som...'-dialog innan nerladdning.">
+<!ENTITY savelinkinfolder.options.general-openfolder "Öppna målmappen när nerladdning startar.">
+<!ENTITY savelinkinfolder.options.general-fileprefix "Fil-prefix:">
+<!ENTITY savelinkinfolder.options.general-filename "Fil-namn:">
+<!ENTITY savelinkinfolder.options.general-filesuffix "Fil-suffix:">
+<!ENTITY savelinkinfolder.options.general-duplicatefilename "Om filen redan finns...">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevaluesaveas "Visa 'Spara som...'-dialog">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevalueincrement "Utöka filnamn automatiskt">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevaluecancel "Avbryt nerladdning">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevalueoverwrite "Skriv över filen">
+<!ENTITY savelinkinfolder.options.executable "Exekverbar fil som används för att öppna målmapp">
+<!ENTITY savelinkinfolder.options.executable-description "Ange här exekverbar fil för att öppna målmapp med. Om ej ikryssad kommer tillägget att använda systemets standard för dubbelklick på en mapp (vanligtvis start av 'explorer.exe' i Windows).">
+<!ENTITY savelinkinfolder.options.executable-check "Använd denna exekverbara fil:">
+<!ENTITY savelinkinfolder.options.executable-arguments "Variabler:">
+<!ENTITY savelinkinfolder.options.executable-ctrlkey "Tips: Hål ner Ctrl vid val i högerklicksmeny för att öppna mappen, utan att spara filen.">
+<!ENTITY savelinkinfolder.options.contextmenu "Meny vid högerklick">
+<!ENTITY savelinkinfolder.options.shortcut "Snabbkommando: ">
+<!ENTITY savelinkinfolder.options.numericshortcuts "Visa numeriskt värde för snabbkommando efter de 10 första mapparna.">
+<!ENTITY savelinkinfolder.options.hideinvalidfolders "Dölj mappar med felaktig sökväg (annars inaktiverade).">
+<!ENTITY savelinkinfolder.options.prefs "Firefox-inställningar">
+<!ENTITY savelinkinfolder.options.prefs-description "Efter att ha sparat till en mapp, skriv mappens sökväg till följande Firefox-inställning (prefs.js).">
+<!ENTITY savelinkinfolder.options.prefs-clear "Rensa">
+<!ENTITY savelinkinfolder.options.nofilereference "Länkar utan direkt referens till en fil öppnas med en 'Spara som...'-dialog.">
+<!ENTITY savelinkinfolder.options.hideunknowncontenttype "Dölj mapplista när Firefox känner av ett okänt innehåll/filtyp.">
+<!ENTITY savelinkinfolder.setfolder.title "Mapp">
+<!ENTITY savelinkinfolder.setfolder.description "Beskrivning">
+<!ENTITY savelinkinfolder.setfolder.path "Sökväg">
+<!ENTITY savelinkinfolder.setfolder.individual "Individuell mappinställning">
+<!ENTITY savelinkinfolder.setfolder.individual-opensaveasdialog "Visa en 'Spara som...'-dialog innan nerladdning.">
+<!ENTITY savelinkinfolder.setfolder.individual-openfolder "Öppna målmapp när nerladdning startar.">
+<!ENTITY savelinkinfolder.setfolder.individual-fileprefix "Fil-prefix:">
+<!ENTITY savelinkinfolder.setfolder.individual-filename "Fil-namn:">
+<!ENTITY savelinkinfolder.setfolder.individual-filesuffix "Fil-suffix:">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilename "Om filen redan finns...">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevaluesaveas "Visa 'Spara som...'-dialog">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevalueincrement "Utöka filnamn automatiskt">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevaluecancel "Avbryt nerladdning">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevalueoverwrite "Skriv över filen">
+<!ENTITY savelinkinfolder.notify.file "Fil:">
+<!ENTITY savelinkinfolder.notify.folder "Mapp:">
+<!ENTITY savelinkinfolder.options.notification "Meddelande">
+<!ENTITY savelinkinfolder.options.notification-statusbar "Meddelande i statusfält">
+<!ENTITY savelinkinfolder.options.notification-popupwindow "Popup-ruta">
+<!ENTITY savelinkinfolder.options.notification-duration "Varaktighet (sekunder):">
+<!ENTITY savelinkinfolder.options.helptab "Hjälp">
+<!ENTITY savelinkinfolder.options.website "Besök hemsidan för utförlig bruksanvisning:">
+

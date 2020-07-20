@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/"?>
+
+<!DOCTYPE dialog SYSTEM "chrome://nestedquoteremover/locale/nestedquoteremover.dtd" >
+
+<dialog
+
+        id="NestedQuoteRemoverOptions"
+        title="&nestedquoteremover.label.options.windowtitle;"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        buttons="accept, cancel"
+        onload="onLoad();">
+
+        <script type="application/x-javascript" src="chrome://nestedquoteremover/content/options.js"/>
+
+        <groupbox>
+        <caption label="&nestedquoteremover.label.options.quotedepth;"/>
+        <hbox>
+            <textbox id="quotedepth" defaultpref="1" prefstring="extensions.nestedquoteremover.quotedepth" readonly="true"/>
+            <button id="morequotedepth" onclick="moreQuoteDepth();" label="+"/>
+            <button id="lessquotedepth" onclick="lessQuoteDepth();" label="-"/>
+        </hbox>
+        </groupbox>
+
+        <groupbox>
+                <caption label="&nestedquoteremover.label.options.shortcut.groupbox;"/>
+                <hbox flex="1">
+                        <menulist id="shortcut_key" prefstring="extensions.nestedquoteremover.shortcut_key" defaultpref="N">
+                                <menupopup>
+                                        <menuseparator/>
+                                        <menuitem label="A"/>
+                                        <menuitem label="B"/>
+                                        <menuitem label="C"/>
+                                        <menuitem label="D"/>
+                                        <menuitem label="E"/>
+                                        <menuitem label="F"/>
+                                        <menuitem label="G"/>
+                                        <menuitem label="H"/>
+                                        <menuitem label="I"/>
+                                        <menuitem label="J"/>
+                                        <menuitem label="K"/>
+                                        <menuitem label="L"/>
+                                        <menuitem label="M"/>
+                                        <menuitem label="N"/>
+                                        <menuitem label="O"/>
+                                        <menuitem label="P"/>
+                                        <menuitem label="Q"/>
+                                        <menuitem label="R"/>
+                                        <menuitem label="S"/>
+                                        <menuitem label="T"/>
+                                        <menuitem label="U"/>
+                                        <menuitem label="V"/>
+                                        <menuitem label="W"/>
+                                        <menuitem label="X"/>
+                                        <menuitem label="Y"/>
+                                        <menuitem label="Z"/>
+                                </menupopup>
+                        </menulist>
+
+                        <checkbox id="shortcut_modifier_accel" label="&nestedquoteremover.label.options.shortcut.accel;" prefstring="extensions.nestedquoteremover.shortcut_modifier_accel" defaultpref="false"/>
+                        <checkbox id="shortcut_modifier_alt" label="&nestedquoteremover.label.options.shortcut.alt;" prefstring="extensions.nestedquoteremover.shortcut_modifier_alt" defaultpref="false"/>
+                        <checkbox id="shortcut_modifier_control" label="&nestedquoteremover.label.options.shortcut.control;" prefstring="extensions.nestedquoteremover.shortcut_modifier_control" defaultpref="true"/>
+                        <checkbox id="shortcut_modifier_meta" label="&nestedquoteremover.label.options.shortcut.meta;" prefstring="extensions.nestedquoteremover.shortcut_modifier_meta" defaultpref="false"/>
+                        <checkbox id="shortcut_modifier_shift" label="&nestedquoteremover.label.options.shortcut.shift;" prefstring="extensions.nestedquoteremover.shortcut_modifier_shift" defaultpref="true"/>
+                </hbox>
+        </groupbox>
+
+    <checkbox id="autoremove" label="&nestedquoteremover.label.options.autoremove;" prefstring="extensions.nestedquoteremover.autoremove" defaultpref="false"/>
+    <checkbox id="contextmenu" label="&nestedquoteremover.label.options.contextmenu;" prefstring="extensions.nestedquoteremover.contextmenu" defaultpref="true"/>
+
+</dialog>

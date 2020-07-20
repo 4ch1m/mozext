@@ -1,0 +1,25 @@
+content saveimageinfolder jar:chrome/saveimageinfolder.jar!/content/
+skin    saveimageinfolder classic/1.0 jar:chrome/saveimageinfolder.jar!/skin/classic/
+overlay chrome://browser/content/browser.xul chrome://saveimageinfolder/content/saveimageinfolder.xul
+style chrome://global/content/customizeToolbar.xul chrome://saveimageinfolder/skin/saveimageinfolder.css
+locale  saveimageinfolder en-US jar:chrome/saveimageinfolder.jar!/locale/en-US/
+locale  saveimageinfolder de-DE jar:chrome/saveimageinfolder.jar!/locale/de-DE/
+locale  saveimageinfolder it-IT jar:chrome/saveimageinfolder.jar!/locale/it-IT/
+locale  saveimageinfolder es-ES jar:chrome/saveimageinfolder.jar!/locale/es-ES/
+locale  saveimageinfolder nl-NL jar:chrome/saveimageinfolder.jar!/locale/nl-NL/
+locale  saveimageinfolder fr-FR jar:chrome/saveimageinfolder.jar!/locale/fr-FR/
+locale  saveimageinfolder zh-TW jar:chrome/saveimageinfolder.jar!/locale/zh-TW/
+locale  saveimageinfolder pl-PL jar:chrome/saveimageinfolder.jar!/locale/pl-PL/
+locale  saveimageinfolder ja-JP jar:chrome/saveimageinfolder.jar!/locale/ja-JP/
+locale  saveimageinfolder hu-HU jar:chrome/saveimageinfolder.jar!/locale/hu-HU/
+locale  saveimageinfolder ru-RU jar:chrome/saveimageinfolder.jar!/locale/ru-RU/
+locale  saveimageinfolder tr-TR jar:chrome/saveimageinfolder.jar!/locale/tr-TR/
+locale  saveimageinfolder sk-SK jar:chrome/saveimageinfolder.jar!/locale/sk-SK/
+#locale  saveimageinfolder fy-NL jar:chrome/saveimageinfolder.jar!/locale/fy-NL/
+locale  saveimageinfolder pt-BR jar:chrome/saveimageinfolder.jar!/locale/pt-BR/
+#locale  saveimageinfolder uk-UA jar:chrome/saveimageinfolder.jar!/locale/uk-UA/
+#locale  saveimageinfolder be-BY jar:chrome/saveimageinfolder.jar!/locale/be-BY/
+locale  saveimageinfolder sv-SE jar:chrome/saveimageinfolder.jar!/locale/sv-SE/
+locale  saveimageinfolder sr-YU jar:chrome/saveimageinfolder.jar!/locale/sr-YU/
+locale  saveimageinfolder zh-CN jar:chrome/saveimageinfolder.jar!/locale/zh-CN/
+locale  saveimageinfolder sl-SL jar:chrome/saveimageinfolder.jar!/locale/sl-SL/

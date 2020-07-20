@@ -1,0 +1,71 @@
+<!ENTITY saveimageinfolder.toolbar.label "����">
+<!ENTITY saveimageinfolder.toolbar.tooltip "����� ���">
+<!ENTITY saveimageinfolder.context.label "Save Image in Folder...">
+<!ENTITY saveimageinfolder.options.title "Save Image in Folder - ������������">
+<!ENTITY saveimageinfolder.options.maintab "�������">
+<!ENTITY saveimageinfolder.options.miscellaneoustab "г��">
+<!ENTITY saveimageinfolder.options.advancedtab "��������">
+<!ENTITY saveimageinfolder.options.new "�����">
+<!ENTITY saveimageinfolder.options.edit "����������">
+<!ENTITY saveimageinfolder.options.delete "��������">
+<!ENTITY saveimageinfolder.options.separator "���������">
+<!ENTITY saveimageinfolder.options.folders "����">
+<!ENTITY saveimageinfolder.options.description "����">
+<!ENTITY saveimageinfolder.options.path "����">
+<!ENTITY saveimageinfolder.options.opensaveasdialog "�������� ��">
+<!ENTITY saveimageinfolder.options.openfolder "³������ ����">
+<!ENTITY saveimageinfolder.options.fileprefix "���������">
+<!ENTITY saveimageinfolder.options.fileprefixvalue "�������� ���������">
+<!ENTITY saveimageinfolder.options.filename "???Name">
+<!ENTITY saveimageinfolder.options.filenamevalue "???Name-Value">
+<!ENTITY saveimageinfolder.options.filesuffix "�����">
+<!ENTITY saveimageinfolder.options.filesuffixvalue "�������� ������">
+<!ENTITY saveimageinfolder.options.duplicatefilename "������� ���� �����">
+<!ENTITY saveimageinfolder.options.general "������ ������������ ���">
+<!ENTITY saveimageinfolder.options.general-shiftkey "�������� � ��������� Shift, ��� ������� ���� ���� � ���������� ���������� ��� ����� ������ ������������.">
+<!ENTITY saveimageinfolder.options.general-opensaveasdialog "³�������� ���� '�������� ��...' ����� �������������.">
+<!ENTITY saveimageinfolder.options.general-openfolder "³������ ������ ���� ���� ������� ������������.">
+<!ENTITY saveimageinfolder.options.general-fileprefix "��������� �����:">
+<!ENTITY saveimageinfolder.options.general-filename "???File-name:">
+<!ENTITY saveimageinfolder.options.general-filesuffix "����� �����:">
+<!ENTITY saveimageinfolder.options.general-duplicatefilename "���� � ������� ���� �����...">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevaluesaveas "���������� ���� '�������� ��...'">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevalueincrement "����������� ���������� ��'� �����">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevaluecancel "³������ ������������">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevalueoverwrite "���������� ����">
+<!ENTITY saveimageinfolder.options.executable "��������, ��������������� ��� �������� ������ ����">
+<!ENTITY saveimageinfolder.options.executable-description "��� �� ������ ������� ���� ��������, ��� ������� ������� ����. ���� ������� �� �����������, �� ��� ��������� ��� �� ���, ���������������� �� ������� ����������� �� ���������� (��� Windows �� &apos;explorer.exe&apos;).">
+<!ENTITY saveimageinfolder.options.executable-check "�������������� �� ��������:">
+<!ENTITY saveimageinfolder.options.executable-arguments "���������:">
+<!ENTITY saveimageinfolder.options.executable-ctrlkey "ϳ������: ���� ��������� � ���������� ������ Ctrl ��� ����� ���� � ������������ ����, �� ��������� ����, ��� ���� �� ���� ����������.">
+<!ENTITY saveimageinfolder.options.contextmenu "���������� ����">
+<!ENTITY saveimageinfolder.options.shortcut "��������� ����������: ">
+<!ENTITY saveimageinfolder.options.numericshortcuts "���������� ������ ���������� ��� ������ ������ ���.">
+<!ENTITY saveimageinfolder.options.hideinvalidfolders "����������� ���� � �������������� ������ (������ ���� ������ ����� ����������).">
+<!ENTITY saveimageinfolder.options.prefs "������������ Firefox">
+<!ENTITY saveimageinfolder.options.prefs-description "ϳ��� ����, �� ���� ���������� � ����, �������� ���� � ������������� Firefox (prefs.js).">
+<!ENTITY saveimageinfolder.options.prefs-clear "��������">
+<!ENTITY saveimageinfolder.options.doubleclick "������������ ����� ��������� ���� �� ��������� ������������� ���������� �� ���������� ���� �� ���������� ������������� ����. (�� ���� �������� � �� ���� ���������������� Firefox.)">
+<!ENTITY saveimageinfolder.options.usecache "???Use the browsers cache to save the image instead of invoking the download-manager. (More performance but less traceability.)">
+<!ENTITY saveimageinfolder.setfolder.title "����">
+<!ENTITY saveimageinfolder.setfolder.description "����">
+<!ENTITY saveimageinfolder.setfolder.path "����">
+<!ENTITY saveimageinfolder.setfolder.individual "����������� ������������ ���">
+<!ENTITY saveimageinfolder.setfolder.individual-opensaveasdialog "³�������� ���� '�������� ��...' ����� �������������.">
+<!ENTITY saveimageinfolder.setfolder.individual-openfolder "³������ ������ ���� ���� ������� ������������.">
+<!ENTITY saveimageinfolder.setfolder.individual-fileprefix "��������� �����:">
+<!ENTITY saveimageinfolder.setfolder.individual-filename "???File-name:">
+<!ENTITY saveimageinfolder.setfolder.individual-filesuffix "����� �����:">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilename "���� � ������� ���� �����...">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevaluesaveas "�������� ���� '�������� ��...'">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevalueincrement "����������� ���������� ��'� �����">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevaluecancel "³������ ������������">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevalueoverwrite "������������ ����">
+<!ENTITY saveimageinfolder.notify.file "???File:">
+<!ENTITY saveimageinfolder.notify.folder "???Folder:">
+<!ENTITY saveimageinfolder.options.notification "???Notification">
+<!ENTITY saveimageinfolder.options.notification-statusbar "???Status-Bar message">
+<!ENTITY saveimageinfolder.options.notification-popupwindow "???Popup window">
+<!ENTITY saveimageinfolder.options.notification-duration "???Duration (seconds):">
+<!ENTITY saveimageinfolder.options.helptab "???Help">
+<!ENTITY saveimageinfolder.options.website "???Please visit this website for detailed instructions:">

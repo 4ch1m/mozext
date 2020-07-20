@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/"?>
+
+<!DOCTYPE dialog SYSTEM "chrome://newmailexecute/locale/newmailexecute.dtd" >
+
+<dialog
+
+        id="NewMailExecuteOptions"
+        title="&newmailexecute.options.windowtitle;"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        buttons="accept, cancel"
+        onload="onLoad();"
+        ondialogaccept="onDialogAccept();"
+        ondialogcancel="onDialogCancel();">
+
+    <script type="application/x-javascript" src="chrome://newmailexecute/content/options.js"/>
+
+    <stringbundleset id="stringbundleset">
+        <stringbundle id="newmailexecute.locale" src="chrome://newmailexecute/locale/newmailexecute.properties"/>
+    </stringbundleset>
+
+        <groupbox orient="vertical">
+            <caption label="&newmailexecute.options.executable;"/>
+                <grid flex="1">
+                    <columns>
+                        <column/>
+                        <column flex="1"/>
+                        <column/>
+                    </columns>
+                    <rows>
+                        <row>
+                            <label control="path" value="&newmailexecute.options.path;"/>
+                            <textbox id="path" prefstring="extensions.newmailexecute.path" defaultpref=""/>
+                            <button label="..." id="executable-pick" oncommand="return onPickExecutable();"/>
+                        </row>
+                        <row>
+                            <label control="arguments" value="&newmailexecute.options.arguments;"/>
+                            <textbox id="arguments" prefstring="extensions.newmailexecute.arguments" defaultpref="%folder%"/>
+                            <description/>
+                        </row>
+                    </rows>
+                </grid>
+        </groupbox>
+
+
+</dialog>

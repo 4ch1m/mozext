@@ -1,0 +1,14 @@
+<!ENTITY nestedquoteremover.label.options.windowtitle "Настройки NestedQuote Remover">
+<!ENTITY nestedquoteremover.label.options.quotedepth "Макимальная допустимая глубина цитирования:">
+<!ENTITY nestedquoteremover.label.options.autoremove "Удалять лишние цитирования автоматически">
+<!ENTITY nestedquoteremover.label.options.contextmenu "Показывать в контекстном меню">
+<!ENTITY nestedquoteremover.label.options.shortcut.groupbox "Горячая клавиша:">
+<!ENTITY nestedquoteremover.label.options.shortcut.accel "Accelerator">
+<!ENTITY nestedquoteremover.label.options.shortcut.alt "Alt">
+<!ENTITY nestedquoteremover.label.options.shortcut.control "Control">
+<!ENTITY nestedquoteremover.label.options.shortcut.meta "Meta">
+<!ENTITY nestedquoteremover.label.options.shortcut.shift "Shift">
+<!ENTITY nestedquoteremover.label.toolbar "Цитирования">
+<!ENTITY nestedquoteremover.label.menupopup "Удалить лишние цитирования">
+<!ENTITY nestedquoteremover.label.context "Удалить лишние цитирования">
+<!ENTITY nestedquoteremover.tooltip.toolbar "Удаляет лишние цитирования">

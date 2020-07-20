@@ -1,0 +1,7 @@
+content newmailexecute jar:chrome/newmailexecute.jar!/content/
+skin    newmailexecute classic/1.0 jar:chrome/newmailexecute.jar!/skin/classic/
+overlay chrome://messenger/content/messengercompose/messengercompose.xul chrome://newmailexecute/content/newmailexecute.xul
+style chrome://global/content/customizeToolbar.xul chrome://newmailexecute/skin/newmailexecute.css
+locale newmailexecute en-US jar:chrome/newmailexecute.jar!/locale/en-US/
+#locale newmailexecute sr-YU jar:chrome/newmailexecute.jar!/locale/sr-YU/
+locale newmailexecute sl-SL jar:chrome/newmailexecute.jar!/locale/sl-SL/

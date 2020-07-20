@@ -1,0 +1,72 @@
+<!ENTITY saveimageinfolder.toolbar.label "Dossiers">
+<!ENTITY saveimageinfolder.toolbar.tooltip "Parcourir les dossiers">
+<!ENTITY saveimageinfolder.context.label "Enregistrer l'image dans le dossier...">
+<!ENTITY saveimageinfolder.options.title "Options de Save Image in Folder - ">
+<!ENTITY saveimageinfolder.options.maintab "Principales">
+<!ENTITY saveimageinfolder.options.miscellaneoustab "Diverses">
+<!ENTITY saveimageinfolder.options.advancedtab "Avancées">
+<!ENTITY saveimageinfolder.options.new "Nouveau">
+<!ENTITY saveimageinfolder.options.edit "Éditer">
+<!ENTITY saveimageinfolder.options.delete "Supprimer">
+<!ENTITY saveimageinfolder.options.separator "Séparateur">
+<!ENTITY saveimageinfolder.options.folders "Dossiers">
+<!ENTITY saveimageinfolder.options.description "Description">
+<!ENTITY saveimageinfolder.options.path "Chemin">
+<!ENTITY saveimageinfolder.options.opensaveasdialog "Enregistrer sous">
+<!ENTITY saveimageinfolder.options.openfolder "Ouvrir le dossier">
+<!ENTITY saveimageinfolder.options.fileprefix "Préfixe">
+<!ENTITY saveimageinfolder.options.fileprefixvalue "Valeur du préfixe">
+<!ENTITY saveimageinfolder.options.filename "Nom">
+<!ENTITY saveimageinfolder.options.filenamevalue "Valeur du nom">
+<!ENTITY saveimageinfolder.options.filesuffix "Suffixe">
+<!ENTITY saveimageinfolder.options.filesuffixvalue "Valeur du suffixe">
+<!ENTITY saveimageinfolder.options.duplicatefilename "Nom de fichier déjà existant">
+<!ENTITY saveimageinfolder.options.general "Options générales des dossiers">
+<!ENTITY saveimageinfolder.options.general-shiftkey "Enfoncez la touche majuscule en choisissant un élément du menu contextuel pour remplacer les paramètres particuliers du dossier par ceux qui suivent.">
+<!ENTITY saveimageinfolder.options.general-opensaveasdialog "Proposer 'Enregistrer sous...' avant de télécharger.">
+<!ENTITY saveimageinfolder.options.general-openfolder "Ouvrir le dossier de destination quand le téléchargement commence.">
+<!ENTITY saveimageinfolder.options.general-fileprefix "Préfixe du fichier :">
+<!ENTITY saveimageinfolder.options.general-filename "Nom du fichier :">
+<!ENTITY saveimageinfolder.options.general-filesuffix "Suffixe du fichier :">
+<!ENTITY saveimageinfolder.options.general-duplicatefilename "Si le nom de fichier est déjà existant...">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevaluesaveas "Ouvrir la fenêtre 'Enregistrez sous...'">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevalueincrement "Incrémenter le nom du fichier d'une unité">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevaluecancel "Annuler le téléchargement">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevalueoverwrite "Écraser le fichier précédent">
+<!ENTITY saveimageinfolder.options.executable "Application utilisée pour ouvrir le dossier-cible">
+<!ENTITY saveimageinfolder.options.executable-description "Vous pouvez ici choisir une autre application pour ouvrir le dossier-cible. Si vous ne cochez pas, l'extension utilisera l'action par défaut au double-clic sur un dossier. (Ce qui lance généralement 'explorer.exe' sous Windows">
+<!ENTITY saveimageinfolder.options.executable-check "Utiliser cette application :">
+<!ENTITY saveimageinfolder.options.executable-arguments "Arguments :">
+<!ENTITY saveimageinfolder.options.executable-ctrlkey "Appuyer sur la touche ctrl en sélectionnant un élément du menu contextuel pour ouvrir un dossier sans enregistrer le ficher.">
+<!ENTITY saveimageinfolder.options.contextmenu "Menu contextuel">
+<!ENTITY saveimageinfolder.options.shortcut "Raccourci clavier :">
+<!ENTITY saveimageinfolder.options.numericshortcuts "Affiche des raccourcis numériques suivant les 10 dernières entrées">
+<!ENTITY saveimageinfolder.options.hideinvalidfolders "Cacher les dossiers dont le chemin est invalide (sinon ils seront simplement désactivés).">
+<!ENTITY saveimageinfolder.options.prefs "Préférences de Firefox">
+<!ENTITY saveimageinfolder.options.prefs-description "Après avoir enregsitré dans un dossier écrivez son chemin dans les préférences de Firefox (prefs.js).">
+<!ENTITY saveimageinfolder.options.prefs-clear "Effacer">
+<!ENTITY saveimageinfolder.options.doubleclick "Un double clic gauche sur une image l'enregistre dans le dernier dossier utilisé. (Cette option nécessite un redémarrage de Firefox pour prendre effet.)">
+<!ENTITY saveimageinfolder.options.usecache "Utioliser le cache du navigateur pour enregistrer l'image au lieu de faire appel au gestionnaire de téléchargement. (Les performances seront meilleures mais la traçabilité moins importante.)">
+<!ENTITY saveimageinfolder.setfolder.title "Dossier">
+<!ENTITY saveimageinfolder.setfolder.description "Description">
+<!ENTITY saveimageinfolder.setfolder.path "Chemin">
+<!ENTITY saveimageinfolder.setfolder.individual "Paramètres du dossier personnel">
+<!ENTITY saveimageinfolder.setfolder.individual-opensaveasdialog "Proposer 'Enregistrer sous...' avant de télécharger.">
+<!ENTITY saveimageinfolder.setfolder.individual-openfolder "Ouvrir le dossier de destination quand le téléchargement commence.">
+<!ENTITY saveimageinfolder.setfolder.individual-fileprefix "Préfixe du fichier :">
+<!ENTITY saveimageinfolder.setfolder.individual-filename "Nom du fichier :">
+<!ENTITY saveimageinfolder.setfolder.individual-filesuffix "Suffixe du fichier :">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilename "Si le nom de fichier est déjà existant...">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevaluesaveas "Ouvrir la fenêtre 'Enregistrez sous...'">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevalueincrement "Incrémenter le nom du fichier d'une unité">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevaluecancel "Annuler le téléchargement">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevalueoverwrite "Écraser le fichier précédent">
+<!ENTITY saveimageinfolder.notify.file "Fichier :">
+<!ENTITY saveimageinfolder.notify.folder "Dossier :">
+<!ENTITY saveimageinfolder.options.notification "Notification">
+<!ENTITY saveimageinfolder.options.notification-statusbar "Message dans la barre d'état">
+<!ENTITY saveimageinfolder.options.notification-popupwindow "Fenêtre popup">
+<!ENTITY saveimageinfolder.options.notification-duration "Durée (en secondes) :">
+<!ENTITY saveimageinfolder.options.helptab "Aide">
+<!ENTITY saveimageinfolder.options.website "Veuillez vous rendre sur le site Web de l'extension pour de plus amples informations :">
+

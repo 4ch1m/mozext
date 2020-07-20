@@ -1,0 +1,14 @@
+<!ENTITY nestedquoteremover.label.options.windowtitle "NestedQuote Remover Options">
+<!ENTITY nestedquoteremover.label.options.quotedepth "Maximum quote depth allowed:">
+<!ENTITY nestedquoteremover.label.options.autoremove "Remove nested quotes automatically">
+<!ENTITY nestedquoteremover.label.options.contextmenu "Show context-menu entry">
+<!ENTITY nestedquoteremover.label.options.shortcut.groupbox "Keyboard shortcut:">
+<!ENTITY nestedquoteremover.label.options.shortcut.accel "Accelerator">
+<!ENTITY nestedquoteremover.label.options.shortcut.alt "Alt">
+<!ENTITY nestedquoteremover.label.options.shortcut.control "Control">
+<!ENTITY nestedquoteremover.label.options.shortcut.meta "Meta">
+<!ENTITY nestedquoteremover.label.options.shortcut.shift "Shift">
+<!ENTITY nestedquoteremover.label.toolbar "Quotes">
+<!ENTITY nestedquoteremover.label.menupopup "Remove nested quotes">
+<!ENTITY nestedquoteremover.label.context "Remove nested quotes">
+<!ENTITY nestedquoteremover.tooltip.toolbar "Removes nested quotes">

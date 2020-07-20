@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://savelinkinfolder/skin/options.css" type="text/css"?>
+
+<!DOCTYPE dialog SYSTEM "chrome://savelinkinfolder/locale/savelinkinfolder.dtd">
+
+<dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        id="savelinkinfolderSetFolder"
+        minwidth="450"
+        onload="return onLoad();"
+        ondialogaccept="return onDialogAccept();"
+        ondialogcancel="return onDialogCancel();"
+        buttons="accept,cancel"
+        title="&savelinkinfolder.setfolder.title;">
+
+    <script type="application/x-javascript" src="chrome://savelinkinfolder/content/setfolder.js"/>
+
+    <stringbundleset id="stringbundleset">
+        <stringbundle id="savelinkinfolder.locale" src="chrome://savelinkinfolder/locale/savelinkinfolder.properties"/>
+    </stringbundleset>
+
+    <grid>
+        <columns>
+            <column/>
+            <column flex="1"/>
+        </columns>
+        <rows>
+            <row>
+                <hbox align="center">
+                    <label control="description" value="&savelinkinfolder.setfolder.description;"/>
+                </hbox>
+                <hbox align="center">
+                    <textbox flex="1" id="description"/>
+                </hbox>
+            </row>
+            <row>
+                <hbox align="center">
+                    <label control="path" value="&savelinkinfolder.setfolder.path;"/>
+                </hbox>
+                <hbox>
+                    <textbox flex="1" id="path"/>
+                    <button class="browse" id="pickFolder" oncommand="return onPickFolder();"/>
+                </hbox>
+            </row>
+        </rows>
+    </grid>
+
+    <groupbox flex="1">
+        <caption label="&savelinkinfolder.setfolder.individual;"/>
+        <checkbox id="opensaveasdialog" label="&savelinkinfolder.setfolder.individual-opensaveasdialog;"/>
+        <checkbox id="openfolder" label="&savelinkinfolder.setfolder.individual-openfolder;"/>
+        <grid flex="1">
+            <columns>
+                <column />
+                <column flex="1"/>
+            </columns>
+            <rows>
+                <row>
+                    <checkbox id="fileprefix" label="&savelinkinfolder.setfolder.individual-fileprefix;"/>
+                    <textbox id="fileprefixvalue"/>
+                </row>
+                <row>
+                    <checkbox id="filename" label="&savelinkinfolder.setfolder.individual-filename;"/>
+                    <textbox id="filenamevalue"/>
+                </row>
+                <row>
+                    <checkbox id="filesuffix" label="&savelinkinfolder.setfolder.individual-filesuffix;"/>
+                    <textbox id="filesuffixvalue"/>
+                </row>
+            </rows>
+        </grid>
+                <description style="margin-top:10px;">&savelinkinfolder.setfolder.individual-duplicatefilename;</description>
+                <radiogroup id="duplicatefilenamevalue" prefstring="extensions.savelinkinfolder.individual-duplicatefilenamevalue">
+                        <radio value="0" id="duplicatefilenamevaluesaveas" label="&savelinkinfolder.setfolder.individual-duplicatefilenamevaluesaveas;" style="margin-left:10px;"/>
+                        <radio value="1" id="duplicatefilenamevalueincrement" label="&savelinkinfolder.setfolder.individual-duplicatefilenamevalueincrement;" style="margin-left:10px;"/>
+                        <radio value="2" id="duplicatefilenamevaluecancel" label="&savelinkinfolder.setfolder.individual-duplicatefilenamevaluecancel;" style="margin-left:10px;"/>
+                        <radio value="3" id="duplicatefilenamevalueoverwrite" label="&savelinkinfolder.setfolder.individual-duplicatefilenamevalueoverwrite;" style="margin-left:10px;"/>
+                </radiogroup>
+    </groupbox>
+
+</dialog>

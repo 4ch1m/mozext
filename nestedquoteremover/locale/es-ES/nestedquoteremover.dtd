@@ -1,0 +1,14 @@
+<!ENTITY nestedquoteremover.label.options.windowtitle "Opciones NestedQuote Remover">
+<!ENTITY nestedquoteremover.label.options.quotedepth "Nivel máximo de citas permitido:">
+<!ENTITY nestedquoteremover.label.options.autoremove "Eliminar automáticamente citas anidadas">
+<!ENTITY nestedquoteremover.label.options.contextmenu "Mostrar entrada en menú contextual">
+<!ENTITY nestedquoteremover.label.options.shortcut.groupbox "Combinación de teclas:">
+<!ENTITY nestedquoteremover.label.options.shortcut.accel "Accelerator">
+<!ENTITY nestedquoteremover.label.options.shortcut.alt "Alt">
+<!ENTITY nestedquoteremover.label.options.shortcut.control "Control">
+<!ENTITY nestedquoteremover.label.options.shortcut.meta "Meta">
+<!ENTITY nestedquoteremover.label.options.shortcut.shift "Mayús">
+<!ENTITY nestedquoteremover.label.toolbar "Citas">
+<!ENTITY nestedquoteremover.label.menupopup "Eliminar citas anidadas">
+<!ENTITY nestedquoteremover.label.context "Eliminar citas anidadas">
+<!ENTITY nestedquoteremover.tooltip.toolbar "Eliminar citas anidadas">

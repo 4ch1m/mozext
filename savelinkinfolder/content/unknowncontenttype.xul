@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE overlay SYSTEM "chrome://savelinkinfolder/locale/savelinkinfolder.dtd">
+
+<overlay id="savelinkinfolderUnkownContentType" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+  <radiogroup id="mode">
+     <hbox insertbefore="save" id="slif_box">
+        <radio id="slif_radio" label="Save Link in Folder..."/>
+        <menulist id="slif_menulist" flex="1">
+           <menupopup id="slif_menupopup"/>
+        </menulist>
+     </hbox>
+  </radiogroup>
+
+  <script type="application/x-javascript" src="chrome://savelinkinfolder/content/unknowncontenttype.js"/>
+
+ </overlay>
+ 

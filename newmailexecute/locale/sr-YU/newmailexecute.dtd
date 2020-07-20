@@ -1,0 +1,4 @@
+<!ENTITY newmailexecute.options.windowtitle "NewMail Execute - Опције">
+<!ENTITY newmailexecute.options.executable "Извршна датотека">
+<!ENTITY newmailexecute.options.path "Путања:">
+<!ENTITY newmailexecute.options.arguments "Аргументи позива:">

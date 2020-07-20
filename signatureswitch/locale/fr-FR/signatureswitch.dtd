@@ -1,0 +1,69 @@
+<!ENTITY signatureswitch.label.options.windowtitle "Options de SignatureSwitch ">
+<!ENTITY signatureswitch.label.options.maintab "Principales">
+<!ENTITY signatureswitch.label.options.advancedtab "Avancées">
+<!ENTITY signatureswitch.label.options.tree.signatures "Signatures">
+<!ENTITY signatureswitch.label.options.tree.default "Par défaut">
+<!ENTITY signatureswitch.label.options.tree.description "Description">
+<!ENTITY signatureswitch.label.options.tree.path "Chemin">
+<!ENTITY signatureswitch.label.options.tree.shortcut "Raccourci clavier">
+<!ENTITY signatureswitch.label.options.tree.addresses "Adresses">
+<!ENTITY signatureswitch.label.options.tree.newsgroups "Forums">
+<!ENTITY signatureswitch.label.options.button.new "Nouvelle">
+<!ENTITY signatureswitch.label.options.button.edit "Modifier">
+<!ENTITY signatureswitch.label.options.button.delete "Supprimer">
+<!ENTITY signatureswitch.label.options.offbydefault "Par défaut, désactiver la signature ">
+<!ENTITY signatureswitch.label.options.contextmenu "Montrer 'Signature Switch' dans le menu contextuel (clic-droit)">
+<!ENTITY signatureswitch.label.options.shortcut.groupbox "Raccourcis-clavier">
+<!ENTITY signatureswitch.label.options.shortcut.accel "Accel">
+<!ENTITY signatureswitch.label.options.shortcut.alt "Alt">
+<!ENTITY signatureswitch.label.options.shortcut.control "Control">
+<!ENTITY signatureswitch.label.options.shortcut.meta "Méta">
+<!ENTITY signatureswitch.label.options.shortcut.shift "Shift">
+<!ENTITY signatureswitch.label.options.encoding "Encodage">
+<!ENTITY signatureswitch.label.options.encoding-description "Voici l'encodage qui sera utilisé pour convertir le fichier de signature téléchargé. Veuillez ne le changer que si vous êtes certain(e) de ce que vous faites !">
+<!ENTITY signatureswitch.label.setsignature.title "Paramétrer la signature">
+<!ENTITY signatureswitch.label.setsignature.description "Description">
+<!ENTITY signatureswitch.label.setsignature.path "Chemin">
+<!ENTITY signatureswitch.label.setsignature.shortcut "Raccourci clavier">
+<!ENTITY signatureswitch.label.setsignature.shortcut.accel "Accel">
+<!ENTITY signatureswitch.label.setsignature.shortcut.alt "Alt">
+<!ENTITY signatureswitch.label.setsignature.shortcut.control "Control">
+<!ENTITY signatureswitch.label.setsignature.shortcut.meta "Méta">
+<!ENTITY signatureswitch.label.setsignature.shortcut.shift "Shift">
+<!ENTITY signatureswitch.label.setsignature.autoswitch "Changement automatique (facultatif):">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.description.addresses "À chaque fois que une des adresses mél répertoriées ici se trouve parmi les destinataires (pas en CC ni BCC!), cette signature sera sélectionnée automatiquement.">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.description.newsgroups "Examiner les hôtes des fourms est également possible :">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.description.wildcard1 "le caractère '?' peut être utilisé comme joker.">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.description.wildcard2 "(Par exemple : '?@mozilla.com', 'test@?.com' ou 't?t@m?a.c?' seront pris en compte quand 'test@mozilla.com' sera entré comme destinataire.)">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.address "Adresse mél :">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.newsgroup "Forum :">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.add "Ajouter &gt;">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.remove "&lt; Supprimer">
+<!ENTITY signatureswitch.label.toolbar "Signature">
+<!ENTITY signatureswitch.label.menu "Signature Switch">
+<!ENTITY signatureswitch.label.context "Signature Switch">
+<!ENTITY signatureswitch.tooltip.toolbar "Active/désactive la signature">
+<!ENTITY signatureswitch.label.options.helptab "Aide">
+<!ENTITY signatureswitch.label.options.website "Veuillez vous rendre sur ce site Web pour des informations complémentaires :">
+<!ENTITY signatureswitch.label.options.composer "Éditeur">
+<!ENTITY signatureswitch.label.options.composer-description "Éditeur de texte avec lequel écrire votre signature. (Cliquez sur OK après une modification.)">
+<!ENTITY signatureswitch.label.options.misctab "Diverses">
+<!ENTITY signatureswitch.label.create.title "Création de signature">
+<!ENTITY signatureswitch.label.create.doesntexist "Le fichier de signature que vous avez entré n'existe pas.">
+<!ENTITY signatureswitch.label.create.question "Voulez-vous le créer ?">
+<!ENTITY signatureswitch.label.setsignature.addresstab "Adresses">
+<!ENTITY signatureswitch.label.setsignature.newsgrouptab "Listes de news">
+<!ENTITY signatureswitch.label.setsignature.mailinglisttab "Listes de diffusion">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.mailinglist "Liste de diffusion :">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.description.mailinglists "Le nom de la liste de diffusion dans la zone de destinataire peut également déclencher l'autocommutation.">
+<!ENTITY signatureswitch.label.options.tree.mailinglists "Listes de diffusion">
+<!ENTITY signatureswitch.label.mailinglist.title "Listes de diffusion">
+<!ENTITY signatureswitch.label.mailinglist.available "Listes de diffusion disponibles en ce moment :">
+<!ENTITY signatureswitch.label.options.autoswitchpriority "Priorité pour l'autocommutation">
+<!ENTITY signatureswitch.label.options.shortcut.onoff "Activer/désactiver :">
+<!ENTITY signatureswitch.label.options.shortcut.cycle "En boucle :">
+<!ENTITY signatureswitch.label.options.preloadexecutable "Pré-charger l'exécutable">
+<!ENTITY signatureswitch.label.options.preloadexecutable-description "Lance un programme externe avant de charger ensuite le fichier de signature sélectionné.">
+<!ENTITY signatureswitch.label.options.preloadexecutableusage "Utiliser cet exécutable:">
+<!ENTITY signatureswitch.label.options.preloadexecutablewait "Attendez que cet programme ait terminé.">
+<!ENTITY signatureswitch.label.options.preloadexecutablehelp "Consultez l'aide pour en savoir plus sur les arguments utilisables et voir des exemples d'utilisation.">

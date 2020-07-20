@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+	<Description about="urn:mozilla:install-manifest">
+		<em:id>{2ab1b709-ba03-4361-abf9-c50b964ff75d}</em:id>
+        <em:type>2</em:type>
+		<em:name>Signature Switch</em:name>
+		<em:description>Switch the signature on/off or choose a new one from your predefined set.</em:description>
+		<em:creator>Achim Seufert</em:creator>
+		<em:version>1.8.2</em:version>
+		<em:iconURL>chrome://signatureswitch/skin/signatureswitch32.png</em:iconURL>
+		<em:homepageURL>http://mozext.achimonline.de</em:homepageURL>
+		<em:optionsURL>chrome://signatureswitch/content/options.xul</em:optionsURL>
+		<em:targetApplication>
+			<Description>
+				<em:id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</em:id>
+				<em:minVersion>61.*</em:minVersion>
+				<em:maxVersion>70.*</em:maxVersion>
+			</Description>
+		</em:targetApplication>
+		<em:file>
+			<Description about="urn:mozilla:extension:file:signatureswitch.jar">
+				<em:package>content/</em:package>
+				<em:skin>skin/classic/</em:skin>
+				<em:locale>locale/en-US/</em:locale>
+				<em:locale>locale/de-DE/</em:locale>
+				<em:locale>locale/it-IT/</em:locale>
+				<em:locale>locale/es-ES/</em:locale>
+				<em:locale>locale/nl-NL/</em:locale>
+				<em:locale>locale/fr-FR/</em:locale>
+				<!-- <em:locale>locale/zh-TW/</em:locale> -->
+				<em:locale>locale/pl-PL/</em:locale>
+				<em:locale>locale/ru-RU/</em:locale>
+				<em:locale>locale/ja-JP/</em:locale>
+				<em:locale>locale/cs-CZ/</em:locale>
+				<em:locale>locale/tr-TR/</em:locale>
+				<em:locale>locale/pt-BR/</em:locale>
+				<em:locale>locale/sk-SK/</em:locale>
+				<em:locale>locale/ca-AD/</em:locale>
+				<em:locale>locale/sv-SE/</em:locale>
+				<!-- <em:locale>locale/be-BY/</em:locale> -->
+				<em:locale>locale/hu-HU/</em:locale>
+				<em:locale>locale/sr-YU/</em:locale>
+				<em:locale>locale/nb-NO/</em:locale>
+				<em:locale>locale/da-DK/</em:locale>
+				<em:locale>locale/sl-SL/</em:locale>
+			</Description>
+		</em:file>
+	</Description>
+</RDF>

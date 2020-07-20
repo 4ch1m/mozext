@@ -1,0 +1,7 @@
+#NestedQuoteRemoverButton {
+  list-style-image: url("chrome://nestedquoteremover/skin/nestedquoteremover24.png");
+}
+
+#NestedQuoteRemoverButton {
+  list-style-image: url("chrome://nestedquoteremover/skin/nestedquoteremover16.png");
+} toolbar[iconsize="small"]

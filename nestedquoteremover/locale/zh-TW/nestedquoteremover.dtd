@@ -1,0 +1,14 @@
+<!ENTITY nestedquoteremover.label.options.windowtitle "NestedQuote Remover 選項">
+<!ENTITY nestedquoteremover.label.options.quotedepth "最多允許幾層的引言">
+<!ENTITY nestedquoteremover.label.options.autoremove "自動清除多層的引言">
+<!ENTITY nestedquoteremover.label.options.contextmenu "顯示右鍵選單項目">
+<!ENTITY nestedquoteremover.label.options.shortcut.groupbox "鍵盤快捷鍵">
+<!ENTITY nestedquoteremover.label.options.shortcut.accel "Accel">
+<!ENTITY nestedquoteremover.label.options.shortcut.alt "Alt">
+<!ENTITY nestedquoteremover.label.options.shortcut.control "Ctrl">
+<!ENTITY nestedquoteremover.label.options.shortcut.meta "Meta">
+<!ENTITY nestedquoteremover.label.options.shortcut.shift "Shift">
+<!ENTITY nestedquoteremover.label.toolbar "清除引言">
+<!ENTITY nestedquoteremover.label.menupopup "清除多層的引言">
+<!ENTITY nestedquoteremover.label.context "清除多層的引言">
+<!ENTITY nestedquoteremover.tooltip.toolbar "清除多層的引言">

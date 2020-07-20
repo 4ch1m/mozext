@@ -1,0 +1,14 @@
+<!ENTITY nestedquoteremover.label.options.windowtitle "Опције за NestedQuote Remover">
+<!ENTITY nestedquoteremover.label.options.quotedepth "Максимално дозвољен ниво навода:">
+<!ENTITY nestedquoteremover.label.options.autoremove "Аутоматски уклони угњеждене наводе">
+<!ENTITY nestedquoteremover.label.options.contextmenu "Прикажи ставку у контекстном менију">
+<!ENTITY nestedquoteremover.label.options.shortcut.groupbox "Пречица на тастатури:">
+<!ENTITY nestedquoteremover.label.options.shortcut.accel "Убрзавач">
+<!ENTITY nestedquoteremover.label.options.shortcut.alt "Alt">
+<!ENTITY nestedquoteremover.label.options.shortcut.control "Control">
+<!ENTITY nestedquoteremover.label.options.shortcut.meta "Мета">
+<!ENTITY nestedquoteremover.label.options.shortcut.shift "Shift">
+<!ENTITY nestedquoteremover.label.toolbar "Наводи">
+<!ENTITY nestedquoteremover.label.menupopup "Уклони угњеждене наводе">
+<!ENTITY nestedquoteremover.label.context "Уклони угњеждене наводе">
+<!ENTITY nestedquoteremover.tooltip.toolbar "Уклања угњеждене наводе">

@@ -1,0 +1,71 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+.up {
+  min-width: 16px;
+  list-style-image: url("chrome://signatureswitch/skin/up.png");
+}
+
+.up[disabled="true"] {
+  min-width: 16px;
+  list-style-image: url("chrome://signatureswitch/skin/up.png");
+  opacity: 0.5;
+}
+
+.down {
+  min-width: 16px;
+  list-style-image: url("chrome://signatureswitch/skin/down.png");
+}
+
+.down[disabled="true"] {
+  min-width: 16px;
+  list-style-image: url("chrome://signatureswitch/skin/down.png");
+  opacity: 0.5;
+}
+
+.new {
+  min-width: 16px;
+  list-style-image: url("chrome://signatureswitch/skin/new.png");
+}
+
+.edit {
+  min-width: 16px;
+  list-style-image: url("chrome://signatureswitch/skin/edit.png");
+}
+
+.edit[disabled="true"] {
+  min-width: 16px;
+  list-style-image: url("chrome://signatureswitch/skin/edit.png");
+  opacity: 0.5;
+}
+
+.delete {
+  min-width: 16px;
+  list-style-image: url("chrome://signatureswitch/skin/delete.png");
+}
+
+.delete[disabled="true"] {
+  min-width: 16px;
+  list-style-image: url("chrome://signatureswitch/skin/delete.png");
+  opacity: 0.5;
+}
+
+.browse {
+  min-width: 16px;
+  list-style-image: url("chrome://signatureswitch/skin/browse.png");
+}
+
+.compose {
+  min-width: 16px;
+  list-style-image: url("chrome://signatureswitch/skin/pencil.png");
+}
+
+.mailinglist {
+  min-width: 16px;
+  list-style-image: url("chrome://signatureswitch/skin/addressbook.png");
+}
+
+.mailinglist[disabled="true"] {
+  min-width: 16px;
+  list-style-image: url("chrome://signatureswitch/skin/addressbook.png");
+  opacity: 0.5;
+}

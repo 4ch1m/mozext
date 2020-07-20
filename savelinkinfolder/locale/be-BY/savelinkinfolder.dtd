@@ -1,0 +1,71 @@
+<!ENTITY savelinkinfolder.toolbar.label "???Folders">
+<!ENTITY savelinkinfolder.toolbar.tooltip "???Browse folders">
+<!ENTITY savelinkinfolder.context.label "Захаваць спасылку ў тэчку...">
+<!ENTITY savelinkinfolder.options.title "Save Link in Folder - Налады">
+<!ENTITY savelinkinfolder.options.maintab "Агульныя">
+<!ENTITY savelinkinfolder.options.miscellaneoustab "???Miscellaneous">
+<!ENTITY savelinkinfolder.options.advancedtab "Дадаткова">
+<!ENTITY savelinkinfolder.options.new "Стварыць">
+<!ENTITY savelinkinfolder.options.edit "Змяніць">
+<!ENTITY savelinkinfolder.options.delete "Выдаліць">
+<!ENTITY savelinkinfolder.options.separator "???Separator">
+<!ENTITY savelinkinfolder.options.folders "Тэчкі">
+<!ENTITY savelinkinfolder.options.description "Апісанне">
+<!ENTITY savelinkinfolder.options.path "Шлях">
+<!ENTITY savelinkinfolder.options.opensaveasdialog "Захаваць як">
+<!ENTITY savelinkinfolder.options.openfolder "Адкрыць тэчку">
+<!ENTITY savelinkinfolder.options.fileprefix "Прыстаўка">
+<!ENTITY savelinkinfolder.options.fileprefixvalue "Прыстаўка-Значэнне">
+<!ENTITY savelinkinfolder.options.filename "???Name">
+<!ENTITY savelinkinfolder.options.filenamevalue "???Name-Value">
+<!ENTITY savelinkinfolder.options.filesuffix "Суфикс">
+<!ENTITY savelinkinfolder.options.filesuffixvalue "Суфикс-Значэнне">
+<!ENTITY savelinkinfolder.options.duplicatefilename "Дублікат імя файла">
+<!ENTITY savelinkinfolder.options.general "Галоўныя налады тэчак">
+<!ENTITY savelinkinfolder.options.general-shiftkey "Націсніце і ўтрымлівайце Shift, каб вылучыць іншую тэчку і ігнараваць усталяваныя для гэтага пункта налады (пры выбары ў кантэкстным меню) .">
+<!ENTITY savelinkinfolder.options.general-opensaveasdialog "Адчыняць акно &apos;Захаваць як...&apos; перад загрузкай.">
+<!ENTITY savelinkinfolder.options.general-openfolder "Адчыняць тэчку пасля пачатку загрузкі.">
+<!ENTITY savelinkinfolder.options.general-fileprefix "Файл-прыстаўка:">
+<!ENTITY savelinkinfolder.options.general-filename "???File-name:">
+<!ENTITY savelinkinfolder.options.general-filesuffix "Файл-суфикс:">
+<!ENTITY savelinkinfolder.options.general-duplicatefilename "Калі ёсць дублікат імя файла...">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevaluesaveas "Паказаць акно &apos;Захаваць як...&apos;">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevalueincrement "Аўтаматычна павялічваць імя файла">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevaluecancel "Адмяніць загрузку">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevalueoverwrite "Перазапісаць файл">
+<!ENTITY savelinkinfolder.options.executable "Заўсёды адчыняць тэчку з захаваным файлам">
+<!ENTITY savelinkinfolder.options.executable-description "Тут вы можаце вылучыць іншую праграму, каб адкрыць вылучаную тэчку. Калі чекбокс не ўсталяваны, то пры падвойным кліку на тэчцы, будзе выконвацца дзеянне сістэмы ўсталяванае па змаўчанні (для Windows гэта &apos;explorer.exe&apos;).">
+<!ENTITY savelinkinfolder.options.executable-check "Адчыняць з дапамогай:">
+<!ENTITY savelinkinfolder.options.executable-arguments "Аргументы:">
+<!ENTITY savelinkinfolder.options.executable-ctrlkey "Падказка: Калі націснуць і ўтрымліваць клавішу Ctrl пры выбары тэчкі ў кантэкстным меню, то адкрыецца тэчка, але файл не будзе захаваны.">
+<!ENTITY savelinkinfolder.options.contextmenu "???Context-Menu">
+<!ENTITY savelinkinfolder.options.shortcut "???Keyboard shortcut: ">
+<!ENTITY savelinkinfolder.options.numericshortcuts "???Display numeric shortcuts trailing the first ten folder entries.">
+<!ENTITY savelinkinfolder.options.hideinvalidfolders "Хаваць тэчкі ў кантэкстным меню, якія маюць непрацоўны шлях (інакш яны не будуць працаваць).">
+<!ENTITY savelinkinfolder.options.prefs "Налады Firefox">
+<!ENTITY savelinkinfolder.options.prefs-description "Пасля таго, як файл захаваны ў тэчку, запісаць шлях у наладах Firefox (prefs.js).">
+<!ENTITY savelinkinfolder.options.prefs-clear "Ачысціць">
+<!ENTITY savelinkinfolder.options.nofilereference "Калі спасылка не прамая, адчыняць дыялогавае акно &apos;Захаваць як...&apos;.">
+<!ENTITY savelinkinfolder.options.hideunknowncontenttype "???Hide folderlist when Firefox detects an unknown content-type.">
+<!ENTITY savelinkinfolder.setfolder.title "Тэчка">
+<!ENTITY savelinkinfolder.setfolder.description "Апісанне">
+<!ENTITY savelinkinfolder.setfolder.path "Шлях">
+<!ENTITY savelinkinfolder.setfolder.individual "Індывідуальныя налады тэчкі">
+<!ENTITY savelinkinfolder.setfolder.individual-opensaveasdialog "Адчыняць акно &apos;Захаваць як...&apos; перад загрузкай.">
+<!ENTITY savelinkinfolder.setfolder.individual-openfolder "Адчыняць тэчку пасля пачатку загрузкі.">
+<!ENTITY savelinkinfolder.setfolder.individual-fileprefix "Файл-прыстаўка:">
+<!ENTITY savelinkinfolder.setfolder.individual-filename "???File-name:">
+<!ENTITY savelinkinfolder.setfolder.individual-filesuffix "Файл-суфикс:">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilename "Калі ёсць дублікат імя файла...">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevaluesaveas "Паказаць акно &apos;Захаваць як...&apos;">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevalueincrement "Аўтаматычна павялічваць імя файла">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevaluecancel "Адмяніць загрузку">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevalueoverwrite "Перазапісаць файл">
+<!ENTITY savelinkinfolder.notify.file "???File:">
+<!ENTITY savelinkinfolder.notify.folder "???Folder:">
+<!ENTITY savelinkinfolder.options.notification "???Notification">
+<!ENTITY savelinkinfolder.options.notification-statusbar "???Status-Bar message">
+<!ENTITY savelinkinfolder.options.notification-popupwindow "???Popup window">
+<!ENTITY savelinkinfolder.options.notification-duration "???Duration (seconds):">
+<!ENTITY savelinkinfolder.options.helptab "???Help">
+<!ENTITY savelinkinfolder.options.website "???Please visit this website for detailed instructions:">

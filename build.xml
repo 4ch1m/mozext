@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+
+<project name="extensionBuilder" default="buildExtension">
+
+    <target name="setProperties">
+        <exec executable="../getprojectname.sh" outputproperty="projectName"/>
+        <exec executable="../getcurrentversion.sh" outputproperty="currentVersion"/>
+    </target>
+
+    <target name="deleteXPI" depends="setProperties">
+        <delete>
+            <fileset dir="." includes="${projectName}*.xpi"/>
+        </delete>
+    </target>
+
+    <target name="createJAR" depends="deleteXPI">
+        <zip destfile="${projectName}.jar">
+            <zipfileset dir="." includes="content/**"/>
+            <zipfileset dir="." includes="locale/**"/>
+            <zipfileset dir="." includes="skin/**"/>
+        </zip>
+    </target>
+
+    <target name="createXPI" depends="createJAR">
+        <zip destfile="${projectName}${currentVersion}.xpi">
+            <zipfileset dir="." includes="${projectName}.jar" prefix="chrome"/>
+            <zipfileset dir="." includes="defaults/**"/>
+            <zipfileset dir="." includes="icons/**"/>
+            <zipfileset dir="." includes="install.rdf"/>
+            <zipfileset dir="." includes="chrome.manifest"/>
+            <zipfileset dir="." includes="manifest.json"/>
+        </zip>
+    </target>
+
+    <target name="deleteJAR" depends="createXPI">
+        <delete file="${projectName}.jar"/>
+    </target>
+
+    <target name="buildExtension" depends="deleteJAR"/>
+
+</project>

@@ -1,0 +1,26 @@
+content signatureswitch jar:chrome/signatureswitch.jar!/content/
+skin    signatureswitch classic/1.0 jar:chrome/signatureswitch.jar!/skin/classic/
+overlay chrome://messenger/content/messengercompose/messengercompose.xul chrome://signatureswitch/content/signatureswitch.xul
+style chrome://messenger/content/customizeToolbar.xul chrome://signatureswitch/skin/signatureswitch.css
+locale signatureswitch en-US jar:chrome/signatureswitch.jar!/locale/en-US/
+locale signatureswitch de-DE jar:chrome/signatureswitch.jar!/locale/de-DE/
+#locale signatureswitch it-IT jar:chrome/signatureswitch.jar!/locale/it-IT/
+locale signatureswitch es-ES jar:chrome/signatureswitch.jar!/locale/es-ES/
+locale signatureswitch nl-NL jar:chrome/signatureswitch.jar!/locale/nl-NL/
+locale signatureswitch fr-FR jar:chrome/signatureswitch.jar!/locale/fr-FR/
+#locale signatureswitch zh-TW jar:chrome/signatureswitch.jar!/locale/zh-TW/
+locale signatureswitch pl-PL jar:chrome/signatureswitch.jar!/locale/pl-PL/
+locale signatureswitch ru-RU jar:chrome/signatureswitch.jar!/locale/ru-RU/
+locale signatureswitch ja-JP jar:chrome/signatureswitch.jar!/locale/ja-JP/
+locale signatureswitch cs-CZ jar:chrome/signatureswitch.jar!/locale/cs-CZ/
+locale signatureswitch tr-TR jar:chrome/signatureswitch.jar!/locale/tr-TR/
+locale signatureswitch pt-BR jar:chrome/signatureswitch.jar!/locale/pt-BR/
+locale signatureswitch sk-SK jar:chrome/signatureswitch.jar!/locale/sk-SK/
+locale signatureswitch ca-AD jar:chrome/signatureswitch.jar!/locale/ca-AD/
+locale signatureswitch sv-SE jar:chrome/signatureswitch.jar!/locale/sv-SE/
+#locale signatureswitch be-BY jar:chrome/signatureswitch.jar!/locale/be-BY/
+locale signatureswitch hu-HU jar:chrome/signatureswitch.jar!/locale/hu-HU/
+locale signatureswitch sr-YU jar:chrome/signatureswitch.jar!/locale/sr-YU/
+locale signatureswitch nb-NO jar:chrome/signatureswitch.jar!/locale/nb-NO/
+locale signatureswitch da-DK jar:chrome/signatureswitch.jar!/locale/da-DK/
+locale signatureswitch sl-SL jar:chrome/signatureswitch.jar!/locale/sl-SL/

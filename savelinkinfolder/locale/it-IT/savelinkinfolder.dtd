@@ -1,0 +1,72 @@
+<!ENTITY savelinkinfolder.toolbar.label "Cartelle">
+<!ENTITY savelinkinfolder.toolbar.tooltip "Sfoglia le cartelle">
+<!ENTITY savelinkinfolder.context.label "Salva nella cartella...">
+<!ENTITY savelinkinfolder.options.title "Opzioni di Save Link in Folder">
+<!ENTITY savelinkinfolder.options.maintab "Principali">
+<!ENTITY savelinkinfolder.options.miscellaneoustab "Varie">
+<!ENTITY savelinkinfolder.options.advancedtab "Avanzate">
+<!ENTITY savelinkinfolder.options.new "Nuovo">
+<!ENTITY savelinkinfolder.options.edit "Modifica">
+<!ENTITY savelinkinfolder.options.delete "Elimina">
+<!ENTITY savelinkinfolder.options.separator "Separatore">
+<!ENTITY savelinkinfolder.options.folders "Cartelle">
+<!ENTITY savelinkinfolder.options.description "Descrizione">
+<!ENTITY savelinkinfolder.options.path "Percorso">
+<!ENTITY savelinkinfolder.options.opensaveasdialog "Salva destinazione come">
+<!ENTITY savelinkinfolder.options.openfolder "Apri la cartella">
+<!ENTITY savelinkinfolder.options.fileprefix "Prefisso">
+<!ENTITY savelinkinfolder.options.fileprefixvalue "Valore prefisso">
+<!ENTITY savelinkinfolder.options.filename "Nome">
+<!ENTITY savelinkinfolder.options.filenamevalue "Valore nome">
+<!ENTITY savelinkinfolder.options.filesuffix "Suffisso">
+<!ENTITY savelinkinfolder.options.filesuffixvalue "Valore suffisso">
+<!ENTITY savelinkinfolder.options.duplicatefilename "Nome del file già presente">
+<!ENTITY savelinkinfolder.options.general "Impostazioni generali delle cartelle">
+<!ENTITY savelinkinfolder.options.general-shiftkey "Tenere premuto il tasto MAIUSC mentre si seleziona una voce del menu contestuale per escludere le impostazioni individuali delle cartelle ed usare queste seguenti">
+<!ENTITY savelinkinfolder.options.general-opensaveasdialog "Apri la finestra di dialogo 'Salva destinazione come...' prima del download">
+<!ENTITY savelinkinfolder.options.general-openfolder "Apri la cartella prescelta quando inizia il download">
+<!ENTITY savelinkinfolder.options.general-fileprefix "Prefisso:">
+<!ENTITY savelinkinfolder.options.general-filename "Nome file:">
+<!ENTITY savelinkinfolder.options.general-filesuffix "Suffisso:">
+<!ENTITY savelinkinfolder.options.general-duplicatefilename "In caso esista già un file con lo stesso nome...">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevaluesaveas "Visualizza la finestra di dialogo 'Salva destinazione come...'">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevalueincrement "Incrementa automaticamente di un numero il nome del file">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevaluecancel "Annulla il download">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevalueoverwrite "Sovrascrivi il file">
+<!ENTITY savelinkinfolder.options.executable "Eseguibile usato per aprire la cartella indicata">
+<!ENTITY savelinkinfolder.options.executable-description "Qui è possibile scegliere un altro eseguibile per aprire la cartella indicata. In caso non si selezioni questa opzione, l'estensione assegnerà al doppio clic sulla cartella l'azione predefinita del proprio sistema operativo. (Solitamente 'explorer.exe' in ambiente Windows)">
+<!ENTITY savelinkinfolder.options.executable-check "Usa questo eseguibile:">
+<!ENTITY savelinkinfolder.options.executable-arguments "Argomenti:">
+<!ENTITY savelinkinfolder.options.executable-ctrlkey "Nota: tenere premuto CTRL+tasto scelto mentre si seleziona una voce del menu contestuale unicamente per aprire la cartella, senza salvare il file">
+<!ENTITY savelinkinfolder.options.contextmenu "Menu contestuale">
+<!ENTITY savelinkinfolder.options.shortcut "Scorciatoia da tastiera:">
+<!ENTITY savelinkinfolder.options.numericshortcuts "Visualizza le scorciatoie da tastiera numeriche collegate ai primi dieci elementi della cartella">
+<!ENTITY savelinkinfolder.options.hideinvalidfolders "Nascondi le cartelle con un percorso non valido (altrimenti verranno comunque disattivate)">
+<!ENTITY savelinkinfolder.options.prefs "Impostazioni di Firefox">
+<!ENTITY savelinkinfolder.options.prefs-description "Dopo aver salvato nella cartella scrivere il percorso nelle seguenti impostazioni di Firefox (prefs.js)">
+<!ENTITY savelinkinfolder.options.prefs-clear "Svuota">
+<!ENTITY savelinkinfolder.options.nofilereference "I collegamenti senza riferimento diretto ad un file verranno aperti visualizzando la finestra di dialogo 'Salva destinazione come...'">
+<!ENTITY savelinkinfolder.options.hideunknowncontenttype "Nascondi la lista delle cartelle quando Firefox rileva un tipo di contenuto sconosciuto">
+<!ENTITY savelinkinfolder.setfolder.title "Cartella">
+<!ENTITY savelinkinfolder.setfolder.description "Descrizione">
+<!ENTITY savelinkinfolder.setfolder.path "Percorso">
+<!ENTITY savelinkinfolder.setfolder.individual "Impostazioni individuali delle cartelle">
+<!ENTITY savelinkinfolder.setfolder.individual-opensaveasdialog "Apri la finestra di dialogo 'Salva destinazione come...' prima del download">
+<!ENTITY savelinkinfolder.setfolder.individual-openfolder "Apri la cartella prescelta quando inizia il download">
+<!ENTITY savelinkinfolder.setfolder.individual-fileprefix "Prefisso:">
+<!ENTITY savelinkinfolder.setfolder.individual-filename "Nome file:">
+<!ENTITY savelinkinfolder.setfolder.individual-filesuffix "Suffisso:">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilename "In caso esista già un file con lo stesso nome...">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevaluesaveas "Visualizza la finestra di dialogo 'Salva destinazione come...'">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevalueincrement "Incrementa automaticamente di un numero il nome del file">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevaluecancel "Annulla il download">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevalueoverwrite "Sovrascrivi il file">
+<!ENTITY savelinkinfolder.notify.file "File:">
+<!ENTITY savelinkinfolder.notify.folder "Cartella:">
+<!ENTITY savelinkinfolder.options.notification "Notifica">
+<!ENTITY savelinkinfolder.options.notification-statusbar "Messaggio nella barra di stato">
+<!ENTITY savelinkinfolder.options.notification-popupwindow "Finestra pop-up">
+<!ENTITY savelinkinfolder.options.notification-duration "Durata (in secondi):">
+<!ENTITY savelinkinfolder.options.helptab "?">
+<!ENTITY savelinkinfolder.options.website "Per informazioni dettagliate visita il sito web:">
+

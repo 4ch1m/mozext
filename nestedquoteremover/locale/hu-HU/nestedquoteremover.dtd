@@ -1,0 +1,14 @@
+<!ENTITY nestedquoteremover.label.options.windowtitle "Szükségtelen Idézetek Eltávolítója - Beállítások">
+<!ENTITY nestedquoteremover.label.options.quotedepth "Maximális idézés-mélység:">
+<!ENTITY nestedquoteremover.label.options.autoremove "Szükségtelen idézetek automatikus eltávolítása">
+<!ENTITY nestedquoteremover.label.options.contextmenu "Helyi menü megjelenítése">
+<!ENTITY nestedquoteremover.label.options.shortcut.groupbox "Billentyűzet-kombináció:">
+<!ENTITY nestedquoteremover.label.options.shortcut.accel "Billentyű">
+<!ENTITY nestedquoteremover.label.options.shortcut.alt "Alt">
+<!ENTITY nestedquoteremover.label.options.shortcut.control "Control">
+<!ENTITY nestedquoteremover.label.options.shortcut.meta "Jelölő">
+<!ENTITY nestedquoteremover.label.options.shortcut.shift "Shift">
+<!ENTITY nestedquoteremover.label.toolbar "Idézetek">
+<!ENTITY nestedquoteremover.label.menupopup "Szükségtelen idézetek eltávolítása">
+<!ENTITY nestedquoteremover.label.context "Szükségtelen idézetek eltávolítása">
+<!ENTITY nestedquoteremover.tooltip.toolbar "Szükségtelen idézetek eltávolítása">

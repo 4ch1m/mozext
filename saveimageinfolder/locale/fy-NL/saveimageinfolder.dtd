@@ -1,0 +1,71 @@
+<!ENTITY saveimageinfolder.toolbar.label "Mappen">
+<!ENTITY saveimageinfolder.toolbar.tooltip "Blêdzje troch mappen">
+<!ENTITY saveimageinfolder.context.label "Bewarje ôfbylding yn Map">
+<!ENTITY saveimageinfolder.options.title "Bewarje ôfbylding yn Map - Opsjes">
+<!ENTITY saveimageinfolder.options.maintab "Haad">
+<!ENTITY saveimageinfolder.options.miscellaneoustab "Ferskaat">
+<!ENTITY saveimageinfolder.options.advancedtab "Avansearre">
+<!ENTITY saveimageinfolder.options.new "Nij">
+<!ENTITY saveimageinfolder.options.edit "Bewurkje">
+<!ENTITY saveimageinfolder.options.delete "Fuortsmite">
+<!ENTITY saveimageinfolder.options.separator "Skiedingsteken">
+<!ENTITY saveimageinfolder.options.folders "Mappen">
+<!ENTITY saveimageinfolder.options.description "Beskriuwing">
+<!ENTITY saveimageinfolder.options.path "Paad">
+<!ENTITY saveimageinfolder.options.opensaveasdialog "Bewarje As">
+<!ENTITY saveimageinfolder.options.openfolder "Iepen Map">
+<!ENTITY saveimageinfolder.options.fileprefix "Foarheaksel">
+<!ENTITY saveimageinfolder.options.fileprefixvalue "Foarheaksel-Wearde">
+<!ENTITY saveimageinfolder.options.filename "Namme">
+<!ENTITY saveimageinfolder.options.filenamevalue "Namme-Wearde">
+<!ENTITY saveimageinfolder.options.filesuffix "Taheaksel">
+<!ENTITY saveimageinfolder.options.filesuffixvalue "Taheaksel-Wearde">
+<!ENTITY saveimageinfolder.options.duplicatefilename "Dûbele bestânsnamme">
+<!ENTITY saveimageinfolder.options.general "Algemiene mapynstellings">
+<!ENTITY saveimageinfolder.options.general-shiftkey "Hâld de Shift-toets yndrukt wylst jo in kontekst-menu item selektearje om de individuele mapynstellings te negearjen en de fogjende te brûken.">
+<!ENTITY saveimageinfolder.options.general-opensaveasdialog "Iepen in 'Bewarje As...'-dialooch foar it ynladen.">
+<!ENTITY saveimageinfolder.options.general-openfolder "Iepen de doelmap as de ynlaad start.">
+<!ENTITY saveimageinfolder.options.general-fileprefix "Bestânsfoarheaksel:">
+<!ENTITY saveimageinfolder.options.general-filename "Bestânsnamme:">
+<!ENTITY saveimageinfolder.options.general-filesuffix "Bestânstaheaksel:">
+<!ENTITY saveimageinfolder.options.general-duplicatefilename "As de namme al bestiet...">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevaluesaveas "Lit 'Bewarje As...'-dialooch sjen">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevalueincrement "Automatysk bestânsnamme opheegje">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevaluecancel "Annulearje it ynladen">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevalueoverwrite "Oerskriuw it bestân">
+<!ENTITY saveimageinfolder.options.executable "Utfierber bestân foar it iepenjen fan de doalmap">
+<!ENTITY saveimageinfolder.options.executable-description "Hjir kinne jo in oar útfierber bestân kieze om de doelmap mei te iepenjen. As it net oanfinkt is sil de útwreiding de systeem standert brûke as jo dûbel klikke op de map. (Meastentiids explore.exe op Windows.)">
+<!ENTITY saveimageinfolder.options.executable-check "Brûk dit úfierber bestân:">
+<!ENTITY saveimageinfolder.options.executable-arguments "Argumenten:">
+<!ENTITY saveimageinfolder.options.executable-ctrlkey "Tip: As jo in kontekst-menu item selektearje wylst jo de Ctrl-toest yndrukt hâlde, iepent dit de map sûnder it bestân te bewarjen.">
+<!ENTITY saveimageinfolder.options.contextmenu "Kontekst-Menu">
+<!ENTITY saveimageinfolder.options.shortcut "Fluchtoets">
+<!ENTITY saveimageinfolder.options.numericshortcuts "Toan fluchkaainûmers foar de earste tsjien ûnderdielen yn de map.">
+<!ENTITY saveimageinfolder.options.hideinvalidfolders "Ferbergje mappen mei ferkearde paden (oers wurde se útskeakele).">
+<!ENTITY saveimageinfolder.options.prefs "Firefox foarkarren">
+<!ENTITY saveimageinfolder.options.prefs-description "Nei it bewarjen nei in folder skriuw it paad yn de folgjende Firefox foarkarren (prefs.js).">
+<!ENTITY saveimageinfolder.options.prefs-clear "Leechmeitsje">
+<!ENTITY saveimageinfolder.options.doubleclick "In dûbelklik mei de linker mûs op in ôfbylding bewarret it direkt yn de lêst selektearre map. (Foar dizze opsje is it nedich om Firefox op 'e nij te starten.)">
+<!ENTITY saveimageinfolder.options.usecache "???Use the browsers cache to save the image instead of invoking the download-manager. (More performance but less traceability.)">
+<!ENTITY saveimageinfolder.setfolder.title "Map">
+<!ENTITY saveimageinfolder.setfolder.description "Beskriuwing">
+<!ENTITY saveimageinfolder.setfolder.path "Paad">
+<!ENTITY saveimageinfolder.setfolder.individual "Individuele mapynstellings">
+<!ENTITY saveimageinfolder.setfolder.individual-opensaveasdialog "Iepen in 'Bewarje As...'-dialooch foar it ynladen.">
+<!ENTITY saveimageinfolder.setfolder.individual-openfolder "Iepen de doelmap as it ynladen start.">
+<!ENTITY saveimageinfolder.setfolder.individual-fileprefix "Bestânsfoarheaksel:">
+<!ENTITY saveimageinfolder.setfolder.individual-filename "Bestânsnamme:">
+<!ENTITY saveimageinfolder.setfolder.individual-filesuffix "Bestânstaheaksel:">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilename "As der in dûbele bestânsnamme is...">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevaluesaveas "Toan 'Bearje As...'-dialooch">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevalueincrement "Automatysk bestânsnamme opheegje">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevaluecancel "It ynladen annulearje">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevalueoverwrite "It bestân oerskriuwe">
+<!ENTITY saveimageinfolder.notify.file "???File:">
+<!ENTITY saveimageinfolder.notify.folder "???Folder:">
+<!ENTITY saveimageinfolder.options.notification "???Notification">
+<!ENTITY saveimageinfolder.options.notification-statusbar "???Status-Bar message">
+<!ENTITY saveimageinfolder.options.notification-popupwindow "???Popup window">
+<!ENTITY saveimageinfolder.options.notification-duration "???Duration (seconds):">
+<!ENTITY saveimageinfolder.options.helptab "???Help">
+<!ENTITY saveimageinfolder.options.website "???Please visit this website for detailed instructions:">

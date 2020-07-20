@@ -1,0 +1,71 @@
+<!ENTITY saveimageinfolder.toolbar.label "???Folders">
+<!ENTITY saveimageinfolder.toolbar.tooltip "???Browse folders">
+<!ENTITY saveimageinfolder.context.label "Сохранить изображение в папку...">
+<!ENTITY saveimageinfolder.options.title "Save Image in Folder - Настройки">
+<!ENTITY saveimageinfolder.options.maintab "Общие">
+<!ENTITY saveimageinfolder.options.miscellaneoustab "???Miscellaneous">
+<!ENTITY saveimageinfolder.options.advancedtab "Дополнительно">
+<!ENTITY saveimageinfolder.options.new "Создать">
+<!ENTITY saveimageinfolder.options.edit "Изменить">
+<!ENTITY saveimageinfolder.options.delete "Удалить">
+<!ENTITY saveimageinfolder.options.separator "???Separator">
+<!ENTITY saveimageinfolder.options.folders "Папки">
+<!ENTITY saveimageinfolder.options.description "Описание">
+<!ENTITY saveimageinfolder.options.path "Путь">
+<!ENTITY saveimageinfolder.options.opensaveasdialog "Сохранить как">
+<!ENTITY saveimageinfolder.options.openfolder "Открыть папку">
+<!ENTITY saveimageinfolder.options.fileprefix "Приставка">
+<!ENTITY saveimageinfolder.options.fileprefixvalue "Приставка-Значение">
+<!ENTITY saveimageinfolder.options.filename "???Name">
+<!ENTITY saveimageinfolder.options.filenamevalue "???Name-Value">
+<!ENTITY saveimageinfolder.options.filesuffix "Суфикс">
+<!ENTITY saveimageinfolder.options.filesuffixvalue "Суфикс-Значение">
+<!ENTITY saveimageinfolder.options.duplicatefilename "Дубликат имени файла">
+<!ENTITY saveimageinfolder.options.general "Главные настройки папок">
+<!ENTITY saveimageinfolder.options.general-shiftkey "Нажмите и удерживайте Shift, чтобы выбрать другую папку и игнорировать установленные для этого пункта настройки (при выборе в контекстном меню) .">
+<!ENTITY saveimageinfolder.options.general-opensaveasdialog "Открывать окно &apos;Сохранить как...&apos; перед загрузкой.">
+<!ENTITY saveimageinfolder.options.general-openfolder "Открывать папку после начала загрузки.">
+<!ENTITY saveimageinfolder.options.general-fileprefix "Файл-приставка:">
+<!ENTITY saveimageinfolder.options.general-filename "???File-name:">
+<!ENTITY saveimageinfolder.options.general-filesuffix "Файл-суфикс:">
+<!ENTITY saveimageinfolder.options.general-duplicatefilename "Если есть дубликат имени файла...">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevaluesaveas "Показать окно &apos;Сохранить как...&apos;">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevalueincrement "Автоматически увеличивать имя файла">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevaluecancel "Отменить загрузку">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevalueoverwrite "Перезаписать файл">
+<!ENTITY saveimageinfolder.options.executable "Всегда открывать папку с сохраненным файлом">
+<!ENTITY saveimageinfolder.options.executable-description "Здесь вы можете выбрать другую программу, чтобы открыть выбранную папку. Если чекбокс не установлен, то при двойном клике на папке, будет выполняться действие системы установленное по умолчанию (для Windows это &apos;explorer.exe&apos;).">
+<!ENTITY saveimageinfolder.options.executable-check "Открывать с помощью:">
+<!ENTITY saveimageinfolder.options.executable-arguments "Аргументы:">
+<!ENTITY saveimageinfolder.options.executable-ctrlkey "Подсказка: Если нажать и удерживать клавишу Ctrl при выборе папки в контекстном меню, то откроется папка, но файл не будет сохранен.">
+<!ENTITY saveimageinfolder.options.contextmenu "???Context-Menu">
+<!ENTITY saveimageinfolder.options.shortcut "???Keyboard shortcut: ">
+<!ENTITY saveimageinfolder.options.numericshortcuts "???Display numeric shortcuts trailing the first ten folder entries.">
+<!ENTITY saveimageinfolder.options.hideinvalidfolders "Скрывать папки в контекстном меню, имеющие нерабочий путь (иначе они не будут работать).">
+<!ENTITY saveimageinfolder.options.prefs "Настройки Firefox">
+<!ENTITY saveimageinfolder.options.prefs-description "После того, как файл сохранен в папку, записать путь в настройках Firefox (prefs.js).">
+<!ENTITY saveimageinfolder.options.prefs-clear "Очистить">
+<!ENTITY saveimageinfolder.options.doubleclick "???Performing a left double-click on an image directly saves it to the previously used folder. (This option requires a restart of Firefox to take action.)">
+<!ENTITY saveimageinfolder.options.usecache "???Use the browsers cache to save the image instead of invoking the download-manager. (More performance but less traceability.)">
+<!ENTITY saveimageinfolder.setfolder.title "Папка">
+<!ENTITY saveimageinfolder.setfolder.description "Описание">
+<!ENTITY saveimageinfolder.setfolder.path "Путь">
+<!ENTITY saveimageinfolder.setfolder.individual "Индивидуальные настройки папки">
+<!ENTITY saveimageinfolder.setfolder.individual-opensaveasdialog "Открывать окно &apos;Сохранить как...&apos; перед загрузкой.">
+<!ENTITY saveimageinfolder.setfolder.individual-openfolder "Открывать папку после начала загрузки.">
+<!ENTITY saveimageinfolder.setfolder.individual-fileprefix "Файл-приставка:">
+<!ENTITY saveimageinfolder.setfolder.individual-filename "???File-name:">
+<!ENTITY saveimageinfolder.setfolder.individual-filesuffix "Файл-суфикс:">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilename "Если есть дубликат имени файла...">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevaluesaveas "Показать окно &apos;Сохранить как...&apos;">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevalueincrement "Автоматически увеличивать имя файла">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevaluecancel "Отменить загрузку">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevalueoverwrite "Перезаписать файл">
+<!ENTITY saveimageinfolder.notify.file "???File:">
+<!ENTITY saveimageinfolder.notify.folder "???Folder:">
+<!ENTITY saveimageinfolder.options.notification "???Notification">
+<!ENTITY saveimageinfolder.options.notification-statusbar "???Status-Bar message">
+<!ENTITY saveimageinfolder.options.notification-popupwindow "???Popup window">
+<!ENTITY saveimageinfolder.options.notification-duration "???Duration (seconds):">
+<!ENTITY saveimageinfolder.options.helptab "???Help">
+<!ENTITY saveimageinfolder.options.website "???Please visit this website for detailed instructions:">

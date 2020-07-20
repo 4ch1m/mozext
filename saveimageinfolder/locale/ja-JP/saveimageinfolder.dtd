@@ -1,0 +1,72 @@
+<!ENTITY saveimageinfolder.toolbar.label "フォルダ">
+<!ENTITY saveimageinfolder.toolbar.tooltip "フォルダ選択">
+<!ENTITY saveimageinfolder.context.label "Save Image in Folder...">
+<!ENTITY saveimageinfolder.options.title "Save Image in Folder - オプション">
+<!ENTITY saveimageinfolder.options.maintab "メイン">
+<!ENTITY saveimageinfolder.options.miscellaneoustab "その他">
+<!ENTITY saveimageinfolder.options.advancedtab "詳細">
+<!ENTITY saveimageinfolder.options.new "新規">
+<!ENTITY saveimageinfolder.options.edit "編集">
+<!ENTITY saveimageinfolder.options.delete "削除">
+<!ENTITY saveimageinfolder.options.separator "区切り">
+<!ENTITY saveimageinfolder.options.folders "フォルダ">
+<!ENTITY saveimageinfolder.options.description "説明">
+<!ENTITY saveimageinfolder.options.path "パス">
+<!ENTITY saveimageinfolder.options.opensaveasdialog "名前を付けて保存">
+<!ENTITY saveimageinfolder.options.openfolder "フォルダを開く">
+<!ENTITY saveimageinfolder.options.fileprefix "接頭辞">
+<!ENTITY saveimageinfolder.options.fileprefixvalue "接頭辞の値">
+<!ENTITY saveimageinfolder.options.filename "ファイル名">
+<!ENTITY saveimageinfolder.options.filenamevalue "ファイル名">
+<!ENTITY saveimageinfolder.options.filesuffix "接尾辞">
+<!ENTITY saveimageinfolder.options.filesuffixvalue "接尾辞の値">
+<!ENTITY saveimageinfolder.options.duplicatefilename "ファイル名を複製">
+<!ENTITY saveimageinfolder.options.general "フォルダの全般設定">
+<!ENTITY saveimageinfolder.options.general-shiftkey "コンテキストメニューの選択時にシフトキーを押しているとフォルダ個々の設定を上書きして代わりに以下を使います。">
+<!ENTITY saveimageinfolder.options.general-opensaveasdialog "ダウンロード前に'名前を付けて保存'のダイアログを開く。">
+<!ENTITY saveimageinfolder.options.general-openfolder "ダウンロードが始まったら対象のフォルダを開く。">
+<!ENTITY saveimageinfolder.options.general-fileprefix "ファイルの接頭辞:">
+<!ENTITY saveimageinfolder.options.general-filename "ファイル名:">
+<!ENTITY saveimageinfolder.options.general-filesuffix "ファイルの接尾辞:">
+<!ENTITY saveimageinfolder.options.general-duplicatefilename "同一のファイル名がある場合の動作">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevaluesaveas "'名前を付けて保存'ダイアログを表示">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevalueincrement "ファイル名を自動的に増分">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevaluecancel "ダウンロードをキャンセル">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevalueoverwrite "ファイルを上書き">
+<!ENTITY saveimageinfolder.options.executable "対象フォルダを開くのに使う実行ファイル">
+<!ENTITY saveimageinfolder.options.executable-description "対象のフォルダを開くのに使用する他の実行ファイルを選択できます。チェックを外すとフォルダをダブルクリックした時の動作はシステムのデフォルトになります。(Windows システムでは通常 'explorer.exe' が起動されます。)">
+<!ENTITY saveimageinfolder.options.executable-check "使用する実行ファイル:">
+<!ENTITY saveimageinfolder.options.executable-arguments "引数:">
+<!ENTITY saveimageinfolder.options.executable-ctrlkey "ヒント: コンテキストメニューの選択時に ctrl キーを押しているとこのファイルを保存せず、単に開きます。">
+<!ENTITY saveimageinfolder.options.contextmenu "コンテキストメニュー">
+<!ENTITY saveimageinfolder.options.shortcut "キーボードショートカット">
+<!ENTITY saveimageinfolder.options.numericshortcuts "頭から10個までのフォルダリストに数字のショートカットを表示">
+<!ENTITY saveimageinfolder.options.hideinvalidfolders "パスが不正なフォルダを表示しない(表示しても無効となり選択はできません)。">
+<!ENTITY saveimageinfolder.options.prefs "Firefox 設定">
+<!ENTITY saveimageinfolder.options.prefs-description "フォルダへの保存後、そのパスを以下の Firefox 設定に書き込む(prefs.js)。">
+<!ENTITY saveimageinfolder.options.prefs-clear "クリア">
+<!ENTITY saveimageinfolder.options.doubleclick "画像をダブルクリックすると問い合わせずに前回保存したフォルダに保存する(このオプションは Firefox を再起動しないと反映されません)。">
+<!ENTITY saveimageinfolder.options.usecache "ダウンロードマネージャを呼び出さずにブラウザのキャッシュを使う。(早くなりますが最新のものではないことがあります。)">
+<!ENTITY saveimageinfolder.setfolder.title "フォルダ">
+<!ENTITY saveimageinfolder.setfolder.description "説明">
+<!ENTITY saveimageinfolder.setfolder.path "パス">
+<!ENTITY saveimageinfolder.setfolder.individual "個々のフォルダの設定">
+<!ENTITY saveimageinfolder.setfolder.individual-opensaveasdialog "ダウンロード前に'名前を付けて保存'のダイアログを開く。">
+<!ENTITY saveimageinfolder.setfolder.individual-openfolder "ダウンロードが始まったら対象のフォルダを開く。">
+<!ENTITY saveimageinfolder.setfolder.individual-fileprefix "ファイルの接頭辞:">
+<!ENTITY saveimageinfolder.setfolder.individual-filename "ファイル名:">
+<!ENTITY saveimageinfolder.setfolder.individual-filesuffix "ファイルの接尾辞:">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilename "同一のファイル名がある場合の動作">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevaluesaveas "'名前を付けて保存'ダイアログを表示">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevalueincrement "ファイル名を自動的に増分">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevaluecancel "ダウンロードをキャンセル">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevalueoverwrite "ファイルを上書き">
+<!ENTITY saveimageinfolder.notify.file "ファイル:">
+<!ENTITY saveimageinfolder.notify.folder "フォルダ:">
+<!ENTITY saveimageinfolder.options.notification "通知">
+<!ENTITY saveimageinfolder.options.notification-statusbar "ステータスバーメッセージ">
+<!ENTITY saveimageinfolder.options.notification-popupwindow "ポップアップウィンドウ">
+<!ENTITY saveimageinfolder.options.notification-duration "通知間隔 (秒):">
+<!ENTITY saveimageinfolder.options.helptab "ヘルプ">
+<!ENTITY saveimageinfolder.options.website "詳細な手順についてはウェブサイトを訪問してください:">
+

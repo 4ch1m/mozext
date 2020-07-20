@@ -1,0 +1,72 @@
+<!ENTITY savelinkinfolder.toolbar.label "Priečinky">
+<!ENTITY savelinkinfolder.toolbar.tooltip "Prehľadá priečinky">
+<!ENTITY savelinkinfolder.context.label "Uložiť cieľ odkazu do priečinka...">
+<!ENTITY savelinkinfolder.options.title "Nastavenia rozšírenia Save Link in Folder">
+<!ENTITY savelinkinfolder.options.maintab "Hlavné">
+<!ENTITY savelinkinfolder.options.miscellaneoustab "Rôzne">
+<!ENTITY savelinkinfolder.options.advancedtab "Rozšírené">
+<!ENTITY savelinkinfolder.options.new "Nový">
+<!ENTITY savelinkinfolder.options.edit "Upraviť">
+<!ENTITY savelinkinfolder.options.delete "Odstrániť">
+<!ENTITY savelinkinfolder.options.separator "Oddeľovač">
+<!ENTITY savelinkinfolder.options.folders "Priečinky">
+<!ENTITY savelinkinfolder.options.description "Popis">
+<!ENTITY savelinkinfolder.options.path "Cesta">
+<!ENTITY savelinkinfolder.options.opensaveasdialog "Uložiť ako">
+<!ENTITY savelinkinfolder.options.openfolder "Otvoriť priečinok">
+<!ENTITY savelinkinfolder.options.fileprefix "Predpona">
+<!ENTITY savelinkinfolder.options.fileprefixvalue "Hodnota predpony">
+<!ENTITY savelinkinfolder.options.filename "Názov">
+<!ENTITY savelinkinfolder.options.filenamevalue "Názov-hodnota">
+<!ENTITY savelinkinfolder.options.filesuffix "Prípona">
+<!ENTITY savelinkinfolder.options.filesuffixvalue "Hodnota prípony">
+<!ENTITY savelinkinfolder.options.duplicatefilename "Duplikáty">
+<!ENTITY savelinkinfolder.options.general "Všeobecné nastavenia priečinka">
+<!ENTITY savelinkinfolder.options.general-shiftkey "Pri vyberaní položky v kontextovej ponuke podržte stlačený kláves shift, ak chcete pre daný priečinok použiť tieto globálne nastavenia namiesto individuálnych.">
+<!ENTITY savelinkinfolder.options.general-opensaveasdialog "Pred začatím sťahovania zobraziť dialógové okno 'Uložiť ako...'">
+<!ENTITY savelinkinfolder.options.general-openfolder "Pri začatí sťahovania otvoriť cieľový priečinok">
+<!ENTITY savelinkinfolder.options.general-fileprefix "Predpona súboru:">
+<!ENTITY savelinkinfolder.options.general-filename "Súbor-názov:">
+<!ENTITY savelinkinfolder.options.general-filesuffix "Prípona súboru:">
+<!ENTITY savelinkinfolder.options.general-duplicatefilename "Ak súbor už existuje...">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevaluesaveas "Zobraziť dialógové okno 'Uložiť ako...'">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevalueincrement "Automaticky zvýšiť číslo v názve súboru">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevaluecancel "Zrušiť sťahovanie">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevalueoverwrite "Prepísať súbor">
+<!ENTITY savelinkinfolder.options.executable "Aplikácia na otváranie cieľového prečinka">
+<!ENTITY savelinkinfolder.options.executable-description "Tu môžete určiť inú aplikáciu na otváranie priečinkov. Ak nie je začiarknuté, rozšírenie bude používať predvolenú systémovú akciu (v systémoch Windows je to spustenie aplikácie 'explorer.exe')">
+<!ENTITY savelinkinfolder.options.executable-check "Použiť túto aplikáciu:">
+<!ENTITY savelinkinfolder.options.executable-arguments "Parametre:">
+<!ENTITY savelinkinfolder.options.executable-ctrlkey "Rada: Ak pri vyberaní položky v kontextovej ponuke podržíte stlačený kláves ctrl, otvorí sa daný priečinok bez uloženia súboru.">
+<!ENTITY savelinkinfolder.options.contextmenu "Kontextová ponuka">
+<!ENTITY savelinkinfolder.options.shortcut "Klávesová skratka: ">
+<!ENTITY savelinkinfolder.options.numericshortcuts "Pred názvom priečinka zobraziť číslo kláv. skratky.">
+<!ENTITY savelinkinfolder.options.hideinvalidfolders "Skryť priečinky s neplatnou cestou (inak budú zakázané).">
+<!ENTITY savelinkinfolder.options.prefs "Nastavenia prehliadača Firefox">
+<!ENTITY savelinkinfolder.options.prefs-description "Po uložení do priečinka zapísať danú cestu do nasledujúcich nastavení Firefoxu (prefs.js)">
+<!ENTITY savelinkinfolder.options.prefs-clear "Vymazať">
+<!ENTITY savelinkinfolder.options.nofilereference "Odkazy, ktoré neodkazujú priamo na súbor otvárať pomocou dialógového okna 'Uložiť ako...'">
+<!ENTITY savelinkinfolder.options.hideunknowncontenttype "Skryť zoznam priečinkov, ak Firefox zistí neznámy typ súboru.">
+<!ENTITY savelinkinfolder.setfolder.title "Priečinok">
+<!ENTITY savelinkinfolder.setfolder.description "Popis">
+<!ENTITY savelinkinfolder.setfolder.path "Cesta">
+<!ENTITY savelinkinfolder.setfolder.individual "Individuálne nastavenia pre tento priečinok">
+<!ENTITY savelinkinfolder.setfolder.individual-opensaveasdialog "Pred začatím sťahovania zobraziť dialógové okno 'Uložiť ako...'">
+<!ENTITY savelinkinfolder.setfolder.individual-openfolder "Pri začatí sťahovania otvoriť cieľový priečinok">
+<!ENTITY savelinkinfolder.setfolder.individual-fileprefix "Predpona súboru:">
+<!ENTITY savelinkinfolder.setfolder.individual-filename "Súbor-názov:">
+<!ENTITY savelinkinfolder.setfolder.individual-filesuffix "Prípona súboru:">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilename "Ak názov súboru už existuje...">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevaluesaveas "Zobraziť dialógové okno 'Uložiť ako...'">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevalueincrement "Automaticky zvýšiť číslo sťahovaného súboru">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevaluecancel "Zrušiť sťahovanie">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevalueoverwrite "Prepísať súbor">
+<!ENTITY savelinkinfolder.notify.file "Súbor:">
+<!ENTITY savelinkinfolder.notify.folder "Priečinok:">
+<!ENTITY savelinkinfolder.options.notification "Upozornenie">
+<!ENTITY savelinkinfolder.options.notification-statusbar "Správa v stavovom riadku">
+<!ENTITY savelinkinfolder.options.notification-popupwindow "Vyskakovacie okno">
+<!ENTITY savelinkinfolder.options.notification-duration "Trvanie (sekúnd):">
+<!ENTITY savelinkinfolder.options.helptab "Pomocník">
+<!ENTITY savelinkinfolder.options.website "Ak chcete podrobnejšie informácie, navštívte stránku:">
+

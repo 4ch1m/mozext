@@ -1,0 +1,7 @@
+#SignatureSwitchButton {
+  list-style-image: url("chrome://signatureswitch/skin/signatureswitch24.png");
+}
+
+#SignatureSwitchButton {
+  list-style-image: url("chrome://signatureswitch/skin/signatureswitch16.png");
+} toolbar[iconsize="small"]

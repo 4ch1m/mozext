@@ -1,0 +1,259 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://savelinkinfolder/skin/options.css" type="text/css"?>
+
+<!DOCTYPE dialog SYSTEM "chrome://savelinkinfolder/locale/savelinkinfolder.dtd">
+
+<dialog
+
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        id="savelinkinfolderOptions"
+        minwidth="500"
+        title="&savelinkinfolder.options.title;"
+        buttons="accept, cancel"
+        onload="return onLoad();"
+        ondialogaccept="return onDialogAccept();"
+        ondialogcancel="return onDialogCancel();">
+
+    <script type="application/x-javascript" src="chrome://savelinkinfolder/content/options.js"/>
+
+    <stringbundleset id="stringbundleset">
+        <stringbundle id="savelinkinfolder.locale" src="chrome://savelinkinfolder/locale/savelinkinfolder.properties"/>
+    </stringbundleset>
+
+    <tabbox id="slifTabBox">
+        <tabs>
+            <tab label="&savelinkinfolder.options.maintab;"/>
+            <tab label="&savelinkinfolder.options.miscellaneoustab;"/>
+            <tab label="&savelinkinfolder.options.advancedtab;"/>
+            <tab label="&savelinkinfolder.options.helptab;"/>
+        </tabs>
+        <tabpanels flex="1">
+            <tabpanel id="maintab" flex="1" orient="vertical">
+                <groupbox orient="horizontal" align="center">
+                    <caption label="&savelinkinfolder.options.folders;"/>
+                    <hbox flex="1">
+                        <tree id="savelinkinfolderTree" flex="1" rows="4" onselect="return onSelectItem();">
+                          <treecols>
+                            <treecol id="description" label="&savelinkinfolder.options.description;" flex="1" persist="width"/>
+                            <splitter class="tree-splitter"/>
+                            <treecol id="path" label="&savelinkinfolder.options.path;" flex="1" persist="width"/>
+                            <splitter class="tree-splitter"/>
+                            <treecol id="opensaveasdialog" label="&savelinkinfolder.options.opensaveasdialog;" flex="1" persist="width" hidden="true"/>
+                            <splitter class="tree-splitter"/>
+                            <treecol id="openfolder" label="&savelinkinfolder.options.openfolder;" flex="1" persist="width" hidden="true"/>
+                            <splitter class="tree-splitter"/>
+                            <treecol id="fileprefix" label="&savelinkinfolder.options.fileprefix;" flex="1" persist="width" hidden="true"/>
+                            <splitter class="tree-splitter"/>
+                            <treecol id="fileprefixvalue" label="&savelinkinfolder.options.fileprefixvalue;" flex="1" persist="width" hidden="true"/>
+                            <splitter class="tree-splitter"/>
+                            <treecol id="filename" label="&savelinkinfolder.options.filename;" flex="1" persist="width" hidden="true"/>
+                            <splitter class="tree-splitter"/>
+                            <treecol id="filenamevalue" label="&savelinkinfolder.options.filenamevalue;" flex="1" persist="width" hidden="true"/>
+                            <splitter class="tree-splitter"/>
+                            <treecol id="filesuffix" label="&savelinkinfolder.options.filesuffix;" flex="1" persist="width" hidden="true"/>
+                            <splitter class="tree-splitter"/>
+                            <treecol id="filesuffixvalue" label="&savelinkinfolder.options.filesuffixvalue;" flex="1" persist="width" hidden="true"/>
+                            <splitter class="tree-splitter"/>
+                            <treecol id="duplicatefilename" label="&savelinkinfolder.options.duplicatefilename;" flex="1" persist="width" hidden="true"/>
+                          </treecols>
+                          <treechildren/>
+                        </tree>
+                        <vbox>
+                            <button class="new"
+                                    label="&savelinkinfolder.options.new;"
+                                    id="button-new"
+                                    oncommand="return newItem();"/>
+                            <button class="edit"
+                                    label="&savelinkinfolder.options.edit;"
+                                    id="button-edit"
+                                    oncommand="return editItem();"/>
+                            <button class="delete"
+                                    label="&savelinkinfolder.options.delete;"
+                                    id="button-delete"
+                                    oncommand="return deleteItem();"/>
+                            <button class="separator"
+                                    label="&savelinkinfolder.options.separator;"
+                                    id="button-separator"
+                                    oncommand="return insertSeparator();"/>
+                            <hbox>
+                                <button class="up"
+                                        id="button-up"
+                                        oncommand="return moveItem(true);"/>
+                                <spacer flex="1"/>
+                                <button class="down"
+                                        id="button-down"
+                                        oncommand="return moveItem(false);"/>
+                            </hbox>
+                        </vbox>
+                    </hbox>
+                </groupbox>
+                <groupbox orient="vertical">
+                    <caption label="&savelinkinfolder.options.general;"/>
+                        <description width="400" style="margin-bottom:10px;">&savelinkinfolder.options.general-shiftkey;</description>
+                        <checkbox id="general-opensaveasdialog" label="&savelinkinfolder.options.general-opensaveasdialog;" prefstring="extensions.savelinkinfolder.general-opensaveasdialog" defaultpref="false"/>
+                        <checkbox id="general-openfolder" label="&savelinkinfolder.options.general-openfolder;" prefstring="extensions.savelinkinfolder.general-openfolder" defaultpref="false"/>
+                        <grid flex="1">
+                            <columns>
+                                <column/>
+                                <column flex="1"/>
+                            </columns>
+                            <rows>
+                                <row>
+                                    <checkbox id="general-fileprefix" label="&savelinkinfolder.options.general-fileprefix;" prefstring="extensions.savelinkinfolder.general-fileprefix" defaultpref="false"/>
+                                    <textbox id="general-fileprefixvalue" prefstring="extensions.savelinkinfolder.general-fileprefixvalue" defaultpref="%yyyy%%MM%%dd%-%hh%%mm%%ss%_"/>
+                                </row>
+                                <row>
+                                    <checkbox id="general-filename" label="&savelinkinfolder.options.general-filename;" prefstring="extensions.savelinkinfolder.general-filename" defaultpref="false"/>
+                                    <textbox id="general-filenamevalue" prefstring="extensions.savelinkinfolder.general-filenamevalue" defaultpref="%domain%"/>
+                                </row>
+                                <row>
+                                    <checkbox id="general-filesuffix" label="&savelinkinfolder.options.general-filesuffix;" prefstring="extensions.savelinkinfolder.general-filesuffix" defaultpref="false"/>
+                                    <textbox id="general-filesuffixvalue" prefstring="extensions.savelinkinfolder.general-filesuffixvalue" defaultpref="_SLiF"/>
+                                </row>
+                            </rows>
+                        </grid>
+                        <description width="400" style="margin-top:10px;">&savelinkinfolder.options.general-duplicatefilename;</description>
+                        <radiogroup id="general-duplicatefilenamevalue" prefstring="extensions.savelinkinfolder.general-duplicatefilenamevalue">
+                                <radio value="0" id="general-duplicatefilenamevaluesaveas" label="&savelinkinfolder.options.general-duplicatefilenamevaluesaveas;" style="margin-left:10px;"/>
+                                <radio value="1" id="general-duplicatefilenamevalueincrement" label="&savelinkinfolder.options.general-duplicatefilenamevalueincrement;" style="margin-left:10px;"/>
+                                <radio value="2" id="general-duplicatefilenamevaluecancel" label="&savelinkinfolder.options.general-duplicatefilenamevaluecancel;" style="margin-left:10px;"/>
+                                <radio value="3" id="general-duplicatefilenamevalueoverwrite" label="&savelinkinfolder.options.general-duplicatefilenamevalueoverwrite;" style="margin-left:10px;"/>
+                        </radiogroup>
+                </groupbox>
+            </tabpanel>
+            <tabpanel id="miscellaneoustab" flex="1" orient="vertical">
+                <groupbox orient="vertical">
+                    <caption label="&savelinkinfolder.options.contextmenu;"/>
+                    <hbox align="center">
+                        <label value="&savelinkinfolder.options.shortcut;"/>
+                        <menulist id="shortcut" prefstring="extensions.savelinkinfolder.shortcut" defaultpref="L">
+                            <menupopup>
+                                <menuseparator/>
+                                <menuitem label="A"/>
+                                <menuitem label="B"/>
+                                <menuitem label="C"/>
+                                <menuitem label="D"/>
+                                <menuitem label="E"/>
+                                <menuitem label="F"/>
+                                <menuitem label="G"/>
+                                <menuitem label="H"/>
+                                <menuitem label="I"/>
+                                <menuitem label="J"/>
+                                <menuitem label="K"/>
+                                <menuitem label="L"/>
+                                <menuitem label="M"/>
+                                <menuitem label="N"/>
+                                <menuitem label="O"/>
+                                <menuitem label="P"/>
+                                <menuitem label="Q"/>
+                                <menuitem label="R"/>
+                                <menuitem label="S"/>
+                                <menuitem label="T"/>
+                                <menuitem label="U"/>
+                                <menuitem label="V"/>
+                                <menuitem label="W"/>
+                                <menuitem label="X"/>
+                                <menuitem label="Y"/>
+                                <menuitem label="Z"/>
+                            </menupopup>
+                        </menulist>
+                    </hbox>
+                    <checkbox id="numericshortcuts" label="&savelinkinfolder.options.numericshortcuts;" prefstring="extensions.savelinkinfolder.numericshortcuts" defaultpref="false"/>
+                    <checkbox id="hideinvalidfolders" label="&savelinkinfolder.options.hideinvalidfolders;" prefstring="extensions.savelinkinfolder.hideinvalidfolders" defaultpref="false"/>
+                </groupbox>
+                <groupbox orient="vertical">
+                    <caption label="&savelinkinfolder.options.notification;"/>
+                    <checkbox id="notification-statusbar" label="&savelinkinfolder.options.notification-statusbar;" prefstring="extensions.savelinkinfolder.notification-statusbar" defaultpref="true"/>
+                    <checkbox id="notification-popupwindow" label="&savelinkinfolder.options.notification-popupwindow;" prefstring="extensions.savelinkinfolder.notification-popupwindow" defaultpref="false"/>
+                    <hbox align="center">
+                        <label value="&savelinkinfolder.options.notification-duration;"/>
+                        <menulist id="notification-duration" prefstring="extensions.savelinkinfolder.notification-duration" defaultpref="3">
+                            <menupopup>
+                                <menuseparator/>
+                                <menuitem label="1"/>
+                                <menuitem label="2"/>
+                                <menuitem label="3"/>
+                                <menuitem label="4"/>
+                                <menuitem label="5"/>
+                                <menuitem label="6"/>
+                                <menuitem label="7"/>
+                                <menuitem label="8"/>
+                                <menuitem label="9"/>
+                                <menuitem label="10"/>
+                            </menupopup>
+                        </menulist>
+                    </hbox>
+                </groupbox>
+                <groupbox orient="vertical">
+                    <caption label="&savelinkinfolder.options.executable;"/>
+                        <description width="450">&savelinkinfolder.options.executable-description;</description>
+                        <grid flex="1">
+                            <columns>
+                                <column/>
+                                <column flex="1"/>
+                                <column/>
+                            </columns>
+                            <rows>
+                                <row>
+                                    <checkbox id="executable" label="&savelinkinfolder.options.executable-check;" prefstring="extensions.savelinkinfolder.executable" defaultpref="false"/>
+                                    <textbox id="executable-path" prefstring="extensions.savelinkinfolder.executable-path" defaultpref="/usr/bin/nautilus"/>
+                                    <button class="browse" id="button-executable-pick" oncommand="return onPickExecutable();"/>
+                                </row>
+                                <row>
+                                    <description/>
+                                    <hbox><label control="executable-arguments" value="&savelinkinfolder.options.executable-arguments;"/><textbox flex="1" id="executable-arguments" prefstring="extensions.savelinkinfolder.executable-arguments" defaultpref="%path%"/></hbox>
+                                    <description/>
+                                </row>
+                            </rows>
+                        </grid>
+                        <description width="450"></description>
+                        <description width="450">&savelinkinfolder.options.executable-ctrlkey;</description>
+                </groupbox>
+                <checkbox id="nofilereference" label="&savelinkinfolder.options.nofilereference;" prefstring="extensions.savelinkinfolder.nofilereference" defaultpref="false"/>
+                <checkbox id="hideunknowncontenttype" label="&savelinkinfolder.options.hideunknowncontenttype;" prefstring="extensions.savelinkinfolder.hideunknowncontenttype" defaultpref="false"/>
+            </tabpanel>
+            <tabpanel id="advancedtab" flex="1" orient="vertical">
+                <groupbox orient="vertical">
+                    <caption label="&savelinkinfolder.options.prefs;"/>
+                        <description width="450">&savelinkinfolder.options.prefs-description;</description>
+                        <grid flex="1">
+                            <columns>
+                                <column flex="1"/>
+                                <column/>
+                            </columns>
+                            <rows>
+                                <row>
+                                    <checkbox id="prefs-dir" label="browser.download.dir" prefstring="extensions.savelinkinfolder.prefs-dir" defaultpref="false"/>
+                                    <button id="button-prefs-dir" label="&savelinkinfolder.options.prefs-clear;" oncommand="return clearPref('dir');"/>
+                                </row>
+                                <row>
+                                    <checkbox id="prefs-lastDir" label="browser.download.lastDir" prefstring="extensions.savelinkinfolder.prefs-lastDir" defaultpref="false"/>
+                                    <button id="button-prefs-lastDir" label="&savelinkinfolder.options.prefs-clear;" oncommand="return clearPref('lastDir');"/>
+                                </row>
+                                <row>
+                                    <checkbox id="prefs-downloadDir" label="browser.download.downloadDir" prefstring="extensions.savelinkinfolder.prefs-downloadDir" defaultpref="false"/>
+                                    <button id="button-prefs-downloadDir" label="&savelinkinfolder.options.prefs-clear;" oncommand="return clearPref('downloadDir');"/>
+                                </row>
+                                <row>
+                                    <checkbox id="prefs-defaultFolder" label="browser.download.defaultFolder" prefstring="extensions.savelinkinfolder.prefs-defaultFolder" defaultpref="false"/>
+                                    <button id="button-prefs-defaultFolder" label="&savelinkinfolder.options.prefs-clear;" oncommand="return clearPref('defaultFolder');"/>
+                                </row>
+                            </rows>
+                        </grid>
+                </groupbox>
+                <textbox id="nofilereference-filename" prefstring="extensions.savelinkinfolder.nofilereference-filename" defaultpref="unknown" hidden="true"/>
+                <textbox id="nofilereference-fileextension" prefstring="extensions.savelinkinfolder.nofilereference-fileextension" defaultpref="ext" hidden="true"/>
+                <checkbox id="nofilereference-showdialog" prefstring="extensions.savelinkinfolder.nofilereference-showdialog" defaultpref="true" hidden="true"/>
+                <checkbox id="unknowncontenttypeselected" prefstring="extensions.savelinkinfolder.unknowncontenttypeselected" defaultpref="false" hidden="true"/>
+                <textbox id="randomstring-length" prefstring="extensions.savelinkinfolder.randomstring-length" defaultpref="8" hidden="true"/>
+            </tabpanel>
+            <tabpanel id="helptab" flex="1" orient="vertical">
+                <description width="450">&savelinkinfolder.options.website;</description>
+                <label id="website" class="text-link" onclick="openURL('http://mozext.achimonline.de');" style="margin-left:25px;" value="mozext.achimonline.de"/>
+            </tabpanel>
+        </tabpanels>
+    </tabbox>
+
+</dialog>

@@ -1,0 +1,71 @@
+<!ENTITY saveimageinfolder.toolbar.label "Mappen">
+<!ENTITY saveimageinfolder.toolbar.tooltip "Bladeren...">
+<!ENTITY saveimageinfolder.context.label "Save Image in Folder...">
+<!ENTITY saveimageinfolder.options.title "Save Image in Folder - Opties">
+<!ENTITY saveimageinfolder.options.maintab "Algemeen">
+<!ENTITY saveimageinfolder.options.miscellaneoustab "Diversen">
+<!ENTITY saveimageinfolder.options.advancedtab "Geavanceerd">
+<!ENTITY saveimageinfolder.options.new "Nieuw">
+<!ENTITY saveimageinfolder.options.edit "Bewerk">
+<!ENTITY saveimageinfolder.options.delete "Verwijder">
+<!ENTITY saveimageinfolder.options.separator "Scheidingsteken">
+<!ENTITY saveimageinfolder.options.folders "Mappen">
+<!ENTITY saveimageinfolder.options.description "Beschrijving">
+<!ENTITY saveimageinfolder.options.path "Pad">
+<!ENTITY saveimageinfolder.options.opensaveasdialog "Opslaan als">
+<!ENTITY saveimageinfolder.options.openfolder "Map openen">
+<!ENTITY saveimageinfolder.options.fileprefix "Voorvoegsel">
+<!ENTITY saveimageinfolder.options.fileprefixvalue "Voorvoegselwaarde">
+<!ENTITY saveimageinfolder.options.filename "Bestandsnaam">
+<!ENTITY saveimageinfolder.options.filenamevalue "Bestandsnaam">
+<!ENTITY saveimageinfolder.options.filesuffix "Achtervoegsel">
+<!ENTITY saveimageinfolder.options.filesuffixvalue "Achtervoegselwaarde">
+<!ENTITY saveimageinfolder.options.duplicatefilename "Dubbele bestandsnaam">
+<!ENTITY saveimageinfolder.options.general "Mapinstellingen - Algemeen">
+<!ENTITY saveimageinfolder.options.general-shiftkey "Druk op de Shift-toets tijdens het selecteren van een item uit het rechterklikmenu om de instellingen van de geselecteerde map te veranderen">
+<!ENTITY saveimageinfolder.options.general-opensaveasdialog "'Opslaan als...'-venster openen voor het downloaden.">
+<!ENTITY saveimageinfolder.options.general-openfolder "Doelmap openen als het downloaden begint.">
+<!ENTITY saveimageinfolder.options.general-fileprefix "Bestandsvoorvoegsel:">
+<!ENTITY saveimageinfolder.options.general-filename "Bestandsnaam:">
+<!ENTITY saveimageinfolder.options.general-filesuffix "Bestandsachtervoegsel:">
+<!ENTITY saveimageinfolder.options.general-duplicatefilename "Als de bestandsnaam al bestaat...">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevaluesaveas "'Opslaan als...'-venster openen">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevalueincrement "Automatisch het achtervoegsel van de bestandsnaam verhogen">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevaluecancel "Download annuleren">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevalueoverwrite "Bestand overschrijven">
+<!ENTITY saveimageinfolder.options.executable "Programma om doelmap mee te openen">
+<!ENTITY saveimageinfolder.options.executable-description "Kies hiermee het programma om de doelmap mee te openen. Als u het vakje leeglaat, zal het standaardprogramma worden gebruikt als je dubbelklikt op een map (Normaal is dat 'explorer.exe' bij Windows systemen.)">
+<!ENTITY saveimageinfolder.options.executable-check "Dit programma gebruiken:">
+<!ENTITY saveimageinfolder.options.executable-arguments "Parameters:">
+<!ENTITY saveimageinfolder.options.executable-ctrlkey "Tip: Door de Ctrl-toets ingedrukt te houden tijdens het klikken op een map in het rechterklikmenu, zal de map geopend worden zonder het bestand op te slaan.">
+<!ENTITY saveimageinfolder.options.contextmenu "Context-Menu">
+<!ENTITY saveimageinfolder.options.shortcut "Snelkoppeling: ">
+<!ENTITY saveimageinfolder.options.numericshortcuts "Toon numerieke snelkoppelingen die voor de eerste tien mappen staan.">
+<!ENTITY saveimageinfolder.options.hideinvalidfolders "Verberg mappen met een fout pad (anders worden ze gewoon uitgeschakeld).">
+<!ENTITY saveimageinfolder.options.prefs "Firefox instellingen">
+<!ENTITY saveimageinfolder.options.prefs-description "Schrijf pad in de volgende Firefox instellingen (prefs.js) als er iets is opslagen in een map">
+<!ENTITY saveimageinfolder.options.prefs-clear "Verwijder">
+<!ENTITY saveimageinfolder.options.doubleclick "Na dubbelklikken, afbeelding direct opslaan in de laatstgebruikte map.">
+<!ENTITY saveimageinfolder.options.usecache "Cache gebruiken voor het opslaan van de afbeeldingen. (Sneller, maar onoverzichtelijker.)">
+<!ENTITY saveimageinfolder.setfolder.title "Map">
+<!ENTITY saveimageinfolder.setfolder.description "Beschrijving">
+<!ENTITY saveimageinfolder.setfolder.path "Pad">
+<!ENTITY saveimageinfolder.setfolder.individual "Mapinstellingen - Individueel">
+<!ENTITY saveimageinfolder.setfolder.individual-opensaveasdialog "'Opslaan als...'-venster openen voor het downloaden.">
+<!ENTITY saveimageinfolder.setfolder.individual-openfolder "Doelmap openen als het downloaden begint.">
+<!ENTITY saveimageinfolder.setfolder.individual-fileprefix "Bestandsvoorvoegsel:">
+<!ENTITY saveimageinfolder.setfolder.individual-filename "Bestandsnaam:">
+<!ENTITY saveimageinfolder.setfolder.individual-filesuffix "Bestandsachtervoegsel:">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilename "Als de bestandsnaam al bestaat">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevaluesaveas "'Opslaan als...'-venster openen">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevalueincrement "Automatisch het achtervoegsel van de bestandsnaam verhogen">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevaluecancel "Download annuleren">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevalueoverwrite "Bestand overschrijven">
+<!ENTITY saveimageinfolder.notify.file "Bestand:">
+<!ENTITY saveimageinfolder.notify.folder "Map:">
+<!ENTITY saveimageinfolder.options.notification "Waarschuwing">
+<!ENTITY saveimageinfolder.options.notification-statusbar "Statusbalkbericht">
+<!ENTITY saveimageinfolder.options.notification-popupwindow "Popup">
+<!ENTITY saveimageinfolder.options.notification-duration "Duur (seconden):">
+<!ENTITY saveimageinfolder.options.helptab "Help">
+<!ENTITY saveimageinfolder.options.website "Kijk op deze webstek voor meer informatie:">

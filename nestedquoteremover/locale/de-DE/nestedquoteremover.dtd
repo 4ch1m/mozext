@@ -1,0 +1,14 @@
+<!ENTITY nestedquoteremover.label.options.windowtitle "NestedQuote Remover Optionen">
+<!ENTITY nestedquoteremover.label.options.quotedepth "Maximal erlaubte Zitattiefe:">
+<!ENTITY nestedquoteremover.label.options.autoremove "Verschachtelte Zitate automatisch löschen">
+<!ENTITY nestedquoteremover.label.options.contextmenu "Eintrag im Kontextmenu anzeigen">
+<!ENTITY nestedquoteremover.label.options.shortcut.groupbox "Tastenkürzel:">
+<!ENTITY nestedquoteremover.label.options.shortcut.accel "Schnellzugriff">
+<!ENTITY nestedquoteremover.label.options.shortcut.alt "Alt">
+<!ENTITY nestedquoteremover.label.options.shortcut.control "Steuerung">
+<!ENTITY nestedquoteremover.label.options.shortcut.meta "Meta">
+<!ENTITY nestedquoteremover.label.options.shortcut.shift "Umschalt">
+<!ENTITY nestedquoteremover.label.toolbar "Zitate">
+<!ENTITY nestedquoteremover.label.menupopup "Verschachtelte Zitate entfernen">
+<!ENTITY nestedquoteremover.label.context "Verschachtelte Zitate entfernen">
+<!ENTITY nestedquoteremover.tooltip.toolbar "Entfernt verschachtelte Zitate">

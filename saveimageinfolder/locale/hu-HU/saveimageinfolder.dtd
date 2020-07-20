@@ -1,0 +1,72 @@
+<!ENTITY saveimageinfolder.toolbar.label "Mappák">
+<!ENTITY saveimageinfolder.toolbar.tooltip "Mappák böngészése">
+<!ENTITY saveimageinfolder.context.label "Kép mentése...">
+<!ENTITY saveimageinfolder.options.title "Save Image in Folder - Beállítások">
+<!ENTITY saveimageinfolder.options.maintab "Általános">
+<!ENTITY saveimageinfolder.options.miscellaneoustab "Egyéb">
+<!ENTITY saveimageinfolder.options.advancedtab "Haladó">
+<!ENTITY saveimageinfolder.options.new "Új">
+<!ENTITY saveimageinfolder.options.edit "Szerkesztés">
+<!ENTITY saveimageinfolder.options.delete "Törlés">
+<!ENTITY saveimageinfolder.options.separator "Elválasztó">
+<!ENTITY saveimageinfolder.options.folders "Mappák">
+<!ENTITY saveimageinfolder.options.description "Leírás">
+<!ENTITY saveimageinfolder.options.path "Elérési út">
+<!ENTITY saveimageinfolder.options.opensaveasdialog "Mentés másként">
+<!ENTITY saveimageinfolder.options.openfolder "Mappa megnyitása">
+<!ENTITY saveimageinfolder.options.fileprefix "Előtag">
+<!ENTITY saveimageinfolder.options.fileprefixvalue "a fájlnév előtagja">
+<!ENTITY saveimageinfolder.options.filename "Fájlnév">
+<!ENTITY saveimageinfolder.options.filenamevalue "Név">
+<!ENTITY saveimageinfolder.options.filesuffix "Utótag">
+<!ENTITY saveimageinfolder.options.filesuffixvalue "a fájlnév utótagja">
+<!ENTITY saveimageinfolder.options.duplicatefilename "Másodpéldány fájlneve">
+<!ENTITY saveimageinfolder.options.general "Mappák általános beállításai">
+<!ENTITY saveimageinfolder.options.general-shiftkey "A Shift billentyű lenyomva tartása felülbírálja a mappa egyedi beállításait, és a következő történik:">
+<!ENTITY saveimageinfolder.options.general-opensaveasdialog "A 'Mentés másként' párbeszédablak megnyitása letöltés előtt">
+<!ENTITY saveimageinfolder.options.general-openfolder "A célmappa megnyitása a letöltés kezdetekor">
+<!ENTITY saveimageinfolder.options.general-fileprefix "Előtag:">
+<!ENTITY saveimageinfolder.options.general-filename "Fájlnév:">
+<!ENTITY saveimageinfolder.options.general-filesuffix "Utótag:">
+<!ENTITY saveimageinfolder.options.general-duplicatefilename "Ha már létezik ilyen fájl:">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevaluesaveas "A 'Mentés másként' párbeszédablak megjelenítése">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevalueincrement "Fájlnév automatikus sorszámozása">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevaluecancel "Letöltés megszakítása">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevalueoverwrite "Fájl felülírása">
+<!ENTITY saveimageinfolder.options.executable "A célmappa megnyitása a következővel:">
+<!ENTITY saveimageinfolder.options.executable-description "Itt választható másik program a célmappa megnyitására. Ha ez nincs bejelölve, a kiterjesztés a mappára való dupla kattintáskor az alapértelmezett akciót fogja végrehajtani (ami általában az 'explorer.exe' futtatása Windows esetén.)">
+<!ENTITY saveimageinfolder.options.executable-check "Futtatás:">
+<!ENTITY saveimageinfolder.options.executable-arguments "Paraméterek:">
+<!ENTITY saveimageinfolder.options.executable-ctrlkey "Tipp: a Ctrl lenyomva tartásával csak megnyitja a mappát, a fájl mentése nélkül.">
+<!ENTITY saveimageinfolder.options.contextmenu "Helyi menü">
+<!ENTITY saveimageinfolder.options.shortcut "Gyorsbillentyű:">
+<!ENTITY saveimageinfolder.options.numericshortcuts "Szám-gyorsbillentyűk hozzárendelése az első tíz mappaelemhez.">
+<!ENTITY saveimageinfolder.options.hideinvalidfolders "Nemlétező mappák rejtése (különben passzívak lesznek).">
+<!ENTITY saveimageinfolder.options.prefs "Firefox preferenciák">
+<!ENTITY saveimageinfolder.options.prefs-description "Mentés után a mappa elérési útját adja hozzá a következő kulcshoz (prefs.js):">
+<!ENTITY saveimageinfolder.options.prefs-clear "Törlés">
+<!ENTITY saveimageinfolder.options.doubleclick "Dupla kattintás egy képen közvetlenül a legutóbb használt mappába menti azt. (A változtatás csak a Firefox újraindítása után lép érvénybe.)">
+<!ENTITY saveimageinfolder.options.usecache "A Gyorsítótár használata a letöltéskezelő helyett a képek mentésére. (Jobb teljesítmény, kisebb követhetőség.)">
+<!ENTITY saveimageinfolder.setfolder.title "Mappa">
+<!ENTITY saveimageinfolder.setfolder.description "Név">
+<!ENTITY saveimageinfolder.setfolder.path "Útvonal">
+<!ENTITY saveimageinfolder.setfolder.individual "Mappa egyedi beállításai">
+<!ENTITY saveimageinfolder.setfolder.individual-opensaveasdialog "A 'Mentés másként' párbeszédablak megnyitása letöltés előtt">
+<!ENTITY saveimageinfolder.setfolder.individual-openfolder "A célmappa megnyitása a letöltés kezdetekor">
+<!ENTITY saveimageinfolder.setfolder.individual-fileprefix "Előtag:">
+<!ENTITY saveimageinfolder.setfolder.individual-filename "Fájlnév:">
+<!ENTITY saveimageinfolder.setfolder.individual-filesuffix "Utótag:">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilename "Ha már létezik ilyen fájl:">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevaluesaveas "A 'Mentés másként' párbeszédablak megjelenítése">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevalueincrement "Fájlnév automatikus sorszámozása">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevaluecancel "Letöltés megszakítása">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevalueoverwrite "Fájl felülírása">
+<!ENTITY saveimageinfolder.notify.file "Fájl:">
+<!ENTITY saveimageinfolder.notify.folder "Mappa:">
+<!ENTITY saveimageinfolder.options.notification "Értesítés">
+<!ENTITY saveimageinfolder.options.notification-statusbar "Állapotsor üzenet">
+<!ENTITY saveimageinfolder.options.notification-popupwindow "Felugró ablak">
+<!ENTITY saveimageinfolder.options.notification-duration "Időtartam (másodperc):">
+<!ENTITY saveimageinfolder.options.helptab "Súgó">
+<!ENTITY saveimageinfolder.options.website "Ezen a webhelyen további információkat találhat:">
+

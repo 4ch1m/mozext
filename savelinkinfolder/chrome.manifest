@@ -1,0 +1,26 @@
+content savelinkinfolder jar:chrome/savelinkinfolder.jar!/content/
+skin    savelinkinfolder classic/1.0 jar:chrome/savelinkinfolder.jar!/skin/classic/
+overlay chrome://browser/content/browser.xul chrome://savelinkinfolder/content/savelinkinfolder.xul
+overlay chrome://mozapps/content/downloads/unknownContentType.xul chrome://savelinkinfolder/content/unknowncontenttype.xul
+style chrome://global/content/customizeToolbar.xul chrome://savelinkinfolder/skin/savelinkinfolder.css
+locale  savelinkinfolder en-US jar:chrome/savelinkinfolder.jar!/locale/en-US/
+locale  savelinkinfolder de-DE jar:chrome/savelinkinfolder.jar!/locale/de-DE/
+locale  savelinkinfolder it-IT jar:chrome/savelinkinfolder.jar!/locale/it-IT/
+locale  savelinkinfolder es-ES jar:chrome/savelinkinfolder.jar!/locale/es-ES/
+locale  savelinkinfolder nl-NL jar:chrome/savelinkinfolder.jar!/locale/nl-NL/
+locale  savelinkinfolder fr-FR jar:chrome/savelinkinfolder.jar!/locale/fr-FR/
+locale  savelinkinfolder zh-TW jar:chrome/savelinkinfolder.jar!/locale/zh-TW/
+locale  savelinkinfolder pl-PL jar:chrome/savelinkinfolder.jar!/locale/pl-PL/
+locale  savelinkinfolder ja-JP jar:chrome/savelinkinfolder.jar!/locale/ja-JP/
+locale  savelinkinfolder hu-HU jar:chrome/savelinkinfolder.jar!/locale/hu-HU/
+locale  savelinkinfolder ru-RU jar:chrome/savelinkinfolder.jar!/locale/ru-RU/
+locale  savelinkinfolder tr-TR jar:chrome/savelinkinfolder.jar!/locale/tr-TR/
+locale  savelinkinfolder sk-SK jar:chrome/savelinkinfolder.jar!/locale/sk-SK/
+#locale  savelinkinfolder fy-NL jar:chrome/savelinkinfolder.jar!/locale/fy-NL/
+locale  savelinkinfolder pt-BR jar:chrome/savelinkinfolder.jar!/locale/pt-BR/
+#locale  savelinkinfolder uk-UA jar:chrome/savelinkinfolder.jar!/locale/uk-UA/
+#locale  savelinkinfolder be-BY jar:chrome/savelinkinfolder.jar!/locale/be-BY/
+locale  savelinkinfolder sv-SE jar:chrome/savelinkinfolder.jar!/locale/sv-SE/
+locale  savelinkinfolder sr-YU jar:chrome/savelinkinfolder.jar!/locale/sr-YU/
+locale  savelinkinfolder zh-CN jar:chrome/savelinkinfolder.jar!/locale/zh-CN/
+locale  savelinkinfolder sl-SL jar:chrome/savelinkinfolder.jar!/locale/sl-SL/

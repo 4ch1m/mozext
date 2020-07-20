@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+  "name": "Signature Switch",
+  "description": "Switch the signature on/off or choose a new one from your predefined set.",
+  "version": "1.8.2",
+  "author": "Achim Seufert",
+  "legacy": true,
+  "applications": {
+    "gecko": {
+      "id": "{2ab1b709-ba03-4361-abf9-c50b964ff75d}",
+      "strict_min_version": "61.0"
+    }
+  },
+  "icons": {
+    "16": "icons/signatureswitch16.png",
+    "24": "icons/signatureswitch24.png",
+    "32": "icons/signatureswitch32.png"
+  }
+}

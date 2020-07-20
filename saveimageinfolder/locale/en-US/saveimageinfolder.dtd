@@ -1,0 +1,71 @@
+<!ENTITY saveimageinfolder.toolbar.label "Folders">
+<!ENTITY saveimageinfolder.toolbar.tooltip "Browse folders">
+<!ENTITY saveimageinfolder.context.label "Save Image in Folder...">
+<!ENTITY saveimageinfolder.options.title "Save Image in Folder - Options">
+<!ENTITY saveimageinfolder.options.maintab "Main">
+<!ENTITY saveimageinfolder.options.miscellaneoustab "Miscellaneous">
+<!ENTITY saveimageinfolder.options.advancedtab "Advanced">
+<!ENTITY saveimageinfolder.options.new "New">
+<!ENTITY saveimageinfolder.options.edit "Edit">
+<!ENTITY saveimageinfolder.options.delete "Delete">
+<!ENTITY saveimageinfolder.options.separator "Separator">
+<!ENTITY saveimageinfolder.options.folders "Folders">
+<!ENTITY saveimageinfolder.options.description "Description">
+<!ENTITY saveimageinfolder.options.path "Path">
+<!ENTITY saveimageinfolder.options.opensaveasdialog "Save As">
+<!ENTITY saveimageinfolder.options.openfolder "Open Folder">
+<!ENTITY saveimageinfolder.options.fileprefix "Prefix">
+<!ENTITY saveimageinfolder.options.fileprefixvalue "Prefix-Value">
+<!ENTITY saveimageinfolder.options.filename "Name">
+<!ENTITY saveimageinfolder.options.filenamevalue "Name-Value">
+<!ENTITY saveimageinfolder.options.filesuffix "Suffix">
+<!ENTITY saveimageinfolder.options.filesuffixvalue "Suffix-Value">
+<!ENTITY saveimageinfolder.options.duplicatefilename "Duplicate filename">
+<!ENTITY saveimageinfolder.options.general "General folder settings">
+<!ENTITY saveimageinfolder.options.general-shiftkey "Hold down the shift-key while selecting a context-menu item to override the folder's individual settings and use the following instead.">
+<!ENTITY saveimageinfolder.options.general-opensaveasdialog "Open a 'Save As...'-dialog before downloading.">
+<!ENTITY saveimageinfolder.options.general-openfolder "Open the target folder when the download starts.">
+<!ENTITY saveimageinfolder.options.general-fileprefix "File-prefix:">
+<!ENTITY saveimageinfolder.options.general-filename "File-name:">
+<!ENTITY saveimageinfolder.options.general-filesuffix "File-suffix:">
+<!ENTITY saveimageinfolder.options.general-duplicatefilename "If there is a duplicate filename...">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevaluesaveas "Show 'Save As...'-dialog">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevalueincrement "Auto-increment the filename">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevaluecancel "Cancel the download">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevalueoverwrite "Overwrite the file">
+<!ENTITY saveimageinfolder.options.executable "Executable used to open the target folder">
+<!ENTITY saveimageinfolder.options.executable-description "Here you can choose another executable to open the target folder with. If unchecked the extension will use the systems default action when double-clicking a folder. (Which usually is starting 'explorer.exe' on Windows systems.)">
+<!ENTITY saveimageinfolder.options.executable-check "Use this executable:">
+<!ENTITY saveimageinfolder.options.executable-arguments "Arguments:">
+<!ENTITY saveimageinfolder.options.executable-ctrlkey "Hint: Holding down the ctrl-key while selecting a context-menu item just opens the folder without saving the file.">
+<!ENTITY saveimageinfolder.options.contextmenu "Context-Menu">
+<!ENTITY saveimageinfolder.options.shortcut "Keyboard shortcut: ">
+<!ENTITY saveimageinfolder.options.numericshortcuts "Display numeric shortcuts trailing the first ten folder entries.">
+<!ENTITY saveimageinfolder.options.hideinvalidfolders "Hide folders with invalid path (otherwise they just get disabled).">
+<!ENTITY saveimageinfolder.options.prefs "Firefox preferences">
+<!ENTITY saveimageinfolder.options.prefs-description "After saving to a folder write that path into the following Firefox preferences (prefs.js).">
+<!ENTITY saveimageinfolder.options.prefs-clear "Clear">
+<!ENTITY saveimageinfolder.options.doubleclick "Performing a left double-click on an image directly saves it to the previously used folder. (This option requires a restart of Firefox to take action.)">
+<!ENTITY saveimageinfolder.options.usecache "Use the browsers cache to save the image instead of invoking the download-manager. (More performance but less traceability.)">
+<!ENTITY saveimageinfolder.setfolder.title "Folder">
+<!ENTITY saveimageinfolder.setfolder.description "Description">
+<!ENTITY saveimageinfolder.setfolder.path "Path">
+<!ENTITY saveimageinfolder.setfolder.individual "Individual folder settings">
+<!ENTITY saveimageinfolder.setfolder.individual-opensaveasdialog "Open a 'Save As...'-dialog before downloading.">
+<!ENTITY saveimageinfolder.setfolder.individual-openfolder "Open the target folder when the download starts.">
+<!ENTITY saveimageinfolder.setfolder.individual-fileprefix "File-prefix:">
+<!ENTITY saveimageinfolder.setfolder.individual-filename "File-name:">
+<!ENTITY saveimageinfolder.setfolder.individual-filesuffix "File-suffix:">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilename "If there is a duplicate filename...">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevaluesaveas "Show 'Save As...'-dialog">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevalueincrement "Auto-increment the filename">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevaluecancel "Cancel the download">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevalueoverwrite "Overwrite the file">
+<!ENTITY saveimageinfolder.notify.file "File:">
+<!ENTITY saveimageinfolder.notify.folder "Folder:">
+<!ENTITY saveimageinfolder.options.notification "Notification">
+<!ENTITY saveimageinfolder.options.notification-statusbar "Status-Bar message">
+<!ENTITY saveimageinfolder.options.notification-popupwindow "Popup window">
+<!ENTITY saveimageinfolder.options.notification-duration "Duration (seconds):">
+<!ENTITY saveimageinfolder.options.helptab "Help">
+<!ENTITY saveimageinfolder.options.website "Please visit this website for detailed instructions:">

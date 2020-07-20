@@ -1,0 +1,71 @@
+<!ENTITY saveimageinfolder.toolbar.label "Фолдери">
+<!ENTITY saveimageinfolder.toolbar.tooltip "Прегледај фолдере">
+<!ENTITY saveimageinfolder.context.label "Сачувај слику у фолдер...">
+<!ENTITY saveimageinfolder.options.title "Сачувај слику у фолдер - Опције">
+<!ENTITY saveimageinfolder.options.maintab "Главно">
+<!ENTITY saveimageinfolder.options.miscellaneoustab "Разно">
+<!ENTITY saveimageinfolder.options.advancedtab "Напредно">
+<!ENTITY saveimageinfolder.options.new "Ново">
+<!ENTITY saveimageinfolder.options.edit "Уреди">
+<!ENTITY saveimageinfolder.options.delete "Обриши">
+<!ENTITY saveimageinfolder.options.separator "Граничник">
+<!ENTITY saveimageinfolder.options.folders "Фолдери">
+<!ENTITY saveimageinfolder.options.description "Опис">
+<!ENTITY saveimageinfolder.options.path "Путања">
+<!ENTITY saveimageinfolder.options.opensaveasdialog "Сачувај као">
+<!ENTITY saveimageinfolder.options.openfolder "Отвори фолдер">
+<!ENTITY saveimageinfolder.options.fileprefix "Префикс">
+<!ENTITY saveimageinfolder.options.fileprefixvalue "Префикс-вредност">
+<!ENTITY saveimageinfolder.options.filename "Име">
+<!ENTITY saveimageinfolder.options.filenamevalue "Име-вредност">
+<!ENTITY saveimageinfolder.options.filesuffix "Суфикс">
+<!ENTITY saveimageinfolder.options.filesuffixvalue "Суфикс-вредност">
+<!ENTITY saveimageinfolder.options.duplicatefilename "Датотеке са истим именом">
+<!ENTITY saveimageinfolder.options.general "Општа подешавања фолдера">
+<!ENTITY saveimageinfolder.options.general-shiftkey "Држите притиснут тастер shift док бирате ставку контекстног менија како би премостили подешавање појединог фолдера и уместо њега користили следеће.">
+<!ENTITY saveimageinfolder.options.general-opensaveasdialog "Отвори 'Сачувај као...'-дијалог пре преузимања.">
+<!ENTITY saveimageinfolder.options.general-openfolder "Отвори циљни фолдер када започне преузимање.">
+<!ENTITY saveimageinfolder.options.general-fileprefix "Датотека-префикс:">
+<!ENTITY saveimageinfolder.options.general-filename "Име датотеке:">
+<!ENTITY saveimageinfolder.options.general-filesuffix "Датотека-суфикс:">
+<!ENTITY saveimageinfolder.options.general-duplicatefilename "Ако датотека са задатим именом већ постоји...">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevaluesaveas "Прикажи 'Сачувај као...'-дијалог">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevalueincrement "Ауто-инкрементирај име датотеке">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevaluecancel "Прекини преузимање">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevalueoverwrite "Препиши датотеку">
+<!ENTITY saveimageinfolder.options.executable "Извршна датотека која се користи за отварање циљног фолдера">
+<!ENTITY saveimageinfolder.options.executable-description "Овде можете да изаберете неку другу извршну датотеку за отварање циљног фолдера. Ако није штиклирано, проширење ће користити подразумевану акцију у систему приликом двоструког клика на фолдер. (Што обично покреће 'explorer.exe' на Windows системима.)">
+<!ENTITY saveimageinfolder.options.executable-check "Користи ову извршну датотеку:">
+<!ENTITY saveimageinfolder.options.executable-arguments "Аргументи:">
+<!ENTITY saveimageinfolder.options.executable-ctrlkey "Савет: ако приликом бирања ставке контекстног менија држите притиснут тастер ctrl, само ће биће отворен циљни фолдер, без чувања датотеке.">
+<!ENTITY saveimageinfolder.options.contextmenu "Контекстни мени">
+<!ENTITY saveimageinfolder.options.shortcut "Пречица на тастатури: ">
+<!ENTITY saveimageinfolder.options.numericshortcuts "Прикажи бројчане пречице иза првих десет унесених фолдера.">
+<!ENTITY saveimageinfolder.options.hideinvalidfolders "Сакриј фолдере са неправилном путањом (у супротном само бивају онемогућени).">
+<!ENTITY saveimageinfolder.options.prefs "Firefox подешавања">
+<!ENTITY saveimageinfolder.options.prefs-description "Након чувања у фолдер упиши ту путању у следећа Firefox подешавања (prefs.js).">
+<!ENTITY saveimageinfolder.options.prefs-clear "Обриши">
+<!ENTITY saveimageinfolder.options.doubleclick "Извођење левог дуплог клика на слику чува је директно у претходно коришћени фолдер. (Ова опција захтева поновно покретање Firefox-а како би имала ефекта.)">
+<!ENTITY saveimageinfolder.options.usecache "Користи претраживачев кеш за чување слике уместо позивања менаџера преузимања. (Боље перформансе, али теже за праћење.)">
+<!ENTITY saveimageinfolder.setfolder.title "Фолдер">
+<!ENTITY saveimageinfolder.setfolder.description "Опис">
+<!ENTITY saveimageinfolder.setfolder.path "Путања">
+<!ENTITY saveimageinfolder.setfolder.individual "Подешавања појединачних фолдера">
+<!ENTITY saveimageinfolder.setfolder.individual-opensaveasdialog "Отвори 'Сачувај као...'-дијалог пре преузимања.">
+<!ENTITY saveimageinfolder.setfolder.individual-openfolder "Отвори циљни фолдер када започне преузимање.">
+<!ENTITY saveimageinfolder.setfolder.individual-fileprefix "Датотека-префикс:">
+<!ENTITY saveimageinfolder.setfolder.individual-filename "Датотека-име:">
+<!ENTITY saveimageinfolder.setfolder.individual-filesuffix "Датотека-суфикс:">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilename "Ако датаотека са задатим именом већ постоји...">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevaluesaveas "Прикажи 'Сачувај као...'-дијалог">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevalueincrement "Ауто-инкрементирај име датотеке">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevaluecancel "Прекини преузимање">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevalueoverwrite "Препиши датотеку">
+<!ENTITY saveimageinfolder.notify.file "Датотека:">
+<!ENTITY saveimageinfolder.notify.folder "Фолдер:">
+<!ENTITY saveimageinfolder.options.notification "Обавештење">
+<!ENTITY saveimageinfolder.options.notification-statusbar "Порука у статусној линији">
+<!ENTITY saveimageinfolder.options.notification-popupwindow "Искачући прозор">
+<!ENTITY saveimageinfolder.options.notification-duration "Трајање (у секундама):">
+<!ENTITY saveimageinfolder.options.helptab "Помоћ">
+<!ENTITY saveimageinfolder.options.website "Молим посетите ову веб страну за детаљне инструкције:">

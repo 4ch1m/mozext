@@ -1,0 +1,14 @@
+﻿<!ENTITY nestedquoteremover.label.options.windowtitle "NestedQuote Remover オプション">
+<!ENTITY nestedquoteremover.label.options.quotedepth "許容する入れ子の最大深さ:">
+<!ENTITY nestedquoteremover.label.options.autoremove "自動的に入れ子になった引用を削除">
+<!ENTITY nestedquoteremover.label.options.contextmenu "コンテキストメニューに表示">
+<!ENTITY nestedquoteremover.label.options.shortcut.groupbox "キーボードショートカット:">
+<!ENTITY nestedquoteremover.label.options.shortcut.accel "アクセラレータ">
+<!ENTITY nestedquoteremover.label.options.shortcut.alt "Alt">
+<!ENTITY nestedquoteremover.label.options.shortcut.control "Control">
+<!ENTITY nestedquoteremover.label.options.shortcut.meta "メタ">
+<!ENTITY nestedquoteremover.label.options.shortcut.shift "Shift">
+<!ENTITY nestedquoteremover.label.toolbar "引用">
+<!ENTITY nestedquoteremover.label.menupopup "入れ子になった引用を削除">
+<!ENTITY nestedquoteremover.label.context "入れ子になった引用を削除">
+<!ENTITY nestedquoteremover.tooltip.toolbar "入れ子になった引用を削除">

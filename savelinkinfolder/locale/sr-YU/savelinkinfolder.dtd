@@ -1,0 +1,71 @@
+<!ENTITY savelinkinfolder.toolbar.label "Фолдери">
+<!ENTITY savelinkinfolder.toolbar.tooltip "Прегледај фолдере">
+<!ENTITY savelinkinfolder.context.label "Сачувај везу у фолдер...">
+<!ENTITY savelinkinfolder.options.title "Сачувај везу у фолдер - Опције">
+<!ENTITY savelinkinfolder.options.maintab "Главно">
+<!ENTITY savelinkinfolder.options.miscellaneoustab "Разно">
+<!ENTITY savelinkinfolder.options.advancedtab "Напредно">
+<!ENTITY savelinkinfolder.options.new "Ново">
+<!ENTITY savelinkinfolder.options.edit "Уреди">
+<!ENTITY savelinkinfolder.options.delete "Обриши">
+<!ENTITY savelinkinfolder.options.separator "Граничник">
+<!ENTITY savelinkinfolder.options.folders "Фолдери">
+<!ENTITY savelinkinfolder.options.description "Опис">
+<!ENTITY savelinkinfolder.options.path "Путања">
+<!ENTITY savelinkinfolder.options.opensaveasdialog "Сачувај као">
+<!ENTITY savelinkinfolder.options.openfolder "Отвори фолдер">
+<!ENTITY savelinkinfolder.options.fileprefix "Префикс">
+<!ENTITY savelinkinfolder.options.fileprefixvalue "Префикс-вредност">
+<!ENTITY savelinkinfolder.options.filename "Име">
+<!ENTITY savelinkinfolder.options.filenamevalue "Име-вредност">
+<!ENTITY savelinkinfolder.options.filesuffix "Суфикс">
+<!ENTITY savelinkinfolder.options.filesuffixvalue "Суфикс-вредност">
+<!ENTITY savelinkinfolder.options.duplicatefilename "Ако датотека са задатим именом већ постоји...">
+<!ENTITY savelinkinfolder.options.general "Општа подешавања фолдера">
+<!ENTITY savelinkinfolder.options.general-shiftkey "Држите притиснут тастер shift док бирате ставку контекстног менија како би премостили подешавање појединог фолдера и уместо њега користили следеће.">
+<!ENTITY savelinkinfolder.options.general-opensaveasdialog "Отвори 'Сачувај као...'-дијалог пре преузимања.">
+<!ENTITY savelinkinfolder.options.general-openfolder "Отвори циљни фолдер када започне преузимање.">
+<!ENTITY savelinkinfolder.options.general-fileprefix "Датотека-префикс:">
+<!ENTITY savelinkinfolder.options.general-filename "Датотека-име:">
+<!ENTITY savelinkinfolder.options.general-filesuffix "Датотека-суфикс:">
+<!ENTITY savelinkinfolder.options.general-duplicatefilename "Ако датотека са задатим именом већ постоји...">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevaluesaveas "Прикажи 'Сачувај као...'-дијалог">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevalueincrement "Ауто-инкрементирај име датотеке">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevaluecancel "Прекини преузимање">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevalueoverwrite "Препиши датотеку">
+<!ENTITY savelinkinfolder.options.executable "Извршна датотека која се користи за отварање циљног фолдера">
+<!ENTITY savelinkinfolder.options.executable-description "Овде можете да изаберете неку другу извршну датотеку за отварање циљног фолдера. Ако није штиклирано, проширење ће користити подразумевану акцију у систему приликом двоструког клика на фолдер. (Што обично покреће 'explorer.exe' на Windows системима.)">
+<!ENTITY savelinkinfolder.options.executable-check "Користи ову извршну датотеку:">
+<!ENTITY savelinkinfolder.options.executable-arguments "Аргументи:">
+<!ENTITY savelinkinfolder.options.executable-ctrlkey "Савет: ако приликом бирања ставке контекстног менија држите притиснут тастер ctrl, само ће биће отворен циљни фолдер, без чувања датотеке.">
+<!ENTITY savelinkinfolder.options.contextmenu "Контекстни мени">
+<!ENTITY savelinkinfolder.options.shortcut "Пречица на тастатури: ">
+<!ENTITY savelinkinfolder.options.numericshortcuts "Прикажи бројчане пречице иза првих десет унесених фолдера.">
+<!ENTITY savelinkinfolder.options.hideinvalidfolders "Сакриј фолдере са неправилном путањом (у супротном само бивају онемогућени).">
+<!ENTITY savelinkinfolder.options.prefs "Firefox подешавања">
+<!ENTITY savelinkinfolder.options.prefs-description "Након чувања у фолдер упиши ту путању у следећа Firefox подешавања (prefs.js).">
+<!ENTITY savelinkinfolder.options.prefs-clear "Обриши">
+<!ENTITY savelinkinfolder.options.nofilereference "Везе без директне референце на датотеку се отварају помоћу 'Сачувај као...'-дијалога.">
+<!ENTITY savelinkinfolder.options.hideunknowncontenttype "Сакриј листу фолдера када Firefox детектује непознат тип садржаја (content-type).">
+<!ENTITY savelinkinfolder.setfolder.title "Фолдер">
+<!ENTITY savelinkinfolder.setfolder.description "Опис">
+<!ENTITY savelinkinfolder.setfolder.path "Путања">
+<!ENTITY savelinkinfolder.setfolder.individual "Подешавања појединачних фолдера">
+<!ENTITY savelinkinfolder.setfolder.individual-opensaveasdialog "Отвори 'Сачувај као...'-дијалог пре преузимања.">
+<!ENTITY savelinkinfolder.setfolder.individual-openfolder "Отвори циљни фолдер када започне преузимање.">
+<!ENTITY savelinkinfolder.setfolder.individual-fileprefix "Датотека-префикс:">
+<!ENTITY savelinkinfolder.setfolder.individual-filename "Датотека-име:">
+<!ENTITY savelinkinfolder.setfolder.individual-filesuffix "Датотека-суфикс:">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilename "Ако датаотека са задатим именом већ постоји...">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevaluesaveas "Прикажи 'Сачувај као...'-дијалог">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevalueincrement "Ауто-инкрементирај име датотеке">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevaluecancel "Прекини преузимање">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevalueoverwrite "Препиши датотеку">
+<!ENTITY savelinkinfolder.notify.file "Датотека:">
+<!ENTITY savelinkinfolder.notify.folder "Фолдер:">
+<!ENTITY savelinkinfolder.options.notification "Обавештење">
+<!ENTITY savelinkinfolder.options.notification-statusbar "Порука у статусној линији">
+<!ENTITY savelinkinfolder.options.notification-popupwindow "Искачући прозор">
+<!ENTITY savelinkinfolder.options.notification-duration "Трајање (у секундама):">
+<!ENTITY savelinkinfolder.options.helptab "Помоћ">
+<!ENTITY savelinkinfolder.options.website "Молим посетите ову веб страну за детаљне инструкције:">

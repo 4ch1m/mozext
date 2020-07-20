@@ -1,0 +1,72 @@
+<!ENTITY savelinkinfolder.toolbar.label "Dizinler">
+<!ENTITY savelinkinfolder.toolbar.tooltip "Dizinleri gösterir">
+<!ENTITY savelinkinfolder.context.label "Hedefi bu dosyada kaydet...">
+<!ENTITY savelinkinfolder.options.title "Save Link in Folder - Seçenekleri">
+<!ENTITY savelinkinfolder.options.maintab "Temel">
+<!ENTITY savelinkinfolder.options.miscellaneoustab "Değişik">
+<!ENTITY savelinkinfolder.options.advancedtab "Gelişmiş">
+<!ENTITY savelinkinfolder.options.new "Yeni">
+<!ENTITY savelinkinfolder.options.edit "Düzenle">
+<!ENTITY savelinkinfolder.options.delete "Sil">
+<!ENTITY savelinkinfolder.options.separator "Ayraç">
+<!ENTITY savelinkinfolder.options.folders "Dizin">
+<!ENTITY savelinkinfolder.options.description "Tanım">
+<!ENTITY savelinkinfolder.options.path "Kısayol">
+<!ENTITY savelinkinfolder.options.opensaveasdialog "Farklı kaydet">
+<!ENTITY savelinkinfolder.options.openfolder "Dizin aç">
+<!ENTITY savelinkinfolder.options.fileprefix "Önek">
+<!ENTITY savelinkinfolder.options.fileprefixvalue "Önek değeri">
+<!ENTITY savelinkinfolder.options.filename "İsim">
+<!ENTITY savelinkinfolder.options.filenamevalue "İsim değeri">
+<!ENTITY savelinkinfolder.options.filesuffix "Sonek">
+<!ENTITY savelinkinfolder.options.filesuffixvalue "Sonek değeri">
+<!ENTITY savelinkinfolder.options.duplicatefilename "Çift dosya isimleri">
+<!ENTITY savelinkinfolder.options.general "Genl dizin ayarları">
+<!ENTITY savelinkinfolder.options.general-shiftkey "Bireysel dizin ayarlarını tanımlayabilmek için içerik menü verilerinin seçiminde seçimi SHIFT tuşu ile basılı tutun.">
+<!ENTITY savelinkinfolder.options.general-opensaveasdialog "İndirmeden önce 'Farklı kaydet'  penceresini göster.">
+<!ENTITY savelinkinfolder.options.general-openfolder "İndirme başlamadan önce hedef kayıt penceresini göster.">
+<!ENTITY savelinkinfolder.options.general-fileprefix "Dosya öneki:">
+<!ENTITY savelinkinfolder.options.general-filename "Dosya ismi:">
+<!ENTITY savelinkinfolder.options.general-filesuffix "Dosya soneki:">
+<!ENTITY savelinkinfolder.options.general-duplicatefilename "Eğer dosya ismi mevcut ise, ">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevaluesaveas "'farklı kaydet' penceresini göster">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevalueincrement "dosya ismini otomatik olarak değiştir">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevaluecancel "indirmekten vazgeç">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevalueoverwrite "dosyanın üstüne yaz">
+<!ENTITY savelinkinfolder.options.executable "Dizini açacak program">
+<!ENTITY savelinkinfolder.options.executable-description "Burada dizini açacak olan başka bir program seçebilirsiniz.  Etkinleitirmez iseniz öntanımlı olarak çift tıklama ile yapılacak olan işlem yapılır. Windows sistemlerinde genelde explorer açılır.">
+<!ENTITY savelinkinfolder.options.executable-check "Bu programı kullan:">
+<!ENTITY savelinkinfolder.options.executable-arguments "Parametre:">
+<!ENTITY savelinkinfolder.options.executable-ctrlkey "İpucu: CTRL tuşuna basılı tutarak dizini açabilirsiniz ve dosya kaydolmaz.">
+<!ENTITY savelinkinfolder.options.contextmenu "İçerik menüsü">
+<!ENTITY savelinkinfolder.options.shortcut "Kısayol tuşları:">
+<!ENTITY savelinkinfolder.options.numericshortcuts "İlk 10 daki kelime tuşlarını göster">
+<!ENTITY savelinkinfolder.options.hideinvalidfolders "Geçersiz kısayolları gizle (aksi takdirde etkisizleştir)">
+<!ENTITY savelinkinfolder.options.prefs "Firefox ayarları">
+<!ENTITY savelinkinfolder.options.prefs-description "Kaydolma bittikten sonra gerekli ayarları Firefox öntanımlı dizininde saklar (pref.js içinde)">
+<!ENTITY savelinkinfolder.options.prefs-clear "Sil">
+<!ENTITY savelinkinfolder.options.nofilereference "Bir dosyayı göstermeyen hedefleri 'Farklı kaydet' penceresi ile açar.">
+<!ENTITY savelinkinfolder.options.hideunknowncontenttype "Firefox tarafından bilinmeyen bir dosya türü olarak tespit edilirse dosya listesini gizle.">
+<!ENTITY savelinkinfolder.setfolder.title "Dizin">
+<!ENTITY savelinkinfolder.setfolder.description "Tanımlama">
+<!ENTITY savelinkinfolder.setfolder.path "Kısayol">
+<!ENTITY savelinkinfolder.setfolder.individual "Bireysel dizin tercihleri">
+<!ENTITY savelinkinfolder.setfolder.individual-opensaveasdialog "İndirmeden önce 'Farklı kaydet' penceresini göster.">
+<!ENTITY savelinkinfolder.setfolder.individual-openfolder "İndirme başlamadan önce hedef dizinini göster.">
+<!ENTITY savelinkinfolder.setfolder.individual-fileprefix "Dosya öneki:">
+<!ENTITY savelinkinfolder.setfolder.individual-filename "Dosya ismi:">
+<!ENTITY savelinkinfolder.setfolder.individual-filesuffix "Dosya soneki:">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilename "Eğer dosya önceden mevcut ise, ">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevaluesaveas "'Farklı kaydet' penceresini göster">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevalueincrement "dosya ismini otomatik olarak değiştir">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevaluecancel "indirmekten vazgeç">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevalueoverwrite "dosyanın üstüne yaz">
+<!ENTITY savelinkinfolder.notify.file "Dosya:">
+<!ENTITY savelinkinfolder.notify.folder "Dizin:">
+<!ENTITY savelinkinfolder.options.notification "Uyarılar">
+<!ENTITY savelinkinfolder.options.notification-statusbar "Durum çubuğu mesajı">
+<!ENTITY savelinkinfolder.options.notification-popupwindow "Açılır kapanır pencere">
+<!ENTITY savelinkinfolder.options.notification-duration "Duraklama (saniye):">
+<!ENTITY savelinkinfolder.options.helptab "Yardım">
+<!ENTITY savelinkinfolder.options.website "Lütfen detaylar için web sayfasını ziyaret ediniz:">
+

@@ -1,0 +1,72 @@
+<!ENTITY savelinkinfolder.toolbar.label "Carpetas">
+<!ENTITY savelinkinfolder.toolbar.tooltip "Seleccionar carpetas">
+<!ENTITY savelinkinfolder.context.label "Guardar enlace en carpeta ...">
+<!ENTITY savelinkinfolder.options.title "Save Link in Folder - Opciones">
+<!ENTITY savelinkinfolder.options.maintab "Principal">
+<!ENTITY savelinkinfolder.options.miscellaneoustab "Varios">
+<!ENTITY savelinkinfolder.options.advancedtab "Avanzado">
+<!ENTITY savelinkinfolder.options.new "Nueva">
+<!ENTITY savelinkinfolder.options.edit "Editar">
+<!ENTITY savelinkinfolder.options.delete "Borrar">
+<!ENTITY savelinkinfolder.options.separator "Separador">
+<!ENTITY savelinkinfolder.options.folders "Carpetas">
+<!ENTITY savelinkinfolder.options.description "Descripción">
+<!ENTITY savelinkinfolder.options.path "Ruta">
+<!ENTITY savelinkinfolder.options.opensaveasdialog "Guardar como">
+<!ENTITY savelinkinfolder.options.openfolder "Abrir carpeta">
+<!ENTITY savelinkinfolder.options.fileprefix "Prefijo">
+<!ENTITY savelinkinfolder.options.fileprefixvalue "Prefijo del archivo">
+<!ENTITY savelinkinfolder.options.filename "Nombre">
+<!ENTITY savelinkinfolder.options.filenamevalue "Nombre-Valor">
+<!ENTITY savelinkinfolder.options.filesuffix "Sufijo">
+<!ENTITY savelinkinfolder.options.filesuffixvalue "Sufijo del archivo">
+<!ENTITY savelinkinfolder.options.duplicatefilename "Nombre de archivo duplicado">
+<!ENTITY savelinkinfolder.options.general "Opciones generales de carpetas">
+<!ENTITY savelinkinfolder.options.general-shiftkey "Mantener pulsada la tecla Mayús al seleccionar un elemento en el menú contextual para ignorar sus opciones individuales y usar las siguientes.">
+<!ENTITY savelinkinfolder.options.general-opensaveasdialog "Mostrar el cuadro 'Guardar como ...' antes de descargar.">
+<!ENTITY savelinkinfolder.options.general-openfolder "Abrir la carpeta destino al comenzar la descarga.">
+<!ENTITY savelinkinfolder.options.general-fileprefix "Prefijo del archivo:">
+<!ENTITY savelinkinfolder.options.general-filename "Nombre del archivo:">
+<!ENTITY savelinkinfolder.options.general-filesuffix "Sufijo del archivo:">
+<!ENTITY savelinkinfolder.options.general-duplicatefilename "Si ya existe un archivo con el mismo nombre...">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevaluesaveas "Mostrar el cuadro 'Guardar como...'">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevalueincrement "Autoincrementar el nombre del archivo">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevaluecancel "Cancelar la descarga">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevalueoverwrite "Sobreescribir el archivo">
+<!ENTITY savelinkinfolder.options.executable "Programa a usar para abrir la carpeta destino">
+<!ENTITY savelinkinfolder.options.executable-description "Puede seleccionar el programa usado para abrir la carpeta destino. Si deja desmarcada la casilla, la extensión usará el programa por defecto para abrir una carpeta (normalmente corresponde a 'explorer.exe' en sistemas Windows.)">
+<!ENTITY savelinkinfolder.options.executable-check "Usar este programa:">
+<!ENTITY savelinkinfolder.options.executable-arguments "Parámetros:">
+<!ENTITY savelinkinfolder.options.executable-ctrlkey "Ayuda: Mantener pulsada la tecla Ctrl mientras se selecciona un elemento en el menú contextual abre la carpeta sin guardar el archivo.">
+<!ENTITY savelinkinfolder.options.contextmenu "Menú contextual">
+<!ENTITY savelinkinfolder.options.shortcut "Combinación de teclas">
+<!ENTITY savelinkinfolder.options.numericshortcuts "Mostrar combinaciones de teclas numéricas para las diez primeras entradas.">
+<!ENTITY savelinkinfolder.options.hideinvalidfolders "Ocultar carpetas no válidas">
+<!ENTITY savelinkinfolder.options.prefs "Opciones de Firefox">
+<!ENTITY savelinkinfolder.options.prefs-description "Después de guardar en la carpeta guardar la ruta correspondiente en las siguientes opciones de Firefox (prefs.js).">
+<!ENTITY savelinkinfolder.options.prefs-clear "Limpia">
+<!ENTITY savelinkinfolder.options.nofilereference "Los enlaces que no sea una referencia directa a un archivo mostrarán el cuadro 'Guardar como...'">
+<!ENTITY savelinkinfolder.options.hideunknowncontenttype "Ocultar la lista de carpetas cuando Firefox detecte un tipo de archivo desconocido.">
+<!ENTITY savelinkinfolder.setfolder.title "Carpeta">
+<!ENTITY savelinkinfolder.setfolder.description "Descripción">
+<!ENTITY savelinkinfolder.setfolder.path "Ruta">
+<!ENTITY savelinkinfolder.setfolder.individual "Opciones individuales de carpeta">
+<!ENTITY savelinkinfolder.setfolder.individual-opensaveasdialog "Mostrar el cuadro 'Guardar como ...' antes de descargar.">
+<!ENTITY savelinkinfolder.setfolder.individual-openfolder "Abrir la carpeta destino al comenzar la descarga.">
+<!ENTITY savelinkinfolder.setfolder.individual-fileprefix "Prefijo del archivo:">
+<!ENTITY savelinkinfolder.setfolder.individual-filename "Nombre del archivo:">
+<!ENTITY savelinkinfolder.setfolder.individual-filesuffix "Sufijo del archivo:">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilename "Si ya existe un archivo con el mismo nombre...">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevaluesaveas "Mostrar el cuadro 'Guardar como...'">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevalueincrement "Autoincrementar el nombre del archivo">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevaluecancel "Cancelar la descarga">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevalueoverwrite "Sobreescribir el archivo">
+<!ENTITY savelinkinfolder.notify.file "Archivo:">
+<!ENTITY savelinkinfolder.notify.folder "Carpeta:">
+<!ENTITY savelinkinfolder.options.notification "Notificación">
+<!ENTITY savelinkinfolder.options.notification-statusbar "Mensaje en la barra de estado">
+<!ENTITY savelinkinfolder.options.notification-popupwindow "Ventana emergente">
+<!ENTITY savelinkinfolder.options.notification-duration "Duración (segundos):">
+<!ENTITY savelinkinfolder.options.helptab "Ayuda">
+<!ENTITY savelinkinfolder.options.website "Visite esta página web para tener instrucciones más detalladas:">
+

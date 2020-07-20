@@ -1,0 +1,73 @@
+﻿<!ENTITY savelinkinfolder.toolbar.label "Mape">
+<!ENTITY savelinkinfolder.toolbar.tooltip "Brskaj po mapah">
+<!ENTITY savelinkinfolder.context.label "Shrani povezavo v mapo …">
+<!ENTITY savelinkinfolder.options.title "Save Link in Folder - možnosti">
+<!ENTITY savelinkinfolder.options.maintab "Glavno">
+<!ENTITY savelinkinfolder.options.miscellaneoustab "Razno">
+<!ENTITY savelinkinfolder.options.advancedtab "Napredno">
+<!ENTITY savelinkinfolder.options.new "Nova">
+<!ENTITY savelinkinfolder.options.edit "Uredi">
+<!ENTITY savelinkinfolder.options.delete "Izbriši">
+<!ENTITY savelinkinfolder.options.separator "Ločilo">
+<!ENTITY savelinkinfolder.options.folders "Mape">
+<!ENTITY savelinkinfolder.options.description "Opis">
+<!ENTITY savelinkinfolder.options.path "Pot">
+<!ENTITY savelinkinfolder.options.opensaveasdialog "Shrani kot">
+<!ENTITY savelinkinfolder.options.openfolder "Odpri mapo">
+<!ENTITY savelinkinfolder.options.fileprefix "Predpona">
+<!ENTITY savelinkinfolder.options.fileprefixvalue "Vrednost predpone">
+<!ENTITY savelinkinfolder.options.filename "Ime">
+<!ENTITY savelinkinfolder.options.filenamevalue "Vrednost imena">
+<!ENTITY savelinkinfolder.options.filesuffix "Pripona">
+<!ENTITY savelinkinfolder.options.filesuffixvalue "Vrednost pripone">
+<!ENTITY savelinkinfolder.options.duplicatefilename "Podvojeno ime datoteke">
+<!ENTITY savelinkinfolder.options.general "Splošne nastavitve za mape">
+<!ENTITY savelinkinfolder.options.general-shiftkey "Pridržite tipko shift med izbiro predmeta vsebinskega menija, da preglasite posamezne nastavitve za mapo in uporabite naslednje.">
+<!ENTITY savelinkinfolder.options.general-opensaveasdialog "Odpri pogovorno okno 'Shrani kot …' pred prenosom.">
+<!ENTITY savelinkinfolder.options.general-openfolder "Odpri ciljno mapo, ko se prenos začne.">
+<!ENTITY savelinkinfolder.options.general-fileprefix "Predpona datoteke:">
+<!ENTITY savelinkinfolder.options.general-filename "Ime datoteke:">
+<!ENTITY savelinkinfolder.options.general-filesuffix "Pripona datoteke:">
+<!ENTITY savelinkinfolder.options.general-duplicatefilename "Če obstaja podvojeno ime datoteke …">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevaluesaveas "prikaži pogovorno okno 'Shrani kot …'">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevalueincrement "samodejno povečaj me datoteke">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevaluecancel "prekliči prenos">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevalueoverwrite "prepiši datoteko">
+<!ENTITY savelinkinfolder.options.executable "Izvedljiva datoteka za odpiranje ciljne mape">
+<!ENTITY savelinkinfolder.options.executable-description "Tukaj lahko izberete drugo izvedljivo datoteko za odpiranje ciljne mape. Če je odznačeno, bo sistem ob dvokliku na mapo uporabil sistemsko privzeto dejanje (kar je običajno 'explorer.exe' na sistemih Windows).">
+<!ENTITY savelinkinfolder.options.executable-check "Uporabi to izvedljivo datoteko:">
+<!ENTITY savelinkinfolder.options.executable-arguments "Argumenti:">
+<!ENTITY savelinkinfolder.options.executable-ctrlkey "Namig: pridržanje tipke ctrl med  izbiro predmeta vsebinskega menija odpre mapo brez shranjevanja datoteke.">
+<!ENTITY savelinkinfolder.options.contextmenu "Vsebinski meni">
+<!ENTITY savelinkinfolder.options.shortcut "Tipkovna bližnjica: ">
+<!ENTITY savelinkinfolder.options.numericshortcuts "Prikaži številčne bližnjice na koncu prvih desetih vnosov map.">
+<!ENTITY savelinkinfolder.options.hideinvalidfolders "Skrij mape z neveljavno potjo (drugače se onemogočijo).">
+<!ENTITY savelinkinfolder.options.prefs " Firefoxove nastavitve">
+<!ENTITY savelinkinfolder.options.prefs-description "Po shranjevanju v mapo zapiši to pot v naslednje Firefoxove nastavitve (prefs.js).">
+<!ENTITY savelinkinfolder.options.prefs-clear "Počisti">
+<!ENTITY savelinkinfolder.options.nofilereference "Povezave brez neposrednega sklica na datoteko se odprejo s pogovornim oknom 'Shrani kot …'.">
+<!ENTITY savelinkinfolder.options.hideunknowncontenttype "Skrij seznam map, ko Firefox zazna neznano vrsto vsebine.">
+<!ENTITY savelinkinfolder.setfolder.title "Mapa">
+<!ENTITY savelinkinfolder.setfolder.description "Opis">
+<!ENTITY savelinkinfolder.setfolder.path "Pot">
+<!ENTITY savelinkinfolder.setfolder.individual "Nastavitve za posamzene mape">
+<!ENTITY savelinkinfolder.setfolder.individual-opensaveasdialog "Odpri pogovorno okno 'Shrani kot …' pred prenosom.">
+<!ENTITY savelinkinfolder.setfolder.individual-openfolder "Odpri ciljno mapo, ko se prenos začne.">
+<!ENTITY savelinkinfolder.setfolder.individual-fileprefix "Predpona datoteke:">
+<!ENTITY savelinkinfolder.setfolder.individual-filename "Ime datoteke:">
+<!ENTITY savelinkinfolder.setfolder.individual-filesuffix "Pripona datoteke:">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilename "Če obstaja podvojeno ime datoteke …">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevaluesaveas "prikaži pogovorno okno 'Shrani kot …'">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevalueincrement "samodejno povečaj ime datoteke">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevaluecancel "prekliči prenos">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevalueoverwrite "prepiši datoteko">
+<!ENTITY savelinkinfolder.notify.file "Datoteka:">
+<!ENTITY savelinkinfolder.notify.folder "Mapa:">
+<!ENTITY savelinkinfolder.options.notification "Obvestilo">
+<!ENTITY savelinkinfolder.options.notification-statusbar "Sporočilo vrstice stanja">
+<!ENTITY savelinkinfolder.options.notification-popupwindow "Pojavno okno">
+<!ENTITY savelinkinfolder.options.notification-duration "Trajanje (s):">
+<!ENTITY savelinkinfolder.options.helptab "Pomoč">
+<!ENTITY savelinkinfolder.options.website "Za podrobna navodila obiščite to spletno stran:">
+
+

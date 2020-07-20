@@ -1,0 +1,14 @@
+<!ENTITY nestedquoteremover.label.options.windowtitle "Preferències del NestedQuote Remover">
+<!ENTITY nestedquoteremover.label.options.quotedepth "Profunditat màxima de cites permesa:">
+<!ENTITY nestedquoteremover.label.options.autoremove "Esborra les cites niades automàticament">
+<!ENTITY nestedquoteremover.label.options.contextmenu "Mostra una entrada al menú contextual">
+<!ENTITY nestedquoteremover.label.options.shortcut.groupbox "Drecera de teclat:">
+<!ENTITY nestedquoteremover.label.options.shortcut.accel "Accelerador">
+<!ENTITY nestedquoteremover.label.options.shortcut.alt "Alt">
+<!ENTITY nestedquoteremover.label.options.shortcut.control "Control">
+<!ENTITY nestedquoteremover.label.options.shortcut.meta "Meta">
+<!ENTITY nestedquoteremover.label.options.shortcut.shift "Majúscula">
+<!ENTITY nestedquoteremover.label.toolbar "Cites">
+<!ENTITY nestedquoteremover.label.menupopup "Esborra les cites niades">
+<!ENTITY nestedquoteremover.label.context "Esborra les cites niades">
+<!ENTITY nestedquoteremover.tooltip.toolbar "Esborra les cites niades">

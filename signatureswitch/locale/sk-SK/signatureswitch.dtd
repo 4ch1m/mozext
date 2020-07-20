@@ -1,0 +1,69 @@
+<!ENTITY signatureswitch.label.options.windowtitle "Nastavenia rozšírenia Signature Switch">
+<!ENTITY signatureswitch.label.options.maintab "Hlavné">
+<!ENTITY signatureswitch.label.options.advancedtab "Rozšírené">
+<!ENTITY signatureswitch.label.options.tree.signatures "Podpisy">
+<!ENTITY signatureswitch.label.options.tree.default "Predvolený">
+<!ENTITY signatureswitch.label.options.tree.description "Popis">
+<!ENTITY signatureswitch.label.options.tree.path "Cesta">
+<!ENTITY signatureswitch.label.options.tree.shortcut "Kláv. skratka">
+<!ENTITY signatureswitch.label.options.tree.addresses "Adresy">
+<!ENTITY signatureswitch.label.options.tree.newsgroups "Diskusné skupiny">
+<!ENTITY signatureswitch.label.options.button.new "Nový">
+<!ENTITY signatureswitch.label.options.button.edit "Upraviť">
+<!ENTITY signatureswitch.label.options.button.delete "Odstrániť">
+<!ENTITY signatureswitch.label.options.offbydefault "Nastaviť podpis vo Switch signature ako predvolene vypnutý">
+<!ENTITY signatureswitch.label.options.contextmenu "Zobraziť v položku 'Prepnúť podpis' v kontextovej ponuke">
+<!ENTITY signatureswitch.label.options.shortcut.groupbox "Klávesové skratky">
+<!ENTITY signatureswitch.label.options.shortcut.accel "Akcelerátor">
+<!ENTITY signatureswitch.label.options.shortcut.alt "Alt">
+<!ENTITY signatureswitch.label.options.shortcut.control "Control">
+<!ENTITY signatureswitch.label.options.shortcut.meta "Meta">
+<!ENTITY signatureswitch.label.options.shortcut.shift "Shift">
+<!ENTITY signatureswitch.label.options.encoding "Kódovanie">
+<!ENTITY signatureswitch.label.options.encoding-description "Toto je kódovanie znakov, ktoré bude použité pri konvertovaní načítavaného súboru s podpisom. Prosím, meňte ho len keď naozaj viete, čo robíte!">
+<!ENTITY signatureswitch.label.setsignature.title "Nastaviť podpis">
+<!ENTITY signatureswitch.label.setsignature.description "Popis">
+<!ENTITY signatureswitch.label.setsignature.path "Cesta">
+<!ENTITY signatureswitch.label.setsignature.shortcut "Kláv. skratka">
+<!ENTITY signatureswitch.label.setsignature.shortcut.accel "Akcelerátor">
+<!ENTITY signatureswitch.label.setsignature.shortcut.alt "Alt">
+<!ENTITY signatureswitch.label.setsignature.shortcut.control "Control">
+<!ENTITY signatureswitch.label.setsignature.shortcut.meta "Meta">
+<!ENTITY signatureswitch.label.setsignature.shortcut.shift "Shift">
+<!ENTITY signatureswitch.label.setsignature.autoswitch "Automatické prepnutie (voliteľné):">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.description.addresses "Ak je zadaná jedna z nasledujúcich adries ako príjemca (nie CC alebo BCC!), bude automaticky použitý nastavený podpis.">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.description.newsgroups "Je možné sledovanie aj diskusných skupín:">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.description.wildcard1 "Znak '?' sa dá použiť ako zástupný znak.">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.description.wildcard2 "(Napríklad: '?@mozilla.com', 'test@?.com' alebo 't?t@m?a.c?' sú ekvivalenty pre 'test@mozilla.com' zadané ako príjemca.)">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.address "E-mailová adresa">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.newsgroup "Diskusná skupina:">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.add "Pridať &gt;">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.remove "&lt; Odstrániť">
+<!ENTITY signatureswitch.label.toolbar "Podpis">
+<!ENTITY signatureswitch.label.menu "Prepnúť podpis">
+<!ENTITY signatureswitch.label.context "Prepnúť podpis">
+<!ENTITY signatureswitch.tooltip.toolbar "Prepínanie podpisu zapnuté/vypnuté">
+<!ENTITY signatureswitch.label.options.helptab "Pomocník">
+<!ENTITY signatureswitch.label.options.website "Ak chcete podrobnejšie informácie, navštívte stránku:">
+<!ENTITY signatureswitch.label.options.composer "Editor">
+<!ENTITY signatureswitch.label.options.composer-description "Textový editor, pomocou ktorého vytvoríte podpis. (Po vykonaní zmien kliknite na tlačidlo OK.)">
+<!ENTITY signatureswitch.label.options.misctab "Rôzne">
+<!ENTITY signatureswitch.label.create.title "Vytvorenie podpisu">
+<!ENTITY signatureswitch.label.create.doesntexist "Zadaný súbor s podpisom neexistuje.">
+<!ENTITY signatureswitch.label.create.question "Chcete ho vytvoriť?">
+<!ENTITY signatureswitch.label.setsignature.addresstab "Adresy">
+<!ENTITY signatureswitch.label.setsignature.newsgrouptab "Diskusné skupiny">
+<!ENTITY signatureswitch.label.setsignature.mailinglisttab "Mailinglisty">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.mailinglist "Mailinglist:">
+<!ENTITY signatureswitch.label.setsignature.autoswitch.description.mailinglists "Názov mailinglistu objavujúci sa v poli príjemcovia môže spúšťať AutoSwitch.">
+<!ENTITY signatureswitch.label.options.tree.mailinglists "Mailinglisty">
+<!ENTITY signatureswitch.label.mailinglist.title "Mailinglisty">
+<!ENTITY signatureswitch.label.mailinglist.available "Práve dostupné mailinglisty:">
+<!ENTITY signatureswitch.label.options.autoswitchpriority "Priorita pre AutoSwitch">
+<!ENTITY signatureswitch.label.options.shortcut.onoff "Zapnuté/Vypnuté:">
+<!ENTITY signatureswitch.label.options.shortcut.cycle "Cyklus:">
+<!ENTITY signatureswitch.label.options.preloadexecutable "Pred podpisom načítať program">
+<!ENTITY signatureswitch.label.options.preloadexecutable-description "Spustí externý program pred načítaním súboru s podpisom.">
+<!ENTITY signatureswitch.label.options.preloadexecutableusage "Použiť spustiteľný súbor:">
+<!ENTITY signatureswitch.label.options.preloadexecutablewait "Počkať na ukončenie spustiteľného súboru.">
+<!ENTITY signatureswitch.label.options.preloadexecutablehelp "Viac informácií o parametroch a príklad použita nájdete v pomocníkovi.">

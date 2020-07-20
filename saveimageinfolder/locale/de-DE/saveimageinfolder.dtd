@@ -1,0 +1,71 @@
+<!ENTITY saveimageinfolder.toolbar.label "Ordner">
+<!ENTITY saveimageinfolder.toolbar.tooltip "Ordner anzeigen">
+<!ENTITY saveimageinfolder.context.label "Grafik in Ordner speichern...">
+<!ENTITY saveimageinfolder.options.title "Save Image in Folder - Optionen">
+<!ENTITY saveimageinfolder.options.maintab "Grundlegendes">
+<!ENTITY saveimageinfolder.options.miscellaneoustab "Verschiedenes">
+<!ENTITY saveimageinfolder.options.advancedtab "Fortgeschrittenes">
+<!ENTITY saveimageinfolder.options.new "Neu">
+<!ENTITY saveimageinfolder.options.edit "Bearbeiten">
+<!ENTITY saveimageinfolder.options.delete "Löschen">
+<!ENTITY saveimageinfolder.options.separator "Trennmarke">
+<!ENTITY saveimageinfolder.options.folders "Ordner">
+<!ENTITY saveimageinfolder.options.description "Beschreibung">
+<!ENTITY saveimageinfolder.options.path "Pfad">
+<!ENTITY saveimageinfolder.options.opensaveasdialog "Speichern unter">
+<!ENTITY saveimageinfolder.options.openfolder "Ordner öffnen">
+<!ENTITY saveimageinfolder.options.fileprefix "Präfix">
+<!ENTITY saveimageinfolder.options.fileprefixvalue "Präfix-Wert">
+<!ENTITY saveimageinfolder.options.filename "Name">
+<!ENTITY saveimageinfolder.options.filenamevalue "Name-Wert">
+<!ENTITY saveimageinfolder.options.filesuffix "Suffix">
+<!ENTITY saveimageinfolder.options.filesuffixvalue "Suffix-Wert">
+<!ENTITY saveimageinfolder.options.duplicatefilename "Doppelter Dateiname">
+<!ENTITY saveimageinfolder.options.general "Allgemeine Ordner-Einstellungen">
+<!ENTITY saveimageinfolder.options.general-shiftkey "Die Umschalttaste während der Auswahl eines Kontextmenu-Eintrags gedrückt halten, um die individuellen Ordner-Einstellungen zu umgehen und stattdessen folgende zu verwenden.">
+<!ENTITY saveimageinfolder.options.general-opensaveasdialog "Öffne einen 'Speichern unter...'-Dialog vor dem Download.">
+<!ENTITY saveimageinfolder.options.general-openfolder "Öffne den Zielordner bei Downloadbeginn.">
+<!ENTITY saveimageinfolder.options.general-fileprefix "Datei-Präfix:">
+<!ENTITY saveimageinfolder.options.general-filename "Datei-Name:">
+<!ENTITY saveimageinfolder.options.general-filesuffix "Datei-Suffix:">
+<!ENTITY saveimageinfolder.options.general-duplicatefilename "Wenn der Dateiname bereits exisitert...">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevaluesaveas "einen 'Speichern unter...'-Dialog anzeigen">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevalueincrement "den Dateinamen automatisch erhöhen">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevaluecancel "den Download abbrechen">
+<!ENTITY saveimageinfolder.options.general-duplicatefilenamevalueoverwrite "die Datei überschreiben">
+<!ENTITY saveimageinfolder.options.executable "Programm zum Öffnen des Ordners">
+<!ENTITY saveimageinfolder.options.executable-description "Hier kann ein anderes Programm zum Öffnen des Zielordners gewählt werden. Bei Nichtaktivierung benutzt die Erweiterung die Standardaktion des Systems beim Doppelclick auf einen Ordner. (Auf Windows-Systemen meist der Start von 'explorer.exe'.)">
+<!ENTITY saveimageinfolder.options.executable-check "Dieses Programm verwenden:">
+<!ENTITY saveimageinfolder.options.executable-arguments "Parameter:">
+<!ENTITY saveimageinfolder.options.executable-ctrlkey "Tipp: Die Strg-Taste während der Auswahl eines Kontextmenu-Eintrags gedrückt halten, um lediglich den Ordner zu öffnen und die Datei nicht zu speichern.">
+<!ENTITY saveimageinfolder.options.contextmenu "Kontextmenu">
+<!ENTITY saveimageinfolder.options.shortcut "Tastaturkürzel: ">
+<!ENTITY saveimageinfolder.options.numericshortcuts "Numerische Tastenkürzel hinter den ersten zehn Ordnern anzeigen.">
+<!ENTITY saveimageinfolder.options.hideinvalidfolders "Ordner mit ungültigem Pfad verbergen (andernfalls lediglich deaktiviert).">
+<!ENTITY saveimageinfolder.options.prefs "Firefox Einstellungen">
+<!ENTITY saveimageinfolder.options.prefs-description "Nach der Speicherung in einen Ordner, dessen Pfad in folgende Firefox Einstellungen schreiben. (prefs.js)">
+<!ENTITY saveimageinfolder.options.prefs-clear "Löschen">
+<!ENTITY saveimageinfolder.options.doubleclick "Ein doppelter Linksclick auf ein Bild speichert selbiges direkt im zuletzt verwendeten Ordner ab. (Firefox muss neu gestartet werden, damit diese Änderung in Kraft tritt.)">
+<!ENTITY saveimageinfolder.options.usecache "Zum Speichern des Bildes den Browser-Cache verwenden, anstelle des Download-Managers. (schneller; dafür jedoch weniger Nachvollziehbarkeit)">
+<!ENTITY saveimageinfolder.setfolder.title "Ordner">
+<!ENTITY saveimageinfolder.setfolder.description "Beschreibung">
+<!ENTITY saveimageinfolder.setfolder.path "Pfad">
+<!ENTITY saveimageinfolder.setfolder.individual "Individuelle Ordner-Einstellungen">
+<!ENTITY saveimageinfolder.setfolder.individual-opensaveasdialog "Öffne einen 'Speichern unter...'-Dialog vor dem Download.">
+<!ENTITY saveimageinfolder.setfolder.individual-openfolder "Öffne den Zielordner bei Downloadbeginn.">
+<!ENTITY saveimageinfolder.setfolder.individual-fileprefix "Datei-Präfix:">
+<!ENTITY saveimageinfolder.setfolder.individual-filename "Datei-Name:">
+<!ENTITY saveimageinfolder.setfolder.individual-filesuffix "Datei-Suffix:">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilename "Wenn der Dateiname bereits exisitert...">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevaluesaveas "einen 'Speichern unter...'-Dialog anzeigen">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevalueincrement "den Dateinamen automatisch erhöhen">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevaluecancel "den Download abbrechen">
+<!ENTITY saveimageinfolder.setfolder.individual-duplicatefilenamevalueoverwrite "die Datei überschreiben">
+<!ENTITY saveimageinfolder.notify.file "Datei:">
+<!ENTITY saveimageinfolder.notify.folder "Ordner:">
+<!ENTITY saveimageinfolder.options.notification "Benachrichtigung">
+<!ENTITY saveimageinfolder.options.notification-statusbar "Statusleiste">
+<!ENTITY saveimageinfolder.options.notification-popupwindow "Popup-Fenster">
+<!ENTITY saveimageinfolder.options.notification-duration "Dauer (Sekunden):">
+<!ENTITY saveimageinfolder.options.helptab "Hilfe">
+<!ENTITY saveimageinfolder.options.website "Detailierte Informationen sind auf dieser Webseite zu finden:">

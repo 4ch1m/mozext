@@ -1,0 +1,72 @@
+<!ENTITY savelinkinfolder.toolbar.label "文件夹">
+<!ENTITY savelinkinfolder.toolbar.tooltip "浏览文件夹">
+<!ENTITY savelinkinfolder.context.label "保存链接到文件夹…">
+<!ENTITY savelinkinfolder.options.title "Save Link in Folder - 选项">
+<!ENTITY savelinkinfolder.options.maintab "一般">
+<!ENTITY savelinkinfolder.options.miscellaneoustab "其他">
+<!ENTITY savelinkinfolder.options.advancedtab "高级">
+<!ENTITY savelinkinfolder.options.new "添加">
+<!ENTITY savelinkinfolder.options.edit "编辑">
+<!ENTITY savelinkinfolder.options.delete "删除">
+<!ENTITY savelinkinfolder.options.separator "分隔线">
+<!ENTITY savelinkinfolder.options.folders "文件夹">
+<!ENTITY savelinkinfolder.options.description "描述">
+<!ENTITY savelinkinfolder.options.path "路径">
+<!ENTITY savelinkinfolder.options.opensaveasdialog "打开另存为对话框">
+<!ENTITY savelinkinfolder.options.openfolder "打开文件夹">
+<!ENTITY savelinkinfolder.options.fileprefix "前缀">
+<!ENTITY savelinkinfolder.options.fileprefixvalue "添加在前面的文字">
+<!ENTITY savelinkinfolder.options.filename "文件名">
+<!ENTITY savelinkinfolder.options.filenamevalue "文件名">
+<!ENTITY savelinkinfolder.options.filesuffix "后缀">
+<!ENTITY savelinkinfolder.options.filesuffixvalue "添加在后面的文字">
+<!ENTITY savelinkinfolder.options.duplicatefilename "相同的文件名">
+<!ENTITY savelinkinfolder.options.general "全体文件夹设置">
+<!ENTITY savelinkinfolder.options.general-shiftkey "按住Shift再选择右键菜单中的的选项即可用以下设置来取代个别设置">
+<!ENTITY savelinkinfolder.options.general-opensaveasdialog "在下载图片之前出现「另存为」对话框">
+<!ENTITY savelinkinfolder.options.general-openfolder "下载的同时打开该文件夹">
+<!ENTITY savelinkinfolder.options.general-fileprefix "前　缀：">
+<!ENTITY savelinkinfolder.options.general-filename "文件名：">
+<!ENTITY savelinkinfolder.options.general-filesuffix "后　缀：">
+<!ENTITY savelinkinfolder.options.general-duplicatefilename "当发现相同文件名时…">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevaluesaveas "显示「另存为」对话框">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevalueincrement "自动重命名">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevaluecancel "取消本次下载">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevalueoverwrite "覆盖该文件">
+<!ENTITY savelinkinfolder.options.executable "用来打开目标文件夹的程序">
+<!ENTITY savelinkinfolder.options.executable-description "你可以在这里指定一个程序或命令来打开文件夹，如果下面的复选框没有勾选，将会使用系统预设的程序（如在Windows下的Explorer.exe）。">
+<!ENTITY savelinkinfolder.options.executable-check "程序：">
+<!ENTITY savelinkinfolder.options.executable-arguments "参数：">
+<!ENTITY savelinkinfolder.options.executable-ctrlkey "提示：按住Ctrl再选择菜单上的选项可以直接打开文件夹而不保存任何图片">
+<!ENTITY savelinkinfolder.options.contextmenu "右键菜单">
+<!ENTITY savelinkinfolder.options.shortcut "快捷键：">
+<!ENTITY savelinkinfolder.options.numericshortcuts "在前10项的前面显示数字快捷键">
+<!ENTITY savelinkinfolder.options.hideinvalidfolders "隐藏无效的的目录。（否则它们将会被停用）">
+<!ENTITY savelinkinfolder.options.prefs "Firefox 选项">
+<!ENTITY savelinkinfolder.options.prefs-description "保存一些链接到文件夹后将这个文件夹保存到下的设置值（prefs.js）。">
+<!ENTITY savelinkinfolder.options.prefs-clear "清除">
+<!ENTITY savelinkinfolder.options.nofilereference "当链接并未指定到一个明确的文件时打开「另存为」对话框">
+<!ENTITY savelinkinfolder.options.hideunknowncontenttype "当Firefox检测到未知的格式时不要显示文件夹列表">
+<!ENTITY savelinkinfolder.setfolder.title "文件夹">
+<!ENTITY savelinkinfolder.setfolder.description "描述">
+<!ENTITY savelinkinfolder.setfolder.path "路径">
+<!ENTITY savelinkinfolder.setfolder.individual "个别文件夹设置">
+<!ENTITY savelinkinfolder.setfolder.individual-opensaveasdialog "在下载图片之前出现「另存为」对话框">
+<!ENTITY savelinkinfolder.setfolder.individual-openfolder "下载的同时打开该文件夹">
+<!ENTITY savelinkinfolder.setfolder.individual-fileprefix "前　缀：">
+<!ENTITY savelinkinfolder.setfolder.individual-filename "文件名：">
+<!ENTITY savelinkinfolder.setfolder.individual-filesuffix "后　缀：">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilename "当发现相同文件名时…">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevaluesaveas "显示「另存为」对话框">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevalueincrement "自动重命名">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevaluecancel "取消本次下载">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevalueoverwrite "覆盖该文件">
+<!ENTITY savelinkinfolder.notify.file "文件：">
+<!ENTITY savelinkinfolder.notify.folder "目录：">
+<!ENTITY savelinkinfolder.options.notification "通知">
+<!ENTITY savelinkinfolder.options.notification-statusbar "状态列">
+<!ENTITY savelinkinfolder.options.notification-popupwindow "弹出窗口">
+<!ENTITY savelinkinfolder.options.notification-duration "持续时间(秒)：">
+<!ENTITY savelinkinfolder.options.helptab "说明">
+<!ENTITY savelinkinfolder.options.website "请访问这个网站以获取更详细的说明：">
+

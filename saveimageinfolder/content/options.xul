@@ -1,0 +1,260 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://saveimageinfolder/skin/options.css" type="text/css"?>
+
+<!DOCTYPE dialog SYSTEM "chrome://saveimageinfolder/locale/saveimageinfolder.dtd">
+
+<dialog
+
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        id="saveimageinfolderOptions"
+        minwidth="500"
+        title="&saveimageinfolder.options.title;"
+        buttons="accept, cancel"
+        onload="return onLoad();"
+        ondialogaccept="return onDialogAccept();"
+        ondialogcancel="return onDialogCancel();">
+
+    <script type="application/x-javascript" src="chrome://saveimageinfolder/content/options.js"/>
+
+    <stringbundleset id="stringbundleset">
+        <stringbundle id="saveimageinfolder.locale" src="chrome://saveimageinfolder/locale/saveimageinfolder.properties"/>
+    </stringbundleset>
+
+    <tabbox id="siifTabBox">
+        <tabs>
+            <tab label="&saveimageinfolder.options.maintab;"/>
+            <tab label="&saveimageinfolder.options.miscellaneoustab;"/>
+            <tab label="&saveimageinfolder.options.advancedtab;"/>
+            <tab label="&saveimageinfolder.options.helptab;"/>
+        </tabs>
+        <tabpanels flex="1">
+            <tabpanel id="maintab" flex="1" orient="vertical">
+                <groupbox orient="horizontal" align="center">
+                    <caption label="&saveimageinfolder.options.folders;"/>
+                    <hbox flex="1">
+                        <tree id="saveimageinfolderTree" flex="1" rows="4" onselect="return onSelectItem();">
+                          <treecols>
+                            <treecol id="description" label="&saveimageinfolder.options.description;" flex="1" persist="width"/>
+                            <splitter class="tree-splitter"/>
+                            <treecol id="path" label="&saveimageinfolder.options.path;" flex="1" persist="width"/>
+                            <splitter class="tree-splitter"/>
+                            <treecol id="opensaveasdialog" label="&saveimageinfolder.options.opensaveasdialog;" flex="1" persist="width" hidden="true"/>
+                            <splitter class="tree-splitter"/>
+                            <treecol id="openfolder" label="&saveimageinfolder.options.openfolder;" flex="1" persist="width" hidden="true"/>
+                            <splitter class="tree-splitter"/>
+                            <treecol id="fileprefix" label="&saveimageinfolder.options.fileprefix;" flex="1" persist="width" hidden="true"/>
+                            <splitter class="tree-splitter"/>
+                            <treecol id="fileprefixvalue" label="&saveimageinfolder.options.fileprefixvalue;" flex="1" persist="width" hidden="true"/>
+                            <splitter class="tree-splitter"/>
+                            <treecol id="filename" label="&saveimageinfolder.options.filename;" flex="1" persist="width" hidden="true"/>
+                            <splitter class="tree-splitter"/>
+                            <treecol id="filenamevalue" label="&saveimageinfolder.options.filenamevalue;" flex="1" persist="width" hidden="true"/>
+                            <splitter class="tree-splitter"/>
+                            <treecol id="filesuffix" label="&saveimageinfolder.options.filesuffix;" flex="1" persist="width" hidden="true"/>
+                            <splitter class="tree-splitter"/>
+                            <treecol id="filesuffixvalue" label="&saveimageinfolder.options.filesuffixvalue;" flex="1" persist="width" hidden="true"/>
+                            <splitter class="tree-splitter"/>
+                            <treecol id="duplicatefilename" label="&saveimageinfolder.options.duplicatefilename;" flex="1" persist="width" hidden="true"/>
+                          </treecols>
+                          <treechildren/>
+                        </tree>
+                        <vbox>
+                            <button class="new"
+                                    label="&saveimageinfolder.options.new;"
+                                    id="button-new"
+                                    oncommand="return newItem();"/>
+                            <button class="edit"
+                                    label="&saveimageinfolder.options.edit;"
+                                    id="button-edit"
+                                    oncommand="return editItem();"/>
+                            <button class="delete"
+                                    label="&saveimageinfolder.options.delete;"
+                                    id="button-delete"
+                                    oncommand="return deleteItem();"/>
+                            <button class="separator"
+                                    label="&saveimageinfolder.options.separator;"
+                                    id="button-separator"
+                                    oncommand="return insertSeparator();"/>
+                            <hbox>
+                                <button class="up"
+                                        id="button-up"
+                                        oncommand="return moveItem(true);"/>
+                                <spacer flex="1"/>
+                                <button class="down"
+                                        id="button-down"
+                                        oncommand="return moveItem(false);"/>
+                            </hbox>
+                        </vbox>
+                    </hbox>
+                </groupbox>
+                <groupbox orient="vertical">
+                    <caption label="&saveimageinfolder.options.general;"/>
+                        <description width="400" style="margin-bottom:10px;">&saveimageinfolder.options.general-shiftkey;</description>
+                        <checkbox id="general-opensaveasdialog" label="&saveimageinfolder.options.general-opensaveasdialog;" prefstring="extensions.saveimageinfolder.general-opensaveasdialog" defaultpref="false"/>
+                        <checkbox id="general-openfolder" label="&saveimageinfolder.options.general-openfolder;" prefstring="extensions.saveimageinfolder.general-openfolder" defaultpref="false"/>
+                        <grid flex="1">
+                            <columns>
+                                <column/>
+                                <column flex="1"/>
+                            </columns>
+                            <rows>
+                                <row>
+                                    <checkbox id="general-fileprefix" label="&saveimageinfolder.options.general-fileprefix;" prefstring="extensions.saveimageinfolder.general-fileprefix" defaultpref="false"/>
+                                    <textbox id="general-fileprefixvalue" prefstring="extensions.saveimageinfolder.general-fileprefixvalue" defaultpref="%yyyy%%MM%%dd%-%hh%%mm%%ss%_"/>
+                                </row>
+                                <row>
+                                    <checkbox id="general-filename" label="&saveimageinfolder.options.general-filename;" prefstring="extensions.saveimageinfolder.general-filename" defaultpref="false"/>
+                                    <textbox id="general-filenamevalue" prefstring="extensions.saveimageinfolder.general-filenamevalue" defaultpref="%domain%"/>
+                                </row>
+                                <row>
+                                    <checkbox id="general-filesuffix" label="&saveimageinfolder.options.general-filesuffix;" prefstring="extensions.saveimageinfolder.general-filesuffix" defaultpref="false"/>
+                                    <textbox id="general-filesuffixvalue" prefstring="extensions.saveimageinfolder.general-filesuffixvalue" defaultpref="_SIiF"/>
+                                </row>
+                            </rows>
+                        </grid>
+                        <description width="400" style="margin-top:10px;">&saveimageinfolder.options.general-duplicatefilename;</description>
+                        <radiogroup id="general-duplicatefilenamevalue" prefstring="extensions.saveimageinfolder.general-duplicatefilenamevalue">
+                                <radio value="0" id="general-duplicatefilenamevaluesaveas" label="&saveimageinfolder.options.general-duplicatefilenamevaluesaveas;" style="margin-left:10px;"/>
+                                <radio value="1" id="general-duplicatefilenamevalueincrement" label="&saveimageinfolder.options.general-duplicatefilenamevalueincrement;" style="margin-left:10px;"/>
+                                <radio value="2" id="general-duplicatefilenamevaluecancel" label="&saveimageinfolder.options.general-duplicatefilenamevaluecancel;" style="margin-left:10px;"/>
+                                <radio value="3" id="general-duplicatefilenamevalueoverwrite" label="&saveimageinfolder.options.general-duplicatefilenamevalueoverwrite;" style="margin-left:10px;"/>
+                        </radiogroup>
+                </groupbox>
+            </tabpanel>
+            <tabpanel id="miscelleneoustab" flex="1" orient="vertical">
+                <groupbox orient="vertical">
+                    <caption label="&saveimageinfolder.options.contextmenu;"/>
+                    <hbox align="center">
+                        <label value="&saveimageinfolder.options.shortcut;"/>
+                        <menulist id="shortcut" prefstring="extensions.saveimageinfolder.shortcut" defaultpref="I">
+                            <menupopup>
+                                <menuseparator/>
+                                <menuitem label="A"/>
+                                <menuitem label="B"/>
+                                <menuitem label="C"/>
+                                <menuitem label="D"/>
+                                <menuitem label="E"/>
+                                <menuitem label="F"/>
+                                <menuitem label="G"/>
+                                <menuitem label="H"/>
+                                <menuitem label="I"/>
+                                <menuitem label="J"/>
+                                <menuitem label="K"/>
+                                <menuitem label="L"/>
+                                <menuitem label="M"/>
+                                <menuitem label="N"/>
+                                <menuitem label="O"/>
+                                <menuitem label="P"/>
+                                <menuitem label="Q"/>
+                                <menuitem label="R"/>
+                                <menuitem label="S"/>
+                                <menuitem label="T"/>
+                                <menuitem label="U"/>
+                                <menuitem label="V"/>
+                                <menuitem label="W"/>
+                                <menuitem label="X"/>
+                                <menuitem label="Y"/>
+                                <menuitem label="Z"/>
+                            </menupopup>
+                        </menulist>
+                    </hbox>
+                    <checkbox id="numericshortcuts" label="&saveimageinfolder.options.numericshortcuts;" prefstring="extensions.saveimageinfolder.numericshortcuts" defaultpref="false"/>
+                    <checkbox id="hideinvalidfolders" label="&saveimageinfolder.options.hideinvalidfolders;" prefstring="extensions.saveimageinfolder.hideinvalidfolders" defaultpref="false"/>
+                </groupbox>
+                <groupbox orient="vertical">
+                    <caption label="&saveimageinfolder.options.notification;"/>
+                    <checkbox id="notification-statusbar" label="&saveimageinfolder.options.notification-statusbar;" prefstring="extensions.saveimageinfolder.notification-statusbar" defaultpref="true"/>
+                    <checkbox id="notification-popupwindow" label="&saveimageinfolder.options.notification-popupwindow;" prefstring="extensions.saveimageinfolder.notification-popupwindow" defaultpref="false"/>
+                    <hbox align="center">
+                        <label value="&saveimageinfolder.options.notification-duration;"/>
+                        <menulist id="notification-duration" prefstring="extensions.saveimageinfolder.notification-duration" defaultpref="3">
+                            <menupopup>
+                                <menuseparator/>
+                                <menuitem label="1"/>
+                                <menuitem label="2"/>
+                                <menuitem label="3"/>
+                                <menuitem label="4"/>
+                                <menuitem label="5"/>
+                                <menuitem label="6"/>
+                                <menuitem label="7"/>
+                                <menuitem label="8"/>
+                                <menuitem label="9"/>
+                                <menuitem label="10"/>
+                            </menupopup>
+                        </menulist>
+                    </hbox>
+                </groupbox>
+                <groupbox orient="vertical">
+                    <caption label="&saveimageinfolder.options.executable;"/>
+                        <description width="450">&saveimageinfolder.options.executable-description;</description>
+                        <grid flex="1">
+                            <columns>
+                                <column/>
+                                <column flex="1"/>
+                                <column/>
+                            </columns>
+                            <rows>
+                                <row>
+                                    <checkbox id="executable" label="&saveimageinfolder.options.executable-check;" prefstring="extensions.saveimageinfolder.executable" defaultpref="false"/>
+                                    <textbox id="executable-path" prefstring="extensions.saveimageinfolder.executable-path" defaultpref="/usr/bin/nautilus"/>
+                                    <button class="browse" id="button-executable-pick" oncommand="return onPickExecutable();"/>
+                                </row>
+                                <row>
+                                    <description/>
+                                    <hbox><label control="executable-arguments" value="&saveimageinfolder.options.executable-arguments;"/><textbox flex="1" id="executable-arguments" prefstring="extensions.saveimageinfolder.executable-arguments" defaultpref="%path%"/></hbox>
+                                    <description/>
+                                </row>
+                            </rows>
+                        </grid>
+                        <description width="450"></description>
+                        <description width="450">&saveimageinfolder.options.executable-ctrlkey;</description>
+                </groupbox>
+                <checkbox id="doubleclick" width="450" label="&saveimageinfolder.options.doubleclick;" prefstring="extensions.saveimageinfolder.doubleclick" defaultpref="false"/>
+            </tabpanel>
+            <tabpanel id="advancedtab" flex="1" orient="vertical">
+                <groupbox orient="vertical">
+                    <caption label="&saveimageinfolder.options.prefs;"/>
+                        <description width="450">&saveimageinfolder.options.prefs-description;</description>
+                        <grid flex="1">
+                            <columns>
+                                <column flex="1"/>
+                                <column/>
+                            </columns>
+                            <rows>
+                                <row>
+                                    <checkbox id="prefs-dir" label="browser.download.dir" prefstring="extensions.saveimageinfolder.prefs-dir" defaultpref="false"/>
+                                    <button id="button-prefs-dir" label="&saveimageinfolder.options.prefs-clear;" oncommand="return clearPref('dir');"/>
+                                </row>
+                                <row>
+                                    <checkbox id="prefs-lastDir" label="browser.download.lastDir" prefstring="extensions.saveimageinfolder.prefs-lastDir" defaultpref="false"/>
+                                    <button id="button-prefs-lastDir" label="&saveimageinfolder.options.prefs-clear;" oncommand="return clearPref('lastDir');"/>
+                                </row>
+                                <row>
+                                    <checkbox id="prefs-downloadDir" label="browser.download.downloadDir" prefstring="extensions.saveimageinfolder.prefs-downloadDir" defaultpref="false"/>
+                                    <button id="button-prefs-downloadDir" label="&saveimageinfolder.options.prefs-clear;" oncommand="return clearPref('downloadDir');"/>
+                                </row>
+                                <row>
+                                    <checkbox id="prefs-defaultFolder" label="browser.download.defaultFolder" prefstring="extensions.saveimageinfolder.prefs-defaultFolder" defaultpref="false"/>
+                                    <button id="button-prefs-defaultFolder" label="&saveimageinfolder.options.prefs-clear;" oncommand="return clearPref('defaultFolder');"/>
+                                </row>
+                            </rows>
+                        </grid>
+                </groupbox>
+                <checkbox id="usecache" width="450" label="&saveimageinfolder.options.usecache;" prefstring="extensions.saveimageinfolder.usecache" defaultpref="false"/>
+                <textbox id="nofilereference-filename" prefstring="extensions.saveimageinfolder.nofilereference-filename" defaultpref="unknown" hidden="true"/>
+                <textbox id="nofilereference-fileextension" prefstring="extensions.saveimageinfolder.nofilereference-fileextension" defaultpref="ext" hidden="true"/>
+                <checkbox id="nofilereference-showdialog" prefstring="extensions.saveimageinfolder.nofilereference-showdialog" defaultpref="true" hidden="true"/>
+                <textbox id="randomstring-length" prefstring="extensions.saveimageinfolder.randomstring-length" defaultpref="8" hidden="true"/>
+                <textbox id="doubleclick-minwidth" prefstring="extensions.saveimageinfolder.doubleclick-minwidth" defaultpref="0" hidden="true"/>
+                <textbox id="doubleclick-minheight" prefstring="extensions.saveimageinfolder.doubleclick-minheight" defaultpref="0" hidden="true"/>
+            </tabpanel>
+            <tabpanel id="helptab" flex="1" orient="vertical">
+                <description width="450">&saveimageinfolder.options.website;</description>
+                <label id="website" class="text-link" onclick="openURL('http://mozext.achimonline.de');" style="margin-left:25px;" value="mozext.achimonline.de"/>
+            </tabpanel>
+        </tabpanels>
+    </tabbox>
+
+</dialog>

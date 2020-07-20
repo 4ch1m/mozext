@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<RDF:RDF xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:chrome="http://www.mozilla.org/rdf/chrome#">
+
+	<RDF:Seq about="urn:mozilla:package:root">
+		<RDF:li resource="urn:mozilla:package:signatureswitch"/>
+	</RDF:Seq>
+
+	<RDF:Description about="urn:mozilla:package:signatureswitch"
+		chrome:displayName="Signature Switch"
+		chrome:author="Achim Seufert"
+		chrome:authorURL="http://mozext.achimonline.de"
+		chrome:name="signatureswitch"
+		chrome:description="Switch the signature on/off or choose a new one from your predefined set."
+		chrome:extension="true"
+	    chrome:settingsURL="chrome://signatureswitch/content/options.xul">
+	</RDF:Description>
+
+	<RDF:Seq about="urn:mozilla:overlays">
+        <RDF:li resource="chrome://messenger/content/messengercompose/messengercompose.xul"/>
+	</RDF:Seq>
+    
+    <RDF:Seq about="chrome://messenger/content/messengercompose/messengercompose.xul">
+        <RDF:li>chrome://signatureswitch/content/signatureswitch.xul</RDF:li>
+    </RDF:Seq>
+    
+</RDF:RDF>

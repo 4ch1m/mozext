@@ -1,0 +1,72 @@
+<!ENTITY savelinkinfolder.toolbar.label "Pastas">
+<!ENTITY savelinkinfolder.toolbar.tooltip "Procurar Pastas">
+<!ENTITY savelinkinfolder.context.label "Salvar link na Pasta...">
+<!ENTITY savelinkinfolder.options.title "Opções - Save Link in Folder">
+<!ENTITY savelinkinfolder.options.maintab "Principal">
+<!ENTITY savelinkinfolder.options.miscellaneoustab "Miscelânia">
+<!ENTITY savelinkinfolder.options.advancedtab "Avançado">
+<!ENTITY savelinkinfolder.options.new "Novo">
+<!ENTITY savelinkinfolder.options.edit "Editar">
+<!ENTITY savelinkinfolder.options.delete "Excluir">
+<!ENTITY savelinkinfolder.options.separator "Separador">
+<!ENTITY savelinkinfolder.options.folders "Patas">
+<!ENTITY savelinkinfolder.options.description "Descrição">
+<!ENTITY savelinkinfolder.options.path "Caminho">
+<!ENTITY savelinkinfolder.options.opensaveasdialog "Salvar Como">
+<!ENTITY savelinkinfolder.options.openfolder "Abrir Pasta">
+<!ENTITY savelinkinfolder.options.fileprefix "Prefixo">
+<!ENTITY savelinkinfolder.options.fileprefixvalue "Valor do Prefixo">
+<!ENTITY savelinkinfolder.options.filename "Nome">
+<!ENTITY savelinkinfolder.options.filenamevalue "Valor do Nome">
+<!ENTITY savelinkinfolder.options.filesuffix "Sufixo">
+<!ENTITY savelinkinfolder.options.filesuffixvalue "Valor do Sufixo">
+<!ENTITY savelinkinfolder.options.duplicatefilename "Nome de Arquivo duplicado">
+<!ENTITY savelinkinfolder.options.general "Configurações gerais de Pasta">
+<!ENTITY savelinkinfolder.options.general-shiftkey "Segure a tecla shift enquanto seleciona um item do menu de contexto para ignorar as configurações individuais da pasta e usar essas no lugar.">
+<!ENTITY savelinkinfolder.options.general-opensaveasdialog "Abrir a janela de  'Salvar Como...' antes do download.">
+<!ENTITY savelinkinfolder.options.general-openfolder "Abrir a pasta de destino quando o download iniciar.">
+<!ENTITY savelinkinfolder.options.general-fileprefix "Prefixo para o Arquivo:">
+<!ENTITY savelinkinfolder.options.general-filename "Nome do arquivo:">
+<!ENTITY savelinkinfolder.options.general-filesuffix "Sufixo para o Arquivo:">
+<!ENTITY savelinkinfolder.options.general-duplicatefilename "Se existir um nome de arquivo duplicado...">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevaluesaveas "Exibir a janela de 'Salvar Como...'">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevalueincrement "Auto incrementar o Nome de Arquivo">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevaluecancel "Cancelar o download">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevalueoverwrite "Substituir o Arquivo">
+<!ENTITY savelinkinfolder.options.executable "Executável usado para abrir a pasta de destino">
+<!ENTITY savelinkinfolder.options.executable-description "Aqui você pode escolher outro executável para abrir a pasta de destino. Se desmarcada a extensão utilizará a ação padrão do sistema para um duplo clique numa pasta. (Nos sistemas Windows normalmente é lançado o 'explorer.exe'.)">
+<!ENTITY savelinkinfolder.options.executable-check "Use este executável:">
+<!ENTITY savelinkinfolder.options.executable-arguments "Argumentos:">
+<!ENTITY savelinkinfolder.options.executable-ctrlkey "Dica: Segure a tecla ctrl enquando seleciona um item do menu de contexto para abrir a pasta sem salvar o arquivo.">
+<!ENTITY savelinkinfolder.options.contextmenu "Menu de Contexto">
+<!ENTITY savelinkinfolder.options.shortcut "Teclas de Atalho: ">
+<!ENTITY savelinkinfolder.options.numericshortcuts "Exbir atalhos numéricos para as primeiras dez pastas.">
+<!ENTITY savelinkinfolder.options.hideinvalidfolders "Ocultar pastas com caminho inválido (caso contrário elas apareceram desabilitadas).">
+<!ENTITY savelinkinfolder.options.prefs "Preferências Firefox">
+<!ENTITY savelinkinfolder.options.prefs-description "Depois de salvar o arquivo na pasta escrever o caminho nas Preferências do Firefox (prefs.js).">
+<!ENTITY savelinkinfolder.options.prefs-clear "Limpar">
+<!ENTITY savelinkinfolder.options.nofilereference "Abrir links sem referências diretas para um arquivo com a janela de 'Salvar Como...'.">
+<!ENTITY savelinkinfolder.options.hideunknowncontenttype "Ocultar a lista de pastas quando o Firefox detectar um tipo de conteúdo desconhecido.">
+<!ENTITY savelinkinfolder.setfolder.title "Pasta">
+<!ENTITY savelinkinfolder.setfolder.description "Descrição">
+<!ENTITY savelinkinfolder.setfolder.path "Caminho">
+<!ENTITY savelinkinfolder.setfolder.individual "Configurações individuais de pasta">
+<!ENTITY savelinkinfolder.setfolder.individual-opensaveasdialog "Exibir a janela de 'Salvar Como...'- antes do download.">
+<!ENTITY savelinkinfolder.setfolder.individual-openfolder "Abrir a pasta de destino quando o download iniciar.">
+<!ENTITY savelinkinfolder.setfolder.individual-fileprefix "Prefixo do Arquivo:">
+<!ENTITY savelinkinfolder.setfolder.individual-filename "Nome do arquivo:">
+<!ENTITY savelinkinfolder.setfolder.individual-filesuffix "Sufixo do Arquivo:">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilename "Se existir um Nome de Arquivo duplicado...">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevaluesaveas "Exibir a janela de 'Salvar Como...'">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevalueincrement "Auto incrementar o nome de arquivo">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevaluecancel "Cancelar o download">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevalueoverwrite "Substituir o arquivo">
+<!ENTITY savelinkinfolder.notify.file "Arquivo:">
+<!ENTITY savelinkinfolder.notify.folder "Pasta:">
+<!ENTITY savelinkinfolder.options.notification "Notificação">
+<!ENTITY savelinkinfolder.options.notification-statusbar "Mensagem da Barra de Status">
+<!ENTITY savelinkinfolder.options.notification-popupwindow "Janela popup">
+<!ENTITY savelinkinfolder.options.notification-duration "Duração (segundos):">
+<!ENTITY savelinkinfolder.options.helptab "Ajuda">
+<!ENTITY savelinkinfolder.options.website "Visite este site para instruções mais detalhadas:">
+

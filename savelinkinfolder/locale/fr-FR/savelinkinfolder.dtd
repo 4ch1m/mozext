@@ -1,0 +1,72 @@
+<!ENTITY savelinkinfolder.toolbar.label "Dossiers">
+<!ENTITY savelinkinfolder.toolbar.tooltip "Parcourir les dossiers">
+<!ENTITY savelinkinfolder.context.label "Enregistrer la cible du lien dans le dossier...">
+<!ENTITY savelinkinfolder.options.title "Options de Save Link in Folder - ">
+<!ENTITY savelinkinfolder.options.maintab "Principales">
+<!ENTITY savelinkinfolder.options.miscellaneoustab "Diverses">
+<!ENTITY savelinkinfolder.options.advancedtab "Avancées">
+<!ENTITY savelinkinfolder.options.new "Nouveau">
+<!ENTITY savelinkinfolder.options.edit "Éditer">
+<!ENTITY savelinkinfolder.options.delete "Supprimer">
+<!ENTITY savelinkinfolder.options.separator "Séparateur">
+<!ENTITY savelinkinfolder.options.folders "Dossiers">
+<!ENTITY savelinkinfolder.options.description "Description">
+<!ENTITY savelinkinfolder.options.path "Chemin">
+<!ENTITY savelinkinfolder.options.opensaveasdialog "Enregistrer sous">
+<!ENTITY savelinkinfolder.options.openfolder "Ouvrir le dossier">
+<!ENTITY savelinkinfolder.options.fileprefix "Préfixe">
+<!ENTITY savelinkinfolder.options.fileprefixvalue "Valeur du préfixe">
+<!ENTITY savelinkinfolder.options.filename "Nom">
+<!ENTITY savelinkinfolder.options.filenamevalue "Valeur du nom">
+<!ENTITY savelinkinfolder.options.filesuffix "Suffixe">
+<!ENTITY savelinkinfolder.options.filesuffixvalue "Valeur du suffixe">
+<!ENTITY savelinkinfolder.options.duplicatefilename "Nom de fichier déjà existant">
+<!ENTITY savelinkinfolder.options.general "Options générales des dossiers">
+<!ENTITY savelinkinfolder.options.general-shiftkey "Enfoncez la touche majuscule en choisissant un élément du menu contextuel pour remplacer les paramètres particuliers du dossier par ceux qui suivent.">
+<!ENTITY savelinkinfolder.options.general-opensaveasdialog "Proposer 'Enregistrer sous...' avant de télécharger.">
+<!ENTITY savelinkinfolder.options.general-openfolder "Ouvrir le dossier de destination quand le téléchargement commence.">
+<!ENTITY savelinkinfolder.options.general-fileprefix "Préfixe du fichier :">
+<!ENTITY savelinkinfolder.options.general-filename "Nom du fichier">
+<!ENTITY savelinkinfolder.options.general-filesuffix "Suffixe du fichier :">
+<!ENTITY savelinkinfolder.options.general-duplicatefilename "Si le nom de fichier est déjà existant...">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevaluesaveas "Ouvrir la fenêtre 'Enregistrez sous...'">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevalueincrement "Incrémenter le nom du fichier d'une unité">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevaluecancel "Annuler le téléchargement">
+<!ENTITY savelinkinfolder.options.general-duplicatefilenamevalueoverwrite "Écraser le fichier précédent">
+<!ENTITY savelinkinfolder.options.executable "Application utilisée pour ouvrir le dossier-cible">
+<!ENTITY savelinkinfolder.options.executable-description "Vous pouvez ici choisir une autre application pour ouvrir le dossier-cible. Si vous ne cochez pas, l'extension utilisera l'action par défaut au double-clic sur un dossier. (Ce qui lance généralement 'explorer.exe' sous Windows">
+<!ENTITY savelinkinfolder.options.executable-check "Utiliser cette application :">
+<!ENTITY savelinkinfolder.options.executable-arguments "Arguments :">
+<!ENTITY savelinkinfolder.options.executable-ctrlkey "Appuyer sur la touche ctrl en sélectionnant un élément du menu contextuel pour ouvrir un dossier sans enregistrer le ficher.">
+<!ENTITY savelinkinfolder.options.contextmenu "Menu contextuel">
+<!ENTITY savelinkinfolder.options.shortcut "Raccourci clavier :">
+<!ENTITY savelinkinfolder.options.numericshortcuts "Afficher les raccourcis clavier numériques avec les 10 dernières entrées">
+<!ENTITY savelinkinfolder.options.hideinvalidfolders "Cacher les dossiers avec un chemin invalide (sinon ils seront simplement désactivés).">
+<!ENTITY savelinkinfolder.options.prefs "Préférences de Firefox">
+<!ENTITY savelinkinfolder.options.prefs-description "Après avoir enregsitré dans un dossier écrivez son chemin dans les préférences de Firefox (prefs.js).">
+<!ENTITY savelinkinfolder.options.prefs-clear "Effacer">
+<!ENTITY savelinkinfolder.options.nofilereference "Les liens sans référence directe à un fichier seront ouverts avec 'Enregistrer sous...'">
+<!ENTITY savelinkinfolder.options.hideunknowncontenttype "Cacher la liste des dossiers quand Firefox détecte un contenu de type inconnu.">
+<!ENTITY savelinkinfolder.setfolder.title "Dossier">
+<!ENTITY savelinkinfolder.setfolder.description "Description">
+<!ENTITY savelinkinfolder.setfolder.path "Chemin">
+<!ENTITY savelinkinfolder.setfolder.individual "Paramètres du dossier personnel">
+<!ENTITY savelinkinfolder.setfolder.individual-opensaveasdialog "Proposer 'Enregistrer sous...' avant de télécharger.">
+<!ENTITY savelinkinfolder.setfolder.individual-openfolder "Ouvrir le dossier de destination quand le téléchargement commence.">
+<!ENTITY savelinkinfolder.setfolder.individual-fileprefix "Préfixe du fichier :">
+<!ENTITY savelinkinfolder.setfolder.individual-filename "Nom du fichier :">
+<!ENTITY savelinkinfolder.setfolder.individual-filesuffix "Suffixe du fichier :">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilename "Si le nom de fichier est déjà existant...">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevaluesaveas "Ouvrir la fenêtre 'Enregistrez sous...'">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevalueincrement "Incrémenter le nom du fichier d'une unité">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevaluecancel "Annuler le téléchargement">
+<!ENTITY savelinkinfolder.setfolder.individual-duplicatefilenamevalueoverwrite "Écraser le fichier précédent">
+<!ENTITY savelinkinfolder.notify.file "Fichier :">
+<!ENTITY savelinkinfolder.notify.folder "Dossier :">
+<!ENTITY savelinkinfolder.options.notification "Notification">
+<!ENTITY savelinkinfolder.options.notification-statusbar "Message dans la barre d'état">
+<!ENTITY savelinkinfolder.options.notification-popupwindow "Fenêtre popup">
+<!ENTITY savelinkinfolder.options.notification-duration "Durée (en secondes) :">
+<!ENTITY savelinkinfolder.options.helptab "Aide">
+<!ENTITY savelinkinfolder.options.website "Veuillez vous rendre sur ce site Web pour de plus amples informations :">
+

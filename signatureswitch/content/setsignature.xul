@@ -1,0 +1,203 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/"?>
+<?xml-stylesheet href="chrome://signatureswitch/skin/options.css" type="text/css"?>
+
+<!DOCTYPE dialog SYSTEM "chrome://signatureswitch/locale/signatureswitch.dtd">
+
+<dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        id="signatureswitchSetSignature"
+        minwidth="300"
+        onload="return onLoad();"
+        buttons="accept,cancel"
+        title="&signatureswitch.label.setsignature.title;">
+
+    <script type="application/x-javascript" src="chrome://signatureswitch/content/setsignature.js"/>
+
+    <grid>
+        <columns>
+            <column/>
+            <column flex="1"/>
+        </columns>
+        <rows>
+            <row>
+                <hbox align="center">
+                    <label control="description" value="&signatureswitch.label.setsignature.description;"/>
+                </hbox>
+                <hbox align="center">
+                    <textbox flex="1" id="description"/>
+                </hbox>
+            </row>
+            <row>
+                <hbox align="center">
+                    <label control="path" value="&signatureswitch.label.setsignature.path;"/>
+                </hbox>
+                <hbox align="center">
+                    <textbox flex="1" id="path"/>
+                    <button class="browse" id="pickSignature" oncommand="return onPickSignature();"/>
+                    <button class="compose" id="composeSignature" oncommand="return onComposeSignature();"/>
+                </hbox>
+            </row>
+            <row>
+                <separator/>
+            </row>
+            <row>
+                <hbox align="center">
+                    <label control="shortcut" value="&signatureswitch.label.setsignature.shortcut;"/>
+                </hbox>
+                <hbox flex="1">
+                    <menulist id="shortcut_key">
+                        <menupopup>
+                            <menuseparator/>
+                            <menuitem label=" "/>
+                            <menuitem label="1"/>
+                            <menuitem label="2"/>
+                            <menuitem label="3"/>
+                            <menuitem label="4"/>
+                            <menuitem label="5"/>
+                            <menuitem label="6"/>
+                            <menuitem label="7"/>
+                            <menuitem label="8"/>
+                            <menuitem label="9"/>
+                            <menuitem label="0"/>
+                            <menuitem label="A"/>
+                            <menuitem label="B"/>
+                            <menuitem label="C"/>
+                            <menuitem label="D"/>
+                            <menuitem label="E"/>
+                            <menuitem label="F"/>
+                            <menuitem label="G"/>
+                            <menuitem label="H"/>
+                            <menuitem label="I"/>
+                            <menuitem label="J"/>
+                            <menuitem label="K"/>
+                            <menuitem label="L"/>
+                            <menuitem label="M"/>
+                            <menuitem label="N"/>
+                            <menuitem label="O"/>
+                            <menuitem label="P"/>
+                            <menuitem label="Q"/>
+                            <menuitem label="R"/>
+                            <menuitem label="S"/>
+                            <menuitem label="T"/>
+                            <menuitem label="U"/>
+                            <menuitem label="V"/>
+                            <menuitem label="W"/>
+                            <menuitem label="X"/>
+                            <menuitem label="Y"/>
+                            <menuitem label="Z"/>
+                        </menupopup>
+                    </menulist>
+                    <checkbox id="shortcut_modifier_accel" label="&signatureswitch.label.setsignature.shortcut.accel;"/>
+                    <checkbox id="shortcut_modifier_alt" label="&signatureswitch.label.setsignature.shortcut.alt;"/>
+                    <checkbox id="shortcut_modifier_control" label="&signatureswitch.label.setsignature.shortcut.control;"/>
+                    <checkbox id="shortcut_modifier_meta" label="&signatureswitch.label.setsignature.shortcut.meta;"/>
+                    <checkbox id="shortcut_modifier_shift" label="&signatureswitch.label.setsignature.shortcut.shift;"/>
+                </hbox>
+            </row>
+            <row>
+                <separator/>
+            </row>
+        </rows>
+    </grid>
+
+    <separator style="margin-bottom:10px;" class="groove"/>
+
+    <description style="margin-bottom:10px;">&signatureswitch.label.setsignature.autoswitch;</description>
+
+    <tabbox id="autoswitchTabBox">
+        <tabs>
+            <tab label="&signatureswitch.label.setsignature.addresstab;"/>
+            <tab label="&signatureswitch.label.setsignature.newsgrouptab;"/>
+            <tab label="&signatureswitch.label.setsignature.mailinglisttab;"/>
+        </tabs>
+        <tabpanels flex="1">
+            <tabpanel id="addresstab" flex="1" orient="vertical">
+                <description width="300" style="margin-bottom:10px;">&signatureswitch.label.setsignature.autoswitch.description.addresses;</description>
+                <hbox align="top">
+                    <grid>
+                        <columns>
+                            <column/>
+                            <column/>
+                            <column/>
+                        </columns>
+                        <rows>
+                            <row>
+                                <hbox align="center">
+                                    <label value="&signatureswitch.label.setsignature.autoswitch.address;"/>
+                                </hbox>
+                                <textbox id="address" size="10"/>
+                                <button id="addAddress" label="&signatureswitch.label.setsignature.autoswitch.add;" oncommand="addAutoSwitch('address');"/>
+                            </row>
+                            <row>
+                                <label/>
+                                <label/>
+                                <button id="removeAddress" label="&signatureswitch.label.setsignature.autoswitch.remove;" oncommand="removeAutoswitch('address');"/>
+                            </row>
+                        </rows>
+                    </grid>
+                    <richlistbox id="addresses" seltype="single" flex="1" rows="3"/>
+                </hbox>
+            </tabpanel>
+            <tabpanel id="newgrouptab" flex="1" orient="vertical">
+                <description width="300" style="margin-top:10px;margin-bottom:10px;">&signatureswitch.label.setsignature.autoswitch.description.newsgroups;</description>
+                <hbox align="top">
+                    <grid>
+                        <columns>
+                            <column/>
+                            <column/>
+                            <column/>
+                        </columns>
+                        <rows>
+                            <row>
+                                <hbox align="center">
+                                    <label value="&signatureswitch.label.setsignature.autoswitch.newsgroup;"/>
+                                </hbox>
+                                <textbox id="newsgroup" size="10"/>
+                                <button id="addNewsgroup" label="&signatureswitch.label.setsignature.autoswitch.add;" oncommand="addAutoSwitch('newsgroup');"/>
+                            </row>
+                            <row>
+                                <label/>
+                                <label/>
+                                <button id="removeNewsgroup" label="&signatureswitch.label.setsignature.autoswitch.remove;" oncommand="removeAutoswitch('newsgroup');"/>
+                            </row>
+                        </rows>
+                    </grid>
+                    <richlistbox id="newsgroups" seltype="single" flex="1" rows="3"/>
+                </hbox>
+            </tabpanel>
+            <tabpanel id="mailinglisttab" flex="1" orient="vertical">
+                <description width="300" style="margin-top:10px;margin-bottom:10px;">&signatureswitch.label.setsignature.autoswitch.description.mailinglists;</description>
+                <hbox align="top">
+                    <grid>
+                        <columns>
+                            <column/>
+                            <column/>
+                            <column/>
+                        </columns>
+                        <rows>
+                            <row>
+                                <hbox align="center">
+                                    <label value="&signatureswitch.label.setsignature.autoswitch.mailinglist;"/>
+                                    <button class="mailinglist" id="pickMailinglist" oncommand="return onPickMailinglist();"/>
+                                </hbox>
+                                <textbox id="mailinglist" size="10"/>
+                                <button id="addMailinglist" label="&signatureswitch.label.setsignature.autoswitch.add;" oncommand="addAutoSwitch('mailinglist');"/>
+                            </row>
+                            <row>
+                                <label/>
+                                <label/>
+                                <button id="removeMailinglist" label="&signatureswitch.label.setsignature.autoswitch.remove;" oncommand="removeAutoswitch('mailinglist');"/>
+                            </row>
+                        </rows>
+                    </grid>
+                    <richlistbox id="mailinglists" seltype="single" flex="1" rows="3"/>
+                </hbox>
+            </tabpanel>
+        </tabpanels>
+    </tabbox>
+
+    <description width="300" style="margin-top:10px;">&signatureswitch.label.setsignature.autoswitch.description.wildcard1;</description>
+    <description width="300" style="margin-bottom:10px;">&signatureswitch.label.setsignature.autoswitch.description.wildcard2;</description>
+
+</dialog>

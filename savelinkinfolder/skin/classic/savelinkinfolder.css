@@ -1,0 +1,7 @@
+#slif_toolbarbutton {
+  list-style-image: url("chrome://savelinkinfolder/skin/savelinkinfolder24.png");
+}
+
+toolbar[iconsize="small"] #slif_toolbarbutton {
+  list-style-image: url("chrome://savelinkinfolder/skin/savelinkinfolder16.png");
+}

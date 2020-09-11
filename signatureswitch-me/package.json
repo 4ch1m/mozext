@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "web-ext": "^5.0.0",
+    "jquery": "^3.5.1",
+    "bootstrap": "^4.5.2",
+    "bootstrap-icons": "^1.0.0",
+    "mdbootstrap": "^4.19.1",
+    "uuid": "^8.3.0",
+    "mustache": "^4.0.1"
+  },
+  "scripts": {
+    "prestart": "./mozdev-tools/setup.sh tb; ./mozdev-tools/install.sh tb; ./mozdev-tools/move_devtools_window.sh 3841 0 &",
+    "start": "./mozdev-tools/start.sh tb",
+    "package": "./mozdev-tools/package.sh ${npm_package_name} ${npm_package_version}",
+    "postinstall": "./copy_node_modules.sh",
+    "clean": "./mozdev-tools/clean.sh; rm -f *.xpi",
+    "lint": "./node_modules/web-ext/bin/web-ext --source-dir src lint",
+    "sort-locales": "./mozdev-tools/sort_locales.sh"
+  }
+}

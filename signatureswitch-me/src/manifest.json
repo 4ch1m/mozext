@@ -1,0 +1,59 @@
+{
+  "manifest_version": 2,
+  "name": "__MSG_extensionName__",
+  "description": "__MSG_extensionDescription__",
+  "version": "2.0.0prealpha1",
+  "default_locale": "en",
+  "author": "Achim Seufert",
+  "applications": {
+    "gecko": {
+      "id": "signatureswitch@mozext.achimonline.de",
+      "strict_min_version": "78.0"
+    }
+  },
+  "compose_action": {
+    "default_title": "__MSG_extensionName__",
+    "default_icon": "_images/signatureswitch-32px.png"
+  },
+  "commands": {
+    "switch": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+S"
+      },
+      "description": "__MSG_commandSwitchDescription__"
+    },
+    "next": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+W"
+      },
+      "description": "__MSG_commandNextDescription__"
+    },
+    "previous": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+X"
+      },
+      "description": "__MSG_commandPreviousDescription__"
+    }
+  },
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "options_ui": {
+    "open_in_tab": true,
+    "page": "options/page.html"
+  },
+  "permissions": [
+    "compose",
+    "storage",
+    "unlimitedStorage",
+    "tabs",
+    "menus"
+  ],
+  "icons": {
+    "64": "_images/signatureswitch-64px.png",
+    "32": "_images/signatureswitch-32px.png",
+    "16": "_images/signatureswitch-16px.png"
+  }
+}

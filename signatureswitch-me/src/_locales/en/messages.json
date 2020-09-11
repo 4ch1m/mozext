@@ -1,0 +1,110 @@
+{
+  "commandNextDescription": {
+    "message": "Cycle (next)"
+  },
+  "commandPreviousDescription": {
+    "message": "Cycle (previous)"
+  },
+  "commandSwitchDescription": {
+    "message": "Switch signature on/off"
+  },
+  "composeOnOffButtonOff": {
+    "message": "Switch Off"
+  },
+  "composeOnOffButtonOn": {
+    "message": "Switch On"
+  },
+  "composeOptions": {
+    "message": "Options"
+  },
+  "extensionDescription": {
+    "message": "Switch the signature on/off or choose a new one from your predefined set."
+  },
+  "extensionName": {
+    "message": "Signature Switch"
+  },
+  "optionsButtonAddSignature": {
+    "message": "Add new signature"
+  },
+  "optionsCommandPlaceholder": {
+    "message": "e.g. 'Ctrl+Shift+U'"
+  },
+  "optionsCommandResetButton": {
+    "message": "Reset"
+  },
+  "optionsCommandsHeadline": {
+    "message": "Keyboard Shortcuts"
+  },
+  "optionsHeader": {
+    "message": "$1"
+  },
+  "optionsHeaderSecondary": {
+    "message": "Preferences"
+  },
+  "optionsHelp": {
+    "message": "Help"
+  },
+  "optionsHelpOr": {
+    "message": "or"
+  },
+  "optionsHelpText": {
+    "message": "For detailed instructions or help, please check"
+  },
+  "optionsMiscellaneous": {
+    "message": "Miscellaneous"
+  },
+  "optionsNextCommandLabel": {
+    "message": "Cycle (next):"
+  },
+  "optionsPreviousCommandLabel": {
+    "message": "Cycle (previous):"
+  },
+  "optionsSignatureEditModalClose": {
+    "message": "Close"
+  },
+  "optionsSignatureEditModalName": {
+    "message": "Name"
+  },
+  "optionsSignatureEditModalNamePlaceholder": {
+    "message": "e.g. 'Private Signature'"
+  },
+  "optionsSignatureEditModalSave": {
+    "message": "Save"
+  },
+  "optionsSignatureEditModalText": {
+    "message": "Text"
+  },
+  "optionsSignatureEditModalTitle": {
+    "message": "Edit signature"
+  },
+  "optionsSignatureNewName": {
+    "message": "New Signature"
+  },
+  "optionsSignatureRemoveModalNo": {
+    "message": "No"
+  },
+  "optionsSignatureRemoveModalQuestion": {
+    "message": "Do you really want to remove this signature?"
+  },
+  "optionsSignatureRemoveModalTitle": {
+    "message": "Remove Signature"
+  },
+  "optionsSignatureRemoveModalYes": {
+    "message": "Yes"
+  },
+  "optionsSignatures": {
+    "message": "Signatures"
+  },
+  "optionsSwitchCommandLabel": {
+    "message": "Switch shortcut (on/off):"
+  },
+  "optionsTableColumnSignaturesAction": {
+    "message": "Action"
+  },
+  "optionsTableColumnSignaturesDefault": {
+    "message": "Default"
+  },
+  "optionsTableColumnSignaturesName": {
+    "message": "Name"
+  }
+}

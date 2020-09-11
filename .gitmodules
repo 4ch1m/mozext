@@ -1,0 +1,3 @@
+[submodule "signatureswitch-me/mozdev-tools"]
+	path = signatureswitch-me/mozdev-tools
+	url = https://github.com/4ch1m/mozdev-tools.git

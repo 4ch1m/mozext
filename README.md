@@ -29,7 +29,7 @@ Table of Contents
 ### Thunderbird
 
 * [Signature Switch ME](signatureswitch-me)
-* NestedQuote Remover ME
+* [NestedQuote Remover ME](nestedquoteremover-me)
 
 ### Firefox
 

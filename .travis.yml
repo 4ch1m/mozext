@@ -3,3 +3,5 @@ node_js: 14
 before_script:
   - cd signatureswitch-me
   - npm run lint
+  - cd nestedquoteremover-me
+  - npm run lint

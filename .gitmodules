@@ -1,3 +1,6 @@
 [submodule "signatureswitch-me/mozdev-tools"]
 	path = signatureswitch-me/mozdev-tools
 	url = https://github.com/4ch1m/mozdev-tools.git
+[submodule "nestedquoteremover-me/mozdev-tools"]
+	path = nestedquoteremover-me/mozdev-tools
+	url = https://github.com/4ch1m/mozdev-tools.git

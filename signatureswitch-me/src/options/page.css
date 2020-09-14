@@ -1,3 +1,7 @@
 .nobr {
     white-space: nowrap;
 }
+
+.section {
+    margin-top: 1em;
+}

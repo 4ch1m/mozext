@@ -4,8 +4,7 @@ const domParser = new DOMParser();
 const PLAINTEXT_SIGNATURE_SEPARATOR = "-- \n";
 const HTML_SIGNATURE_CLASS = "moz-signature";
 
-let browserWindowId;
-let composeTabId;
+let composeActionTabId;
 let foundSignatureId;
 
 /* =====================================================================================================================
@@ -13,16 +12,13 @@ let foundSignatureId;
  */
 
 (() => {
-    browser.windows.getCurrent().then(window => {
-        browserWindowId = window.id;
-    });
-
     createContextMenu();
 
     addStorageChangeListener();
     addCommandListener();
     addMessageListener();
     addComposeActionListener();
+    addWindowCreateListener();
 })();
 
 /* =====================================================================================================================
@@ -92,7 +88,7 @@ function createMenuItems(items) {
  */
 
 function addStorageChangeListener() {
-    browser.storage.onChanged.addListener((changes) => {
+    browser.storage.onChanged.addListener(changes => {
         createContextMenu();
 
         let changedItems = Object.keys(changes);
@@ -106,7 +102,7 @@ function addStorageChangeListener() {
 }
 
 function addCommandListener() {
-    browser.commands.onCommand.addListener((name) => {
+    browser.commands.onCommand.addListener(name => {
         switch (name) {
             case "switch":
                 // TODO
@@ -127,44 +123,15 @@ function addCommandListener() {
 function addMessageListener() {
     browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
         switch (request.type) {
-            case "getBrowserWindowId":
-                sendResponse(browserWindowId);
-                break;
             case "switchSignature":
                 if (request.value === "on") {
-                    // append default-signature ...
-                    browser.storage.local.get().then(localStorage => {
-                        if (localStorage.signatures && localStorage.defaultSignature) {
-                            let signatures = localStorage.signatures;
-                            for (let i = 0; i < signatures.length; i++) {
-                                if (signatures[i].id === localStorage.defaultSignature) {
-                                    appendSignatureToComposer(signatures[i].text);
-                                    break;
-                                }
-                            }
-                        }
-                    });
+                    appendDefaultSignatureToComposer();
                 } else {
-                    // remove signature ...
-                    browser.compose.getComposeDetails(composeTabId).then(details => {
-                        let newDetails = details.isPlainText ? { plainTextBody: getBodyWithoutSignature(details) } : { body: getBodyWithoutSignature(details) };
-                        browser.compose.setComposeDetails(composeTabId, newDetails);
-                    });
+                    removeSignatureFromComposer();
                 }
                 break;
             case "insertSignature":
-                // append selected signature ...
-                browser.storage.local.get().then(localStorage => {
-                    if (localStorage.signatures) {
-                        let signatures = localStorage.signatures;
-                        for (let i = 0; i < signatures.length; i++) {
-                            if (signatures[i].id === request.value) {
-                                appendSignatureToComposer(signatures[i].text);
-                                break;
-                            }
-                        }
-                    }
-                });
+                appendSelectedSignatureToComposer(request.value);
                 break;
             case "isSignaturePresent":
                 sendResponse({result: foundSignatureId !== ""});
@@ -177,7 +144,7 @@ function addMessageListener() {
 
 function addComposeActionListener() {
     browser.composeAction.onClicked.addListener(tab => {
-        composeTabId = tab.id;
+        composeActionTabId = tab.id;
 
         searchSignatureInComposer();
 
@@ -189,33 +156,86 @@ function addComposeActionListener() {
     });
 }
 
+function addWindowCreateListener() {
+    browser.windows.onCreated.addListener(window => {
+        browser.storage.local.get().then(localStorage => {
+            if (localStorage.defaultAction) {
+                if (window.type === "messageCompose") {
+                    browser.tabs.query({windowId: window.id}).then(tabs => {
+                        if (localStorage.defaultAction === "insert") {
+                            appendDefaultSignatureToComposer(tabs[0].id);
+                        } else {
+                            removeSignatureFromComposer(tabs[0].id);
+                        }
+                    });
+                }
+            }
+        });
+    });
+}
+
 /* =====================================================================================================================
    composer interaction ...
  */
 
-async function appendSignatureToComposer(text) {
-    let details = await browser.compose.getComposeDetails(composeTabId);
+async function appendSignatureToComposer(text, tabId = composeActionTabId) {
+    let details = await browser.compose.getComposeDetails(tabId);
     let cleansedBody = getBodyWithoutSignature(details);
 
     if (details.isPlainText) {
         cleansedBody += createPlainTextSignature(text);
-        browser.compose.setComposeDetails(composeTabId, {plainTextBody: cleansedBody});
+        browser.compose.setComposeDetails(tabId, {plainTextBody: cleansedBody});
     } else {
         let document = domParser.parseFromString(cleansedBody, "text/html");
         document.body.appendChild(createHtmlSignature(document, text));
 
-        browser.compose.setComposeDetails(composeTabId, {body: xmlSerializer.serializeToString(document)});
+        browser.compose.setComposeDetails(tabId, {body: xmlSerializer.serializeToString(document)});
     }
 }
 
-async function searchSignatureInComposer() {
+async function appendDefaultSignatureToComposer(tabId = composeActionTabId) {
+    browser.storage.local.get().then(localStorage => {
+        if (localStorage.signatures && localStorage.defaultSignature) {
+            let signatures = localStorage.signatures;
+            for (let i = 0; i < signatures.length; i++) {
+                if (signatures[i].id === localStorage.defaultSignature) {
+                    appendSignatureToComposer(signatures[i].text, tabId);
+                    break;
+                }
+            }
+        }
+    });
+}
+
+async function appendSelectedSignatureToComposer(signatureId, tabId = composeActionTabId) {
+    browser.storage.local.get().then(localStorage => {
+        if (localStorage.signatures) {
+            let signatures = localStorage.signatures;
+            for (let i = 0; i < signatures.length; i++) {
+                if (signatures[i].id === signatureId) {
+                    appendSignatureToComposer(signatures[i].text, tabId);
+                    break;
+                }
+            }
+        }
+    });
+}
+
+async function removeSignatureFromComposer(tabId = composeActionTabId) {
+    browser.compose.getComposeDetails(tabId).then(details => {
+        let newDetails = details.isPlainText ? { plainTextBody: getBodyWithoutSignature(details) } : { body: getBodyWithoutSignature(details) };
+        browser.compose.setComposeDetails(tabId, newDetails);
+    });
+}
+
+async function searchSignatureInComposer(tabId = composeActionTabId) {
     foundSignatureId = "";
 
     let localStorage = await browser.storage.local.get();
 
     if (localStorage.signatures) {
         let signatures = localStorage.signatures;
-        let details = await browser.compose.getComposeDetails(composeTabId);
+        let details = await browser.compose.getComposeDetails(tabId);
         let bodyDocument = details.isPlainText ? undefined : domParser.parseFromString(details.body, "text/html");
 
         for (let i = 0; i < signatures.length; i++) {

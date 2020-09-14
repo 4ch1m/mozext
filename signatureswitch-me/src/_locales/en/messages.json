@@ -35,6 +35,21 @@
   "optionsCommandsHeadline": {
     "message": "Keyboard Shortcuts"
   },
+  "optionsDefaultAction": {
+    "message": "Default Action"
+  },
+  "optionsDefaultActionDescription": {
+    "message": "When opening a new compose-window ..."
+  },
+  "optionsDefaultActionInsert": {
+    "message": "Insert the default-signature"
+  },
+  "optionsDefaultActionNothing": {
+    "message": "Do nothing"
+  },
+  "optionsDefaultActionOff": {
+    "message": "Turn the signature off"
+  },
   "optionsHeader": {
     "message": "$1"
   },
@@ -96,7 +111,7 @@
     "message": "Signatures"
   },
   "optionsSwitchCommandLabel": {
-    "message": "Switch shortcut (on/off):"
+    "message": "Switch (on/off):"
   },
   "optionsTableColumnSignaturesAction": {
     "message": "Action"

@@ -1,11 +1,15 @@
 const SIGNATURE_ROW = `
     <tr class="hide" data-signature-id="{{id}}">
         <!-- default -->
-        <td class="text-truncate" contenteditable="false"><input id="signatureDefault-{{id}}" type="radio" name="defaultSignature" value=""></td>
+        <td contenteditable="false">
+            <input id="signatureDefault-{{id}}" type="radio" name="defaultSignature">
+        </td>
         <!-- name -->
-        <td contenteditable="false"><b id="signatureName-{{id}}">{{name}}</b></td>
+        <td contenteditable="false">
+            <b id="signatureName-{{id}}">{{name}}</b>
+        </td>
         <!-- edit -->
-        <td>
+        <td contenteditable="false">
             <span class="signaturesTable-edit">
                 <button type="button" class="btn btn-primary btn-rounded btn-sm my-0 waves-effect waves-light" data-toggle="modal" data-target="#signatureEditModal-{{id}}">
                     <svg class="bi" width="2em" height="2em" fill="currentColor">
@@ -31,7 +35,7 @@ const SIGNATURE_ROW = `
             </button>
         </td>
         <!-- remove -->
-        <td>
+        <td contenteditable="false">
             <span class="signatures-table-remove">
                 <button type="button" class="btn btn-danger btn-rounded btn-sm my-0 waves-effect waves-light" data-toggle="modal" data-target="#signatureRemoveModal-{{id}}">
                     <svg class="bi" width="2em" height="2em" fill="currentColor">
@@ -124,8 +128,8 @@ const SIGNATURE_REMOVE_MODAL = `
 
 const COMMAND_ROW = `
     <div class="row mb-2">
-        <div class="col-sm-3 text-right">
-            <label for="command-{{id}}">{{label}}</label>
+        <div class="col-sm-2 text-right">
+            <label class="nobr" for="command-{{id}}">{{label}}</label>
         </div>
         <div class="col-sm">
             <input type="text" class="form-control" id="command-{{id}}" value="{{value}}" placeholder="{{placeholder}}">

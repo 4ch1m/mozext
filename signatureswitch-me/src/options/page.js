@@ -9,6 +9,16 @@ $(function() {
     $(".signaturesAdd").click(() => {
         addSignature();
     });
+
+    $("#defaultActionNothing").click(() => {
+        storeDefaultAction("");
+    });
+    $("#defaultActionInsert").click(() => {
+        storeDefaultAction("insert");
+    });
+    $("#defaultActionOff").click(() => {
+        storeDefaultAction("off");
+    });
 });
 
 function newSignature() {
@@ -81,7 +91,6 @@ function addSignature(signature) {
 }
 
 function initUI(localStorage) {
-    // signatures
     if (localStorage) {
         if (localStorage.signatures) {
             localStorage.signatures.forEach(signature => {
@@ -92,9 +101,23 @@ function initUI(localStorage) {
         if (localStorage.defaultSignature) {
             $("#signatureDefault-" + localStorage.defaultSignature).prop("checked", true);
         }
+
+        if (localStorage.defaultAction) {
+            switch (localStorage.defaultAction) {
+                case "insert":
+                    $("#defaultActionInsert").prop("checked", true);
+                    break;
+                case "off":
+                    $("#defaultActionOff").prop("checked", true);
+                    break;
+                default:
+                    $("#defaultActionNothing").prop("checked", true);
+            }
+        } else {
+            $("#defaultActionNothing").prop("checked", true);
+        }
     }
 
-    // commands
     browser.commands.getAll().then((commands) => {
         const commandsContainer = $("#commandsContainer");
 
@@ -258,6 +281,18 @@ function storeDefaultSignature(id) {
             localStorage = {...localStorage, defaultSignature: id};
         } else {
             localStorage.defaultSignature = id;
+        }
+
+        browser.storage.local.set(localStorage);
+    });
+}
+
+function storeDefaultAction(action) {
+    browser.storage.local.get().then(localStorage => {
+        if (!localStorage.defaultAction) {
+            localStorage = {...localStorage, defaultAction: action};
+        } else {
+            localStorage.defaultAction = action;
         }
 
         browser.storage.local.set(localStorage);

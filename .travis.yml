@@ -4,6 +4,6 @@ before_script:
   - cd signatureswitch-me
   - npm install
   - npm run lint
-  - cd nestedquoteremover-me
+  - cd ../nestedquoteremover-me
   - npm install
   - npm run lint

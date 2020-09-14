@@ -1,0 +1,35 @@
+{
+  "commandRemoveDescription": {
+    "message": "Remove nested quotes"
+  },
+  "contextMenu": {
+    "message": "Remove nested quotes"
+  },
+  "extensionDescription": {
+    "message": "Remove nested quotes when replying to a mail."
+  },
+  "extensionName": {
+    "message": "NestedQuote Remover"
+  },
+  "optionsAutoRemove": {
+    "message": "Automatically remove nested quotes"
+  },
+  "optionsContextMenuEntry": {
+    "message": "Show context-menu entry"
+  },
+  "optionsKeyboardShortcut": {
+    "message": "Keyboard shortcut:"
+  },
+  "optionsKeyboardShortcutPlaceholder": {
+    "message": "e.g. 'Ctrl+Shift+N'"
+  },
+  "optionsKeyboardShortcutReset": {
+    "message": "Reset"
+  },
+  "optionsKeyboardShortcutSet": {
+    "message": "Set"
+  },
+  "optionsMaxAllowedQuoteDepth": {
+    "message": "Maximum quote depth allowed:"
+  }
+}

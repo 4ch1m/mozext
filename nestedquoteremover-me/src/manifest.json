@@ -1,0 +1,45 @@
+{
+  "manifest_version": 2,
+  "name": "__MSG_extensionName__",
+  "description": "__MSG_extensionDescription__",
+  "version": "1.0.0prealpha1",
+  "default_locale": "en",
+  "author": "Achim Seufert",
+  "homepage_url": "http://mozext.achimonline.de",
+  "applications": {
+    "gecko": {
+      "id": "nestedquoteremover@mozext.achimonline.de",
+      "strict_min_version": "78.0"
+    }
+  },
+  "compose_action": {
+    "default_title": "__MSG_extensionName__",
+    "default_icon": "_images/nestedquoteremover-32px.png"
+  },
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "options_ui": {
+    "page": "options/page.html"
+  },
+  "commands": {
+    "removeNestedQuotes": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+N"
+      },
+      "description": "__MSG_commandRemoveDescription__"
+    }
+  },
+  "permissions": [
+    "compose",
+    "storage",
+    "menus"
+  ],
+  "icons": {
+    "64": "_images/nestedquoteremover-64px.png",
+    "32": "_images/nestedquoteremover-32px.png",
+    "16": "_images/nestedquoteremover-16px.png"
+  }
+}

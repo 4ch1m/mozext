@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title data-i18n="extensionName"></title>
+        <link rel="stylesheet" href="page.css"/>
+    </head>
+
+    <body>
+
+        <div class="optionsDiv">
+            <label for="maxAllowedQuoteDepth" data-i18n="optionsMaxAllowedQuoteDepth"></label>
+            <input type="number" id="maxAllowedQuoteDepth" min="1" max="100">
+        </div>
+
+        <div class="optionsDiv">
+            <label for="keyboardShortcut" data-i18n="optionsKeyboardShortcut"></label>
+            <input type="text" id="keyboardShortcut">
+            <button id="keyboardShortcutSet" data-i18n="optionsKeyboardShortcutSet"></button>
+            <button id="keyboardShortcutReset" data-i18n="optionsKeyboardShortcutReset"></button>
+        </div>
+
+        <div class="optionsDiv">
+            <input type="checkbox" id="autoRemove">
+            <label for="autoRemove" data-i18n="optionsAutoRemove"></label>
+        </div>
+
+        <div class="optionsDiv">
+            <input type="checkbox" id="contextMenuEntry">
+            <label for="contextMenuEntry" data-i18n="optionsContextMenuEntry"></label>
+        </div>
+
+        <script src="page.js"></script>
+
+    </body>
+
+</html>

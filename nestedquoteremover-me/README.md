@@ -7,7 +7,7 @@
 Pre-alpha phase!
 ```
 
-Overall status: [![Build Status](https://travis-ci.org/4ch1m/mozext.svg?branch=master)](https://travis-ci.org/4ch1m/huElectron)
+Overall status: [![Build Status](https://travis-ci.org/4ch1m/mozext.svg?branch=master)](https://travis-ci.org/4ch1m/mozext)
 
 ## ToC
 

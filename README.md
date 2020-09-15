@@ -1,8 +1,6 @@
 # mozext
 > Extensions / Add-Ons for Mozilla Firefox and Mozilla Thunderbird
 
-All of my **Moz**illa **Ext**ensions that I started developing in 2005.
-
 Please check my dedicated website for more detailed information:
 
 &rarr; [mozext.achimonline.de](http://mozext.achimonline.de/)
@@ -10,21 +8,18 @@ Please check my dedicated website for more detailed information:
 Table of Contents
 =================
 
-* [WebExtensions / MailExtensions](#webextensions--mailextensions)
+* [WebExtensions / MailExtensions](#webextensions--mailextensions--)
   * [Thunderbird](#thunderbird)
   * [Firefox](#firefox)
-  * [Build](#build)
-    * [Overall Status](#overall-status)
-    * [Instructions](#instructions)
-* [XUL-/XPCOM-based Extensions (Legacy)](#xul-xpcom-based-extensions-legacy)
+* [Legacy XUL-/XPCOM-based Extensions](#legacy-xul-xpcom-based-extensions)
   * [Thunderbird](#thunderbird-1)
   * [Firefox](#firefox-1)
-  * [Build](#build-1)
-    * [Prerequisites](#prerequisites)
-    * [Instructions](#instructions-1)
 * [License](#license)
 
-## WebExtensions / MailExtensions
+
+## WebExtensions / MailExtensions | [![Build Status](https://travis-ci.org/4ch1m/mozext.svg?branch=master)](https://travis-ci.org/4ch1m/mozext)
+
+Please check the specific README-file in each folder for build-instructions.
 
 ### Thunderbird
 
@@ -35,19 +30,12 @@ Table of Contents
 
 * TBD
 
-### Build
 
-#### Overall Status
+## Legacy XUL-/XPCOM-based Extensions
 
-[![Build Status](https://travis-ci.org/4ch1m/mozext.svg?branch=master)](https://travis-ci.org/4ch1m/mozext)
+I started developing these extensions back in 2005.
 
-#### Instructions
-
-Please check the specific README-file in each folder.
-
-## XUL-/XPCOM-based Extensions (Legacy)
-
-Both [Firefox 57](https://www.mozilla.org/en-US/firefox/57.0/releasenotes/) and [Thunderbird 78](https://www.thunderbird.net/en-US/thunderbird/78.0/releasenotes/) dropped support for add-ons based on XUL- and XPCOM-APIs;
+However, both [Firefox 57](https://www.mozilla.org/en-US/firefox/57.0/releasenotes/) and [Thunderbird 78](https://www.thunderbird.net/en-US/thunderbird/78.0/releasenotes/) dropped support for add-ons based on XUL- and XPCOM-APIs;
 so I won't continue working with this codebase.
 
 ### Thunderbird
@@ -61,14 +49,9 @@ so I won't continue working with this codebase.
 * [Save Image in Folder](saveimageinfolder)
 * [Save Link in Folder](savelinkinfolder)
 
-### Build
+To build them you'll need to have [Apache Ant](https://ant.apache.org/) and [XMLStarlet](http://xmlstar.sourceforge.net/) installed on your system.
 
-#### Prerequisites
-* [Apache Ant](https://ant.apache.org/)
-* [XMLStarlet](http://xmlstar.sourceforge.net/)
-
-#### Instructions
-Simply change to the directory of an individual extension/add-on and run the `ant`-command.
+Then simply change into the directory of an extension/add-on and run the `ant`-command.
 This will create an installable XPI-file.
 
 ## License

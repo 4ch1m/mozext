@@ -25,8 +25,8 @@ let ui = {};
         ui.keyboardShortcutSet.addEventListener("click", () => {
             updateKeyboardShortcut(ui.keyboardShortcut.value);
         })
-        ui.keyboardShortcutReset.addEventListener("click", async () => {
-            await browser.commands.reset("removeNestedQuotes");
+        ui.keyboardShortcutReset.addEventListener("click", () => {
+            resetKeyboardShortcut();
             displayCurrentKeyboardShortcut();
         });
 
@@ -48,8 +48,12 @@ let ui = {};
     });
 })()
 
-function displayCurrentKeyboardShortcut() {
-    browser.commands.getAll().then(commands => {
+async function displayCurrentKeyboardShortcut() {
+    // Temporary workaround until this issue is fixed:
+    //    https://developer.thunderbird.net/add-ons/updating/tb78#replacing-options
+    //
+    // browser.commands.getAll().then(commands => {
+    (await messenger.runtime.getBackgroundPage()).messenger.commands.getAll().then(commands => {
         for (let command of commands) {
             if (command.name === "removeNestedQuotes") {
                 ui.keyboardShortcut.value = command.shortcut;
@@ -58,11 +62,23 @@ function displayCurrentKeyboardShortcut() {
     });
 }
 
-function updateKeyboardShortcut(value) {
-    browser.commands.update({
+async function updateKeyboardShortcut(value) {
+    // Temporary workaround until this issue is fixed:
+    //    https://developer.thunderbird.net/add-ons/updating/tb78#replacing-options
+    //
+    // browser.commands.update({
+    (await messenger.runtime.getBackgroundPage()).messenger.commands.update({
         name: "removeNestedQuotes",
         shortcut: value
     });
+}
+
+async function resetKeyboardShortcut() {
+    // Temporary workaround until this issue is fixed:
+    //    https://developer.thunderbird.net/add-ons/updating/tb78#replacing-options
+    //
+    // await browser.commands.reset("removeNestedQuotes");
+    await (await messenger.runtime.getBackgroundPage()).messenger.commands.reset("removeNestedQuotes");
 }
 
 function dataI18n() {

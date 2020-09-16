@@ -14,7 +14,14 @@
   },
   "compose_action": {
     "default_title": "__MSG_extensionName__",
-    "default_icon": "_images/nestedquoteremover-32px.png"
+    "default_icon": "_images/nestedquoteremover-32px-black.png",
+    "theme_icons": [
+      {
+        "dark": "_images/nestedquoteremover-32px-white.png",
+        "light": "_images/nestedquoteremover-32px-black.png",
+        "size": 32
+      }
+    ]
   },
   "background": {
     "scripts": [
@@ -38,8 +45,25 @@
     "menus"
   ],
   "icons": {
-    "64": "_images/nestedquoteremover-64px.png",
-    "32": "_images/nestedquoteremover-32px.png",
-    "16": "_images/nestedquoteremover-16px.png"
-  }
+    "64": "_images/nestedquoteremover-64px-black.png",
+    "32": "_images/nestedquoteremover-32px-black.png",
+    "16": "_images/nestedquoteremover-16px-black.png"
+  },
+  "theme_icons": [
+    {
+      "dark": "_images/nestedquoteremover-64px-white.png",
+      "light": "_images/nestedquoteremover-64px-black.png",
+      "size": 64
+    },
+    {
+      "dark": "_images/nestedquoteremover-32px-white.png",
+      "light": "_images/nestedquoteremover-32px-black.png",
+      "size": 32
+    },
+    {
+      "dark": "_images/nestedquoteremover-16px-white.png",
+      "light": "_images/nestedquoteremover-16px-black.png",
+      "size": 16
+    }
+  ]
 }

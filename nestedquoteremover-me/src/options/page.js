@@ -54,7 +54,7 @@ async function displayCurrentKeyboardShortcut() {
     //    https://developer.thunderbird.net/add-ons/updating/tb78#replacing-options
     //
     // browser.commands.getAll().then(commands => {
-    (await messenger.runtime.getBackgroundPage()).messenger.commands.getAll().then(commands => {
+    (await browser.runtime.getBackgroundPage()).browser.commands.getAll().then(commands => {
         for (let command of commands) {
             if (command.name === "removeNestedQuotes") {
                 ui.keyboardShortcut.value = command.shortcut;
@@ -69,7 +69,7 @@ async function updateKeyboardShortcut(value) {
     //    https://developer.thunderbird.net/add-ons/updating/tb78#replacing-options
     //
     // browser.commands.update({
-    (await messenger.runtime.getBackgroundPage()).messenger.commands.update({
+    (await browser.runtime.getBackgroundPage()).browser.commands.update({
         name: "removeNestedQuotes",
         shortcut: value
     });
@@ -81,7 +81,7 @@ async function resetKeyboardShortcut() {
     //    https://developer.thunderbird.net/add-ons/updating/tb78#replacing-options
     //
     // await browser.commands.reset("removeNestedQuotes");
-    await (await messenger.runtime.getBackgroundPage()).messenger.commands.reset("removeNestedQuotes");
+    await (await browser.runtime.getBackgroundPage()).browser.commands.reset("removeNestedQuotes");
 }
 
 function dataI18n() {

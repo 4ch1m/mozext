@@ -1,6 +1,7 @@
 const BLOCKQUOTE_CITE_SELECTOR = 'blockquote[type="cite"]';
 const DOCUMENT_TYPE = "text/html";
 const NEW_LINE = "\n";
+const WINDOW_TYPE_MESSAGE_COMPOSE = "messageCompose";
 
 const xmlSerializer = new XMLSerializer();
 const domParser = new DOMParser();
@@ -63,10 +64,12 @@ function addComposeActionListener() {
 function addCommandListener() {
     browser.commands.onCommand.addListener(name => {
         if (name === "removeNestedQuotes") {
-            browser.tabs.query({currentWindow: true}).then(tabs => {
-                for (let tab of tabs) {
-                    if (tab.active) {
-                        removeNestedQuotes(tab.id);
+            browser.windows.getAll().then(windows => {
+                for (let window of windows) {
+                    if (window.type === WINDOW_TYPE_MESSAGE_COMPOSE && window.focused === true) {
+                        browser.tabs.query({windowId: window.id}).then(tabs => {
+                            removeNestedQuotes(tabs[0].id);
+                        });
                         break;
                     }
                 }
@@ -92,7 +95,7 @@ function addContextMenuEntry() {
 
 function addWindowCreateListener() {
     browser.windows.onCreated.addListener(window => {
-        if (autoRemove && window.type === "messageCompose") {
+        if (autoRemove && window.type === WINDOW_TYPE_MESSAGE_COMPOSE) {
             browser.tabs.query({windowId: window.id}).then(tabs => {
                 removeNestedQuotes(tabs[0].id);
             });

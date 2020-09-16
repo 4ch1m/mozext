@@ -27,12 +27,39 @@ let contextMenuEntry = true;
         }
     });
 
+    addContextMenuEntry();
+    addContextMenuListener();
     addStorageChangeListener();
     addComposeActionListener();
     addCommandListener();
-    addContextMenuEntry();
     addWindowCreateListener();
 })();
+
+function addContextMenuEntry() {
+    browser.menus.remove("nestedquote_remover");
+
+    if (contextMenuEntry) {
+        browser.menus.create({
+            id: "nestedquote_remover",
+            title: browser.i18n.getMessage("contextMenu"),
+            command: "_execute_browser_action",
+            contexts: [
+                // TODO
+                // the MailExtension-API lacks a suitable context-type for the composer-window;
+                // so this won't work atm
+                "editable"
+            ]
+        });
+    }
+}
+
+function addContextMenuListener() {
+    browser.menus.onClicked.addListener((info, tab) => {
+        if (info.menuItemId === "nestedquote_remover") {
+            removeNestedQuotes(tab.id);
+        }
+    });
+}
 
 function addStorageChangeListener() {
     browser.storage.onChanged.addListener((changes) => {
@@ -76,21 +103,6 @@ function addCommandListener() {
             });
         }
     });
-}
-
-function addContextMenuEntry() {
-    browser.menus.remove("nestedquote_remover");
-
-    if (contextMenuEntry) {
-        browser.menus.create({
-            id: "nestedquote_remover",
-            title: browser.i18n.getMessage("contextMenu"),
-            command: "_execute_browser_action",
-            contexts: [
-                "editable"
-            ]
-        });
-    }
 }
 
 function addWindowCreateListener() {

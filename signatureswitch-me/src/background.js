@@ -15,6 +15,7 @@ let foundSignatureId;
 (() => {
     createContextMenu();
 
+    addContextMenuListener();
     addStorageChangeListener();
     addCommandListener();
     addMessageListener();
@@ -40,12 +41,15 @@ function createContextMenu() {
             id: ROOT_MENU,
             title: browser.i18n.getMessage("extensionName"),
             contexts: [
+                // TODO
+                // the MailExtension-API lacks a suitable context-type for the composer-window;
+                // so this won't work atm
                 "editable"
             ]
         });
 
         menuItems.push({
-            // TODO
+            id: SUB_MENU_PREFIX + "on-off",
             parentId: ROOT_MENU,
             title: "ON/OFF"
         });
@@ -88,6 +92,26 @@ function createMenuItems(items) {
 /* =====================================================================================================================
    listeners ...
  */
+
+function addContextMenuListener() {
+    browser.menus.onClicked.addListener(async (info, tab) => {
+        let commandOrSignatureId = info.menuItemId.startsWith("signature_switch_") ? info.menuItemId.substring(info.menuItemId.lastIndexOf("_" + 1)) : undefined;
+
+        switch (info.menuItemId) {
+            case "on-off":
+                await searchSignatureInComposer(tab.id);
+                if (foundSignatureId === "") {
+                    appendDefaultSignatureToComposer(tab.id);
+                } else {
+                    removeSignatureFromComposer(tab.id);
+                }
+                break;
+            default:
+                appendSignatureViaIdToComposer(commandOrSignatureId, tab.id);
+                break;
+        }
+    });
+}
 
 function addStorageChangeListener() {
     browser.storage.onChanged.addListener(changes => {

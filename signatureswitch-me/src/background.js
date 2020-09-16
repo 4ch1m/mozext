@@ -103,20 +103,41 @@ function addStorageChangeListener() {
 
 function addCommandListener() {
     browser.commands.onCommand.addListener(name => {
-        switch (name) {
-            case "switch":
-                // TODO
-                console.log("!!! switch");
-                break;
-            case "next":
-                // TODO
-                console.log("!!! next");
-                break;
-            case "previous":
-                // TODO
-                console.log("!!! previous");
-                break;
-        }
+        // TODO
+        // "browser.mailTabs.query"-API currently seems to be broken?! never returns the actual active mailTab :(
+        browser.mailTabs.query({active: true, currentWindow: true}).then(async mailTabs => {
+            let mailTabId = mailTabs[0].id;
+            await searchSignatureInComposer(mailTabId);
+
+            switch (name) {
+                case "switch":
+                    if (foundSignatureId === "") {
+                        appendDefaultSignatureToComposer(mailTabId);
+                    } else {
+                        removeSignatureFromComposer(mailTabId);
+                    }
+                    break;
+                case "next":
+                case "previous":
+                    if (foundSignatureId === "") {
+                        appendDefaultSignatureToComposer(mailTabId);
+                    } else {
+                        let signatureIds = await getAllSignatureIds();
+                        let signatureIndex = signatureIds.indexOf(foundSignatureId);
+                        if (signatureIndex !== -1) {
+                            let newSignatureIndex;
+                            if (name === "next") {
+                                newSignatureIndex = signatureIndex === (signatureIds.length - 1) ? 0 : signatureIndex + 1;
+                            } else {
+                                newSignatureIndex = signatureIndex === 0 ? signatureIds.length - 1 : signatureIndex - 1;
+                            }
+
+                            appendSignatureViaIdToComposer(signatureIds[newSignatureIndex], mailTabId);
+                        }
+                    }
+                    break;
+            }
+        });
     });
 }
 
@@ -131,7 +152,7 @@ function addMessageListener() {
                 }
                 break;
             case "insertSignature":
-                appendSelectedSignatureToComposer(request.value);
+                appendSignatureViaIdToComposer(request.value);
                 break;
             case "isSignaturePresent":
                 sendResponse({result: foundSignatureId !== ""});
@@ -178,7 +199,7 @@ function addWindowCreateListener() {
    composer interaction ...
  */
 
-async function appendSignatureToComposer(text, tabId = composeActionTabId) {
+async function appendSignatureTextToComposer(text, tabId = composeActionTabId) {
     let details = await browser.compose.getComposeDetails(tabId);
     let cleansedBody = getBodyWithoutSignature(details);
 
@@ -199,7 +220,7 @@ async function appendDefaultSignatureToComposer(tabId = composeActionTabId) {
             let signatures = localStorage.signatures;
             for (let i = 0; i < signatures.length; i++) {
                 if (signatures[i].id === localStorage.defaultSignature) {
-                    appendSignatureToComposer(signatures[i].text, tabId);
+                    appendSignatureTextToComposer(signatures[i].text, tabId);
                     break;
                 }
             }
@@ -207,13 +228,13 @@ async function appendDefaultSignatureToComposer(tabId = composeActionTabId) {
     });
 }
 
-async function appendSelectedSignatureToComposer(signatureId, tabId = composeActionTabId) {
+async function appendSignatureViaIdToComposer(signatureId, tabId = composeActionTabId) {
     browser.storage.local.get().then(localStorage => {
         if (localStorage.signatures) {
             let signatures = localStorage.signatures;
             for (let i = 0; i < signatures.length; i++) {
                 if (signatures[i].id === signatureId) {
-                    appendSignatureToComposer(signatures[i].text, tabId);
+                    appendSignatureTextToComposer(signatures[i].text, tabId);
                     break;
                 }
             }
@@ -223,7 +244,7 @@ async function appendSelectedSignatureToComposer(signatureId, tabId = composeAct
 
 async function removeSignatureFromComposer(tabId = composeActionTabId) {
     browser.compose.getComposeDetails(tabId).then(details => {
-        let newDetails = details.isPlainText ? { plainTextBody: getBodyWithoutSignature(details) } : { body: getBodyWithoutSignature(details) };
+        let newDetails = details.isPlainText ? {plainTextBody: getBodyWithoutSignature(details)} : {body: getBodyWithoutSignature(details)};
         browser.compose.setComposeDetails(tabId, newDetails);
     });
 }
@@ -306,4 +327,18 @@ function truncateString(string, length) {
     }
 
     return string.slice(0, length) + "...";
+}
+
+async function getAllSignatureIds() {
+    let ids = [];
+
+    await browser.storage.local.get().then(localStorage => {
+        if (localStorage.signatures) {
+            localStorage.signatures.forEach(signature => {
+                ids.push(signature.id);
+            });
+        }
+    });
+
+    return ids;
 }

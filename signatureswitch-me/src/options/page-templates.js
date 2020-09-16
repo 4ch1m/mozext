@@ -127,7 +127,7 @@ const SIGNATURE_REMOVE_MODAL = `
 `;
 
 const COMMAND_ROW = `
-    <div class="row mb-2">
+    <div class="form-row mb-2">
         <div class="col-sm-2 text-right">
             <label class="nobr" for="command-{{id}}">{{label}}</label>
         </div>

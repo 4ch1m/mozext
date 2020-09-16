@@ -90,7 +90,7 @@ function addSignature(signature) {
     });
 }
 
-function initUI(localStorage) {
+async function initUI(localStorage) {
     if (localStorage) {
         if (localStorage.signatures) {
             localStorage.signatures.forEach(signature => {
@@ -118,7 +118,12 @@ function initUI(localStorage) {
         }
     }
 
-    browser.commands.getAll().then((commands) => {
+    // TODO
+    // Temporary workaround until this issue is fixed:
+    //    https://developer.thunderbird.net/add-ons/updating/tb78#replacing-options
+    //
+    // browser.commands.getAll().then(commands => {
+    (await browser.runtime.getBackgroundPage()).browser.commands.getAll().then(commands => {
         const commandsContainer = $("#commandsContainer");
 
         for (let command of commands) {
@@ -150,14 +155,21 @@ function initUI(localStorage) {
                         resetButtonText: browser.i18n.getMessage("optionsCommandResetButton")
                     }));
                     break;
-                default:
-                    $("#command-" + command.name).change(() => {
-                        storeCommand(command.name, $("#command-" + command.name).val());
-                    });
-                    $("#command-" + command.name + "-reset").click(() => {
-                        resetCommand(command.name);
-                    });
             }
+
+            let commandInput = $("#command-" + command.name);
+            commandInput.keyup(() => {
+                storeCommand(command.name, commandInput.val()).then(() => {
+                    commandInput.removeClass("is-invalid").addClass("is-valid");
+                }, () => {
+                    commandInput.removeClass("is-valid").addClass("is-invalid");
+                })
+            });
+
+            $("#command-" + command.name + "-reset").click(() => {
+                resetCommand(command.name);
+                commandInput.removeClass("is-invalid").removeClass("is-valid");
+            });
         }
     });
 }
@@ -299,16 +311,27 @@ function storeDefaultAction(action) {
     });
 }
 
-function storeCommand(name, shortcut) {
-    browser.commands.update({
+async function storeCommand(name, shortcut) {
+    // TODO
+    // Temporary workaround until this issue is fixed:
+    //    https://developer.thunderbird.net/add-ons/updating/tb78#replacing-options
+    //
+    // browser.commands.update({
+    return (await browser.runtime.getBackgroundPage()).browser.commands.update({
         name: name,
         shortcut: shortcut
     });
 }
 
-function resetCommand(name) {
-    browser.commands.reset(name);
-    browser.commands.getAll().then((commands) => {
+async function resetCommand(name) {
+    // TODO
+    // Temporary workaround until this issue is fixed:
+    //    https://developer.thunderbird.net/add-ons/updating/tb78#replacing-options
+    //
+    // browser.commands.reset(name);
+    await (await browser.runtime.getBackgroundPage()).browser.commands.reset(name);
+    // browser.commands.getAll().then(commands => {
+    (await browser.runtime.getBackgroundPage()).browser.commands.getAll().then(commands => {
         for (let command of commands) {
             if (command.name === name) {
                 $("#command-" + name).val(command.shortcut);

@@ -3,10 +3,3 @@ node_js: 14
 branches:
   only:
     - master
-before_script:
-  - cd signatureswitch-me
-  - npm install
-  - npm run lint
-  - cd ../nestedquoteremover-me
-  - npm install
-  - npm run lint

@@ -14,6 +14,7 @@ Overall status: [![Build Status](https://travis-ci.org/4ch1m/mozext.svg?branch=m
 ## ToC
 
 * [How To](#how-to)
+  * [Setup](#setup)
   * [Build](#build)
   * [Run](#run)
   * [Create XPI](#create-xpi)
@@ -22,23 +23,32 @@ Overall status: [![Build Status](https://travis-ci.org/4ch1m/mozext.svg?branch=m
 
 ## How To
 
+### Setup
+
+```
+git clone https://github.com/4ch1m/mozext.git
+cd mozext/nestedquoteremover-me
+git submodule init
+git submodule update
+```
+
 ### Build
 
-  ```
-  npm install
-  ```
+```
+npm install
+```
 
 ### Run
 
-  ```
-  npm start
-  ```
+```
+npm start
+```
 
 ### Create XPI
 
-  ```
-  npm package
-  ```
+```
+npm package
+```
 
 ## Credits
 

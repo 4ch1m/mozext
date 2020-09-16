@@ -1,6 +1,6 @@
 ![NestedQuote Remover](https://raw.githubusercontent.com/4ch1m/mozext/master/nestedquoteremover-me/src/_images/nestedquoteremover-64px-black.png)
 
-# NestedQuote Remover - MailExtension
+# NestedQuote Remover - MailExtension | [![Build Status](https://travis-ci.org/4ch1m/mozext.svg?branch=master)](https://travis-ci.org/4ch1m/mozext)
 > A complete rewrite of the (XUL-based) [NestedQuote Remover](../nestedquoteremover) add-on.
 
 ```diff
@@ -8,8 +8,6 @@
 
 Pre-alpha phase!
 ```
-
-Overall status: [![Build Status](https://travis-ci.org/4ch1m/mozext.svg?branch=master)](https://travis-ci.org/4ch1m/mozext)
 
 ## ToC
 

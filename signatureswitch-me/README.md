@@ -1,6 +1,6 @@
 ![Signature Switch](https://raw.githubusercontent.com/4ch1m/mozext/master/signatureswitch-me/src/_images/signatureswitch-64px-black.png)
 
-# Signature Switch - MailExtension
+# Signature Switch - MailExtension | [![Build Status](https://travis-ci.org/4ch1m/mozext.svg?branch=master)](https://travis-ci.org/4ch1m/mozext)
 > A complete rewrite of the (XUL-based) [Signature Switch](../signatureswitch) add-on.
 
 ```diff
@@ -8,8 +8,6 @@
 
 Pre-alpha phase!
 ```
-
-Overall status: [![Build Status](https://travis-ci.org/4ch1m/mozext.svg?branch=master)](https://travis-ci.org/4ch1m/mozext)
 
 ## ToC
 

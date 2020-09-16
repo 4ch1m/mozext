@@ -23,6 +23,17 @@
       }
     ]
   },
+  "browser_action": {
+    "default_title": "__MSG_extensionName__",
+    "default_icon": "_images/signatureswitch-32px-black.png",
+    "theme_icons": [
+      {
+        "dark": "_images/signatureswitch-32px-white.png",
+        "light": "_images/signatureswitch-32px-black.png",
+        "size": 32
+      }
+    ]
+  },
   "commands": {
     "switch": {
       "suggested_key": {

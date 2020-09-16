@@ -18,6 +18,7 @@ let foundSignatureId;
     addStorageChangeListener();
     addCommandListener();
     addMessageListener();
+    addBrowserActionListener();
     addComposeActionListener();
     addWindowCreateListener();
 })();
@@ -167,6 +168,12 @@ function addMessageListener() {
             default:
                 console.log("invalid message type!");
         }
+    });
+}
+
+function addBrowserActionListener() {
+    browser.browserAction.onClicked.addListener(() => {
+        browser.tabs.create({url: "/options/page.html"});
     });
 }
 

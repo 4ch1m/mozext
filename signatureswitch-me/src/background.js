@@ -225,9 +225,9 @@ async function appendDefaultSignatureToComposer(tabId = composeActionTabId) {
     browser.storage.local.get().then(localStorage => {
         if (localStorage.signatures && localStorage.defaultSignature) {
             let signatures = localStorage.signatures;
-            for (let i = 0; i < signatures.length; i++) {
-                if (signatures[i].id === localStorage.defaultSignature) {
-                    appendSignatureTextToComposer(signatures[i].text, tabId);
+            for (let signature of signatures) {
+                if (signature.id === localStorage.defaultSignature) {
+                    appendSignatureTextToComposer(signature.text, tabId);
                     break;
                 }
             }
@@ -239,9 +239,9 @@ async function appendSignatureViaIdToComposer(signatureId, tabId = composeAction
     browser.storage.local.get().then(localStorage => {
         if (localStorage.signatures) {
             let signatures = localStorage.signatures;
-            for (let i = 0; i < signatures.length; i++) {
-                if (signatures[i].id === signatureId) {
-                    appendSignatureTextToComposer(signatures[i].text, tabId);
+            for (let signature of signatures) {
+                if (signature.id === signatureId) {
+                    appendSignatureTextToComposer(signature.text, tabId);
                     break;
                 }
             }
@@ -266,20 +266,19 @@ async function searchSignatureInComposer(tabId = composeActionTabId) {
         let details = await browser.compose.getComposeDetails(tabId);
         let bodyDocument = details.isPlainText ? undefined : domParser.parseFromString(details.body, "text/html");
 
-        for (let i = 0; i < signatures.length; i++) {
-            let signatureText = signatures[i].text;
+        for (let signature of signatures) {
 
             if (details.isPlainText) {
-                if (details.plainTextBody.endsWith(createPlainTextSignature(signatureText))) {
-                    foundSignatureId = signatures[i].id;
+                if (details.plainTextBody.endsWith(createPlainTextSignature(signature.text))) {
+                    foundSignatureId = signature.id;
                     break;
                 }
             } else {
                 let htmlSignatures = bodyDocument.getElementsByClassName(HTML_SIGNATURE_CLASS);
 
                 if (htmlSignatures && htmlSignatures.length > 0) {
-                    if (htmlSignatures[htmlSignatures.length - 1].textContent === signatureText) {
-                        foundSignatureId = signatures[i].id;
+                    if (htmlSignatures[htmlSignatures.length - 1].textContent === signature.text) {
+                        foundSignatureId = signature.id;
                         break;
                     }
                 }

@@ -3,6 +3,7 @@ const domParser = new DOMParser();
 
 const PLAINTEXT_SIGNATURE_SEPARATOR = "-- \n";
 const HTML_SIGNATURE_CLASS = "moz-signature";
+const WINDOW_TYPE_MESSAGE_COMPOSE = "messageCompose";
 
 let composeActionTabId;
 let foundSignatureId;
@@ -103,39 +104,45 @@ function addStorageChangeListener() {
 
 function addCommandListener() {
     browser.commands.onCommand.addListener(name => {
-        // TODO
-        // "browser.mailTabs.query"-API currently seems to be broken?! never returns the actual active mailTab :(
-        browser.mailTabs.query({active: true, currentWindow: true}).then(async mailTabs => {
-            let mailTabId = mailTabs[0].id;
-            await searchSignatureInComposer(mailTabId);
+        browser.windows.getAll().then(windows => {
+            for (let window of windows) {
+                if (window.type === WINDOW_TYPE_MESSAGE_COMPOSE && window.focused === true) {
+                    browser.tabs.query({windowId: window.id}).then(async tabs => {
+                        let mailTabId = tabs[0].id;
 
-            switch (name) {
-                case "switch":
-                    if (foundSignatureId === "") {
-                        appendDefaultSignatureToComposer(mailTabId);
-                    } else {
-                        removeSignatureFromComposer(mailTabId);
-                    }
-                    break;
-                case "next":
-                case "previous":
-                    if (foundSignatureId === "") {
-                        appendDefaultSignatureToComposer(mailTabId);
-                    } else {
-                        let signatureIds = await getAllSignatureIds();
-                        let signatureIndex = signatureIds.indexOf(foundSignatureId);
-                        if (signatureIndex !== -1) {
-                            let newSignatureIndex;
-                            if (name === "next") {
-                                newSignatureIndex = signatureIndex === (signatureIds.length - 1) ? 0 : signatureIndex + 1;
-                            } else {
-                                newSignatureIndex = signatureIndex === 0 ? signatureIds.length - 1 : signatureIndex - 1;
-                            }
+                        await searchSignatureInComposer(mailTabId);
 
-                            appendSignatureViaIdToComposer(signatureIds[newSignatureIndex], mailTabId);
+                        switch (name) {
+                            case "switch":
+                                if (foundSignatureId === "") {
+                                    appendDefaultSignatureToComposer(mailTabId);
+                                } else {
+                                    removeSignatureFromComposer(mailTabId);
+                                }
+                                break;
+                            case "next":
+                            case "previous":
+                                if (foundSignatureId === "") {
+                                    appendDefaultSignatureToComposer(mailTabId);
+                                } else {
+                                    let signatureIds = await getAllSignatureIds();
+                                    let signatureIndex = signatureIds.indexOf(foundSignatureId);
+                                    if (signatureIndex !== -1) {
+                                        let newSignatureIndex;
+                                        if (name === "next") {
+                                            newSignatureIndex = signatureIndex === (signatureIds.length - 1) ? 0 : signatureIndex + 1;
+                                        } else {
+                                            newSignatureIndex = signatureIndex === 0 ? signatureIds.length - 1 : signatureIndex - 1;
+                                        }
+
+                                        appendSignatureViaIdToComposer(signatureIds[newSignatureIndex], mailTabId);
+                                    }
+                                }
+                                break;
                         }
-                    }
+                    });
                     break;
+                }
             }
         });
     });
@@ -181,7 +188,7 @@ function addWindowCreateListener() {
     browser.windows.onCreated.addListener(window => {
         browser.storage.local.get().then(localStorage => {
             if (localStorage.defaultAction) {
-                if (window.type === "messageCompose") {
+                if (window.type === WINDOW_TYPE_MESSAGE_COMPOSE) {
                     browser.tabs.query({windowId: window.id}).then(tabs => {
                         if (localStorage.defaultAction === "insert") {
                             appendDefaultSignatureToComposer(tabs[0].id);

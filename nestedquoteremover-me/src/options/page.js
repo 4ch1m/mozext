@@ -49,6 +49,7 @@ let ui = {};
 })()
 
 async function displayCurrentKeyboardShortcut() {
+    // TODO
     // Temporary workaround until this issue is fixed:
     //    https://developer.thunderbird.net/add-ons/updating/tb78#replacing-options
     //
@@ -63,6 +64,7 @@ async function displayCurrentKeyboardShortcut() {
 }
 
 async function updateKeyboardShortcut(value) {
+    // TODO
     // Temporary workaround until this issue is fixed:
     //    https://developer.thunderbird.net/add-ons/updating/tb78#replacing-options
     //
@@ -74,6 +76,7 @@ async function updateKeyboardShortcut(value) {
 }
 
 async function resetKeyboardShortcut() {
+    // TODO
     // Temporary workaround until this issue is fixed:
     //    https://developer.thunderbird.net/add-ons/updating/tb78#replacing-options
     //

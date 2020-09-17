@@ -68,12 +68,12 @@ const SIGNATURE_EDIT_MODAL = `
                             <div class="card">
                                 <div class="card-header" id="signatureEditAccordionPlaintext-{{id}}">
                                     <h5 class="mb-0">
-                                        <button class="btn btn-block btn-link" data-toggle="collapse" data-target="#signatureEditCollapsePlaintext">
+                                        <button class="btn btn-block btn-link" data-toggle="collapse" data-target="#signatureEditCollapsePlaintext-{{id}}">
                                             {{textHeading}}
                                         </button>
                                     </h5>
                                 </div>
-                                <div id="signatureEditCollapsePlaintext-{{id}}" class="collapse show" data-parent="#signatureEditAccordion">
+                                <div id="signatureEditCollapsePlaintext-{{id}}" class="collapse show" data-parent="#signatureEditAccordion-{{id}}">
                                     <div class="card-body bg-light">
                                         <!-- text -->
                                         <textarea class="form-control" id="signatureModalText-{{id}}" rows="5">{{text}}</textarea>
@@ -83,12 +83,12 @@ const SIGNATURE_EDIT_MODAL = `
                             <div class="card">
                                 <div class="card-header" id="signatureEditAccordionHtml-{{id}}">
                                     <h5 class="mb-0">
-                                        <button class="btn btn-block btn-link collapsed" data-toggle="collapse" data-target="#signatureEditCollapseHtml">
+                                        <button class="btn btn-block btn-link collapsed" data-toggle="collapse" data-target="#signatureEditCollapseHtml-{{id}}">
                                             {{htmlHeading}}
                                         </button>
                                     </h5>
                                 </div>
-                                <div id="signatureEditCollapseHtml-{{id}}" class="collapse" data-parent="#signatureEditAccordion">
+                                <div id="signatureEditCollapseHtml-{{id}}" class="collapse" data-parent="#signatureEditAccordion-{{id}}">
                                     <div class="card-body bg-light">
                                         <!-- HTML -->
                                         <textarea class="form-control" id="signatureModalHtml-{{id}}" rows="5">{{html}}</textarea>

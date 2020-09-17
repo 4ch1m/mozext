@@ -17,6 +17,11 @@ $(function() {
             });
             window.close();
         });
+        browser.storage.local.get().then(localStorage => {
+            if (!localStorage.signatures || localStorage.signatures.length === 0) {
+                $("#onOffButton").addClass("disabled");
+            }
+        });
         // signature-buttons ...
         browser.storage.local.get().then(localStorage => {
             if (localStorage.signatures) {

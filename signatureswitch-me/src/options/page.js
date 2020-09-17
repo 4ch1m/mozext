@@ -43,17 +43,16 @@ function addSignature(signature) {
     $("#signatureDefault-" + signature.id).click(() => {
         storeDefaultSignature(signature.id);
     });
-
     $("#signatureUp-" + signature.id).click(() => {
         reorderSignatures(signature.id, "up")
     })
-
     $("#signatureDown-" + signature.id).click(() => {
         reorderSignatures(signature.id, "down")
     })
 
-    const signatureModals = $("#signatureModals");
+    let signatureModals = $("#signatureModals");
 
+    // edit modal ...
     signatureModals.append(Mustache.render(SIGNATURE_EDIT_MODAL, {
         id: signature.id,
         name: signature.name,
@@ -67,7 +66,6 @@ function addSignature(signature) {
         close: i18n("optionsSignatureEditModalClose"),
         save: i18n("optionsSignatureEditModalSave")
     }));
-
     $("#signatureModalSave-" + signature.id).click(() => {
         storeSignature({
             id: signature.id,
@@ -78,6 +76,7 @@ function addSignature(signature) {
         $("#signatureEditModal-" + signature.id).modal("hide");
     });
 
+    // remove modal ...
     signatureModals.append(Mustache.render(SIGNATURE_REMOVE_MODAL, {
         id: signature.id,
         title: i18n("optionsSignatureRemoveModalTitle"),
@@ -85,7 +84,6 @@ function addSignature(signature) {
         no: i18n("optionsSignatureRemoveModalNo"),
         yes: i18n("optionsSignatureRemoveModalYes")
     }));
-
     $("#signatureRemoveModalSave-" + signature.id).click(() => {
         deleteSignature(signature.id, function () {
             $("#signatureRemoveModal-" + signature.id).modal("hide");
@@ -128,7 +126,7 @@ async function initUI(localStorage) {
     //
     // browser.commands.getAll().then(commands => {
     (await browser.runtime.getBackgroundPage()).browser.commands.getAll().then(commands => {
-        const commandsContainer = $("#commandsContainer");
+        let commandsContainer = $("#commandsContainer");
 
         for (let command of commands) {
             switch (command.name) {
@@ -162,6 +160,7 @@ async function initUI(localStorage) {
             }
 
             let commandInput = $("#command-" + command.name);
+
             commandInput.keyup(() => {
                 storeCommand(command.name, commandInput.val()).then(() => {
                     commandInput.removeClass("is-invalid").addClass("is-valid");
@@ -251,7 +250,7 @@ function deleteSignature(id, onSuccess) {
 
 function reorderSignatures(id, direction) {
     if (direction === "up") {
-        const row = $("#signatureUp-" + id).parents("tr");
+        let row = $("#signatureUp-" + id).parents("tr");
 
         if (row.index() === 0) {
             return;
@@ -259,8 +258,8 @@ function reorderSignatures(id, direction) {
 
         row.prev().before(row.get(0));
     } else {
-        const row = $("#signatureDown-" + id).parents("tr");
-        const tableSize = $("#signaturesTable tr").length;
+        let row = $("#signatureDown-" + id).parents("tr");
+        let tableSize = $("#signaturesTable tr").length;
 
         if (row.index() === (tableSize - 2)) {
             return;

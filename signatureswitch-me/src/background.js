@@ -1,9 +1,21 @@
-const xmlSerializer = new XMLSerializer();
-const domParser = new DOMParser();
-
-const PLAINTEXT_SIGNATURE_SEPARATOR = "-- \n";
+const NEW_LINE = "\n";
+const PLAINTEXT_SIGNATURE_SEPARATOR = "-- " + NEW_LINE;
 const HTML_SIGNATURE_CLASS = "moz-signature";
 const WINDOW_TYPE_MESSAGE_COMPOSE = "messageCompose";
+
+const MENU_ROOT_ID = "signature_switch";
+const MENU_ID_SEPARATOR = "_";
+const MENU_SUBENTRY_ID_PREFIX = MENU_ROOT_ID + MENU_ID_SEPARATOR;
+const MENU_ENTRY_ONOFF = "on-off";
+
+const COMMAND_SWITCH = "switch";
+const COMMAND_NEXT = "next";
+const COMMAND_PREVIOUS = "previous";
+
+// ---------------------------------------------------------------------------------------------------------------------
+
+const xmlSerializer = new XMLSerializer();
+const domParser = new DOMParser();
 
 let composeActionTabId;
 let foundSignatureId;
@@ -29,16 +41,13 @@ let foundSignatureId;
  */
 
 function createContextMenu() {
-    const ROOT_MENU = "signature_switch";
-
-    browser.menus.remove(ROOT_MENU);
+    browser.menus.remove(MENU_ROOT_ID);
 
     browser.storage.local.get().then(localStorage => {
-        const SUB_MENU_PREFIX = ROOT_MENU + "_";
-        const menuItems = [];
+        let menuItems = [];
 
         menuItems.push({
-            id: ROOT_MENU,
+            id: MENU_ROOT_ID,
             title: browser.i18n.getMessage("extensionName"),
             contexts: [
                 // TODO
@@ -49,33 +58,33 @@ function createContextMenu() {
         });
 
         menuItems.push({
-            id: SUB_MENU_PREFIX + "on-off",
-            parentId: ROOT_MENU,
-            title: "ON/OFF"
+            id: MENU_SUBENTRY_ID_PREFIX + MENU_ENTRY_ONOFF,
+            parentId: MENU_ROOT_ID,
+            title: browser.i18n.getMessage("menuOnOff")
         });
 
         menuItems.push({
-            parentId: ROOT_MENU,
+            parentId: MENU_ROOT_ID,
             type: "separator"
         });
 
         if (localStorage.signatures) {
             localStorage.signatures.forEach(signature => {
                 menuItems.push({
-                    id: SUB_MENU_PREFIX + signature.id,
+                    id: MENU_SUBENTRY_ID_PREFIX + signature.id,
                     title: truncateString(signature.name, 20),
-                    parentId: ROOT_MENU
+                    parentId: MENU_ROOT_ID
                 });
             });
 
             menuItems.push({
-                parentId: ROOT_MENU,
+                parentId: MENU_ROOT_ID,
                 type: "separator"
             });
 
             menuItems.push({
-                parentId: ROOT_MENU,
-                title: "Options"
+                parentId: MENU_ROOT_ID,
+                title: browser.i18n.getMessage("menuOptions")
             });
 
             createMenuItems(menuItems);
@@ -84,7 +93,7 @@ function createContextMenu() {
 }
 
 function createMenuItems(items) {
-    if (typeof items !== "undefined" && items.length > 0) {
+    if (typeof items !== undefined && items.length > 0) {
         browser.menus.create(items.pop(), createMenuItems(items));
     }
 }
@@ -95,10 +104,10 @@ function createMenuItems(items) {
 
 function addContextMenuListener() {
     browser.menus.onClicked.addListener(async (info, tab) => {
-        let commandOrSignatureId = info.menuItemId.startsWith("signature_switch_") ? info.menuItemId.substring(info.menuItemId.lastIndexOf("_" + 1)) : undefined;
+        let commandOrSignatureId = info.menuItemId.startsWith(MENU_SUBENTRY_ID_PREFIX) ? info.menuItemId.substring(info.menuItemId.lastIndexOf(MENU_ID_SEPARATOR + 1)) : undefined;
 
         switch (info.menuItemId) {
-            case "on-off":
+            case MENU_ENTRY_ONOFF:
                 await searchSignatureInComposer(tab.id);
                 if (foundSignatureId === "") {
                     appendDefaultSignatureToComposer(tab.id);
@@ -138,15 +147,15 @@ function addCommandListener() {
                         await searchSignatureInComposer(mailTabId);
 
                         switch (name) {
-                            case "switch":
+                            case COMMAND_SWITCH:
                                 if (foundSignatureId === "") {
                                     appendDefaultSignatureToComposer(mailTabId);
                                 } else {
                                     removeSignatureFromComposer(mailTabId);
                                 }
                                 break;
-                            case "next":
-                            case "previous":
+                            case COMMAND_NEXT:
+                            case COMMAND_PREVIOUS:
                                 if (foundSignatureId === "") {
                                     appendDefaultSignatureToComposer(mailTabId);
                                 } else {
@@ -154,7 +163,7 @@ function addCommandListener() {
                                     let signatureIndex = signatureIds.indexOf(foundSignatureId);
                                     if (signatureIndex !== -1) {
                                         let newSignatureIndex;
-                                        if (name === "next") {
+                                        if (name === COMMAND_NEXT) {
                                             newSignatureIndex = signatureIndex === (signatureIds.length - 1) ? 0 : signatureIndex + 1;
                                         } else {
                                             newSignatureIndex = signatureIndex === 0 ? signatureIds.length - 1 : signatureIndex - 1;
@@ -332,7 +341,7 @@ async function searchSignatureInComposer(tabId = composeActionTabId) {
  */
 
 function createPlainTextSignature(text) {
-    return "\n" + PLAINTEXT_SIGNATURE_SEPARATOR + text;
+    return NEW_LINE + PLAINTEXT_SIGNATURE_SEPARATOR + text;
 }
 
 function createHtmlSignature(document, html, elementType = "div") {
@@ -351,9 +360,9 @@ function createHtmlSignature(document, html, elementType = "div") {
 function getBodyWithoutSignature(composeDetails) {
     if (composeDetails.isPlainText) {
         let body = composeDetails.plainTextBody;
-        let signatureIndex = body.lastIndexOf("\n" + PLAINTEXT_SIGNATURE_SEPARATOR);
+        let signatureIndex = body.lastIndexOf(NEW_LINE + PLAINTEXT_SIGNATURE_SEPARATOR);
 
-        return signatureIndex > -1 ? body.substring(0, body.lastIndexOf("\n" + PLAINTEXT_SIGNATURE_SEPARATOR)) : body;
+        return signatureIndex > -1 ? body.substring(0, body.lastIndexOf(NEW_LINE + PLAINTEXT_SIGNATURE_SEPARATOR)) : body;
     } else {
         let document = domParser.parseFromString(composeDetails.body, "text/html");
         let signatures = document.getElementsByClassName(HTML_SIGNATURE_CLASS);

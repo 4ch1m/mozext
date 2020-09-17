@@ -23,7 +23,7 @@ $(function() {
                 localStorage.signatures.forEach(signature => {
                     $("#signatureButtonsContainer").append(Mustache.render(SIGNATURE_BUTTON, {
                         id: signature.id,
-                        name: signature.name
+                        name: /* TODO truncate */ signature.name
                     }));
                     $("#signatureButton-" + signature.id).on("click", () => {
                         browser.runtime.sendMessage({

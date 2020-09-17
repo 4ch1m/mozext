@@ -23,6 +23,12 @@
   "extensionName": {
     "message": "Signature Switch"
   },
+  "menuOnOff": {
+    "message": "On / Off"
+  },
+  "menuOptions": {
+    "message": "Options"
+  },
   "optionsButtonAddSignature": {
     "message": "Add new signature"
   },
@@ -77,23 +83,23 @@
   "optionsSignatureEditModalClose": {
     "message": "Close"
   },
+  "optionsSignatureEditModalHtml": {
+    "message": "HTML"
+  },
   "optionsSignatureEditModalName": {
     "message": "Name"
   },
   "optionsSignatureEditModalNamePlaceholder": {
     "message": "e.g. 'Private Signature'"
   },
+  "optionsSignatureEditModalPlaintext": {
+    "message": "Plaintext"
+  },
   "optionsSignatureEditModalSave": {
     "message": "Save"
   },
   "optionsSignatureEditModalTitle": {
     "message": "Edit signature"
-  },
-  "optionsSignatureEditModalPlaintext": {
-    "message": "Plaintext"
-  },
-  "optionsSignatureEditModalHtml": {
-    "message": "HTML"
   },
   "optionsSignatureNewName": {
     "message": "New Signature"

@@ -86,11 +86,14 @@
   "optionsSignatureEditModalSave": {
     "message": "Save"
   },
-  "optionsSignatureEditModalText": {
-    "message": "Text"
-  },
   "optionsSignatureEditModalTitle": {
     "message": "Edit signature"
+  },
+  "optionsSignatureEditModalPlaintext": {
+    "message": "Plaintext"
+  },
+  "optionsSignatureEditModalHtml": {
+    "message": "HTML"
   },
   "optionsSignatureNewName": {
     "message": "New Signature"

@@ -24,8 +24,9 @@ $(function() {
 function newSignature() {
     return {
         id: uuidv4(),
-        name: browser.i18n.getMessage("optionsSignatureNewName"),
-        text: ""
+        name: i18n("optionsSignatureNewName"),
+        text: "",
+        html: ""
     };
 }
 
@@ -57,29 +58,32 @@ function addSignature(signature) {
         id: signature.id,
         name: signature.name,
         text: signature.text,
-        title: browser.i18n.getMessage("optionsSignatureEditModalTitle"),
-        nameLabel: browser.i18n.getMessage("optionsSignatureEditModalName"),
-        namePlaceholder: browser.i18n.getMessage("optionsSignatureEditModalNamePlaceholder"),
-        textLabel: browser.i18n.getMessage("optionsSignatureEditModalText"),
-        close: browser.i18n.getMessage("optionsSignatureEditModalClose"),
-        save: browser.i18n.getMessage("optionsSignatureEditModalSave")
+        html: signature.html,
+        title: i18n("optionsSignatureEditModalTitle"),
+        nameLabel: i18n("optionsSignatureEditModalName"),
+        namePlaceholder: i18n("optionsSignatureEditModalNamePlaceholder"),
+        textHeading: i18n("optionsSignatureEditModalPlaintext"),
+        htmlHeading: i18n("optionsSignatureEditModalHtml"),
+        close: i18n("optionsSignatureEditModalClose"),
+        save: i18n("optionsSignatureEditModalSave")
     }));
 
     $("#signatureModalSave-" + signature.id).click(() => {
         storeSignature({
             id: signature.id,
             name: $("#signatureModalName-" + signature.id).val(),
-            text: $("#signatureModalText-" + signature.id).val()
+            text: $("#signatureModalText-" + signature.id).val(),
+            html: $("#signatureModalHtml-" + signature.id).val()
         });
         $("#signatureEditModal-" + signature.id).modal("hide");
     });
 
     signatureModals.append(Mustache.render(SIGNATURE_REMOVE_MODAL, {
         id: signature.id,
-        title: browser.i18n.getMessage("optionsSignatureRemoveModalTitle"),
-        question: browser.i18n.getMessage("optionsSignatureRemoveModalQuestion"),
-        no: browser.i18n.getMessage("optionsSignatureRemoveModalNo"),
-        yes: browser.i18n.getMessage("optionsSignatureRemoveModalYes")
+        title: i18n("optionsSignatureRemoveModalTitle"),
+        question: i18n("optionsSignatureRemoveModalQuestion"),
+        no: i18n("optionsSignatureRemoveModalNo"),
+        yes: i18n("optionsSignatureRemoveModalYes")
     }));
 
     $("#signatureRemoveModalSave-" + signature.id).click(() => {
@@ -131,28 +135,28 @@ async function initUI(localStorage) {
                 case "switch":
                     commandsContainer.append(Mustache.render(COMMAND_ROW, {
                         id: command.name,
-                        label: browser.i18n.getMessage("optionsSwitchCommandLabel"),
+                        label: i18n("optionsSwitchCommandLabel"),
                         value: command.shortcut,
-                        placeholder: browser.i18n.getMessage("optionsCommandPlaceholder"),
-                        resetButtonText: browser.i18n.getMessage("optionsCommandResetButton")
+                        placeholder: i18n("optionsCommandPlaceholder"),
+                        resetButtonText: i18n("optionsCommandResetButton")
                     }));
                     break;
                 case "next":
                     commandsContainer.append(Mustache.render(COMMAND_ROW, {
                         id: command.name,
-                        label: browser.i18n.getMessage("optionsNextCommandLabel"),
+                        label: i18n("optionsNextCommandLabel"),
                         value: command.shortcut,
-                        placeholder: browser.i18n.getMessage("optionsCommandPlaceholder"),
-                        resetButtonText: browser.i18n.getMessage("optionsCommandResetButton")
+                        placeholder: i18n("optionsCommandPlaceholder"),
+                        resetButtonText: i18n("optionsCommandResetButton")
                     }));
                     break;
                 case "previous":
                     commandsContainer.append(Mustache.render(COMMAND_ROW, {
                         id: command.name,
-                        label: browser.i18n.getMessage("optionsPreviousCommandLabel"),
+                        label: i18n("optionsPreviousCommandLabel"),
                         value: command.shortcut,
-                        placeholder: browser.i18n.getMessage("optionsCommandPlaceholder"),
-                        resetButtonText: browser.i18n.getMessage("optionsCommandResetButton")
+                        placeholder: i18n("optionsCommandPlaceholder"),
+                        resetButtonText: i18n("optionsCommandResetButton")
                     }));
                     break;
             }
@@ -338,4 +342,8 @@ async function resetCommand(name) {
             }
         }
     });
+}
+
+function i18n(key) {
+    return browser.i18n.getMessage(key);
 }

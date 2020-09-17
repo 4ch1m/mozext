@@ -237,16 +237,24 @@ function addWindowCreateListener() {
    composer interaction ...
  */
 
-async function appendSignatureTextToComposer(text, tabId = composeActionTabId) {
+async function appendSignatureToComposer(signature, tabId = composeActionTabId) {
     let details = await browser.compose.getComposeDetails(tabId);
     let cleansedBody = getBodyWithoutSignature(details);
 
     if (details.isPlainText) {
-        cleansedBody += createPlainTextSignature(text);
+        cleansedBody += createPlainTextSignature(signature.text);
         browser.compose.setComposeDetails(tabId, {plainTextBody: cleansedBody});
     } else {
         let document = domParser.parseFromString(cleansedBody, "text/html");
-        document.body.appendChild(createHtmlSignature(document, text));
+        let renderedSignature;
+        if (signature.html !== "") {
+            renderedSignature = createHtmlSignature(document, signature.html);
+        } else {
+            // fallback to plaintext-signature content
+            renderedSignature = createHtmlSignature(document, signature.text, "pre");
+        }
+
+        document.body.appendChild(renderedSignature);
 
         browser.compose.setComposeDetails(tabId, {body: xmlSerializer.serializeToString(document)});
     }
@@ -258,7 +266,7 @@ async function appendDefaultSignatureToComposer(tabId = composeActionTabId) {
             let signatures = localStorage.signatures;
             for (let signature of signatures) {
                 if (signature.id === localStorage.defaultSignature) {
-                    appendSignatureTextToComposer(signature.text, tabId);
+                    appendSignatureToComposer(signature, tabId);
                     break;
                 }
             }
@@ -272,7 +280,7 @@ async function appendSignatureViaIdToComposer(signatureId, tabId = composeAction
             let signatures = localStorage.signatures;
             for (let signature of signatures) {
                 if (signature.id === signatureId) {
-                    appendSignatureTextToComposer(signature.text, tabId);
+                    appendSignatureToComposer(signature, tabId);
                     break;
                 }
             }
@@ -298,7 +306,6 @@ async function searchSignatureInComposer(tabId = composeActionTabId) {
         let bodyDocument = details.isPlainText ? undefined : domParser.parseFromString(details.body, "text/html");
 
         for (let signature of signatures) {
-
             if (details.isPlainText) {
                 if (details.plainTextBody.endsWith(createPlainTextSignature(signature.text))) {
                     foundSignatureId = signature.id;
@@ -308,7 +315,9 @@ async function searchSignatureInComposer(tabId = composeActionTabId) {
                 let htmlSignatures = bodyDocument.getElementsByClassName(HTML_SIGNATURE_CLASS);
 
                 if (htmlSignatures && htmlSignatures.length > 0) {
-                    if (htmlSignatures[htmlSignatures.length - 1].textContent === signature.text) {
+                    let lastHtmlSignature = htmlSignatures[htmlSignatures.length - 1];
+                    let signatureFound = (signature.html === "") ? (lastHtmlSignature.textContent === signature.text) : (lastHtmlSignature.innerHTML === signature.html);
+                    if (signatureFound) {
                         foundSignatureId = signature.id;
                         break;
                     }
@@ -326,13 +335,13 @@ function createPlainTextSignature(text) {
     return "\n" + PLAINTEXT_SIGNATURE_SEPARATOR + text;
 }
 
-function createHtmlSignature(document, text) {
-    let preElement = document.createElement("pre");
-    preElement.textContent = text;
-    preElement.className = HTML_SIGNATURE_CLASS;
-    preElement.setAttribute("cols", "72");
+function createHtmlSignature(document, html, elementType = "div") {
+    let element = document.createElement(elementType);
+    element.innerHTML = html;
+    element.className = HTML_SIGNATURE_CLASS;
+    element.setAttribute("cols", "72");
 
-    return preElement;
+    return element;
 }
 
 /* =====================================================================================================================

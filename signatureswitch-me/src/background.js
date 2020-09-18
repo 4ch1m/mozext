@@ -18,7 +18,7 @@ const xmlSerializer = new XMLSerializer();
 const domParser = new DOMParser();
 
 let composeActionTabId;
-let foundSignatureId;
+let composeActionSignatureId;
 
 /* =====================================================================================================================
    init ...
@@ -108,12 +108,13 @@ function addContextMenuListener() {
 
         switch (info.menuItemId) {
             case MENU_ENTRY_ONOFF:
-                await searchSignatureInComposer(tab.id);
-                if (foundSignatureId === "") {
-                    appendDefaultSignatureToComposer(tab.id);
-                } else {
-                    removeSignatureFromComposer(tab.id);
-                }
+                searchSignatureInComposer(tab.id).then(foundSignatureId => {
+                    if (foundSignatureId === "") {
+                        appendDefaultSignatureToComposer(tab.id);
+                    } else {
+                        removeSignatureFromComposer(tab.id);
+                    }
+                })
                 break;
             default:
                 appendSignatureViaIdToComposer(commandOrSignatureId, tab.id);
@@ -143,8 +144,7 @@ function addCommandListener() {
                 if (window.type === WINDOW_TYPE_MESSAGE_COMPOSE && window.focused === true) {
                     browser.tabs.query({windowId: window.id}).then(async tabs => {
                         let mailTabId = tabs[0].id;
-
-                        await searchSignatureInComposer(mailTabId);
+                        let foundSignatureId = await searchSignatureInComposer(mailTabId);
 
                         switch (name) {
                             case COMMAND_SWITCH:
@@ -196,7 +196,7 @@ function addMessageListener() {
                 appendSignatureViaIdToComposer(request.value);
                 break;
             case "isSignaturePresent":
-                sendResponse({result: foundSignatureId !== ""});
+                sendResponse({result: composeActionSignatureId !== ""});
                 break;
             default:
                 console.log("invalid message type!");
@@ -214,7 +214,9 @@ function addComposeActionListener() {
     browser.composeAction.onClicked.addListener(tab => {
         composeActionTabId = tab.id;
 
-        searchSignatureInComposer();
+        searchSignatureInComposer().then(foundSignatureId => {
+            composeActionSignatureId = foundSignatureId;
+        });
 
         // "dirty hack" ;-)
         // (this way we can have both a popup(script) and the click-event in here)
@@ -305,8 +307,6 @@ async function removeSignatureFromComposer(tabId = composeActionTabId) {
 }
 
 async function searchSignatureInComposer(tabId = composeActionTabId) {
-    foundSignatureId = "";
-
     let localStorage = await browser.storage.local.get();
 
     if (localStorage.signatures) {
@@ -317,8 +317,7 @@ async function searchSignatureInComposer(tabId = composeActionTabId) {
         for (let signature of signatures) {
             if (details.isPlainText) {
                 if (details.plainTextBody.endsWith(createPlainTextSignature(signature.text))) {
-                    foundSignatureId = signature.id;
-                    break;
+                    return signature.id;
                 }
             } else {
                 let htmlSignatures = bodyDocument.getElementsByClassName(HTML_SIGNATURE_CLASS);
@@ -327,13 +326,14 @@ async function searchSignatureInComposer(tabId = composeActionTabId) {
                     let lastHtmlSignature = htmlSignatures[htmlSignatures.length - 1];
                     let signatureFound = (signature.html === "") ? (lastHtmlSignature.textContent === signature.text) : (lastHtmlSignature.innerHTML === signature.html);
                     if (signatureFound) {
-                        foundSignatureId = signature.id;
-                        break;
+                        return signature.id;
                     }
                 }
             }
         }
     }
+
+    return "";
 }
 
 /* =====================================================================================================================

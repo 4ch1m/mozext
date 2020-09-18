@@ -63,8 +63,9 @@ const SIGNATURE_EDIT_MODAL = `
                         <!-- name -->
                         <input type="text" class="form-control" id="signatureModalName-{{id}}" placeholder="{{namePlaceholder}}" value="{{name}}">
                     </div>
-                    <div>
-                        <div class="mt-3" id="signatureEditAccordion-{{id}}">
+                    <div class="mt-3">
+                        <label for="signatureEditAccordion-{{id}}">{{contentLabel}}</label>
+                        <div id="signatureEditAccordion-{{id}}">
                             <div class="card">
                                 <div class="card-header" id="signatureEditAccordionPlaintext-{{id}}">
                                     <h5 class="mb-0">
@@ -96,6 +97,11 @@ const SIGNATURE_EDIT_MODAL = `
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="mt-3">
+                        <label for="signatureModalAutoSwitch-{{id}}">{{autoSwitchLabel}}</label>
+                        <!-- auto-switch -->
+                        <input type="text" class="form-control" id="signatureModalAutoSwitch-{{id}}" placeholder="{{autoSwitchPlaceholder}}" value="{{autoSwitch}}">
                     </div>
                 </div>
                 <div class="modal-footer">

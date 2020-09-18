@@ -80,8 +80,17 @@
   "optionsPreviousCommandLabel": {
     "message": "Cycle (previous):"
   },
+  "optionsSignatureEditModalAutoSwitch": {
+    "message": "Auto-switch:"
+  },
+  "optionsSignatureEditModalAutoSwitchPlaceholder": {
+    "message": "e.g. '@mozilla.org, moe@zilla.com'"
+  },
   "optionsSignatureEditModalClose": {
     "message": "Close"
+  },
+  "optionsSignatureEditModalContent": {
+    "message": "Content"
   },
   "optionsSignatureEditModalHtml": {
     "message": "HTML"

@@ -26,7 +26,8 @@ function newSignature() {
         id: uuidv4(),
         name: i18n("optionsSignatureNewName"),
         text: "",
-        html: ""
+        html: "",
+        autoSwitch: ""
     };
 }
 
@@ -58,11 +59,15 @@ function addSignature(signature) {
         name: signature.name,
         text: signature.text,
         html: signature.html,
+        autoSwitch: signature.autoSwitch,
         title: i18n("optionsSignatureEditModalTitle"),
         nameLabel: i18n("optionsSignatureEditModalName"),
         namePlaceholder: i18n("optionsSignatureEditModalNamePlaceholder"),
+        contentLabel: i18n("optionsSignatureEditModalContent"),
         textHeading: i18n("optionsSignatureEditModalPlaintext"),
         htmlHeading: i18n("optionsSignatureEditModalHtml"),
+        autoSwitchLabel: i18n("optionsSignatureEditModalAutoSwitch"),
+        autoSwitchPlaceholder: i18n("optionsSignatureEditModalAutoSwitchPlaceholder"),
         close: i18n("optionsSignatureEditModalClose"),
         save: i18n("optionsSignatureEditModalSave")
     }));
@@ -71,7 +76,8 @@ function addSignature(signature) {
             id: signature.id,
             name: $("#signatureModalName-" + signature.id).val(),
             text: $("#signatureModalText-" + signature.id).val(),
-            html: $("#signatureModalHtml-" + signature.id).val()
+            html: $("#signatureModalHtml-" + signature.id).val(),
+            autoSwitch: $("#signatureModalAutoSwitch-" + signature.id).val()
         });
         $("#signatureEditModal-" + signature.id).modal("hide");
     });

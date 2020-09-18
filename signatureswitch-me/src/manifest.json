@@ -14,22 +14,22 @@
   },
   "compose_action": {
     "default_title": "__MSG_extensionName__",
-    "default_icon": "_images/signatureswitch-32px-black.png",
+    "default_icon": "/_images/signatureswitch-32px-black.png",
     "theme_icons": [
       {
-        "dark": "_images/signatureswitch-32px-white.png",
-        "light": "_images/signatureswitch-32px-black.png",
+        "dark": "/_images/signatureswitch-32px-white.png",
+        "light": "/_images/signatureswitch-32px-black.png",
         "size": 32
       }
     ]
   },
   "browser_action": {
     "default_title": "__MSG_extensionName__",
-    "default_icon": "_images/signatureswitch-32px-black.png",
+    "default_icon": "/_images/signatureswitch-32px-black.png",
     "theme_icons": [
       {
-        "dark": "_images/signatureswitch-32px-white.png",
-        "light": "_images/signatureswitch-32px-black.png",
+        "dark": "/_images/signatureswitch-32px-white.png",
+        "light": "/_images/signatureswitch-32px-black.png",
         "size": 32
       }
     ]
@@ -56,12 +56,13 @@
   },
   "background": {
     "scripts": [
-      "background.js"
-    ]
+      "/background/background.js"
+    ],
+    "page": "/background/background.html"
   },
   "options_ui": {
     "open_in_tab": true,
-    "page": "options/page.html"
+    "page": "/options/page.html"
   },
   "permissions": [
     "compose",
@@ -71,24 +72,24 @@
     "menus"
   ],
   "icons": {
-    "64": "_images/signatureswitch-64px-black.png",
-    "32": "_images/signatureswitch-32px-black.png",
-    "16": "_images/signatureswitch-16px-black.png"
+    "64": "/_images/signatureswitch-64px-black.png",
+    "32": "/_images/signatureswitch-32px-black.png",
+    "16": "/_images/signatureswitch-16px-black.png"
   },
   "theme_icons": [
     {
-      "dark": "_images/signatureswitch-64px-white.png",
-      "light": "_images/signatureswitch-64px-black.png",
+      "dark": "/_images/signatureswitch-64px-white.png",
+      "light": "/_images/signatureswitch-64px-black.png",
       "size": 64
     },
     {
-      "dark": "_images/signatureswitch-32px-white.png",
-      "light": "_images/signatureswitch-32px-black.png",
+      "dark": "/_images/signatureswitch-32px-white.png",
+      "light": "/_images/signatureswitch-32px-black.png",
       "size": 32
     },
     {
-      "dark": "_images/signatureswitch-16px-white.png",
-      "light": "_images/signatureswitch-16px-black.png",
+      "dark": "/_images/signatureswitch-16px-white.png",
+      "light": "/_images/signatureswitch-16px-black.png",
       "size": 16
     }
   ]

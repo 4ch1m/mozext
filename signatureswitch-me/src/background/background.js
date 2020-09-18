@@ -72,7 +72,7 @@ function createContextMenu() {
             localStorage.signatures.forEach(signature => {
                 menuItems.push({
                     id: MENU_SUBENTRY_ID_PREFIX + signature.id,
-                    title: truncateString(signature.name, 20),
+                    title: truncateString(signature.name),
                     parentId: MENU_ROOT_ID
                 });
             });
@@ -220,7 +220,7 @@ function addComposeActionListener() {
 
         // "dirty hack" ;-)
         // (this way we can have both a popup(script) and the click-event in here)
-        browser.composeAction.setPopup({popup: "compose/popup.html"});
+        browser.composeAction.setPopup({popup: "/compose/popup.html"});
         browser.composeAction.openPopup();
         browser.composeAction.setPopup({popup: ""});
     });
@@ -374,14 +374,6 @@ function getBodyWithoutSignature(composeDetails) {
             return composeDetails.body;
         }
     }
-}
-
-function truncateString(string, length) {
-    if (string.length <= length) {
-        return string;
-    }
-
-    return string.slice(0, length) + "...";
 }
 
 async function getAllSignatureIds() {

@@ -13,7 +13,7 @@ const SIGNATURE_ROW = `
             <span class="signaturesTable-edit">
                 <button type="button" class="btn btn-primary btn-rounded btn-sm my-0 waves-effect waves-light" data-toggle="modal" data-target="#signatureEditModal-{{id}}">
                     <svg class="bi" width="2em" height="2em" fill="currentColor">
-                        <use xlink:href="../_images/bootstrap-icons.svg#pencil"/>
+                        <use xlink:href="/_images/bootstrap-icons.svg#pencil"/>
                     </svg>
                 </button>
             </span>
@@ -22,7 +22,7 @@ const SIGNATURE_ROW = `
         <td contenteditable="false">
             <button id="signatureUp-{{id}}" type="button" class="btn btn-light btn-rounded btn-sm my-0 waves-effect waves-light">
                 <svg class="bi" width="2em" height="2em" fill="currentColor">
-                    <use xlink:href="../_images/bootstrap-icons.svg#arrow-up"/>
+                    <use xlink:href="/_images/bootstrap-icons.svg#arrow-up"/>
                 </svg>
             </button>
         </td>
@@ -30,7 +30,7 @@ const SIGNATURE_ROW = `
         <td contenteditable="false">
             <button id="signatureDown-{{id}}" type="button" class="btn btn-light btn-rounded btn-sm my-0 waves-effect waves-light">
                 <svg class="bi" width="2em" height="2em" fill="currentColor">
-                    <use xlink:href="../_images/bootstrap-icons.svg#arrow-down"/>
+                    <use xlink:href="/_images/bootstrap-icons.svg#arrow-down"/>
                 </svg>
             </button>
         </td>
@@ -39,7 +39,7 @@ const SIGNATURE_ROW = `
             <span class="signatures-table-remove">
                 <button type="button" class="btn btn-danger btn-rounded btn-sm my-0 waves-effect waves-light" data-toggle="modal" data-target="#signatureRemoveModal-{{id}}">
                     <svg class="bi" width="2em" height="2em" fill="currentColor">
-                        <use xlink:href="../_images/bootstrap-icons.svg#trash"/>
+                        <use xlink:href="/_images/bootstrap-icons.svg#trash"/>
                     </svg>
                 </button>
             </span>
@@ -101,14 +101,14 @@ const SIGNATURE_EDIT_MODAL = `
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
                         <svg class="bi" width="2em" height="2em" fill="currentColor">
-                            <use xlink:href="../_images/bootstrap-icons.svg#x"/>
+                            <use xlink:href="/_images/bootstrap-icons.svg#x"/>
                         </svg>
                         &nbsp;
                         {{close}}
                     </button>
                     <button id="signatureModalSave-{{id}}" type="button" class="btn btn-primary">
                         <svg class="bi" width="2em" height="2em" fill="currentColor">
-                            <use xlink:href="../_images/bootstrap-icons.svg#check"/>
+                            <use xlink:href="/_images/bootstrap-icons.svg#check"/>
                         </svg>
                         &nbsp;
                         {{save}}
@@ -135,14 +135,14 @@ const SIGNATURE_REMOVE_MODAL = `
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
                         <svg class="bi" width="2em" height="2em" fill="currentColor">
-                            <use xlink:href="../_images/bootstrap-icons.svg#x"/>
+                            <use xlink:href="/_images/bootstrap-icons.svg#x"/>
                         </svg>
                         &nbsp;
                         {{no}}
                     </button>
                     <button id="signatureRemoveModalSave-{{id}}" type="button" class="btn btn-primary">
                         <svg class="bi" width="2em" height="2em" fill="currentColor">
-                            <use xlink:href="../_images/bootstrap-icons.svg#check"/>
+                            <use xlink:href="/_images/bootstrap-icons.svg#check"/>
                         </svg>
                         &nbsp;
                         {{yes}}
@@ -164,7 +164,7 @@ const COMMAND_ROW = `
         <div class="col-sm">
             <button type="button" id="command-{{id}}-reset" class="btn btn-warning btn-rounded btn-sm my-0">
                 <svg class="bi" width="2em" height="2em" fill="currentColor">
-                    <use xlink:href="../_images/bootstrap-icons.svg#arrow-counterclockwise"/>
+                    <use xlink:href="/_images/bootstrap-icons.svg#arrow-counterclockwise"/>
                 </svg>
                 &nbsp;
                 <span>{{resetButtonText}}</span>

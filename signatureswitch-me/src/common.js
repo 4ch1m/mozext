@@ -39,3 +39,11 @@ function dataI18n() {
         node.appendChild(document.createTextNode(text));
     }
 }
+
+function truncateString(string, length = 20) {
+    if (string.length <= length) {
+        return string;
+    }
+
+    return string.slice(0, length) + "...";
+}

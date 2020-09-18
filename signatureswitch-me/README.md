@@ -57,6 +57,7 @@ npm package
 * [jQuery](https://jquery.com/)
 * [Bootstrap](https://getbootstrap.com/)
 * [Bootstrap Icons](https://icons.getbootstrap.com/)
+* [Popper](https://popper.js.org/)
 * [MDBootstrap](https://mdbootstrap.com/)
 * [mustache](https://mustache.github.io/)
 * [uuid](https://www.npmjs.com/package/uuid)

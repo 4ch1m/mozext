@@ -86,17 +86,26 @@
   "optionsSignatureEditModalAutoSwitchPlaceholder": {
     "message": "e.g. '*@company.com, *smith*@*.de, moe@zilla.com'"
   },
+  "optionsSignatureEditModalAutoSwitchTooltip": {
+    "message": "A comma separated list of email-addresses, which - when detected as recipient - will automatically trigger insertion of this signature. (NOTE: The asterisk-character can be used as wildcard.)"
+  },
   "optionsSignatureEditModalClose": {
     "message": "Close"
   },
   "optionsSignatureEditModalContent": {
     "message": "Content"
   },
+  "optionsSignatureEditModalContentTooltip": {
+    "message": "Depending on the mode used when composing an email (plaintext or HTML), the appropriate signature-content will be selected."
+  },
   "optionsSignatureEditModalHtml": {
     "message": "HTML"
   },
   "optionsSignatureEditModalName": {
     "message": "Name"
+  },
+  "optionsSignatureEditModalNameTooltip": {
+    "message": "The name which gets displayed when selecting your signature via button or context-menu."
   },
   "optionsSignatureEditModalNamePlaceholder": {
     "message": "e.g. 'Private Signature'"

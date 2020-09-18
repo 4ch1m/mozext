@@ -62,11 +62,14 @@ function addSignature(signature) {
         autoSwitch: signature.autoSwitch,
         title: i18n("optionsSignatureEditModalTitle"),
         nameLabel: i18n("optionsSignatureEditModalName"),
+        nameTooltip: i18n("optionsSignatureEditModalNameTooltip"),
         namePlaceholder: i18n("optionsSignatureEditModalNamePlaceholder"),
         contentLabel: i18n("optionsSignatureEditModalContent"),
+        contentTooltip: i18n("optionsSignatureEditModalContentTooltip"),
         textHeading: i18n("optionsSignatureEditModalPlaintext"),
         htmlHeading: i18n("optionsSignatureEditModalHtml"),
         autoSwitchLabel: i18n("optionsSignatureEditModalAutoSwitch"),
+        autoSwitchTooltip: i18n("optionsSignatureEditModalAutoSwitchTooltip"),
         autoSwitchPlaceholder: i18n("optionsSignatureEditModalAutoSwitchPlaceholder"),
         close: i18n("optionsSignatureEditModalClose"),
         save: i18n("optionsSignatureEditModalSave")
@@ -100,16 +103,19 @@ function addSignature(signature) {
 
 async function initUI(localStorage) {
     if (localStorage) {
+        // build signatures (tablerows + modals)
         if (localStorage.signatures) {
             localStorage.signatures.forEach(signature => {
                 addSignature(signature);
             });
         }
 
+        // default signature
         if (localStorage.defaultSignature) {
             $("#signatureDefault-" + localStorage.defaultSignature).prop("checked", true);
         }
 
+        // default action
         if (localStorage.defaultAction) {
             switch (localStorage.defaultAction) {
                 case "insert":
@@ -124,6 +130,9 @@ async function initUI(localStorage) {
         } else {
             $("#defaultActionNothing").prop("checked", true);
         }
+
+        // init tooltips
+        $('[data-toggle="tooltip"]').tooltip();
     }
 
     // TODO

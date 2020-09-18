@@ -5,6 +5,7 @@
     "bootstrap": "^4.5.2",
     "bootstrap-icons": "^1.0.0",
     "mdbootstrap": "^4.19.1",
+    "@popperjs/core": "^2.4.4",
     "uuid": "^8.3.0",
     "mustache": "^4.0.1"
   },

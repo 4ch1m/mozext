@@ -59,12 +59,26 @@ const SIGNATURE_EDIT_MODAL = `
                 </div>
                 <div class="modal-body">
                     <div>
-                        <label for="signatureModalName-{{id}}">{{nameLabel}}</label>
+                        <label for="signatureModalName-{{id}}">
+                            {{nameLabel}}
+                            <span data-toggle="tooltip" title="{{nameTooltip}}">
+                                <svg class="bi" width="1em" height="1em" fill="currentColor">
+                                    <use xlink:href="/_images/bootstrap-icons.svg#info-circle"/>
+                                </svg>
+                            </span>
+                        </label>
                         <!-- name -->
                         <input type="text" class="form-control" id="signatureModalName-{{id}}" placeholder="{{namePlaceholder}}" value="{{name}}">
                     </div>
                     <div class="mt-3">
-                        <label for="signatureEditAccordion-{{id}}">{{contentLabel}}</label>
+                        <label for="signatureEditAccordion-{{id}}">
+                            {{contentLabel}}
+                            <span data-toggle="tooltip" title="{{contentTooltip}}">
+                                <svg class="bi" width="1em" height="1em" fill="currentColor">
+                                    <use xlink:href="/_images/bootstrap-icons.svg#info-circle"/>
+                                </svg>
+                            </span>
+                        </label>
                         <div id="signatureEditAccordion-{{id}}">
                             <div class="card">
                                 <div class="card-header" id="signatureEditAccordionPlaintext-{{id}}">
@@ -99,7 +113,14 @@ const SIGNATURE_EDIT_MODAL = `
                         </div>
                     </div>
                     <div class="mt-3">
-                        <label for="signatureModalAutoSwitch-{{id}}">{{autoSwitchLabel}}</label>
+                        <label for="signatureModalAutoSwitch-{{id}}">
+                            {{autoSwitchLabel}}
+                            <span data-toggle="tooltip" title="{{autoSwitchTooltip}}">
+                                <svg class="bi" width="1em" height="1em" fill="currentColor">
+                                    <use xlink:href="/_images/bootstrap-icons.svg#info-circle"/>
+                                </svg>
+                            </span>
+                        </label>
                         <!-- auto-switch -->
                         <input type="text" class="form-control" id="signatureModalAutoSwitch-{{id}}" placeholder="{{autoSwitchPlaceholder}}" value="{{autoSwitch}}">
                     </div>

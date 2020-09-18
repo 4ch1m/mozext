@@ -81,7 +81,7 @@
     "message": "Cycle (previous):"
   },
   "optionsSignatureEditModalAutoSwitch": {
-    "message": "Auto-switch:"
+    "message": "Auto-switch"
   },
   "optionsSignatureEditModalAutoSwitchPlaceholder": {
     "message": "e.g. '*@company.com, *smith*@*.de, moe@zilla.com'"

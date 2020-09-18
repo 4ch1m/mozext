@@ -84,7 +84,7 @@
     "message": "Auto-switch:"
   },
   "optionsSignatureEditModalAutoSwitchPlaceholder": {
-    "message": "e.g. '@mozilla.org, moe@zilla.com'"
+    "message": "e.g. '*@company.com, *smith*@*.de, moe@zilla.com'"
   },
   "optionsSignatureEditModalClose": {
     "message": "Close"

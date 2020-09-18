@@ -341,8 +341,28 @@ async function searchSignatureInComposer(tabId = composeActionTabId) {
 }
 
 function autoSwitchBasedOnRecipients(tabId = composeActionTabId) {
-    // TODO
-    console.log("auto-switch!");
+    browser.compose.getComposeDetails(tabId).then(details => {
+        if (details.to.length > 0) {
+            browser.storage.local.get().then(localStorage => {
+                if (localStorage.signatures) {
+                    for (let signature of localStorage.signatures) {
+                        if (signature.autoSwitch && signature.autoSwitch.trim() !== "") {
+                            let autoSwitchItems = signature.autoSwitch.split(",");
+                            for (let autoSwitchItem of autoSwitchItems) {
+                                let regEx = createRegexFromAutoSwitchString(autoSwitchItem.trim());
+                                for (let recipient of details.to) {
+                                    if (regEx.test(cleanseRecipientString(recipient))) {
+                                        appendSignatureViaIdToComposer(signature.id, tabId);
+                                        return;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    });
 }
 
 /* =====================================================================================================================
@@ -415,4 +435,21 @@ async function startRecipientChangeListener(tabId, timeout = 1000, previousRecip
         // tabId probably not valid anymore; window closed
         return;
     }
+}
+
+function createRegexFromAutoSwitchString(autoSwitchString) {
+    return new RegExp(autoSwitchString
+        .replaceAll(".", "\.")
+        .replaceAll("*", ".*"),
+        "i");
+}
+
+function cleanseRecipientString(recipient) {
+    // check if we got something like '"Moe Zilla" <moe@zilla.org>'; return plain email-address
+    if (new RegExp(".*<.*>.*").test(recipient)) {
+        recipient = recipient.substr(recipient.indexOf("<") + 1);
+        recipient = recipient.substr(0, recipient.lastIndexOf(">"));
+    }
+
+    return recipient;
 }

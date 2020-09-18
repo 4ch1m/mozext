@@ -228,19 +228,23 @@ function addComposeActionListener() {
 
 function addWindowCreateListener() {
     browser.windows.onCreated.addListener(window => {
-        browser.storage.local.get().then(localStorage => {
-            if (localStorage.defaultAction) {
-                if (window.type === WINDOW_TYPE_MESSAGE_COMPOSE) {
-                    browser.tabs.query({windowId: window.id}).then(tabs => {
+        if (window.type === WINDOW_TYPE_MESSAGE_COMPOSE) {
+            browser.tabs.query({windowId: window.id}).then(tabs => {
+                let tabId = tabs[0].id;
+
+                browser.storage.local.get().then(localStorage => {
+                    if (localStorage.defaultAction) {
                         if (localStorage.defaultAction === "insert") {
-                            appendDefaultSignatureToComposer(tabs[0].id);
+                            appendDefaultSignatureToComposer(tabId);
                         } else {
-                            removeSignatureFromComposer(tabs[0].id);
+                            removeSignatureFromComposer(tabId);
                         }
-                    });
-                }
-            }
-        });
+                    }
+                });
+
+                startRecipientChangeListener(tabId);
+            });
+        }
     });
 }
 
@@ -336,6 +340,11 @@ async function searchSignatureInComposer(tabId = composeActionTabId) {
     return "";
 }
 
+function autoSwitchBasedOnRecipients(tabId = composeActionTabId) {
+    // TODO
+    console.log("auto-switch!");
+}
+
 /* =====================================================================================================================
    signature creation ...
  */
@@ -388,4 +397,22 @@ async function getAllSignatureIds() {
     });
 
     return ids;
+}
+
+async function startRecipientChangeListener(tabId, timeout = 1000, previousRecipients = "") {
+    try {
+        let details = await browser.compose.getComposeDetails(tabId);
+        let currentRecipients = details.to + "";
+
+        if (currentRecipients !== previousRecipients) {
+            autoSwitchBasedOnRecipients(tabId);
+        }
+
+        setTimeout(() => {
+            startRecipientChangeListener(tabId, timeout, currentRecipients);
+        }, timeout);
+    } catch (e) {
+        // tabId probably not valid anymore; window closed
+        return;
+    }
 }

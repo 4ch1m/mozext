@@ -2,6 +2,7 @@ const NEW_LINE = "\n";
 const PLAINTEXT_SIGNATURE_SEPARATOR = "-- " + NEW_LINE;
 const HTML_SIGNATURE_CLASS = "moz-signature";
 const WINDOW_TYPE_MESSAGE_COMPOSE = "messageCompose";
+const CUSTOM_SIGNATURE_ID_ATTRIBUTE = "signature-switch-id";
 
 const MENU_ROOT_ID = "signature_switch";
 const MENU_ID_SEPARATOR = "_";
@@ -263,10 +264,10 @@ async function appendSignatureToComposer(signature, tabId = composeActionTabId) 
         let document = domParser.parseFromString(cleansedBody, "text/html");
         let renderedSignature;
         if (signature.html !== "") {
-            renderedSignature = createHtmlSignature(document, signature.html);
+            renderedSignature = createHtmlSignature(document, signature.html, signature.id);
         } else {
             // fallback to plaintext-signature content
-            renderedSignature = createHtmlSignature(document, signature.text, "pre");
+            renderedSignature = createHtmlSignature(document, signature.text, signature.id, "pre");
         }
 
         document.body.appendChild(renderedSignature);
@@ -328,9 +329,8 @@ async function searchSignatureInComposer(tabId = composeActionTabId) {
 
                 if (htmlSignatures && htmlSignatures.length > 0) {
                     let lastHtmlSignature = htmlSignatures[htmlSignatures.length - 1];
-                    let signatureFound = (signature.html === "") ? (lastHtmlSignature.textContent === signature.text) : (lastHtmlSignature.innerHTML === signature.html);
-                    if (signatureFound) {
-                        return signature.id;
+                    if (lastHtmlSignature.hasAttribute(CUSTOM_SIGNATURE_ID_ATTRIBUTE)) {
+                        return lastHtmlSignature.getAttribute(CUSTOM_SIGNATURE_ID_ATTRIBUTE);
                     }
                 }
             }
@@ -373,11 +373,16 @@ function createPlainTextSignature(text) {
     return NEW_LINE + PLAINTEXT_SIGNATURE_SEPARATOR + text;
 }
 
-function createHtmlSignature(document, html, elementType = "div") {
+function createHtmlSignature(document, html, signatureId, elementType = "div") {
     let element = document.createElement(elementType);
     element.innerHTML = html;
     element.className = HTML_SIGNATURE_CLASS;
-    element.setAttribute("cols", "72");
+    element.setAttribute(CUSTOM_SIGNATURE_ID_ATTRIBUTE, signatureId);
+
+    // TB itself also adds this attribute on plaintext-sigs in HTML-mode
+    if (elementType === "pre") {
+        element.setAttribute("cols", "72");
+    }
 
     return element;
 }

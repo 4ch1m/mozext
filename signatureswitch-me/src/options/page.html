@@ -43,6 +43,7 @@
                     <div class="nav nav-tabs nav-fill" role="tablist">
                         <a class="nav-item nav-link active" id="signaturesTab" data-toggle="tab" href="#signaturesTabContent" role="tab" data-i18n="optionsSignatures"></a>
                         <a class="nav-item nav-link" id="miscellaneousTab" data-toggle="tab" href="#miscellaneousTabContent" role="tab" data-i18n="optionsMiscellaneous"></a>
+                        <a class="nav-item nav-link" id="importExportTab" data-toggle="tab" href="#importExportTabContent" role="tab" data-i18n="optionsImportExport"></a>
                         <a class="nav-item nav-link" id="helpTab" data-toggle="tab" href="#helpTabContent" role="tab" data-i18n="optionsHelp"></a>
                     </div>
                 </nav>
@@ -110,6 +111,108 @@
                             <hr class="w-100">
                             <div id="commandsContainer" class="container form-group float-left">
                                 <!-- commands ... -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- import/export -->
+                    <div class="tab-pane m-2" id="importExportTabContent" role="tabpanel">
+                        <div class="container">
+                            <div class="row section">
+                                <div class="d-flex justify-content-start">
+                                    <div class="col-md-auto alert alert-info" role="alert" data-i18n="optionsImportExportDescription"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label for="importExportData">
+                                    <span data-i18n="optionsImportExportDataLabel"></span>
+                                    <span id="optionsImportExportDataTooltip" data-toggle="tooltip" title="">
+                                        <svg class="bi" width="1em" height="1em" fill="currentColor">
+                                            <use xlink:href="/_images/bootstrap-icons.svg#info-circle"/>
+                                        </svg>
+                                    </span>
+                                </label>
+                                <textarea class="form-control" id="importExportData" rows="10" spellcheck="false"></textarea>
+                            </div>
+                            <div class="row section">
+                                <div class="col-md-6">
+                                    <button id="importSignatures" type="button" class="btn btn-light btn-rounded btn-sm my-0" data-toggle="modal" data-target="#importConfirmationModal" disabled>
+                                        <svg class="bi" width="2em" height="2em" fill="currentColor">
+                                            <use xlink:href="/_images/bootstrap-icons.svg#download"/>
+                                        </svg>
+                                        &nbsp;
+                                        <span data-i18n="optionsImportExportImport"></span>
+                                    </button>
+                                    <button id="exportSignatures" type="button" class="btn btn-light btn-rounded btn-sm my-0">
+                                        <svg class="bi" width="2em" height="2em" fill="currentColor">
+                                            <use xlink:href="/_images/bootstrap-icons.svg#upload"/>
+                                        </svg>
+                                        &nbsp;
+                                        <span data-i18n="optionsImportExportExport"></span>
+                                    </button>
+                                    <button id="copySignaturesToClipboard" type="button" class="btn btn-light btn-rounded btn-sm my-0">
+                                        <svg class="bi" width="2em" height="2em" fill="currentColor">
+                                            <use xlink:href="/_images/bootstrap-icons.svg#clipboard-plus"/>
+                                        </svg>
+                                        &nbsp;
+                                        <span data-i18n="optionsImportExportClipboard"></span>
+                                    </button>
+                                </div>
+                                <div class="col-md-6 float-right text-right">
+                                    <b><span id="importExportDataValidation"></span></b>
+                                </div>
+                            </div>
+                            <!-- import confirmation modal -->
+                            <div class="modal fade" id="importConfirmationModal" tabindex="-1" role="dialog">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" data-i18n="optionsImportExportConfirmationModalTitle"></h5>
+                                            <button type="button" class="close" data-dismiss="modal">
+                                                <span>&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body" data-i18n="optionsImportExportConfirmationModalQuestion"></div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-light" data-dismiss="modal">
+                                                <svg class="bi" width="2em" height="2em" fill="currentColor">
+                                                    <use xlink:href="/_images/bootstrap-icons.svg#x"/>
+                                                </svg>
+                                                &nbsp;
+                                                <span data-i18n="optionsImportExportConfirmationModalNo"></span>
+                                            </button>
+                                            <button id="importConfirmation" type="button" class="btn btn-light">
+                                                <svg class="bi" width="2em" height="2em" fill="currentColor">
+                                                    <use xlink:href="/_images/bootstrap-icons.svg#check"/>
+                                                </svg>
+                                                &nbsp;
+                                                <span data-i18n="optionsImportExportConfirmationModalYes"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- import success modal -->
+                            <div class="modal fade" id="importSuccessModal" tabindex="-1" role="dialog">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" data-i18n="optionsImportExportSuccessModalTitle"></h5>
+                                            <button type="button" class="close" data-dismiss="modal">
+                                                <span>&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body" data-i18n="optionsImportExportSuccessModalInfo"></div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-light" data-dismiss="modal">
+                                                <svg class="bi" width="2em" height="2em" fill="currentColor">
+                                                    <use xlink:href="/_images/bootstrap-icons.svg#x"/>
+                                                </svg>
+                                                &nbsp;
+                                                <span data-i18n="optionsImportExportSuccessModalOk"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

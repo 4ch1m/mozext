@@ -71,6 +71,54 @@
   "optionsHelpText": {
     "message": "For detailed instructions or help, please check"
   },
+  "optionsImportExport": {
+    "message": "Import / Export"
+  },
+  "optionsImportExportClipboard": {
+    "message": "Clipboard"
+  },
+  "optionsImportExportConfirmationModalNo": {
+    "message": "No"
+  },
+  "optionsImportExportConfirmationModalQuestion": {
+    "message": "Do you really want to import the JSON-data and overwrite all currently stored signatures?"
+  },
+  "optionsImportExportConfirmationModalTitle": {
+    "message": "Import signatures"
+  },
+  "optionsImportExportConfirmationModalYes": {
+    "message": "Yes"
+  },
+  "optionsImportExportDataLabel": {
+    "message": "Signatures (JSON data):"
+  },
+  "optionsImportExportDataTooltip": {
+    "message": "JSON-data in the form of '[ { \"id\": \"666\", \"name\": \"Business\", \"text\": \"email: moe@zilla.org\" } ]'."
+  },
+  "optionsImportExportDescription": {
+    "message": "NOTE: This feature is primarily intended for backup/restore purposes. Export your signatures; copy them to the clipboard; paste into a text-editor of your choice and save the data to a file. (Vice-versa: Paste previously backupped data in here and import.)"
+  },
+  "optionsImportExportExport": {
+    "message": "Export"
+  },
+  "optionsImportExportImport": {
+    "message": "Import"
+  },
+  "optionsImportExportSuccessModalInfo": {
+    "message": "Signatures successfully imported."
+  },
+  "optionsImportExportSuccessModalOk": {
+    "message": "Ok"
+  },
+  "optionsImportExportSuccessModalTitle": {
+    "message": "Signature import"
+  },
+  "optionsImportExportValidationFailure": {
+    "message": "Invalid!"
+  },
+  "optionsImportExportValidationSuccess": {
+    "message": "Valid."
+  },
   "optionsMiscellaneous": {
     "message": "Miscellaneous"
   },
@@ -104,11 +152,11 @@
   "optionsSignatureEditModalName": {
     "message": "Name"
   },
-  "optionsSignatureEditModalNameTooltip": {
-    "message": "The name which gets displayed when selecting your signature via button or context-menu."
-  },
   "optionsSignatureEditModalNamePlaceholder": {
     "message": "e.g. 'Private Signature'"
+  },
+  "optionsSignatureEditModalNameTooltip": {
+    "message": "The name which gets displayed when selecting your signature via button or context-menu."
   },
   "optionsSignatureEditModalPlaintext": {
     "message": "Plaintext"

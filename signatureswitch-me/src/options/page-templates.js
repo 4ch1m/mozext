@@ -91,7 +91,7 @@ const SIGNATURE_EDIT_MODAL = `
                                 <div id="signatureEditCollapsePlaintext-{{id}}" class="collapse show" data-parent="#signatureEditAccordion-{{id}}">
                                     <div class="card-body bg-light">
                                         <!-- text -->
-                                        <textarea class="form-control" id="signatureModalText-{{id}}" rows="5">{{text}}</textarea>
+                                        <textarea class="form-control" id="signatureModalText-{{id}}" rows="5" spellcheck="false">{{text}}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -106,7 +106,7 @@ const SIGNATURE_EDIT_MODAL = `
                                 <div id="signatureEditCollapseHtml-{{id}}" class="collapse" data-parent="#signatureEditAccordion-{{id}}">
                                     <div class="card-body bg-light">
                                         <!-- HTML -->
-                                        <textarea class="form-control" id="signatureModalHtml-{{id}}" rows="5">{{html}}</textarea>
+                                        <textarea class="form-control" id="signatureModalHtml-{{id}}" rows="5" spellcheck="false">{{html}}</textarea>
                                     </div>
                                 </div>
                             </div>

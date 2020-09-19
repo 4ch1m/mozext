@@ -69,7 +69,8 @@
     "storage",
     "unlimitedStorage",
     "tabs",
-    "menus"
+    "menus",
+    "clipboardWrite"
   ],
   "icons": {
     "64": "/_images/signatureswitch-64px-black.png",

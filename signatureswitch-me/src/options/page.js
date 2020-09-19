@@ -6,10 +6,11 @@ $(function() {
 
     dataI18n();
 
+    // --------------------------------------------------
     $(".signaturesAdd").click(() => {
         addSignature();
     });
-
+    // --------------------------------------------------
     $("#defaultActionNothing").click(() => {
         storeDefaultAction("");
     });
@@ -19,6 +20,22 @@ $(function() {
     $("#defaultActionOff").click(() => {
         storeDefaultAction("off");
     });
+    // --------------------------------------------------
+    let importExportData = $("#importExportData");
+    importExportData.on("change keyup", () => {
+        validateImportExportData();
+    });
+    $("#importConfirmation").click(() => {
+        importSignaturesFromJsonString(importExportData.val());
+        $("#importConfirmationModal").modal("hide");
+    });
+    $("#copySignaturesToClipboard").click(() => {
+        copyTextToClipboard(importExportData.val());
+    });
+    $("#exportSignatures").click(() => {
+        loadAndShowSignaturesAsJsonString();
+    });
+    $("#optionsImportExportDataTooltip").attr("title", i18n("optionsImportExportDataTooltip"));
 });
 
 function newSignature() {
@@ -263,6 +280,18 @@ function deleteSignature(id, onSuccess) {
     });
 }
 
+function storeSignatures(signatures) {
+    browser.storage.local.get().then(localStorage => {
+        if (!localStorage.signatures) {
+            localStorage = {...localStorage, signatures: signatures};
+        } else {
+            localStorage.signatures = signatures;
+        }
+
+        browser.storage.local.set(localStorage);
+    });
+}
+
 function reorderSignatures(id, direction) {
     if (direction === "up") {
         let row = $("#signatureUp-" + id).parents("tr");
@@ -360,4 +389,60 @@ async function resetCommand(name) {
 
 function i18n(key) {
     return browser.i18n.getMessage(key);
+}
+
+function importSignaturesFromJsonString(jsonString) {
+    try {
+        storeSignatures(JSON.parse(jsonString));
+        $('#importSuccessModal').modal('show');
+    } catch(e) {
+        console.log("unable to store signatures. probably invalid json-string.");
+    }
+}
+
+function loadAndShowSignaturesAsJsonString() {
+    browser.storage.local.get().then(localStorage => {
+        if (localStorage.signatures) {
+            $("#importExportData").val(JSON.stringify(localStorage.signatures, null, 2));
+            validateImportExportData();
+        }
+    });
+}
+
+function copyTextToClipboard(text, callback) {
+    let promise = navigator.clipboard.writeText(text);
+
+    if (callback) {
+        promise.then(callback());
+    }
+}
+
+function validateImportExportData() {
+    let importExportData = $("#importExportData").val();
+    let importExportDataValidation = $("#importExportDataValidation");
+    let importSignaturesButton = $("#importSignatures");
+
+    let success = true;
+
+    try {
+        let signatures = JSON.parse(importExportData);
+
+        if (signatures.length > 0) {
+            for (let signature of signatures) {
+                if (! ( signature.hasOwnProperty("id")    &&
+                        signature.hasOwnProperty("name")  &&
+                       (signature.hasOwnProperty("text") || signature.hasOwnProperty("html")))) {
+                    throw "missing signature-attributes!"
+                }
+            }
+        } else {
+            success = false;
+        }
+    } catch(e) {
+        success = false;
+    }
+
+    importExportDataValidation.text(success ? i18n("optionsImportExportValidationSuccess") : i18n("optionsImportExportValidationFailure"));
+    importExportDataValidation.removeClass(success ? "text-danger" : "text-success").addClass(success ? "text-success" : "text-danger");
+    importSignaturesButton.prop("disabled", !success);
 }

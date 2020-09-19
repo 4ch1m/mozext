@@ -7,7 +7,7 @@ $(function() {
         // on/off button ...
         $("#onOffButtonContainer").append(Mustache.render(ON_OFF_BUTTON, {
             image: response.result === true ? "toggle-off" : "toggle-on",
-            text: response.result === true ? browser.i18n.getMessage("composeOnOffButtonOff") : browser.i18n.getMessage("composeOnOffButtonOn")
+            text: response.result === true ? i18n("composeOnOffButtonOff") : i18n("composeOnOffButtonOn")
         }));
         $("#onOffButton").on("click", () => {
             browser.runtime.sendMessage({

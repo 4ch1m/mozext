@@ -387,10 +387,6 @@ async function resetCommand(name) {
     });
 }
 
-function i18n(key) {
-    return browser.i18n.getMessage(key);
-}
-
 function importSignaturesFromJsonString(jsonString) {
     try {
         storeSignatures(JSON.parse(jsonString));

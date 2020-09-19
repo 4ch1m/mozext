@@ -49,7 +49,7 @@ function createContextMenu() {
 
         menuItems.push({
             id: MENU_ROOT_ID,
-            title: browser.i18n.getMessage("extensionName"),
+            title: i18n("extensionName"),
             contexts: [
                 // TODO
                 // the MailExtension-API lacks a suitable context-type for the composer-window;
@@ -61,7 +61,7 @@ function createContextMenu() {
         menuItems.push({
             id: MENU_SUBENTRY_ID_PREFIX + MENU_ENTRY_ONOFF,
             parentId: MENU_ROOT_ID,
-            title: browser.i18n.getMessage("menuOnOff")
+            title: i18n("menuOnOff")
         });
 
         menuItems.push({
@@ -85,7 +85,7 @@ function createContextMenu() {
 
             menuItems.push({
                 parentId: MENU_ROOT_ID,
-                title: browser.i18n.getMessage("menuOptions")
+                title: i18n("menuOptions")
             });
 
             createMenuItems(menuItems);

@@ -21,6 +21,14 @@ function arrayMove(array, from, to) {
     return array;
 }
 
+function i18n(messageName, substitutions = undefined) {
+    if (substitutions === undefined) {
+        return browser.i18n.getMessage(messageName);
+    } else {
+        return browser.i18n.getMessage(messageName, substitutions);
+    }
+}
+
 function dataI18n() {
     for (const node of document.querySelectorAll('[data-i18n]')) {
         // NOTE: we only support _ONE_ attribute (separated by '|') atm!
@@ -28,12 +36,12 @@ function dataI18n() {
 
         if (attr) {
             if (attr.charAt(0) === "$") {
-                attr = browser.i18n.getMessage(attr.substring(1));
+                attr = i18n(attr.substring(1));
             }
 
-            text = browser.i18n.getMessage(text, attr);
+            text = i18n(text, attr);
         } else {
-            text = browser.i18n.getMessage(text);
+            text = i18n(text);
         }
 
         node.appendChild(document.createTextNode(text));

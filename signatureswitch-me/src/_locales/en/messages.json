@@ -144,7 +144,7 @@
     "message": "Content"
   },
   "optionsSignatureEditModalContentTooltip": {
-    "message": "Depending on the mode used when composing an email (plaintext or HTML), the appropriate signature-content will be selected."
+    "message": "Depending on the mode used when composing an email (plaintext or HTML), the appropriate signature-content will be used."
   },
   "optionsSignatureEditModalHtml": {
     "message": "HTML"

@@ -27,112 +27,127 @@
 <body class="m-2">
 
 <!-- header -->
-<h1><span data-i18n="optionsHeader|$extensionName"></span>&nbsp;<small><small class="text-muted" data-i18n="optionsHeaderSecondary"></small></small></h1>
+<h1>
+    <span data-i18n="optionsHeader|$extensionName"></span>
+    &nbsp;
+    <small>
+        <small class="text-muted" data-i18n="optionsHeaderSecondary"></small>
+    </small>
+</h1>
 
-<!-- tabs -->
-<ul class="nav nav-tabs" role="tablist">
-    <li class="nav-item">
-        <a class="nav-link active" id="signaturesTab" data-toggle="tab" href="#signaturesTabContent" role="tab" data-i18n="optionsSignatures"></a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" id="miscellaneousTab" data-toggle="tab" href="#miscellaneousTabContent" role="tab" data-i18n="optionsMiscellaneous"></a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" id="helpTab" data-toggle="tab" href="#helpTabContent" role="tab" data-i18n="optionsHelp"></a>
-    </li>
-</ul>
-
-<!-- tab content -->
-<div class="tab-content">
-    <!-- signatures -->
-    <div class="tab-pane m-2 active" id="signaturesTabContent" role="tabpanel">
-        <div id="signaturesTable" class="table-editable">
-            <table class="table table-bordered text-center">
-                <thead class="thead-dark">
-                <tr>
-                    <!-- default -->
-                    <th class="w-auto text-center" data-i18n="optionsTableColumnSignaturesDefault"></th>
-                    <!-- name -->
-                    <th class="w-50 text-center" data-i18n="optionsTableColumnSignaturesName"></th>
-                    <!-- edit / up / down / remove -->
-                    <th class="w-25" colspan="4" data-i18n="optionsTableColumnSignaturesAction"></th>
-                </tr>
-                </thead>
-                <tbody id="signaturesTableBody">
-                <!-- signatures ... -->
-                </tbody>
-            </table>
-            <!-- add -->
-            <span class="signaturesAdd">
-                <button type="button" class="btn btn-success btn-rounded btn-sm my-0">
-                    <svg class="bi" width="2em" height="2em" fill="currentColor">
-                        <use xlink:href="/_images/bootstrap-icons.svg#plus"/>
-                    </svg>
-                    &nbsp;
-                    <span data-i18n="optionsButtonAddSignature"></span>
-                </button>
-            </span>
-        </div>
-    </div>
-    <!-- miscellaneous -->
-    <div class="tab-pane m-2" id="miscellaneousTabContent" role="tabpanel">
-        <div class="section">
-            <h5 data-i18n="optionsDefaultAction"></h5>
-            <hr class="w-100">
-            <div>
-                <h6 data-i18n="optionsDefaultActionDescription"></h6>
-                <div class="ml-3">
-                    <div class="custom-control custom-radio">
-                        <input type="radio" class="custom-control-input" id="defaultActionNothing" name="defaultAction">
-                        <label class="custom-control-label" for="defaultActionNothing" data-i18n="optionsDefaultActionNothing"></label>
+<section class="options-tab">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav>
+                    <div class="nav nav-tabs nav-fill" role="tablist">
+                        <a class="nav-item nav-link active" id="signaturesTab" data-toggle="tab" href="#signaturesTabContent" role="tab" data-i18n="optionsSignatures"></a>
+                        <a class="nav-item nav-link" id="miscellaneousTab" data-toggle="tab" href="#miscellaneousTabContent" role="tab" data-i18n="optionsMiscellaneous"></a>
+                        <a class="nav-item nav-link" id="helpTab" data-toggle="tab" href="#helpTabContent" role="tab" data-i18n="optionsHelp"></a>
                     </div>
-                    <div class="custom-control custom-radio">
-                        <input type="radio" class="custom-control-input" id="defaultActionInsert" name="defaultAction">
-                        <label class="custom-control-label" for="defaultActionInsert" data-i18n="optionsDefaultActionInsert"></label>
+                </nav>
+                <!-- tab content -->
+                <div class="tab-content">
+                    <!-- signatures -->
+                    <div class="tab-pane m-2 active" id="signaturesTabContent" role="tabpanel">
+                        <div class="section">
+                            <div id="signaturesTable" class="table-editable">
+                                <table class="table table-bordered text-center">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <!-- default -->
+                                            <th class="w-auto text-center" data-i18n="optionsTableColumnSignaturesDefault"></th>
+                                            <!-- name -->
+                                            <th class="w-50 text-center" data-i18n="optionsTableColumnSignaturesName"></th>
+                                            <!-- edit / up / down / remove -->
+                                            <th class="w-25" colspan="4" data-i18n="optionsTableColumnSignaturesAction"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="signaturesTableBody">
+                                        <!-- signatures ... -->
+                                    </tbody>
+                                </table>
+                                <!-- add -->
+                                <span class="signaturesAdd">
+                                    <button type="button" class="btn btn-light btn-rounded btn-sm my-0">
+                                        <svg class="bi" width="2em" height="2em" fill="currentColor">
+                                            <use xlink:href="/_images/bootstrap-icons.svg#plus"/>
+                                        </svg>
+                                        &nbsp;
+                                        <span data-i18n="optionsButtonAddSignature"></span>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="custom-control custom-radio">
-                        <input type="radio" class="custom-control-input" id="defaultActionOff" name="defaultAction">
-                        <label class="custom-control-label" for="defaultActionOff" data-i18n="optionsDefaultActionOff"></label>
+                    <!-- miscellaneous -->
+                    <div class="tab-pane m-2" id="miscellaneousTabContent" role="tabpanel">
+                        <!-- default action -->
+                        <div class="section">
+                            <h5><b data-i18n="optionsDefaultAction"></b></h5>
+                            <hr class="w-100">
+                            <div>
+                                <h6 data-i18n="optionsDefaultActionDescription"></h6>
+                                <div class="ml-3">
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" class="custom-control-input" id="defaultActionNothing" name="defaultAction">
+                                        <label class="custom-control-label" for="defaultActionNothing" data-i18n="optionsDefaultActionNothing"></label>
+                                    </div>
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" class="custom-control-input" id="defaultActionInsert" name="defaultAction">
+                                        <label class="custom-control-label" for="defaultActionInsert" data-i18n="optionsDefaultActionInsert"></label>
+                                    </div>
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" class="custom-control-input" id="defaultActionOff" name="defaultAction">
+                                        <label class="custom-control-label" for="defaultActionOff" data-i18n="optionsDefaultActionOff"></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- commands -->
+                        <div class="section">
+                            <h5><b data-i18n="optionsCommandsHeadline"></b></h5>
+                            <hr class="w-100">
+                            <div id="commandsContainer" class="container form-group float-left">
+                                <!-- commands ... -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- help -->
+                    <div class="tab-pane m-2" id="helpTabContent" role="tabpanel">
+                        <div class="section">
+                            <span data-i18n="optionsHelpText"></span>&nbsp;&hellip;
+                            <div class="container mt-4">
+                                <div class="row align-items-center h-100">
+                                    <div class="col-auto">
+                                        <div class="btn-group">
+                                            <a href="http://mozext.achimonline.de" class="btn btn-link active">
+                                                <img class="img-fluid" src="/_images/mozilla-dino.png"><br>
+                                                <span class="nobr">mozext.achimonline.de</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        &hellip;&nbsp;<span data-i18n="optionsHelpOr"></span>&nbsp;&hellip;
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="btn-group">
+                                            <a href="https://github.com/4ch1m/mozext/tree/master/signatureswitch-me"
+                                               class="btn btn-link active">
+                                                <img class="img-fluid" src="/_images/octocat.png"><br>
+                                                <span class="nobr">github.com/4ch1m/mozext</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="section">
-            <h5 data-i18n="optionsCommandsHeadline"></h5>
-            <hr class="w-100">
-            <div id="commandsContainer" class="container form-group float-left">
-            </div>
-        </div>
     </div>
-    <!-- help -->
-    <div class="tab-pane m-2" id="helpTabContent" role="tabpanel">
-        <span data-i18n="optionsHelpText"></span>&nbsp;&hellip;
-
-        <div class="container mt-4">
-            <div class="row align-items-center h-100">
-                <div class="col-auto">
-                    <div class="btn-group">
-                        <a href="http://mozext.achimonline.de" class="btn btn-link active">
-                            <img class="img-fluid" src="/_images/mozilla-dino.png"><br>
-                            <span class="nobr">mozext.achimonline.de</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-auto">
-                    &hellip;&nbsp;<span data-i18n="optionsHelpOr"></span>&nbsp;&hellip;
-                </div>
-                <div class="col-auto">
-                    <div class="btn-group">
-                        <a href="https://github.com/4ch1m/mozext/tree/master/signatureswitch-me" class="btn btn-link active">
-                            <img class="img-fluid" src="/_images/octocat.png"><br>
-                            <span class="nobr">github.com/4ch1m/mozext</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+</section>
 
 <!-- modals -->
 <span id="signatureModals">

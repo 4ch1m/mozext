@@ -11,7 +11,7 @@ const SIGNATURE_ROW = `
         <!-- edit -->
         <td contenteditable="false">
             <span class="signaturesTable-edit">
-                <button type="button" class="btn btn-primary btn-rounded btn-sm my-0 waves-effect waves-light" data-toggle="modal" data-target="#signatureEditModal-{{id}}">
+                <button type="button" class="btn btn-light btn-rounded btn-sm my-0 waves-effect waves-light" data-toggle="modal" data-target="#signatureEditModal-{{id}}">
                     <svg class="bi" width="2em" height="2em" fill="currentColor">
                         <use xlink:href="/_images/bootstrap-icons.svg#pencil"/>
                     </svg>
@@ -37,7 +37,7 @@ const SIGNATURE_ROW = `
         <!-- remove -->
         <td contenteditable="false">
             <span class="signatures-table-remove">
-                <button type="button" class="btn btn-danger btn-rounded btn-sm my-0 waves-effect waves-light" data-toggle="modal" data-target="#signatureRemoveModal-{{id}}">
+                <button type="button" class="btn btn-light btn-rounded btn-sm my-0 waves-effect waves-light" data-toggle="modal" data-target="#signatureRemoveModal-{{id}}">
                     <svg class="bi" width="2em" height="2em" fill="currentColor">
                         <use xlink:href="/_images/bootstrap-icons.svg#trash"/>
                     </svg>
@@ -126,14 +126,14 @@ const SIGNATURE_EDIT_MODAL = `
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    <button type="button" class="btn btn-light" data-dismiss="modal">
                         <svg class="bi" width="2em" height="2em" fill="currentColor">
                             <use xlink:href="/_images/bootstrap-icons.svg#x"/>
                         </svg>
                         &nbsp;
                         {{close}}
                     </button>
-                    <button id="signatureModalSave-{{id}}" type="button" class="btn btn-primary">
+                    <button id="signatureModalSave-{{id}}" type="button" class="btn btn-light">
                         <svg class="bi" width="2em" height="2em" fill="currentColor">
                             <use xlink:href="/_images/bootstrap-icons.svg#check"/>
                         </svg>
@@ -160,14 +160,14 @@ const SIGNATURE_REMOVE_MODAL = `
                     {{question}}
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    <button type="button" class="btn btn-light" data-dismiss="modal">
                         <svg class="bi" width="2em" height="2em" fill="currentColor">
                             <use xlink:href="/_images/bootstrap-icons.svg#x"/>
                         </svg>
                         &nbsp;
                         {{no}}
                     </button>
-                    <button id="signatureRemoveModalSave-{{id}}" type="button" class="btn btn-primary">
+                    <button id="signatureRemoveModalSave-{{id}}" type="button" class="btn btn-light">
                         <svg class="bi" width="2em" height="2em" fill="currentColor">
                             <use xlink:href="/_images/bootstrap-icons.svg#check"/>
                         </svg>
@@ -189,7 +189,7 @@ const COMMAND_ROW = `
             <input type="text" class="form-control" id="command-{{id}}" value="{{value}}" placeholder="{{placeholder}}">
         </div>
         <div class="col-sm">
-            <button type="button" id="command-{{id}}-reset" class="btn btn-warning btn-rounded btn-sm my-0">
+            <button type="button" id="command-{{id}}-reset" class="btn btn-light btn-rounded btn-sm my-0">
                 <svg class="bi" width="2em" height="2em" fill="currentColor">
                     <use xlink:href="/_images/bootstrap-icons.svg#arrow-counterclockwise"/>
                 </svg>

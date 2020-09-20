@@ -96,7 +96,7 @@
     "message": "select the appropriate type (png, jpeg, gif)"
   },
   "optionsImageUsage4": {
-    "message": "give the image descriptive name"
+    "message": "give the image a descriptive name"
   },
   "optionsImageUsage5": {
     "message": "finally: define a unique tag"

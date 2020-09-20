@@ -1,17 +1,17 @@
 const SIGNATURE_ROW = `
     <tr class="hide" data-signature-id="{{id}}">
         <!-- default -->
-        <td contenteditable="false">
+        <td>
             <input id="signatureDefault-{{id}}" type="radio" name="defaultSignature">
         </td>
         <!-- name -->
-        <td contenteditable="false">
+        <td>
             <b id="signatureName-{{id}}">{{name}}</b>
         </td>
         <!-- edit -->
-        <td contenteditable="false">
+        <td>
             <span class="signaturesTable-edit">
-                <button type="button" class="btn btn-light btn-rounded btn-sm my-0 waves-effect waves-light" data-toggle="modal" data-target="#signatureEditModal-{{id}}">
+                <button type="button" class="btn btn-light btn-sm" data-toggle="modal" data-target="#signatureEditModal-{{id}}">
                     <svg class="bi" width="2em" height="2em" fill="currentColor">
                         <use xlink:href="/_images/bootstrap-icons.svg#pencil"/>
                     </svg>
@@ -19,25 +19,25 @@ const SIGNATURE_ROW = `
             </span>
         </td>
         <!-- up -->
-        <td contenteditable="false">
-            <button id="signatureUp-{{id}}" type="button" class="btn btn-light btn-rounded btn-sm my-0 waves-effect waves-light">
+        <td>
+            <button id="signatureUp-{{id}}" type="button" class="btn btn-light btn-sm">
                 <svg class="bi" width="2em" height="2em" fill="currentColor">
                     <use xlink:href="/_images/bootstrap-icons.svg#arrow-up"/>
                 </svg>
             </button>
         </td>
         <!-- down -->
-        <td contenteditable="false">
-            <button id="signatureDown-{{id}}" type="button" class="btn btn-light btn-rounded btn-sm my-0 waves-effect waves-light">
+        <td>
+            <button id="signatureDown-{{id}}" type="button" class="btn btn-light btn-sm">
                 <svg class="bi" width="2em" height="2em" fill="currentColor">
                     <use xlink:href="/_images/bootstrap-icons.svg#arrow-down"/>
                 </svg>
             </button>
         </td>
         <!-- remove -->
-        <td contenteditable="false">
+        <td>
             <span class="signatures-table-remove">
-                <button type="button" class="btn btn-light btn-rounded btn-sm my-0 waves-effect waves-light" data-toggle="modal" data-target="#signatureRemoveModal-{{id}}">
+                <button type="button" class="btn btn-light btn-sm" data-toggle="modal" data-target="#signatureRemoveModal-{{id}}">
                     <svg class="bi" width="2em" height="2em" fill="currentColor">
                         <use xlink:href="/_images/bootstrap-icons.svg#trash"/>
                     </svg>
@@ -189,7 +189,7 @@ const COMMAND_ROW = `
             <input type="text" class="form-control" id="command-{{id}}" value="{{value}}" placeholder="{{placeholder}}">
         </div>
         <div class="col-sm">
-            <button type="button" id="command-{{id}}-reset" class="btn btn-light btn-rounded btn-sm my-0">
+            <button type="button" id="command-{{id}}-reset" class="btn btn-light btn-sm">
                 <svg class="bi" width="2em" height="2em" fill="currentColor">
                     <use xlink:href="/_images/bootstrap-icons.svg#arrow-counterclockwise"/>
                 </svg>
@@ -203,15 +203,15 @@ const COMMAND_ROW = `
 const IMAGES_ROW = `
     <tr class="hide" data-image-id="{{id}}">
         <!-- name -->
-        <td contenteditable="false">
+        <td>
             <input id="imageName-{{id}}" type="text" class="form-control w-100" value="{{name}}" placeholder="{{namePlaceholder}}">
         </td>
         <!-- tag -->
-        <td contenteditable="false">
+        <td>
             <input id="imageTag-{{id}}" type="text" class="form-control w-100" value="{{tag}}" placeholder="{{tagPlaceholder}}">
         </td>
         <!-- type -->
-        <td contenteditable="false">
+        <td>
             <select id="imageType-{{id}}" class="browser-default custom-select w-100">
                 <option {{typePngSelected}}>png</option>
                 <option {{typeJpegSelected}}>jpeg</option>
@@ -219,13 +219,13 @@ const IMAGES_ROW = `
             </select>
         </td>
         <!-- data -->
-        <td contenteditable="false">
+        <td>
             <input id="imageData-{{id}}" type="text" class="form-control w-100" value="{{data}}" placeholder="{{dataPlaceholder}}">
         </td>
         <!-- remove -->
-        <td contenteditable="false">
+        <td>
             <span class="images-table-remove">
-                <button type="button" class="btn btn-light btn-rounded btn-sm my-0 waves-effect waves-light" data-toggle="modal" data-target="#imageRemoveModal-{{id}}">
+                <button type="button" class="btn btn-light btn-sm" data-toggle="modal" data-target="#imageRemoveModal-{{id}}">
                     <svg class="bi" width="2em" height="2em" fill="currentColor">
                         <use xlink:href="/_images/bootstrap-icons.svg#trash"/>
                     </svg>

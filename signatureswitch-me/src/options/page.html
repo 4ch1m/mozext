@@ -87,41 +87,61 @@
                     </div>
                     <!-- images -->
                     <div class="tab-pane m-2" id="imagesTabContent" role="tabpanel">
-                        <div class="section">
-                            <div id="imagesTable">
-                                <table class="table table-bordered text-center">
-                                    <thead class="thead-dark">
-                                        <tr>
-                                            <!-- name -->
-                                            <th class="w-25 text-center" data-i18n="optionsTableColumnImagesName"></th>
-                                            <!-- tag -->
-                                            <th class="w-20 text-center" data-i18n="optionsTableColumnImagesTag"></th>
-                                            <!-- type -->
-                                            <th class="w-20 text-center" data-i18n="optionsTableColumnImagesTag"></th>
-                                            <!-- data -->
-                                            <th class="w-auto text-center" data-i18n="optionsTableColumnImagesType"></th>
-                                            <!-- delete -->
-                                            <th class="w-auto text-center" data-i18n="optionsTableColumnImagesDelete"></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="imagesTableBody">
-                                        <!-- images ... -->
-                                    </tbody>
-                                </table>
-                                <!-- add -->
-                                <span class="imagesAdd">
-                                    <button type="button" class="btn btn-light btn-sm">
-                                        <svg class="bi" width="2em" height="2em" fill="currentColor">
-                                            <use xlink:href="/_images/bootstrap-icons.svg#plus"/>
-                                        </svg>
-                                        &nbsp;
-                                        <span data-i18n="optionsButtonAddImage"></span>
-                                    </button>
+                        <div class="container">
+                            <div class="row section">
+                                <div id="imagesTable">
+                                    <table class="table table-bordered text-center">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <!-- name -->
+                                                <th class="w-25 text-center" data-i18n="optionsTableColumnImagesName"></th>
+                                                <!-- tag -->
+                                                <th class="w-20 text-center" data-i18n="optionsTableColumnImagesTag"></th>
+                                                <!-- type -->
+                                                <th class="w-20 text-center" data-i18n="optionsTableColumnImagesType"></th>
+                                                <!-- data -->
+                                                <th class="w-auto text-center" data-i18n="optionsTableColumnImagesData"></th>
+                                                <!-- delete -->
+                                                <th class="w-auto text-center" data-i18n="optionsTableColumnImagesDelete"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="imagesTableBody">
+                                            <!-- images ... -->
+                                        </tbody>
+                                    </table>
+                                    <!-- add -->
+                                    <span class="imagesAdd">
+                                        <button type="button" class="btn btn-light btn-sm">
+                                            <svg class="bi" width="2em" height="2em" fill="currentColor">
+                                                <use xlink:href="/_images/bootstrap-icons.svg#plus"/>
+                                            </svg>
+                                            &nbsp;
+                                            <span data-i18n="optionsButtonAddImage"></span>
+                                        </button>
+                                    </span>
+                                </div>
+                                <!-- modals -->
+                                <span id="imageModals">
                                 </span>
                             </div>
-                            <!-- modals -->
-                            <span id="imageModals">
-                            </span>
+                            <div class="row section">
+                                <div>
+                                    <u data-i18n="optionsImageUsageHeader"></u><br>
+                                    <ul>
+                                        <li data-i18n="optionsImageUsage1"></li>
+                                        <li data-i18n="optionsImageUsage2"></li>
+                                        <li data-i18n="optionsImageUsage3"></li>
+                                        <li data-i18n="optionsImageUsage4"></li>
+                                        <li data-i18n="optionsImageUsage5"></li>
+                                    </ul>
+                                    <span data-i18n="optionsImageUsageFooter"></span><br>
+                                    <br>
+                                    <span data-i18n="optionsImageUsageExample"></span><br>
+                                    <div class="ml-3">
+                                        <pre><code>&lt;img src="{{logo}}" border="0" width="150" height="100"&gt;</code></pre>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <!-- miscellaneous -->
@@ -162,7 +182,7 @@
                         <div class="container">
                             <div class="row section">
                                 <div class="d-flex justify-content-start">
-                                    <div class="col-md-auto alert alert-info" role="alert">
+                                    <div class="col-md-auto alert alert-warning" role="alert">
                                         <span data-i18n="optionsImportExportDescription1"></span><br>
                                         <br>
                                         <b data-i18n="optionsImportExportDescription2"></b>

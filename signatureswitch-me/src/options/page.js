@@ -1,7 +1,7 @@
 // document ready
 $(function() {
     // init UI; listen for storage changes
-    browser.storage.local.get().then(initUI, onError);
+    browser.storage.local.get().then(initUI);
     browser.storage.onChanged.addListener(updateUI);
 
     dataI18n();
@@ -10,15 +10,18 @@ $(function() {
     $(".signaturesAdd").click(() => {
         addSignature();
     });
+    $(".imagesAdd").click(() => {
+        addImage();
+    });
     // --------------------------------------------------
     $("#defaultActionNothing").click(() => {
-        storeDefaultAction("");
+        addOrUpdateStoredValue("defaultAction", "");
     });
     $("#defaultActionInsert").click(() => {
-        storeDefaultAction("insert");
+        addOrUpdateStoredValue("defaultAction", "insert");
     });
     $("#defaultActionOff").click(() => {
-        storeDefaultAction("off");
+        addOrUpdateStoredValue("defaultAction", "off");
     });
     // --------------------------------------------------
     let importExportData = $("#importExportData");
@@ -38,6 +41,10 @@ $(function() {
     $("#optionsImportExportDataTooltip").attr("title", i18n("optionsImportExportDataTooltip"));
 });
 
+/* =====================================================================================================================
+   new object creation ...
+ */
+
 function newSignature() {
     return {
         id: uuidv4(),
@@ -48,75 +55,19 @@ function newSignature() {
     };
 }
 
-function addSignature(signature) {
-    if (!signature) {
-        signature = newSignature();
-    }
-
-    $("#signaturesTableBody").append(Mustache.render(SIGNATURE_ROW, {
-        id: signature.id,
-        name: signature.name
-    }));
-
-    $("#signatureDefault-" + signature.id).click(() => {
-        storeDefaultSignature(signature.id);
-    });
-    $("#signatureUp-" + signature.id).click(() => {
-        reorderSignatures(signature.id, "up")
-    })
-    $("#signatureDown-" + signature.id).click(() => {
-        reorderSignatures(signature.id, "down")
-    })
-
-    let signatureModals = $("#signatureModals");
-
-    // edit modal ...
-    signatureModals.append(Mustache.render(SIGNATURE_EDIT_MODAL, {
-        id: signature.id,
-        name: signature.name,
-        text: signature.text,
-        html: signature.html,
-        autoSwitch: signature.autoSwitch,
-        title: i18n("optionsSignatureEditModalTitle"),
-        nameLabel: i18n("optionsSignatureEditModalName"),
-        nameTooltip: i18n("optionsSignatureEditModalNameTooltip"),
-        namePlaceholder: i18n("optionsSignatureEditModalNamePlaceholder"),
-        contentLabel: i18n("optionsSignatureEditModalContent"),
-        contentTooltip: i18n("optionsSignatureEditModalContentTooltip"),
-        textHeading: i18n("optionsSignatureEditModalPlaintext"),
-        htmlHeading: i18n("optionsSignatureEditModalHtml"),
-        autoSwitchLabel: i18n("optionsSignatureEditModalAutoSwitch"),
-        autoSwitchTooltip: i18n("optionsSignatureEditModalAutoSwitchTooltip"),
-        autoSwitchPlaceholder: i18n("optionsSignatureEditModalAutoSwitchPlaceholder"),
-        close: i18n("optionsSignatureEditModalClose"),
-        save: i18n("optionsSignatureEditModalSave")
-    }));
-    $("#signatureModalSave-" + signature.id).click(() => {
-        storeSignature({
-            id: signature.id,
-            name: $("#signatureModalName-" + signature.id).val(),
-            text: $("#signatureModalText-" + signature.id).val(),
-            html: $("#signatureModalHtml-" + signature.id).val(),
-            autoSwitch: $("#signatureModalAutoSwitch-" + signature.id).val()
-        });
-        $("#signatureEditModal-" + signature.id).modal("hide");
-    });
-
-    // remove modal ...
-    signatureModals.append(Mustache.render(SIGNATURE_REMOVE_MODAL, {
-        id: signature.id,
-        title: i18n("optionsSignatureRemoveModalTitle"),
-        question: i18n("optionsSignatureRemoveModalQuestion"),
-        no: i18n("optionsSignatureRemoveModalNo"),
-        yes: i18n("optionsSignatureRemoveModalYes")
-    }));
-    $("#signatureRemoveModalSave-" + signature.id).click(() => {
-        deleteSignature(signature.id, function () {
-            $("#signatureRemoveModal-" + signature.id).modal("hide");
-            reloadUI();
-        });
-    });
+function newImage() {
+    return {
+        id: uuidv4(),
+        name: "",
+        tag: "",
+        type: "png",
+        data: ""
+    };
 }
+
+/* =====================================================================================================================
+   UI operations ...
+ */
 
 async function initUI(localStorage) {
     if (localStorage) {
@@ -143,9 +94,16 @@ async function initUI(localStorage) {
                 // if the stored defaultSignatureId doesn't exist anymore or (for whatever reason) never got stored;
                 // simply use the first one as default and store it now
                 actualDefaultSignature = signatureIds[0];
-                storeDefaultSignature(actualDefaultSignature);
+                addOrUpdateStoredValue("defaultSignature", actualDefaultSignature);
             }
             $("#signatureDefault-" + actualDefaultSignature).prop("checked", true);
+        }
+
+        // build images (tablerows + modals) ...
+        if (localStorage.images) {
+            localStorage.images.forEach(image => {
+                addImage(image);
+            });
         }
 
         // default action ...
@@ -210,7 +168,7 @@ async function initUI(localStorage) {
             let commandInput = $("#command-" + command.name);
 
             commandInput.keyup(() => {
-                storeCommand(command.name, commandInput.val()).then(() => {
+                updateCommand(command.name, commandInput.val()).then(() => {
                     commandInput.removeClass("is-invalid").addClass("is-valid");
                 }, () => {
                     commandInput.removeClass("is-valid").addClass("is-invalid");
@@ -234,77 +192,73 @@ function updateUI() {
     });
 }
 
-function reloadUI() {
-    browser.tabs.reload(optionsTabId);
-}
-
-function onError(e) {
-    console.error(e);
-}
-
-function storeSignature(signature) {
+function addSignature(signature) {
     if (!signature) {
-        return;
+        signature = newSignature();
     }
 
-    browser.storage.local.get().then(localStorage => {
-        if (!localStorage.signatures) {
-            localStorage = {...localStorage, signatures: [signature]};
-        } else {
-            let updatedSignatures = [];
-            let existingUpdated = false;
+    $("#signaturesTableBody").append(Mustache.render(SIGNATURE_ROW, {
+        id: signature.id,
+        name: signature.name
+    }));
 
-            localStorage.signatures.forEach(storedSignature => {
-                if (storedSignature.id === signature.id) {
-                    updatedSignatures.push(signature);
-                    existingUpdated = true;
-                } else {
-                    updatedSignatures.push(storedSignature);
-                }
-            });
-
-            if (existingUpdated === false) {
-                updatedSignatures.push(signature);
-            }
-
-            localStorage.signatures = updatedSignatures;
-        }
-
-        browser.storage.local.set(localStorage);
+    $("#signatureDefault-" + signature.id).click(() => {
+        addOrUpdateStoredValue("defaultSignature", signature.id);
     });
-}
+    $("#signatureUp-" + signature.id).click(() => {
+        reorderSignatures(signature.id, "up")
+    })
+    $("#signatureDown-" + signature.id).click(() => {
+        reorderSignatures(signature.id, "down")
+    })
 
-function deleteSignature(id, onSuccess) {
-    browser.storage.local.get().then(localStorage => {
-        if (localStorage.signatures) {
-            let updatedSignatures = [];
+    let signatureModals = $("#signatureModals");
 
-            localStorage.signatures.forEach(storedSignature => {
-                if (storedSignature.id !== id) {
-                    updatedSignatures.push(storedSignature);
-                }
-            });
+    // edit modal ...
+    signatureModals.append(Mustache.render(SIGNATURE_EDIT_MODAL, {
+        id: signature.id,
+        name: signature.name,
+        text: signature.text,
+        html: signature.html,
+        autoSwitch: signature.autoSwitch,
+        title: i18n("optionsSignatureEditModalTitle"),
+        nameLabel: i18n("optionsSignatureEditModalName"),
+        nameTooltip: i18n("optionsSignatureEditModalNameTooltip"),
+        namePlaceholder: i18n("optionsSignatureEditModalNamePlaceholder"),
+        contentLabel: i18n("optionsSignatureEditModalContent"),
+        contentTooltip: i18n("optionsSignatureEditModalContentTooltip"),
+        textHeading: i18n("optionsSignatureEditModalPlaintext"),
+        htmlHeading: i18n("optionsSignatureEditModalHtml"),
+        autoSwitchLabel: i18n("optionsSignatureEditModalAutoSwitch"),
+        autoSwitchTooltip: i18n("optionsSignatureEditModalAutoSwitchTooltip"),
+        autoSwitchPlaceholder: i18n("optionsSignatureEditModalAutoSwitchPlaceholder"),
+        close: i18n("optionsSignatureEditModalClose"),
+        save: i18n("optionsSignatureEditModalSave")
+    }));
+    $("#signatureModalSave-" + signature.id).click(() => {
+        addOrUpdateItemInStoredArray({
+            id: signature.id,
+            name: $("#signatureModalName-" + signature.id).val(),
+            text: $("#signatureModalText-" + signature.id).val(),
+            html: $("#signatureModalHtml-" + signature.id).val(),
+            autoSwitch: $("#signatureModalAutoSwitch-" + signature.id).val()
+        }, "signatures");
+        $("#signatureEditModal-" + signature.id).modal("hide");
+    });
 
-            localStorage.signatures = updatedSignatures;
-        }
-
-        browser.storage.local.set(localStorage).then(() => {
-            if (onSuccess !== undefined) {
-                onSuccess();
-            }
+    // remove modal ...
+    signatureModals.append(Mustache.render(SIGNATURE_REMOVE_MODAL, {
+        id: signature.id,
+        title: i18n("optionsSignatureRemoveModalTitle"),
+        question: i18n("optionsSignatureRemoveModalQuestion"),
+        no: i18n("optionsSignatureRemoveModalNo"),
+        yes: i18n("optionsSignatureRemoveModalYes")
+    }));
+    $("#signatureRemoveModalYes-" + signature.id).click(() => {
+        deleteItemFromStoredArrayViaId(signature.id, "signatures", function () {
+            $("#signatureRemoveModal-" + signature.id).modal("hide");
+            $(`tr[data-signature-id="${signature.id}"]`).remove();
         });
-    });
-}
-
-function storeSignatures(signatures) {
-    browser.storage.local.get().then(localStorage => {
-        if (!localStorage.signatures) {
-            localStorage = {...localStorage, signatures: signatures};
-        } else {
-            localStorage.signatures = signatures;
-        }
-
-        browser.storage.local.set(localStorage);
     });
 }
 
@@ -350,40 +304,98 @@ function reorderSignatures(id, direction) {
     });
 }
 
-function storeDefaultSignature(id) {
-    browser.storage.local.get().then(localStorage => {
-        if (!localStorage.defaultSignature) {
-            localStorage = {...localStorage, defaultSignature: id};
-        } else {
-            localStorage.defaultSignature = id;
-        }
+function addImage(image) {
+    if (!image) {
+        image = newImage();
+    }
 
-        browser.storage.local.set(localStorage);
+    // table row ...
+    $("#imagesTableBody").append(Mustache.render(IMAGES_ROW, {
+        id: image.id,
+        name: image.name,
+        namePlaceholder: i18n("optionsTableColumnImagesNamePlaceholder"),
+        tag: image.tag,
+        tagPlaceholder: i18n("optionsTableColumnImagesTagPlaceholder"),
+        typePngSelected: image.type === "png" ? "selected" : "",
+        typeJpegSelected: image.type === "jpeg" ? "selected" : "",
+        typeGifSelected: image.type === "gif" ? "selected" : "",
+        data: image.data,
+        dataPlaceholder: i18n("optionsTableColumnImagesDataPlaceholder")
+    }));
+
+    // modals ...
+    $("#imageModals").append(Mustache.render(IMAGE_REMOVE_MODAL, {
+        id: image.id,
+        title: i18n("optionsImageRemoveModalTitle"),
+        question: i18n("optionsImageRemoveModalQuestion"),
+        no: i18n("optionsImageRemoveModalNo"),
+        yes: i18n("optionsImageRemoveModalYes")
+    }));
+    $("#imageRemoveModalYes-" + image.id).click(() => {
+        deleteItemFromStoredArrayViaId(image.id, "images", function () {
+            $("#imageRemoveModal-" + image.id).modal("hide");
+            $(`tr[data-image-id="${image.id}"]`).remove();
+        });
+    });
+
+    // input-listeners ...
+    $(`#imageName-${image.id}, #imageTag-${image.id}, #imageData-${image.id}`).on("change keyup", () => {
+        addOrUpdateItemInStoredArray({
+            id: image.id,
+            name: $("#imageName-" + image.id).val(),
+            tag: $("#imageTag-" + image.id).val(),
+            type: $(`#imageType-${image.id} option:selected`).text(),
+            data: $("#imageData-" + image.id).val()
+        }, "images")
     });
 }
 
-function storeDefaultAction(action) {
+function loadAndShowSignaturesAsJsonString() {
     browser.storage.local.get().then(localStorage => {
-        if (!localStorage.defaultAction) {
-            localStorage = {...localStorage, defaultAction: action};
-        } else {
-            localStorage.defaultAction = action;
+        if (localStorage.signatures) {
+            $("#importExportData").val(JSON.stringify(localStorage.signatures, null, 2));
+            validateImportExportData();
         }
-
-        browser.storage.local.set(localStorage);
     });
 }
 
-async function storeCommand(name, shortcut) {
-    // TODO
-    // Temporary workaround until this issue is fixed:
-    //    https://developer.thunderbird.net/add-ons/updating/tb78#replacing-options
-    //
-    // browser.commands.update({
-    return (await browser.runtime.getBackgroundPage()).browser.commands.update({
-        name: name,
-        shortcut: shortcut
-    });
+function importSignaturesFromJsonString(jsonString) {
+    try {
+        addOrUpdateStoredValue("signatures", JSON.parse(jsonString));
+        $('#importSuccessModal').modal('show');
+    } catch(e) {
+        console.log("unable to store signatures. probably invalid json-string.");
+    }
+}
+
+function validateImportExportData() {
+    let importExportData = $("#importExportData").val();
+    let importExportDataValidation = $("#importExportDataValidation");
+    let importSignaturesButton = $("#importSignatures");
+
+    let success = true;
+
+    try {
+        let signatures = JSON.parse(importExportData);
+
+        if (signatures.length > 0) {
+            for (let signature of signatures) {
+                if (! ( signature.hasOwnProperty("id")    &&
+                    signature.hasOwnProperty("name")  &&
+                    (signature.hasOwnProperty("text") || signature.hasOwnProperty("html")))) {
+                    throw "missing signature-attributes!"
+                }
+            }
+        } else {
+            success = false;
+        }
+    } catch(e) {
+        success = false;
+    }
+
+    importExportDataValidation.text(success ? i18n("optionsImportExportValidationSuccess") : i18n("optionsImportExportValidationFailure"));
+    importExportDataValidation.removeClass(success ? "text-danger" : "text-success").addClass(success ? "text-success" : "text-danger");
+    importSignaturesButton.prop("disabled", !success);
 }
 
 async function resetCommand(name) {
@@ -403,21 +415,97 @@ async function resetCommand(name) {
     });
 }
 
-function importSignaturesFromJsonString(jsonString) {
-    try {
-        storeSignatures(JSON.parse(jsonString));
-        $('#importSuccessModal').modal('show');
-    } catch(e) {
-        console.log("unable to store signatures. probably invalid json-string.");
-    }
+/* =====================================================================================================================
+   abstracted storage operations ...
+ */
+
+function addOrUpdateStoredValue(keyName, value) {
+    browser.storage.local.get().then(localStorage => {
+        if (!localStorage[keyName]) {
+            localStorage = {...localStorage, [keyName]: value};
+        } else {
+            localStorage[keyName] = value;
+        }
+
+        browser.storage.local.set(localStorage);
+    });
 }
 
-function loadAndShowSignaturesAsJsonString() {
+function addOrUpdateItemInStoredArray(item, arrayName) {
+    if (!item) {
+        return;
+    }
+
     browser.storage.local.get().then(localStorage => {
-        if (localStorage.signatures) {
-            $("#importExportData").val(JSON.stringify(localStorage.signatures, null, 2));
-            validateImportExportData();
+        if (!localStorage[arrayName]) {
+            localStorage = {...localStorage, [arrayName]: [item]};
+        } else {
+            let updatedArray = [];
+            let existingUpdated = false;
+
+            localStorage[arrayName].forEach(storedItem => {
+                if (storedItem.id === item.id) {
+                    updatedArray.push(item);
+                    existingUpdated = true;
+                } else {
+                    updatedArray.push(storedItem);
+                }
+            });
+
+            if (existingUpdated === false) {
+                updatedArray.push(item);
+            }
+
+            localStorage[arrayName] = updatedArray;
         }
+
+        browser.storage.local.set(localStorage).then(() => {
+            if (typeof onSuccess !== "undefined") {
+                onSuccess();
+            }
+        });
+    });
+}
+
+function deleteItemFromStoredArrayViaId(itemId, arrayName, onSuccess) {
+    if (!itemId) {
+        return;
+    }
+
+    browser.storage.local.get().then(localStorage => {
+        if (localStorage[arrayName]) {
+            let updatedItems = [];
+
+            localStorage[arrayName].forEach(storedItem => {
+                if (storedItem.id !== itemId) {
+                    updatedItems.push(storedItem);
+                }
+            });
+
+            localStorage[arrayName] = updatedItems;
+        }
+
+        browser.storage.local.set(localStorage).then(() => {
+            if (typeof onSuccess !== "undefined") {
+                onSuccess();
+            }
+        });
+    });
+}
+
+/* =====================================================================================================================
+   misc ...
+ */
+
+async function updateCommand(name, shortcut) {
+    // TODO
+    // Temporary workaround until this issue is fixed:
+    //    https://developer.thunderbird.net/add-ons/updating/tb78#replacing-options
+    //
+    // browser.commands.update({
+    return (await browser.runtime.getBackgroundPage()).browser.commands.update({
+        name: name,
+        shortcut: shortcut
     });
 }
 
@@ -427,34 +515,4 @@ function copyTextToClipboard(text, callback) {
     if (callback) {
         promise.then(callback());
     }
-}
-
-function validateImportExportData() {
-    let importExportData = $("#importExportData").val();
-    let importExportDataValidation = $("#importExportDataValidation");
-    let importSignaturesButton = $("#importSignatures");
-
-    let success = true;
-
-    try {
-        let signatures = JSON.parse(importExportData);
-
-        if (signatures.length > 0) {
-            for (let signature of signatures) {
-                if (! ( signature.hasOwnProperty("id")    &&
-                        signature.hasOwnProperty("name")  &&
-                       (signature.hasOwnProperty("text") || signature.hasOwnProperty("html")))) {
-                    throw "missing signature-attributes!"
-                }
-            }
-        } else {
-            success = false;
-        }
-    } catch(e) {
-        success = false;
-    }
-
-    importExportDataValidation.text(success ? i18n("optionsImportExportValidationSuccess") : i18n("optionsImportExportValidationFailure"));
-    importExportDataValidation.removeClass(success ? "text-danger" : "text-success").addClass(success ? "text-success" : "text-danger");
-    importSignaturesButton.prop("disabled", !success);
 }

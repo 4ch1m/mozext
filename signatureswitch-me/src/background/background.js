@@ -264,10 +264,10 @@ async function appendSignatureToComposer(signature, tabId = composeActionTabId) 
         let document = domParser.parseFromString(cleansedBody, "text/html");
         let renderedSignature;
         if (signature.html !== "") {
-            renderedSignature = createHtmlSignature(document, signature.html, signature.id);
+            renderedSignature = await createHtmlSignature(document, signature.html, signature.id);
         } else {
             // fallback to plaintext-signature content
-            renderedSignature = createHtmlSignature(document, signature.text, signature.id, "pre");
+            renderedSignature = await createHtmlSignature(document, signature.text, signature.id, "pre");
         }
 
         document.body.appendChild(renderedSignature);
@@ -387,7 +387,18 @@ function createPlainTextSignature(text) {
     return NEW_LINE + PLAINTEXT_SIGNATURE_SEPARATOR + text;
 }
 
-function createHtmlSignature(document, html, signatureId, elementType = "div") {
+async function createHtmlSignature(document, html, signatureId, elementType = "div") {
+    // check if html-content contains image-placeholders, which need to be resolved
+    if (new RegExp(".*{{.*}}.*").test(html)) {
+        await browser.storage.local.get().then(localStorage => {
+            if (localStorage.images) {
+                for (let image of localStorage.images) {
+                    html = html.replace(new RegExp("{{" + image.tag + "}}"), `data:image/${image.type};base64,${image.data}`);
+                }
+            }
+        });
+    }
+
     let element = document.createElement(elementType);
     element.innerHTML = html;
     element.className = HTML_SIGNATURE_CLASS;

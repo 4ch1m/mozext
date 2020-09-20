@@ -29,6 +29,9 @@
   "menuOptions": {
     "message": "Options"
   },
+  "optionsButtonAddImage": {
+    "message": "Add new image"
+  },
   "optionsButtonAddSignature": {
     "message": "Add new signature"
   },
@@ -71,6 +74,21 @@
   "optionsHelpText": {
     "message": "For detailed instructions or help, please check"
   },
+  "optionsImageRemoveModalNo": {
+    "message": "No"
+  },
+  "optionsImageRemoveModalQuestion": {
+    "message": "Do you really want to remove this image?"
+  },
+  "optionsImageRemoveModalTitle": {
+    "message": "Remove image"
+  },
+  "optionsImageRemoveModalYes": {
+    "message": "Yes"
+  },
+  "optionsImages": {
+    "message": "Images"
+  },
   "optionsImportExport": {
     "message": "Import / Export"
   },
@@ -95,8 +113,11 @@
   "optionsImportExportDataTooltip": {
     "message": "JSON-data in the form of '[ { \"id\": \"666\", \"name\": \"Business\", \"text\": \"email: moe@zilla.org\" } ]'."
   },
-  "optionsImportExportDescription": {
-    "message": "NOTE: This feature is primarily intended for backup/restore purposes. Export your signatures; copy them to the clipboard; paste into a text-editor of your choice and save the data to a file. (Vice-versa: Paste previously backupped data in here and import.)"
+  "optionsImportExportDescription1": {
+    "message": "This feature is primarily intended for backup/restore purposes. Export your signatures; copy them to the clipboard; paste into a text-editor of your choice and save the data to a file. (Vice-versa: Paste previously backed up data in here and import.)"
+  },
+  "optionsImportExportDescription2": {
+    "message": "NOTE: This export won't include the separately stored image-data; only signatures!"
   },
   "optionsImportExportExport": {
     "message": "Export"
@@ -168,7 +189,7 @@
     "message": "Edit signature"
   },
   "optionsSignatureNewName": {
-    "message": "New Signature"
+    "message": "New signature"
   },
   "optionsSignatureRemoveModalNo": {
     "message": "No"
@@ -177,7 +198,7 @@
     "message": "Do you really want to remove this signature?"
   },
   "optionsSignatureRemoveModalTitle": {
-    "message": "Remove Signature"
+    "message": "Remove signature"
   },
   "optionsSignatureRemoveModalYes": {
     "message": "Yes"
@@ -187,6 +208,30 @@
   },
   "optionsSwitchCommandLabel": {
     "message": "Switch (on/off):"
+  },
+  "optionsTableColumnImagesData": {
+    "message": "Data"
+  },
+  "optionsTableColumnImagesDataPlaceholder": {
+    "message": "BASE64 encoded image-data"
+  },
+  "optionsTableColumnImagesDelete": {
+    "message": "Delete"
+  },
+  "optionsTableColumnImagesType": {
+    "message": "Type"
+  },
+  "optionsTableColumnImagesName": {
+    "message": "Name"
+  },
+  "optionsTableColumnImagesNamePlaceholder": {
+    "message": "e.g. 'Company Logo (large)'"
+  },
+  "optionsTableColumnImagesTag": {
+    "message": "Tag"
+  },
+  "optionsTableColumnImagesTagPlaceholder": {
+    "message": "e.g. 'clogo-l'"
   },
   "optionsTableColumnSignaturesAction": {
     "message": "Action"

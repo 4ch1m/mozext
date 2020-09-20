@@ -42,6 +42,7 @@
                 <nav>
                     <div class="nav nav-tabs nav-fill" role="tablist">
                         <a class="nav-item nav-link active" id="signaturesTab" data-toggle="tab" href="#signaturesTabContent" role="tab" data-i18n="optionsSignatures"></a>
+                        <a class="nav-item nav-link" id="imagesTab" data-toggle="tab" href="#imagesTabContent" role="tab" data-i18n="optionsImages"></a>
                         <a class="nav-item nav-link" id="miscellaneousTab" data-toggle="tab" href="#miscellaneousTabContent" role="tab" data-i18n="optionsMiscellaneous"></a>
                         <a class="nav-item nav-link" id="importExportTab" data-toggle="tab" href="#importExportTabContent" role="tab" data-i18n="optionsImportExport"></a>
                         <a class="nav-item nav-link" id="helpTab" data-toggle="tab" href="#helpTabContent" role="tab" data-i18n="optionsHelp"></a>
@@ -79,6 +80,48 @@
                                     </button>
                                 </span>
                             </div>
+                            <!-- modals -->
+                            <span id="signatureModals">
+                            </span>
+                        </div>
+                    </div>
+                    <!-- images -->
+                    <div class="tab-pane m-2" id="imagesTabContent" role="tabpanel">
+                        <div class="section">
+                            <div id="imagesTable" class="table-editable">
+                                <table class="table table-bordered text-center">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <!-- name -->
+                                            <th class="w-25 text-center" data-i18n="optionsTableColumnImagesName"></th>
+                                            <!-- tag -->
+                                            <th class="w-20 text-center" data-i18n="optionsTableColumnImagesTag"></th>
+                                            <!-- type -->
+                                            <th class="w-20 text-center" data-i18n="optionsTableColumnImagesTag"></th>
+                                            <!-- data -->
+                                            <th class="w-auto text-center" data-i18n="optionsTableColumnImagesType"></th>
+                                            <!-- delete -->
+                                            <th class="w-auto text-center" data-i18n="optionsTableColumnImagesDelete"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="imagesTableBody">
+                                        <!-- images ... -->
+                                    </tbody>
+                                </table>
+                                <!-- add -->
+                                <span class="imagesAdd">
+                                    <button type="button" class="btn btn-light btn-rounded btn-sm my-0">
+                                        <svg class="bi" width="2em" height="2em" fill="currentColor">
+                                            <use xlink:href="/_images/bootstrap-icons.svg#plus"/>
+                                        </svg>
+                                        &nbsp;
+                                        <span data-i18n="optionsButtonAddImage"></span>
+                                    </button>
+                                </span>
+                            </div>
+                            <!-- modals -->
+                            <span id="imageModals">
+                            </span>
                         </div>
                     </div>
                     <!-- miscellaneous -->
@@ -119,7 +162,11 @@
                         <div class="container">
                             <div class="row section">
                                 <div class="d-flex justify-content-start">
-                                    <div class="col-md-auto alert alert-info" role="alert" data-i18n="optionsImportExportDescription"></div>
+                                    <div class="col-md-auto alert alert-info" role="alert">
+                                        <span data-i18n="optionsImportExportDescription1"></span><br>
+                                        <br>
+                                        <b data-i18n="optionsImportExportDescription2"></b>
+                                    </div>
                                 </div>
                             </div>
                             <div class="row">
@@ -251,10 +298,6 @@
         </div>
     </div>
 </section>
-
-<!-- modals -->
-<span id="signatureModals">
-</span>
 
 </body>
 

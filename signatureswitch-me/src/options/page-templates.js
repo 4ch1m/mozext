@@ -167,7 +167,7 @@ const SIGNATURE_REMOVE_MODAL = `
                         &nbsp;
                         {{no}}
                     </button>
-                    <button id="signatureRemoveModalSave-{{id}}" type="button" class="btn btn-light">
+                    <button id="signatureRemoveModalYes-{{id}}" type="button" class="btn btn-light">
                         <svg class="bi" width="2em" height="2em" fill="currentColor">
                             <use xlink:href="/_images/bootstrap-icons.svg#check"/>
                         </svg>
@@ -196,6 +196,75 @@ const COMMAND_ROW = `
                 &nbsp;
                 <span>{{resetButtonText}}</span>
             </button>
+        </div>
+    </div>
+`;
+
+const IMAGES_ROW = `
+    <tr class="hide" data-image-id="{{id}}">
+        <!-- name -->
+        <td contenteditable="false">
+            <input id="imageName-{{id}}" type="text" class="form-control w-100" value="{{name}}" placeholder="{{namePlaceholder}}">
+        </td>
+        <!-- tag -->
+        <td contenteditable="false">
+            <input id="imageTag-{{id}}" type="text" class="form-control w-100" value="{{tag}}" placeholder="{{tagPlaceholder}}">
+        </td>
+        <!-- type -->
+        <td contenteditable="false">
+            <select id="imageType-{{id}}" class="browser-default custom-select w-100">
+                <option {{typePngSelected}}>png</option>
+                <option {{typeJpegSelected}}>jpeg</option>
+                <option {{typePngSelected}}>gif</option>
+            </select>
+        </td>
+        <!-- data -->
+        <td contenteditable="false">
+            <input id="imageData-{{id}}" type="text" class="form-control w-100" value="{{data}}" placeholder="{{dataPlaceholder}}">
+        </td>
+        <!-- remove -->
+        <td contenteditable="false">
+            <span class="images-table-remove">
+                <button type="button" class="btn btn-light btn-rounded btn-sm my-0 waves-effect waves-light" data-toggle="modal" data-target="#imageRemoveModal-{{id}}">
+                    <svg class="bi" width="2em" height="2em" fill="currentColor">
+                        <use xlink:href="/_images/bootstrap-icons.svg#trash"/>
+                    </svg>
+                </button>
+            </span>
+        </td>
+    </tr>
+`;
+
+const IMAGE_REMOVE_MODAL = `
+    <div class="modal fade" id="imageRemoveModal-{{id}}" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">{{title}}</h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {{question}}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-dismiss="modal">
+                        <svg class="bi" width="2em" height="2em" fill="currentColor">
+                            <use xlink:href="/_images/bootstrap-icons.svg#x"/>
+                        </svg>
+                        &nbsp;
+                        {{no}}
+                    </button>
+                    <button id="imageRemoveModalYes-{{id}}" type="button" class="btn btn-light">
+                        <svg class="bi" width="2em" height="2em" fill="currentColor">
+                            <use xlink:href="/_images/bootstrap-icons.svg#check"/>
+                        </svg>
+                        &nbsp;
+                        {{yes}}
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 `;

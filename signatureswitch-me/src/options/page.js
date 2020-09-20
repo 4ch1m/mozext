@@ -120,19 +120,35 @@ function addSignature(signature) {
 
 async function initUI(localStorage) {
     if (localStorage) {
-        // build signatures (tablerows + modals)
+        let signatureIds = [];
+
+        // build signatures (tablerows + modals) ...
         if (localStorage.signatures) {
             localStorage.signatures.forEach(signature => {
+                signatureIds.push(signature.id);
                 addSignature(signature);
             });
         }
 
-        // default signature
+        // default signature ...
+        let actualDefaultSignature = "";
         if (localStorage.defaultSignature) {
-            $("#signatureDefault-" + localStorage.defaultSignature).prop("checked", true);
+            // check if stored defaultSignatureId actually still exists
+            if (signatureIds.some(id => id === localStorage.defaultSignature)) {
+                actualDefaultSignature = localStorage.defaultSignature;
+            }
+        }
+        if (signatureIds.length > 0) {
+            if (actualDefaultSignature === "") {
+                // if the stored defaultSignatureId doesn't exist anymore or (for whatever reason) never got stored;
+                // simply use the first one as default and store it now
+                actualDefaultSignature = signatureIds[0];
+                storeDefaultSignature(actualDefaultSignature);
+            }
+            $("#signatureDefault-" + actualDefaultSignature).prop("checked", true);
         }
 
-        // default action
+        // default action ...
         if (localStorage.defaultAction) {
             switch (localStorage.defaultAction) {
                 case "insert":
@@ -148,7 +164,7 @@ async function initUI(localStorage) {
             $("#defaultActionNothing").prop("checked", true);
         }
 
-        // init tooltips
+        // init tooltips ...
         $('[data-toggle="tooltip"]').tooltip();
     }
 

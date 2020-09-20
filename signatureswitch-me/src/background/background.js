@@ -277,15 +277,29 @@ async function appendSignatureToComposer(signature, tabId = composeActionTabId) 
 }
 
 async function appendDefaultSignatureToComposer(tabId = composeActionTabId) {
-    browser.storage.local.get().then(localStorage => {
-        if (localStorage.signatures && localStorage.defaultSignature) {
-            let signatures = localStorage.signatures;
-            for (let signature of signatures) {
-                if (signature.id === localStorage.defaultSignature) {
-                    appendSignatureToComposer(signature, tabId);
-                    break;
+    browser.storage.local.get().then(async localStorage => {
+        if (localStorage.signatures && localStorage.signatures.length > 0) {
+            let allExistingSignatureIds = await getAllSignatureIds(localStorage.signatures);
+            let actualDefaultSignature = undefined;
+
+            if (localStorage.defaultSignature) {
+                // check if the stored defaultSignatureId actually still exists
+                if (allExistingSignatureIds.some(id => id === localStorage.defaultSignature)) {
+                    for (let signature of localStorage.signatures) {
+                        if (signature.id === localStorage.defaultSignature) {
+                            actualDefaultSignature = signature;
+                            break;
+                        }
+                    }
                 }
             }
+
+            // if the stored defaultSignatureId doesn't exist; use the first signature instead
+            if (actualDefaultSignature === undefined) {
+                actualDefaultSignature = localStorage.signatures[0];
+            }
+
+            appendSignatureToComposer(actualDefaultSignature, tabId);
         }
     });
 }
@@ -410,15 +424,20 @@ function getBodyWithoutSignature(composeDetails) {
     }
 }
 
-async function getAllSignatureIds() {
+async function getAllSignatureIds(signaturesArray) {
     let ids = [];
+    let signatures;
 
-    await browser.storage.local.get().then(localStorage => {
-        if (localStorage.signatures) {
-            localStorage.signatures.forEach(signature => {
-                ids.push(signature.id);
-            });
-        }
+    if (!signaturesArray) {
+        await browser.storage.local.get().then(localStorage => {
+            signatures = localStorage.signatures ? localStorage.signatures : [];
+        });
+    } else {
+        signatures = signaturesArray;
+    }
+
+    signatures.forEach(signature => {
+        ids.push(signature.id);
     });
 
     return ids;

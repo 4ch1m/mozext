@@ -122,6 +122,19 @@ async function initUI(localStorage) {
             $("#defaultActionNothing").prop("checked", true);
         }
 
+        // replies ...
+        let optionsRepliesNoDefaultAction = $("#optionsRepliesNoDefaultAction");
+        optionsRepliesNoDefaultAction.prop("checked", localStorage.optionsRepliesNoDefaultAction ? localStorage.optionsRepliesNoDefaultAction : false);
+        optionsRepliesNoDefaultAction.click(() => {
+            addOrUpdateStoredValue("repliesNoDefaultAction", optionsRepliesNoDefaultAction.prop("checked"));
+        });
+        let optionsRepliesSubjectIndicators = $("#optionsRepliesSubjectIndicators");
+        optionsRepliesSubjectIndicators.attr("placeholder", i18n("optionsRepliesSubjectIndicatorsPlaceholder"));
+        optionsRepliesSubjectIndicators.val(localStorage.repliesSubjectIndicators ? localStorage.repliesSubjectIndicators : /* default: */ "Re,RE,AW,Aw,Antwort,VS,Vs,SV,Sv,Svar");
+        optionsRepliesSubjectIndicators.keyup(() => {
+            addOrUpdateStoredValue("repliesSubjectIndicators", optionsRepliesSubjectIndicators.val());
+        });
+
         // init tooltips ...
         $('[data-toggle="tooltip"]').tooltip();
     }

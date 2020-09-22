@@ -233,7 +233,13 @@ function addWindowCreateListener() {
             browser.tabs.query({windowId: window.id}).then(tabs => {
                 let tabId = tabs[0].id;
 
-                browser.storage.local.get().then(localStorage => {
+                browser.storage.local.get().then(async localStorage => {
+                    if (await isReplyComposer(tabId) &&
+                        localStorage.repliesNoDefaultAction &&
+                        localStorage.repliesNoDefaultAction === true) {
+                        return;
+                    }
+
                     if (localStorage.defaultAction) {
                         if (localStorage.defaultAction === "insert") {
                             appendDefaultSignatureToComposer(tabId);
@@ -452,6 +458,23 @@ async function getAllSignatureIds(signaturesArray) {
     });
 
     return ids;
+}
+
+async function isReplyComposer(tabId = composeActionTabId) {
+    let details = await browser.compose.getComposeDetails(tabId);
+    let storage = await browser.storage.local.get();
+
+    if (storage.repliesSubjectIndicators && storage.repliesSubjectIndicators !== "") {
+        let indicators = storage.repliesSubjectIndicators.split(",");
+
+        for (let indicator of indicators) {
+            if (details.subject.startsWith(indicator)) {
+                return true;
+            }
+        }
+    }
+
+    return false;
 }
 
 async function startRecipientChangeListener(tabId, timeout = 1000, previousRecipients = "") {

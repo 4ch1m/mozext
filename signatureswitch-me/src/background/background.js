@@ -230,26 +230,31 @@ function addComposeActionListener() {
 function addWindowCreateListener() {
     browser.windows.onCreated.addListener(window => {
         if (window.type === WINDOW_TYPE_MESSAGE_COMPOSE) {
-            browser.tabs.query({windowId: window.id}).then(tabs => {
+            browser.tabs.query({windowId: window.id}).then(async tabs => {
                 let tabId = tabs[0].id;
+                let storage = await browser.storage.local.get();
+                let isReply = await isReplyComposer(tabId);
 
-                browser.storage.local.get().then(async localStorage => {
-                    if (await isReplyComposer(tabId) &&
-                        localStorage.repliesNoDefaultAction &&
-                        localStorage.repliesNoDefaultAction === true) {
-                        return;
-                    }
-
-                    if (localStorage.defaultAction) {
-                        if (localStorage.defaultAction === "insert") {
+                // check if it's a reply and if we don't want to perform
+                // the default-action on replies
+                if (isReply && storage.repliesNoDefaultAction === true) {
+                    // don't perform any default-actions.
+                } else {
+                    // check if a default-action is set
+                    if (storage.defaultAction) {
+                        // execute default-action
+                        if (storage.defaultAction === "insert") {
                             appendDefaultSignatureToComposer(tabId);
                         } else {
                             removeSignatureFromComposer(tabId);
                         }
                     }
-                });
+                }
 
-                startRecipientChangeListener(tabId);
+                // don't trigger auto-switch on reply if disabled in options
+                if (!(isReply && storage.repliesDisableAutoSwitch === true)) {
+                    startRecipientChangeListener(tabId);
+                }
             });
         }
     });

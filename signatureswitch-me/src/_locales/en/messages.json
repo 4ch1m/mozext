@@ -176,6 +176,9 @@
   "optionsReplies": {
     "message": "Replies"
   },
+  "optionsRepliesDisableAutoSwitch": {
+    "message": "Disable auto-switch on replies."
+  },
   "optionsRepliesNoDefaultAction": {
     "message": "Don't apply default-action when replying to a mail."
   },

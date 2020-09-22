@@ -38,7 +38,7 @@ $(function() {
     $("#exportSignatures").click(() => {
         loadAndShowSignaturesAsJsonString();
     });
-    $("#optionsImportExportDataTooltip").attr("title", i18n("optionsImportExportDataTooltip"));
+    $("#importExportDataTooltip").attr("title", i18n("optionsImportExportDataTooltip"));
 });
 
 /* =====================================================================================================================
@@ -123,16 +123,21 @@ async function initUI(localStorage) {
         }
 
         // replies ...
-        let optionsRepliesNoDefaultAction = $("#optionsRepliesNoDefaultAction");
-        optionsRepliesNoDefaultAction.prop("checked", localStorage.optionsRepliesNoDefaultAction ? localStorage.optionsRepliesNoDefaultAction : false);
-        optionsRepliesNoDefaultAction.click(() => {
-            addOrUpdateStoredValue("repliesNoDefaultAction", optionsRepliesNoDefaultAction.prop("checked"));
+        let repliesDisableAutoSwitch = $("#repliesDisableAutoSwitch");
+        repliesDisableAutoSwitch.prop("checked", localStorage.repliesDisableAutoSwitch ? localStorage.repliesDisableAutoSwitch : false);
+        repliesDisableAutoSwitch.click(() => {
+            addOrUpdateStoredValue("repliesDisableAutoSwitch", repliesDisableAutoSwitch.prop("checked"));
         });
-        let optionsRepliesSubjectIndicators = $("#optionsRepliesSubjectIndicators");
-        optionsRepliesSubjectIndicators.attr("placeholder", i18n("optionsRepliesSubjectIndicatorsPlaceholder"));
-        optionsRepliesSubjectIndicators.val(localStorage.repliesSubjectIndicators ? localStorage.repliesSubjectIndicators : /* default: */ "Re,RE,AW,Aw,Antwort,VS,Vs,SV,Sv,Svar");
-        optionsRepliesSubjectIndicators.keyup(() => {
-            addOrUpdateStoredValue("repliesSubjectIndicators", optionsRepliesSubjectIndicators.val());
+        let repliesNoDefaultAction = $("#repliesNoDefaultAction");
+        repliesNoDefaultAction.prop("checked", localStorage.repliesNoDefaultAction ? localStorage.repliesNoDefaultAction : false);
+        repliesNoDefaultAction.click(() => {
+            addOrUpdateStoredValue("repliesNoDefaultAction", repliesNoDefaultAction.prop("checked"));
+        });
+        let repliesSubjectIndicators = $("#repliesSubjectIndicators");
+        repliesSubjectIndicators.attr("placeholder", i18n("optionsRepliesSubjectIndicatorsPlaceholder"));
+        repliesSubjectIndicators.val(localStorage.repliesSubjectIndicators ? localStorage.repliesSubjectIndicators : /* default: */ "Re,RE,AW,Aw,Antwort,VS,Vs,SV,Sv,Svar");
+        repliesSubjectIndicators.keyup(() => {
+            addOrUpdateStoredValue("repliesSubjectIndicators", repliesSubjectIndicators.val());
         });
 
         // init tooltips ...

@@ -8,6 +8,6 @@
     "package": "./mozdev-tools/package.sh ${npm_package_name} ${npm_package_version}",
     "clean": "./mozdev-tools/clean.sh; rm -f *.xpi",
     "lint": "./node_modules/web-ext/bin/web-ext --source-dir src lint",
-    "sort-locales": "./mozdev-tools/sort_locales.sh"
+    "sort-messages": "./mozdev-tools/sort_messages.sh"
   }
 }

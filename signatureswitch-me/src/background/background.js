@@ -473,7 +473,7 @@ async function isReplyComposer(tabId = composeActionTabId) {
         let indicators = storage.repliesSubjectIndicators.split(",");
 
         for (let indicator of indicators) {
-            if (details.subject.startsWith(indicator)) {
+            if (details.subject.startsWith(indicator + ":")) {
                 return true;
             }
         }

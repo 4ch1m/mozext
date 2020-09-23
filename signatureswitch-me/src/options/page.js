@@ -328,18 +328,21 @@ function addImage(image) {
     }
 
     // table row ...
+    let imageData = undefined;
+    if (image.data) {
+        if (image.data !== "") {
+            imageData = image.data;
+        }
+    }
     $("#imagesTableBody").append(Mustache.render(IMAGES_ROW, {
         id: image.id,
         name: image.name,
         namePlaceholder: i18n("optionsTableColumnImagesNamePlaceholder"),
         tag: image.tag,
         tagPlaceholder: i18n("optionsTableColumnImagesTagPlaceholder"),
-        typePngSelected: image.type === "png" ? "selected" : "",
-        typeJpegSelected: image.type === "jpeg" ? "selected" : "",
-        typeGifSelected: image.type === "gif" ? "selected" : "",
-        data: image.data,
-        dataPlaceholder: i18n("optionsTableColumnImagesDataPlaceholder")
+        data: imageData
     }));
+    $("#imageDisplay-" + image.id).attr("alt", i18n("optionsImageDisplayAlt"));
 
     // modals ...
     $("#imageModals").append(Mustache.render(IMAGE_REMOVE_MODAL, {
@@ -356,15 +359,22 @@ function addImage(image) {
         });
     });
 
-    // input-listeners ...
-    $(`#imageName-${image.id}, #imageTag-${image.id}, #imageData-${image.id}`).on("change keyup", () => {
-        addOrUpdateItemInStoredArray({
+    let updatedImage = () => {
+        return {
             id: image.id,
             name: $("#imageName-" + image.id).val(),
             tag: $("#imageTag-" + image.id).val(),
-            type: $(`#imageType-${image.id} option:selected`).text(),
-            data: $("#imageData-" + image.id).val()
-        }, "images")
+            data: $("#imageDisplay-" + image.id).attr("src")
+        };
+    };
+
+    // input-/change-listeners ...
+    $(`#imageName-${image.id}, #imageTag-${image.id}`).on("change keyup", () => {
+        addOrUpdateItemInStoredArray(updatedImage(), "images")
+    });
+    $("#imageFileInput-" + image.id).change(async (e) => {
+        $("#imageDisplay-" + image.id).attr("src", await toBase64(e.target.files[0]));
+        addOrUpdateItemInStoredArray(updatedImage(), "images")
     });
 }
 

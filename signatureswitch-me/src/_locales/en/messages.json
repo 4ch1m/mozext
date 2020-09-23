@@ -74,6 +74,9 @@
   "optionsHelpText": {
     "message": "For detailed instructions or help, please check"
   },
+  "optionsImageDisplayAlt": {
+    "message": "unset"
+  },
   "optionsImageRemoveModalNo": {
     "message": "No"
   },
@@ -87,28 +90,25 @@
     "message": "Yes"
   },
   "optionsImageUsage1": {
-    "message": "convert your image into a Base64-encoded string (using an external tool)"
+    "message": "add an image by clicking on the \"Browse\"-button"
   },
   "optionsImageUsage2": {
-    "message": "paste the string into the data-field"
-  },
-  "optionsImageUsage3": {
-    "message": "select the appropriate type (png, jpeg, gif)"
-  },
-  "optionsImageUsage4": {
     "message": "give the image a descriptive name"
   },
-  "optionsImageUsage5": {
-    "message": "finally: define a unique tag"
+  "optionsImageUsage3": {
+    "message": "important: define a UNIQUE tag name!"
+  },
+  "optionsImageUsage4": {
+    "message": "use the tag-name (enclosed by double-curly-braces) in your HTML-signatures together with the src-attribute in an image-element"
   },
   "optionsImageUsageExample": {
     "message": "For example:"
   },
-  "optionsImageUsageFooter": {
-    "message": "The image can now be used within your HTML-signatures by using the tag with the src-attribute in an image-element."
-  },
   "optionsImageUsageHeader": {
     "message": "Usage:"
+  },
+  "optionsImageUsageNote": {
+    "message": "NOTE: Please handle the storage of image-data here with care. Adding too many and/or too large images may degrade overall performance and waste storage space. Only use optimized assets really needed for signature-creation."
   },
   "optionsImages": {
     "message": "Images"
@@ -248,14 +248,11 @@
   "optionsSwitchCommandLabel": {
     "message": "Switch (on/off):"
   },
-  "optionsTableColumnImagesData": {
-    "message": "Data"
-  },
-  "optionsTableColumnImagesDataPlaceholder": {
-    "message": "BASE64 encoded image-data"
-  },
   "optionsTableColumnImagesDelete": {
     "message": "Delete"
+  },
+  "optionsTableColumnImagesImage": {
+    "message": "Image"
   },
   "optionsTableColumnImagesName": {
     "message": "Name"
@@ -268,9 +265,6 @@
   },
   "optionsTableColumnImagesTagPlaceholder": {
     "message": "e.g. 'clogo-l'"
-  },
-  "optionsTableColumnImagesType": {
-    "message": "Type"
   },
   "optionsTableColumnSignaturesAction": {
     "message": "Action"

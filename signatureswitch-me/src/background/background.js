@@ -404,7 +404,7 @@ async function createHtmlSignature(document, html, signatureId, elementType = "d
         await browser.storage.local.get().then(localStorage => {
             if (localStorage.images) {
                 for (let image of localStorage.images) {
-                    html = html.replace(new RegExp("{{" + image.tag + "}}"), `data:image/${image.type};base64,${image.data}`);
+                    html = html.replace(new RegExp("{{" + image.tag + "}}"), image.data);
                 }
             }
         });

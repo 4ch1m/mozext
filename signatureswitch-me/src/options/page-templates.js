@@ -210,17 +210,12 @@ const IMAGES_ROW = `
         <td>
             <input id="imageTag-{{id}}" type="text" class="form-control w-100" value="{{tag}}" placeholder="{{tagPlaceholder}}">
         </td>
-        <!-- type -->
+        <!-- image -->
         <td>
-            <select id="imageType-{{id}}" class="browser-default custom-select w-100">
-                <option {{typePngSelected}}>png</option>
-                <option {{typeJpegSelected}}>jpeg</option>
-                <option {{typePngSelected}}>gif</option>
-            </select>
-        </td>
-        <!-- data -->
-        <td>
-            <input id="imageData-{{id}}" type="text" class="form-control w-100" value="{{data}}" placeholder="{{dataPlaceholder}}">
+            <div class="w-20 nobr">
+                <img id="imageDisplay-{{id}}" src="{{data}}" width="50px" height="50px">
+                <input type="file" accept="image/*" id="imageFileInput-{{id}}">
+            </div>
         </td>
         <!-- remove -->
         <td>

@@ -182,12 +182,6 @@
   "optionsRepliesNoDefaultAction": {
     "message": "Don't apply default-action when replying to a mail."
   },
-  "optionsRepliesSubjectIndicators": {
-    "message": "Reply indicators:"
-  },
-  "optionsRepliesSubjectIndicatorsPlaceholder": {
-    "message": "e.g. 'Re,RE,AW,Aw,Antwort,VS,Vs,SV,Sv,Svar'"
-  },
   "optionsSignatureEditModalAutoSwitch": {
     "message": "Auto-switch"
   },

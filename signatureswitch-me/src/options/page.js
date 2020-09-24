@@ -133,12 +133,6 @@ async function initUI(localStorage) {
         repliesNoDefaultAction.click(() => {
             addOrUpdateStoredValue("repliesNoDefaultAction", repliesNoDefaultAction.prop("checked"));
         });
-        let repliesSubjectIndicators = $("#repliesSubjectIndicators");
-        repliesSubjectIndicators.attr("placeholder", i18n("optionsRepliesSubjectIndicatorsPlaceholder"));
-        repliesSubjectIndicators.val(localStorage.repliesSubjectIndicators ? localStorage.repliesSubjectIndicators : /* default: */ "Re,RE,AW,Aw,Antwort,VS,Vs,SV,Sv,Svar");
-        repliesSubjectIndicators.keyup(() => {
-            addOrUpdateStoredValue("repliesSubjectIndicators", repliesSubjectIndicators.val());
-        });
 
         // init tooltips ...
         $('[data-toggle="tooltip"]').tooltip();

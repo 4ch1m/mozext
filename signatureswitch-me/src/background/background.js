@@ -466,20 +466,9 @@ async function getAllSignatureIds(signaturesArray) {
 }
 
 async function isReplyComposer(tabId = composeActionTabId) {
-    let details = await browser.compose.getComposeDetails(tabId);
-    let storage = await browser.storage.local.get();
-
-    if (storage.repliesSubjectIndicators && storage.repliesSubjectIndicators !== "") {
-        let indicators = storage.repliesSubjectIndicators.split(",");
-
-        for (let indicator of indicators) {
-            if (details.subject.startsWith(indicator + ":")) {
-                return true;
-            }
-        }
-    }
-
-    return false;
+    await browser.compose.getComposeDetails(tabId).then(details => {
+        return details.subject.startsWith("Re:");
+    });
 }
 
 async function startRecipientChangeListener(tabId, timeout = 1000, previousRecipients = "") {

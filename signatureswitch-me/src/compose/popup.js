@@ -45,6 +45,7 @@ $(function() {
     // options-button ...
     $("#optionsButton").on("click", () => {
         openOptions(() => {
+            browser.runtime.sendMessage({type: "focusOptionsWindow", value: optionsWindowId});
             window.close();
         });
     });

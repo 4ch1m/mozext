@@ -1,8 +1,10 @@
 let optionsTabId;
+let optionsWindowId;
 
 function openOptions(callback) {
     browser.tabs.create({url: "/options/page.html"}).then(optionsTab => {
         optionsTabId = optionsTab.id;
+        optionsWindowId = optionsTab.windowId;
     }).then(callback);
 }
 

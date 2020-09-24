@@ -199,6 +199,12 @@ function addMessageListener() {
             case "isSignaturePresent":
                 sendResponse({result: composeActionSignatureId !== ""});
                 break;
+            case "focusOptionsWindow":
+                browser.windows.update(request.value, {
+                    drawAttention: true,
+                    focused: true}
+                );
+                break;
             default:
                 console.log("invalid message type!");
         }

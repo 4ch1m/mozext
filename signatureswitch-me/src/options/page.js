@@ -61,7 +61,27 @@ function newImage() {
         name: "",
         tag: "",
         type: "png",
-        data: ""
+        data: /* default placeholder-image: */
+                "data:image/png;base64," +
+                    "iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9" +
+                    "kT1Iw0AcxV9TxQ8qHexQpGCG6mRBVMRRq1CECqVWaNXB5NIvaNKQpLg4Cq4FBz8Wqw4uzro6uAqC" +
+                    "4AeIk6OToouU+L+k0CLGg+N+vLv3uHsHCI0KU82ucUDVLCOdiIvZ3KrY84o+hBFEBMMSM/W5VCoJ" +
+                    "z/F1Dx9f72I8y/vcn2NAyZsM8InEs0w3LOIN4ulNS+e8TxxiJUkhPiceM+iCxI9cl11+41x0WOCZ" +
+                    "ISOTnicOEYvFDpY7mJUMlXiKOKqoGuULWZcVzluc1UqNte7JXxjIayvLXKcZQQKLWEIKImTUUEYF" +
+                    "FmK0aqSYSNN+3MM/5PhT5JLJVQYjxwKqUCE5fvA/+N2tWZiccJMCcaD7xbY/RoCeXaBZt+3vY9tu" +
+                    "ngD+Z+BKa/urDWDmk/R6W4seAcFt4OK6rcl7wOUOEH7SJUNyJD9NoVAA3s/om3LA4C3Qv+b21trH" +
+                    "6QOQoa6SN8DBITBapOx1j3f3dvb275lWfz91qnKoGpcjwAAAAAZiS0dEAAAAAAAA+UO7fwAAAAlw" +
+                    "SFlzAAAN1wAADdcBQiibeAAAAAd0SU1FB+QJGA8cLuhB+ZoAAAIHSURBVGje7dk9a1RBFMbx364p" +
+                    "VBACFoKFBI0pBFGEdBICGnwtbESwEksLG4l+AD+BpNIigmVa0U6IpSi+oCCorYjYxQjxJbsWzsKw" +
+                    "7q53d5O9M3IfONxd7swwf86cc2fmUKlSpUo5qRb9PoLLmMSWxOe9jvdYxIv4xXU00MzM1jHfgjib" +
+                    "IUBsDZyq4TFmAtQHLGAt8aW1FVexL/xfhtWI7mhG8T0TzfurNjdNZAQyEc99bIABpoPn6nge3NpM" +
+                    "gayoR8bxoEOwPcGesj1SFKSGRz0yx1tsywHkZIE0eKVMkHrBTscKtDleZnwUBdm+QW1KB3lToM3r" +
+                    "HLLWOL70iI+1sNlMPthhFisdIL7jYi7pN+68gJdhud3FwRS+7P/NFqWeyKRmcROHRrFF2Sydx8/o" +
+                    "bHG/IFBSSyuGaD/5LWF/DiDdIGL7gXvYmypIEYj2FH8bu1MC6Rcitm+4hV3DguzAXHgOogtDQMS2" +
+                    "Ejw0EMhkuEtq4iPOlATRzQqBTONzh85L2LnJy2nDQOa67LFa9gnnSob4J8ilkAKLDNTJO6OC6Aly" +
+                    "Y4Br1Ng7o4ToCDKGO0MO+nDEEH+BHAh7nezugGttl2vvMCVDtYM0+jjHJ6V6+Oz3exmRmlbreCZ/" +
+                    "PYXT8qxWxYWeEy2i+XCYybH0dq0V7C0d9qcYOiX9YuivkGEX8UqlSpUqZaffCw665OhnGKMAAAAA" +
+                    "SUVORK5CYII="
     };
 }
 
@@ -317,7 +337,10 @@ function reorderSignatures(id, direction) {
 }
 
 function addImage(image) {
+    let fileInputClass = "color-transparent"; /* hide filename-label on input-element per default */
+
     if (!image) {
+        fileInputClass = ""; /* if it's a brand new image (added via gui) show the label */
         image = newImage();
     }
 
@@ -334,9 +357,9 @@ function addImage(image) {
         namePlaceholder: i18n("optionsTableColumnImagesNamePlaceholder"),
         tag: image.tag,
         tagPlaceholder: i18n("optionsTableColumnImagesTagPlaceholder"),
-        data: imageData
+        data: imageData,
+        class: fileInputClass
     }));
-    $("#imageDisplay-" + image.id).attr("alt", i18n("optionsImageDisplayAlt"));
 
     // modals ...
     $("#imageModals").append(Mustache.render(IMAGE_REMOVE_MODAL, {

@@ -6,6 +6,10 @@
     margin-top: 2em;
 }
 
+.color-transparent {
+    color: transparent;
+}
+
 .options-tab #tabs .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
     color: #0062cc;
     background-color: transparent;

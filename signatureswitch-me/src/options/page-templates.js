@@ -214,7 +214,7 @@ const IMAGES_ROW = `
         <td>
             <div class="w-20 nobr">
                 <img id="imageDisplay-{{id}}" src="{{data}}" width="50px" height="50px">
-                <input type="file" accept="image/*" id="imageFileInput-{{id}}">
+                <input type="file" accept="image/*" id="imageFileInput-{{id}}" class="{{class}}">
             </div>
         </td>
         <!-- remove -->

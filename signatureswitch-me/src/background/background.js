@@ -207,7 +207,7 @@ function addMessageListener() {
 
 function addBrowserActionListener() {
     browser.browserAction.onClicked.addListener(() => {
-        browser.tabs.create({url: "/options/page.html"});
+        openOptions();
     });
 }
 

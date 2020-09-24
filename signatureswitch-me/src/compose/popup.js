@@ -44,7 +44,9 @@ $(function() {
 
     // options-button ...
     $("#optionsButton").on("click", () => {
-        openOptions(function(){window.close()});
+        openOptions(() => {
+            window.close();
+        });
     });
 });
 

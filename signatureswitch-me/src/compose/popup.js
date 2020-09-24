@@ -6,6 +6,7 @@ $(function() {
     browser.runtime.sendMessage({ type: "isSignaturePresent" }).then(response => {
         // on/off button ...
         $("#onOffButtonContainer").append(Mustache.render(ON_OFF_BUTTON, {
+            class: response.result === true ? "btn-danger" : "btn-success",
             image: response.result === true ? "toggle-off" : "toggle-on",
             text: response.result === true ? i18n("composeOnOffButtonOff") : i18n("composeOnOffButtonOn")
         }));

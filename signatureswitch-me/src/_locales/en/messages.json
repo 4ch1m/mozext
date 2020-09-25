@@ -87,15 +87,18 @@
     "message": "Yes"
   },
   "optionsImageUsage1": {
-    "message": "add an image by clicking on the \"Browse\"-button"
+    "message": "create a new entry by clicking the button above"
   },
   "optionsImageUsage2": {
-    "message": "give the image a descriptive name"
+    "message": "click the \"Browse\"-button to select and add an image-file"
   },
   "optionsImageUsage3": {
-    "message": "important: define a UNIQUE tag name!"
+    "message": "give the image a descriptive name"
   },
   "optionsImageUsage4": {
+    "message": "important: define a UNIQUE tag name!"
+  },
+  "optionsImageUsage5": {
     "message": "use the tag-name (enclosed by double-curly-braces) in your HTML-signatures together with the src-attribute in an image-element"
   },
   "optionsImageUsageExample": {

@@ -158,6 +158,7 @@ async function initUI(localStorage) {
         $('[data-toggle="tooltip"]').tooltip();
     }
 
+    // commands ...
     // TODO
     // Temporary workaround until this issue is fixed:
     //    https://developer.thunderbird.net/add-ons/updating/tb78#replacing-options

@@ -3,11 +3,13 @@ const PLAINTEXT_SIGNATURE_SEPARATOR = "-- " + NEW_LINE;
 const HTML_SIGNATURE_CLASS = "moz-signature";
 const WINDOW_TYPE_MESSAGE_COMPOSE = "messageCompose";
 const CUSTOM_SIGNATURE_ID_ATTRIBUTE = "signature-switch-id";
+const REPLY_SUBJECT_PREFIX = "Re:";
 
 const MENU_ROOT_ID = "signature_switch";
 const MENU_ID_SEPARATOR = "_";
 const MENU_SUBENTRY_ID_PREFIX = MENU_ROOT_ID + MENU_ID_SEPARATOR;
 const MENU_ENTRY_ONOFF = "on-off";
+const MENU_ENTRY_OPTIONS = "options";
 
 const COMMAND_SWITCH = "switch";
 const COMMAND_NEXT = "next";
@@ -84,6 +86,7 @@ function createContextMenu() {
             });
 
             menuItems.push({
+                id: MENU_SUBENTRY_ID_PREFIX + MENU_ENTRY_OPTIONS,
                 parentId: MENU_ROOT_ID,
                 title: i18n("menuOptions")
             });
@@ -116,6 +119,9 @@ function addContextMenuListener() {
                         removeSignatureFromComposer(tab.id);
                     }
                 })
+                break;
+            case MENU_ENTRY_OPTIONS:
+                openOptions();
                 break;
             default:
                 appendSignatureViaIdToComposer(commandOrSignatureId, tab.id);
@@ -473,7 +479,7 @@ async function getAllSignatureIds(signaturesArray) {
 
 async function isReplyComposer(tabId = composeActionTabId) {
     await browser.compose.getComposeDetails(tabId).then(details => {
-        return details.subject.startsWith("Re:");
+        return details.subject.startsWith(REPLY_SUBJECT_PREFIX);
     });
 }
 

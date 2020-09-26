@@ -6,7 +6,7 @@
 ```diff
 - WORK IN PROGRESS -
 
-Pre-alpha phase!
+beta phase
 ```
 
 ## ToC

@@ -8,7 +8,7 @@
   "homepage_url": "http://mozext.achimonline.de",
   "applications": {
     "gecko": {
-      "id": "nestedquoteremover@mozext.achimonline.de",
+      "id": "{12a1584b-2123-473d-8752-e82e74e3cb1b}",
       "strict_min_version": "78.0"
     }
   },

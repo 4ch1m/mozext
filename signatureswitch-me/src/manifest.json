@@ -8,7 +8,7 @@
   "homepage_url": "http://mozext.achimonline.de",
   "applications": {
     "gecko": {
-      "id": "signatureswitch@mozext.achimonline.de",
+      "id": "{2ab1b709-ba03-4361-abf9-c50b964ff75d}",
       "strict_min_version": "78.0"
     }
   },

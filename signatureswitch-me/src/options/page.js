@@ -155,7 +155,7 @@ async function initUI(localStorage) {
         });
 
         // init tooltips ...
-        $('[data-toggle="tooltip"]').tooltip();
+        initTooltips();
     }
 
     // commands ...
@@ -225,6 +225,10 @@ function updateUI() {
     });
 }
 
+function initTooltips() {
+    $('[data-toggle="tooltip"]').tooltip();
+}
+
 function addSignature(signature) {
     if (!signature) {
         signature = newSignature();
@@ -278,6 +282,7 @@ function addSignature(signature) {
         }, "signatures");
         $("#signatureEditModal-" + signature.id).modal("hide");
     });
+    initTooltips();
 
     // remove modal ...
     signatureModals.append(Mustache.render(SIGNATURE_REMOVE_MODAL, {

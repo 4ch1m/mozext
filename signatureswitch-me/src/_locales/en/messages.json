@@ -132,10 +132,10 @@
     "message": "Yes"
   },
   "optionsImportExportDataLabel": {
-    "message": "Signatures (JSON data):"
+    "message": "Signatures:"
   },
   "optionsImportExportDataTooltip": {
-    "message": "JSON-data in the form of '[ { \"id\": \"666\", \"name\": \"Business\", \"text\": \"email: moe@zilla.org\" } ]'."
+    "message": "JSON-data in the form of:"
   },
   "optionsImportExportDescription1": {
     "message": "This feature is primarily intended for backup/restore purposes. Export your signatures; copy them to the clipboard; paste into a text-editor of your choice and save the data to a file. (Vice-versa: Paste previously backed up data in here and import.)"

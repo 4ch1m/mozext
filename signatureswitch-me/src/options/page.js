@@ -38,7 +38,17 @@ $(function() {
     $("#exportSignatures").click(() => {
         loadAndShowSignaturesAsJsonString();
     });
-    $("#importExportDataTooltip").attr("title", i18n("optionsImportExportDataTooltip"));
+    $("#importExportDataTooltip").attr("title", i18n("optionsImportExportDataTooltip") + `
+    <br><br>
+    <div class="text-left nobr">
+    [<br>
+    &nbsp;{<br>
+    &nbsp;&nbsp;"id": "666",<br>
+    &nbsp;&nbsp;"name": "Business",<br>
+    &nbsp;&nbsp;"text": "email: moe@zilla.org"<br>
+    &nbsp;}<br>
+    ]</div>
+    `);
 });
 
 /* =====================================================================================================================

@@ -218,6 +218,9 @@
   "optionsSignatureEditModalSave": {
     "message": "Save"
   },
+  "optionsSignatureEditModalTextHtmlPlaceholderEg": {
+    "message": "e.g."
+  },
   "optionsSignatureEditModalTitle": {
     "message": "Edit signature"
   },

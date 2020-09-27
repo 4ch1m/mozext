@@ -49,7 +49,7 @@ const SIGNATURE_ROW = `
 
 const SIGNATURE_EDIT_MODAL = `
     <div class="modal fade" id="signatureEditModal-{{id}}" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">{{title}}</h5>
@@ -91,7 +91,7 @@ const SIGNATURE_EDIT_MODAL = `
                                 <div id="signatureEditCollapsePlaintext-{{id}}" class="collapse show" data-parent="#signatureEditAccordion-{{id}}">
                                     <div class="card-body bg-light">
                                         <!-- text -->
-                                        <textarea class="form-control" id="signatureModalText-{{id}}" rows="5" spellcheck="false">{{text}}</textarea>
+                                        <textarea class="form-control" id="signatureModalText-{{id}}" rows="5" spellcheck="false" placeholder="{{textPlaceholder}}">{{text}}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -106,7 +106,7 @@ const SIGNATURE_EDIT_MODAL = `
                                 <div id="signatureEditCollapseHtml-{{id}}" class="collapse" data-parent="#signatureEditAccordion-{{id}}">
                                     <div class="card-body bg-light">
                                         <!-- HTML -->
-                                        <textarea class="form-control" id="signatureModalHtml-{{id}}" rows="5" spellcheck="false">{{html}}</textarea>
+                                        <textarea class="form-control" id="signatureModalHtml-{{id}}" rows="5" spellcheck="false" placeholder="{{htmlPlaceholder}}">{{html}}</textarea>
                                     </div>
                                 </div>
                             </div>

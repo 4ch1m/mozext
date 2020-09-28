@@ -48,10 +48,10 @@
     "message": "Default Action"
   },
   "optionsDefaultActionDescription": {
-    "message": "When opening a new compose-window ..."
+    "message": "When opening a new compose window ..."
   },
   "optionsDefaultActionInsert": {
-    "message": "Insert the default-signature"
+    "message": "Insert the default signature"
   },
   "optionsDefaultActionNothing": {
     "message": "Do nothing"
@@ -96,7 +96,7 @@
     "message": "create a new entry by clicking the button above"
   },
   "optionsImageUsage2": {
-    "message": "click the \"Browse\"-button to select and add an image-file"
+    "message": "click the \"Browse...\" button to select and add an image file"
   },
   "optionsImageUsage3": {
     "message": "give the image a descriptive name"
@@ -105,7 +105,7 @@
     "message": "important: define a UNIQUE tag name!"
   },
   "optionsImageUsage5": {
-    "message": "use the tag-name (enclosed by double-curly-braces) in your HTML-signatures together with the src-attribute in an image-element"
+    "message": "use the tag name (enclosed by double curly braces) in your HTML signatures together with the src attribute in an image element"
   },
   "optionsImageUsageExample": {
     "message": "For example:"
@@ -114,7 +114,7 @@
     "message": "Usage:"
   },
   "optionsImageUsageNote": {
-    "message": "NOTE: Please handle the storage of image-data here with care. Adding too many and/or too large images may degrade overall performance and waste storage space. Only use optimized assets really needed for signature-creation."
+    "message": "NOTE: Please handle the storage of image data here with care. Adding too many and/or too large images may degrade overall performance and waste storage space. Only use optimized assets really needed for signature creation."
   },
   "optionsImages": {
     "message": "Images"
@@ -129,7 +129,7 @@
     "message": "No"
   },
   "optionsImportExportConfirmationModalQuestion": {
-    "message": "Do you really want to import the JSON-data and overwrite all currently stored signatures?"
+    "message": "Do you really want to import the JSON data and overwrite all currently stored signatures?"
   },
   "optionsImportExportConfirmationModalTitle": {
     "message": "Import signatures"
@@ -141,13 +141,13 @@
     "message": "Signatures:"
   },
   "optionsImportExportDataTooltip": {
-    "message": "JSON-data in the form of:"
+    "message": "JSON data in the form of:"
   },
   "optionsImportExportDescription1": {
-    "message": "This feature is primarily intended for backup/restore purposes. Export your signatures; copy them to the clipboard; paste into a text-editor of your choice and save the data to a file. (Vice-versa: Paste previously backed up data in here and import.)"
+    "message": "This feature is primarily intended for backup/restore purposes. Export your signatures; copy them to the clipboard; paste into a text editor of your choice and save the data to a file. (Vice versa: Paste previously backed up data in here and import.)"
   },
   "optionsImportExportDescription2": {
-    "message": "NOTE: This export won't include the separately stored image-data; only signatures!"
+    "message": "NOTE: This export won't include the separately stored image data; only signatures!"
   },
   "optionsImportExportExport": {
     "message": "Export"
@@ -183,19 +183,19 @@
     "message": "Replies"
   },
   "optionsRepliesDisableAutoSwitch": {
-    "message": "Disable auto-switch on replies."
+    "message": "Disable auto switch on replies."
   },
   "optionsRepliesNoDefaultAction": {
-    "message": "Don't apply default-action when replying to a mail."
+    "message": "Don't apply default action when replying to a mail."
   },
   "optionsSignatureEditModalAutoSwitch": {
-    "message": "Auto-switch"
+    "message": "Auto switch"
   },
   "optionsSignatureEditModalAutoSwitchPlaceholder": {
     "message": "e.g. '*@company.com, *smith*@*.de, moe@zilla.com'"
   },
   "optionsSignatureEditModalAutoSwitchTooltip": {
-    "message": "A comma separated list of email-addresses, which - when detected as recipient - will automatically trigger insertion of this signature. (NOTE: The asterisk-character can be used as wildcard.)"
+    "message": "A comma separated list of email addresses, which - when detected as recipient - will automatically trigger insertion of this signature. (NOTE: The asterisk character can be used as wildcard.)"
   },
   "optionsSignatureEditModalClose": {
     "message": "Close"
@@ -204,7 +204,7 @@
     "message": "Content"
   },
   "optionsSignatureEditModalContentTooltip": {
-    "message": "Depending on the mode used when composing an email (plaintext or HTML), the appropriate signature-content will be used."
+    "message": "Depending on the mode used when composing an email (plaintext or HTML), the appropriate signature content will be used."
   },
   "optionsSignatureEditModalHtml": {
     "message": "HTML"
@@ -216,7 +216,7 @@
     "message": "e.g. 'Private Signature'"
   },
   "optionsSignatureEditModalNameTooltip": {
-    "message": "The name which gets displayed when selecting your signature via button or context-menu."
+    "message": "The name which gets displayed when selecting your signature via button or context menu."
   },
   "optionsSignatureEditModalPlaintext": {
     "message": "Plaintext"

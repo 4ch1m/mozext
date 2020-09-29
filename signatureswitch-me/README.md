@@ -27,9 +27,9 @@ Pre-alpha phase!
 
 ```
 git clone https://github.com/4ch1m/mozext.git
-cd mozext/signatureswitch-me
 git submodule init
 git submodule update
+cd mozext/signatureswitch-me
 ```
 
 ### Build

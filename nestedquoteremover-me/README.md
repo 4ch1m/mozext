@@ -3,12 +3,6 @@
 # NestedQuote Remover - MailExtension | [![Build Status](https://travis-ci.org/4ch1m/mozext.svg?branch=master)](https://travis-ci.org/4ch1m/mozext)
 > A complete rewrite of the (XUL-based) [NestedQuote Remover](../nestedquoteremover) add-on.
 
-```diff
-- WORK IN PROGRESS -
-
-beta phase
-```
-
 ## ToC
 
 * [How To](#how-to)
@@ -25,9 +19,9 @@ beta phase
 
 ```
 git clone https://github.com/4ch1m/mozext.git
-cd mozext/nestedquoteremover-me
 git submodule init
 git submodule update
+cd mozext/nestedquoteremover-me
 ```
 
 ### Build
@@ -45,7 +39,7 @@ npm start
 ### Create XPI
 
 ```
-npm package
+npm run package
 ```
 
 ## Credits

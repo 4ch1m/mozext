@@ -1,0 +1,41 @@
+{
+  "commandRemoveDescription": {
+    "message": "Verschachtelte Zitate entfernen"
+  },
+  "contextMenu": {
+    "message": "Verschachtelte Zitate entfernen"
+  },
+  "extensionDescription": {
+    "message": "Entfernt verschachtelte Zitate beim Antworten auf E-Mails."
+  },
+  "extensionName": {
+    "message": "NestedQuote Remover"
+  },
+  "optionsAutoRemove": {
+    "message": "Verschachtelte Zitate automatisch entfernen"
+  },
+  "optionsContextMenuEntry": {
+    "message": "Eintrag im Kontextmenu anzeigen"
+  },
+  "optionsKeyboardShortcut": {
+    "message": "Tastenkürzel:"
+  },
+  "optionsKeyboardShortcutPlaceholder": {
+    "message": "z.B. 'Ctrl+Shift+N'"
+  },
+  "optionsKeyboardShortcutReset": {
+    "message": "Zurücksetzen"
+  },
+  "optionsKeyboardShortcutSet": {
+    "message": "Speichern"
+  },
+  "optionsMaxAllowedQuoteDepth": {
+    "message": "Maximal erlaubte Zitattiefe:"
+  },
+  "optionsSupport1": {
+    "message": "Wenn Ihnen dieses Add-On gefällt und Sie den Autor unterstützen möchten, dann besuchen sie bitte "
+  },
+  "optionsSupport2": {
+    "message": " und hinterlassen eine Spende. Vielen Dank!"
+  }
+}

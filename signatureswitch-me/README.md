@@ -47,7 +47,7 @@ npm start
 ### Create XPI
 
 ```
-npm package
+npm run package
 ```
 
 ## Credits

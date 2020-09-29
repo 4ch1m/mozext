@@ -185,7 +185,7 @@ async function initUI(localStorage) {
                         label: i18n("optionsSwitchCommandLabel"),
                         value: command.shortcut,
                         placeholder: i18n("optionsCommandPlaceholder"),
-                        resetButtonText: i18n("optionsCommandResetButton")
+                        resetButtonText: i18n("optionsCommandReset")
                     }));
                     break;
                 case "next":
@@ -194,7 +194,7 @@ async function initUI(localStorage) {
                         label: i18n("optionsNextCommandLabel"),
                         value: command.shortcut,
                         placeholder: i18n("optionsCommandPlaceholder"),
-                        resetButtonText: i18n("optionsCommandResetButton")
+                        resetButtonText: i18n("optionsCommandReset")
                     }));
                     break;
                 case "previous":
@@ -203,7 +203,7 @@ async function initUI(localStorage) {
                         label: i18n("optionsPreviousCommandLabel"),
                         value: command.shortcut,
                         placeholder: i18n("optionsCommandPlaceholder"),
-                        resetButtonText: i18n("optionsCommandResetButton")
+                        resetButtonText: i18n("optionsCommandReset")
                     }));
                     break;
             }

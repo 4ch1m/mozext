@@ -8,14 +8,14 @@
   "commandSwitchDescription": {
     "message": "Switch signature on/off"
   },
-  "composeOnOffButtonOff": {
-    "message": "Switch Off"
-  },
-  "composeOnOffButtonOn": {
-    "message": "Switch On"
-  },
   "composeOptions": {
     "message": "Options"
+  },
+  "composeSwitchOff": {
+    "message": "Switch Off"
+  },
+  "composeSwitchOn": {
+    "message": "Switch On"
   },
   "extensionDescription": {
     "message": "Switch the signature on/off or choose a new one from your predefined set."
@@ -29,16 +29,16 @@
   "menuOptions": {
     "message": "Options"
   },
-  "optionsButtonAddImage": {
+  "optionsAddImage": {
     "message": "Add new image"
   },
-  "optionsButtonAddSignature": {
+  "optionsAddSignature": {
     "message": "Add new signature"
   },
   "optionsCommandPlaceholder": {
     "message": "e.g. 'Ctrl+Shift+U'"
   },
-  "optionsCommandResetButton": {
+  "optionsCommandReset": {
     "message": "Reset"
   },
   "optionsCommands": {

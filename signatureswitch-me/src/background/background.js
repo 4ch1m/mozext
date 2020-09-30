@@ -478,7 +478,7 @@ async function getAllSignatureIds(signaturesArray) {
 }
 
 async function isReplyComposer(tabId = composeActionTabId) {
-    await browser.compose.getComposeDetails(tabId).then(details => {
+    return await browser.compose.getComposeDetails(tabId).then(details => {
         return details.subject.startsWith(REPLY_SUBJECT_PREFIX);
     });
 }

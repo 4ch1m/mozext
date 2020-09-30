@@ -185,10 +185,19 @@ const COMMAND_ROW = `
         <div class="col-sm-2 text-right">
             <label class="nobr" for="command-{{id}}">{{label}}</label>
         </div>
-        <div class="col-sm">
-            <input type="text" class="form-control" id="command-{{id}}" value="{{value}}" placeholder="{{placeholder}}">
-        </div>
-        <div class="col-sm">
+        <div class="col-sm nobr">
+            <select id="command-{{id}}-modifier1" class="custom-select custom-select-sm" style="width:auto">
+                {{{modifierOptions1}}}
+            </select>      
+            +  
+            <select id="command-{{id}}-modifier2" class="custom-select custom-select-sm" style="width:auto">
+                {{{modifierOptions2}}}
+            </select>
+            +        
+            <select id="command-{{id}}-key" class="custom-select custom-select-sm" style="width:auto">
+                {{{keyOptions}}}
+            </select>
+            &nbsp;        
             <button type="button" id="command-{{id}}-reset" class="btn btn-light btn-sm">
                 <svg class="bi" width="2em" height="2em" fill="currentColor">
                     <use xlink:href="/_images/bootstrap-icons.svg#arrow-counterclockwise"/>
@@ -196,6 +205,13 @@ const COMMAND_ROW = `
                 &nbsp;
                 <span>{{resetButtonText}}</span>
             </button>
+            &nbsp;
+            <svg id="command-{{id}}-success" class="bi d-none text-success" width="2em" height="2em" fill="currentColor">
+                <use xlink:href="/_images/bootstrap-icons.svg#check"/>
+            </svg>
+            <svg id="command-{{id}}-fail" class="bi d-none text-danger" width="2em" height="2em" fill="currentColor">
+                <use xlink:href="/_images/bootstrap-icons.svg#x"/>
+            </svg>
         </div>
     </div>
 `;

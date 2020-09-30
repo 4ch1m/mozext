@@ -35,8 +35,44 @@
   "optionsAddSignature": {
     "message": "Add new signature"
   },
-  "optionsCommandPlaceholder": {
-    "message": "e.g. 'Ctrl+Shift+U'"
+  "optionsCommandKeyComma": {
+    "message": "Comma"
+  },
+  "optionsCommandKeyDelete": {
+    "message": "Delete"
+  },
+  "optionsCommandKeyDown": {
+    "message": "Down"
+  },
+  "optionsCommandKeyEnd": {
+    "message": "End"
+  },
+  "optionsCommandKeyHome": {
+    "message": "Home"
+  },
+  "optionsCommandKeyInsert": {
+    "message": "Insert"
+  },
+  "optionsCommandKeyLeft": {
+    "message": "Left"
+  },
+  "optionsCommandKeyPageDown": {
+    "message": "PageDown"
+  },
+  "optionsCommandKeyPageUp": {
+    "message": "PageUp"
+  },
+  "optionsCommandKeyPeriod": {
+    "message": "Period"
+  },
+  "optionsCommandKeyRight": {
+    "message": "Right"
+  },
+  "optionsCommandKeySpace": {
+    "message": "Space"
+  },
+  "optionsCommandKeyUp": {
+    "message": "Up"
   },
   "optionsCommandReset": {
     "message": "Reset"

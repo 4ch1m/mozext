@@ -178,49 +178,110 @@ async function initUI(localStorage) {
         let commandsContainer = $("#commandsContainer");
 
         for (let command of commands) {
+            let label = "";
             switch (command.name) {
                 case "switch":
-                    commandsContainer.append(Mustache.render(COMMAND_ROW, {
-                        id: command.name,
-                        label: i18n("optionsSwitchCommandLabel"),
-                        value: command.shortcut,
-                        placeholder: i18n("optionsCommandPlaceholder"),
-                        resetButtonText: i18n("optionsCommandReset")
-                    }));
+                    label = i18n("optionsSwitchCommandLabel");
                     break;
                 case "next":
-                    commandsContainer.append(Mustache.render(COMMAND_ROW, {
-                        id: command.name,
-                        label: i18n("optionsNextCommandLabel"),
-                        value: command.shortcut,
-                        placeholder: i18n("optionsCommandPlaceholder"),
-                        resetButtonText: i18n("optionsCommandReset")
-                    }));
+                    label = i18n("optionsNextCommandLabel");
                     break;
                 case "previous":
-                    commandsContainer.append(Mustache.render(COMMAND_ROW, {
-                        id: command.name,
-                        label: i18n("optionsPreviousCommandLabel"),
-                        value: command.shortcut,
-                        placeholder: i18n("optionsCommandPlaceholder"),
-                        resetButtonText: i18n("optionsCommandReset")
-                    }));
+                    label = i18n("optionsCommandReset");
                     break;
             }
 
-            let commandInput = $("#command-" + command.name);
+            let commandValues = command.shortcut.split("+");
 
-            commandInput.keyup(() => {
-                updateCommand(command.name, commandInput.val()).then(() => {
-                    commandInput.removeClass("is-invalid").addClass("is-valid");
-                }, () => {
-                    commandInput.removeClass("is-valid").addClass("is-invalid");
+            let commandValueCheck = (commandValuesArray, commandValue) => {
+                if (typeof commandValuesArray !== "undefined" && commandValuesArray.length > 0 && commandValuesArray[0] === commandValue) {
+                    commandValuesArray.shift();
+                    return true;
+                } else {
+                    return false;
+                }
+            };
+
+            let createOptionElement = (value, selected, text) => {
+                return `<option value="${value}" ${selected ? "selected" : ""}>${text}</option>`;
+            }
+
+            let modifierOptions1 = "";
+            for (let modifier of ["Ctrl", "Alt", "Command", "MacCtrl"]) {
+                modifierOptions1 += createOptionElement(modifier, commandValueCheck(commandValues, modifier), modifier);
+            }
+
+            let modifierOptions2 = createOptionElement("", false, "");
+            for (let modifier of ["Shift", "Ctrl", "Alt", "Command", "MacCtrl"]) {
+                modifierOptions2 += createOptionElement(modifier, commandValueCheck(commandValues, modifier), modifier);
+            }
+
+            let keyOptions = "";
+            // A-Z ...
+            for (let i = "A".charCodeAt(0); i <= "Z".charCodeAt(0); i++) {
+                keyOptions += createOptionElement(String.fromCharCode(i), commandValueCheck(commandValues, String.fromCharCode(i)), String.fromCharCode(i));
+            }
+            // 0-9 ...
+            for (let i = 0; i <= 9; i++) {
+                keyOptions += createOptionElement(i, commandValueCheck(commandValues, i), i);
+            }
+            // F1-F12
+            for (let i = 1; i <= 12; i++) {
+                keyOptions += createOptionElement("F" + i, commandValueCheck(commandValues, "F" + i), "F" + i);
+            }
+            // the rest ...
+            for (let key of ["Comma", "Period", "Home", "End", "PageUp", "PageDown", "Space", "Insert", "Delete", "Up", "Down", "Left", "Right"]) {
+                keyOptions += createOptionElement(key, commandValueCheck(commandValues, key), key);
+            }
+
+            commandsContainer.append(Mustache.render(COMMAND_ROW, {
+                id: command.name,
+                label: label,
+                modifierOptions1: modifierOptions1,
+                modifierOptions2: modifierOptions2,
+                keyOptions: keyOptions,
+                resetButtonText: i18n("optionsCommandReset")
+            }));
+
+            let modifier1Element = $(`#command-${command.name}-modifier1`);
+            let modifier2Element = $(`#command-${command.name}-modifier2`);
+            let keyElement = $(`#command-${command.name}-key`);
+
+            let successIcon = $(`#command-${command.name}-success`);
+            let failIcon = $(`#command-${command.name}-fail`);
+
+            for (let element of [modifier1Element, modifier2Element, keyElement]) {
+                element.change(() => {
+                    let elements = [];
+                    let selectedModifier1 = modifier1Element.find("option:selected");
+                    let selectedModifier2 = modifier2Element.find("option:selected");
+                    let selectedKey = keyElement.find("option:selected");
+
+                    if (selectedModifier1.val() !== "") {
+                        elements.push(selectedModifier1.val());
+                    }
+                    if (selectedModifier2.val() !== "") {
+                        elements.push(selectedModifier2.val());
+                    }
+                    if (selectedKey.val() !== "") {
+                        elements.push(selectedKey.val());
+                    }
+
+                    updateCommand(command.name, elements.join("+")).then(() => {
+                        successIcon.removeClass("d-none");
+                        failIcon.addClass("d-none");
+                    }, () => {
+                        failIcon.removeClass("d-none");
+                        successIcon.addClass("d-none");
+                    })
+
                 })
-            });
+            }
 
             $("#command-" + command.name + "-reset").click(() => {
                 resetCommand(command.name);
-                commandInput.removeClass("is-invalid").removeClass("is-valid");
+                successIcon.addClass("d-none");
+                failIcon.addClass("d-none");
             });
         }
     });
@@ -425,7 +486,7 @@ function loadAndShowSignaturesAsJsonString() {
 function importSignaturesFromJsonString(jsonString) {
     try {
         addOrUpdateStoredValue("signatures", JSON.parse(jsonString));
-        $('#importSuccessModal').modal('show');
+        $("#importSuccessModal").modal("show");
     } catch(e) {
         console.log("unable to store signatures. probably invalid json-string.");
     }
@@ -472,7 +533,11 @@ async function resetCommand(name) {
     (await browser.runtime.getBackgroundPage()).browser.commands.getAll().then(commands => {
         for (let command of commands) {
             if (command.name === name) {
-                $("#command-" + name).val(command.shortcut);
+                // TODO refactor - this will only work if the default command consists of three values
+                let commandValues = command.shortcut.split("+");
+                $(`#command-${command.name}-modifier1`).val(commandValues[0]);
+                $(`#command-${command.name}-modifier2`).val(commandValues[1]);
+                $(`#command-${command.name}-key`).val(commandValues[2]);
             }
         }
     });

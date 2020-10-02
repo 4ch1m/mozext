@@ -27,9 +27,10 @@ beta phase
 
 ```
 git clone https://github.com/4ch1m/mozext.git
+cd mozext
 git submodule init
 git submodule update
-cd mozext/signatureswitch-me
+cd signatureswitch-me
 ```
 
 ### Build

@@ -19,9 +19,10 @@
 
 ```
 git clone https://github.com/4ch1m/mozext.git
+cd mozext
 git submodule init
 git submodule update
-cd mozext/nestedquoteremover-me
+cd nestedquoteremover-me
 ```
 
 ### Build

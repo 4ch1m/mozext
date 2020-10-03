@@ -3,12 +3,6 @@
 # Signature Switch - MailExtension | [![Build Status](https://travis-ci.org/4ch1m/mozext.svg?branch=master)](https://travis-ci.org/4ch1m/mozext)
 > A complete rewrite of the (XUL-based) [Signature Switch](../signatureswitch) add-on.
 
-```diff
-- WORK IN PROGRESS -
-
-beta phase
-```
-
 ## ToC
 
 * [How To](#how-to)

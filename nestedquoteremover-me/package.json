@@ -1,7 +1,7 @@
 {
   "name": "nestedquoteremover",
   "dependencies": {
-    "web-ext": "^5.1.0"
+    "web-ext": "^5.2.0"
   },
   "scripts": {
     "prestart": "./mozdev-tools/setup.sh tb; ./mozdev-tools/install.sh tb; ./mozdev-tools/move_devtools_window.sh 3841 0 &",

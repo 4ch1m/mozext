@@ -36,13 +36,11 @@ const SIGNATURE_ROW = `
         </td>
         <!-- remove -->
         <td>
-            <span class="signatures-table-remove">
-                <button type="button" class="btn btn-light btn-sm" data-toggle="modal" data-target="#signatureRemoveModal-{{id}}">
-                    <svg class="bi" width="2em" height="2em" fill="currentColor">
-                        <use xlink:href="/_images/bootstrap-icons.svg#trash"/>
-                    </svg>
-                </button>
-            </span>
+            <button type="button" class="btn btn-light btn-sm" data-toggle="modal" data-target="#signatureRemoveModal-{{id}}">
+                <svg class="bi" width="2em" height="2em" fill="currentColor">
+                    <use xlink:href="/_images/bootstrap-icons.svg#trash"/>
+                </svg>
+            </button>
         </td>
     </tr>
 `;
@@ -235,13 +233,11 @@ const IMAGES_ROW = `
         </td>
         <!-- remove -->
         <td>
-            <span class="images-table-remove">
-                <button type="button" class="btn btn-light btn-sm" data-toggle="modal" data-target="#imageRemoveModal-{{id}}">
-                    <svg class="bi" width="2em" height="2em" fill="currentColor">
-                        <use xlink:href="/_images/bootstrap-icons.svg#trash"/>
-                    </svg>
-                </button>
-            </span>
+            <button type="button" class="btn btn-light btn-sm" data-toggle="modal" data-target="#imageRemoveModal-{{id}}">
+                <svg class="bi" width="2em" height="2em" fill="currentColor">
+                    <use xlink:href="/_images/bootstrap-icons.svg#trash"/>
+                </svg>
+            </button>
         </td>
     </tr>
 `;
@@ -268,6 +264,107 @@ const IMAGE_REMOVE_MODAL = `
                         {{no}}
                     </button>
                     <button id="imageRemoveModalYes-{{id}}" type="button" class="btn btn-light">
+                        <svg class="bi" width="2em" height="2em" fill="currentColor">
+                            <use xlink:href="/_images/bootstrap-icons.svg#check"/>
+                        </svg>
+                        &nbsp;
+                        {{yes}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+`;
+
+const FORTUNE_COOKIES_ROW = `
+    <tr class="hide" data-fortunecookies-id="{{id}}">
+        <!-- name -->
+        <td>
+            <input id="fortuneCookiesName-{{id}}" type="text" class="form-control w-100" value="{{name}}" placeholder="{{namePlaceholder}}">
+        </td>
+        <!-- tag -->
+        <td>
+            <input id="fortuneCookiesTag-{{id}}" type="text" class="form-control w-100" value="{{tag}}" placeholder="{{tagPlaceholder}}">
+        </td>
+        <!-- content -->
+        <td>
+            <textarea id="fortuneCookiesCookies-{{id}}" type="text" class="form-control w-100" rows="1" readonly>{{cookies}}</textarea>
+        </td>
+        <!-- remove -->
+        <td>
+            <button type="button" class="btn btn-light btn-sm" data-toggle="modal" data-target="#fortuneCookiesRemoveModal-{{id}}">
+                <svg class="bi" width="2em" height="2em" fill="currentColor">
+                    <use xlink:href="/_images/bootstrap-icons.svg#trash"/>
+                </svg>
+            </button>
+        </td>
+    </tr>
+`;
+
+const FORTUNE_COOKIES_EDIT_MODAL = `
+    <div class="modal fade" id="fortuneCookiesEditModal-{{id}}" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">{{title}}</h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <label for="fortuneCookiesEditModalCookies-{{id}}">
+                        {{cookiesLabel}}
+                        <span data-toggle="tooltip" title="{{cookiesTooltip}}">
+                            <svg class="bi" width="1em" height="1em" fill="currentColor">
+                                <use xlink:href="/_images/bootstrap-icons.svg#info-circle"/>
+                            </svg>
+                        </span>
+                    </label>
+                    <textarea class="form-control" id="fortuneCookiesEditModalCookies-{{id}}" rows="10" spellcheck="false" placeholder="{{cookiesPlaceholder}}">{{cookies}}</textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-dismiss="modal">
+                        <svg class="bi" width="2em" height="2em" fill="currentColor">
+                            <use xlink:href="/_images/bootstrap-icons.svg#x"/>
+                        </svg>
+                        &nbsp;
+                        {{close}}
+                    </button>
+                    <button id="fortuneCookiesEditModalSave-{{id}}" type="button" class="btn btn-light">
+                        <svg class="bi" width="2em" height="2em" fill="currentColor">
+                            <use xlink:href="/_images/bootstrap-icons.svg#check"/>
+                        </svg>
+                        &nbsp;
+                        {{save}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+`;
+
+const FORTUNE_COOKIES_REMOVE_MODAL = `
+    <div class="modal fade" id="fortuneCookiesRemoveModal-{{id}}" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">{{title}}</h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {{question}}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-dismiss="modal">
+                        <svg class="bi" width="2em" height="2em" fill="currentColor">
+                            <use xlink:href="/_images/bootstrap-icons.svg#x"/>
+                        </svg>
+                        &nbsp;
+                        {{no}}
+                    </button>
+                    <button id="fortuneCookiesRemoveModalYes-{{id}}" type="button" class="btn btn-light">
                         <svg class="bi" width="2em" height="2em" fill="currentColor">
                             <use xlink:href="/_images/bootstrap-icons.svg#check"/>
                         </svg>

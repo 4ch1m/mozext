@@ -29,6 +29,9 @@
   "menuOptions": {
     "message": "Options"
   },
+  "optionsAddFortuneCookies": {
+    "message": "Add new fortune cookies"
+  },
   "optionsAddImage": {
     "message": "Add new image"
   },
@@ -95,6 +98,63 @@
   "optionsDefaultActionOff": {
     "message": "Turn the signature off"
   },
+  "optionsFortuneCookies": {
+    "message": "Fortune Cookies"
+  },
+  "optionsFortuneCookiesEditModalClose": {
+    "message": "Close"
+  },
+  "optionsFortuneCookiesEditModalLabel": {
+    "message": "Cookies"
+  },
+  "optionsFortuneCookiesEditModalPlaceholder": {
+    "message": "Chuck Norris can divide by zero.\n%\nChuck Norris can kill two stones with one bird.\n%\nChuck Norris once visited the Virgin Islands.\nThey are now The Islands.\n%\nChuck Norris counted to infinity - three times.\n%\nChuck Norris can slam a revolving door."
+  },
+  "optionsFortuneCookiesEditModalSave": {
+    "message": "Save"
+  },
+  "optionsFortuneCookiesEditModalTitle": {
+    "message": "Edit fortune cookies"
+  },
+  "optionsFortuneCookiesEditModalTooltip": {
+    "message": "Cookies, separated by a '%'-line."
+  },
+  "optionsFortuneCookiesRemoveModalNo": {
+    "message": "No"
+  },
+  "optionsFortuneCookiesRemoveModalQuestion": {
+    "message": "Do you really want to remove these fortune cookies?"
+  },
+  "optionsFortuneCookiesRemoveModalTitle": {
+    "message": "Remove fortune cookies"
+  },
+  "optionsFortuneCookiesRemoveModalYes": {
+    "message": "Yes"
+  },
+  "optionsFortuneCookiesUsage1": {
+    "message": "create a new fortune cookies set/container by clicking the button above"
+  },
+  "optionsFortuneCookiesUsage2": {
+    "message": "give the set a descriptive name"
+  },
+  "optionsFortuneCookiesUsage3": {
+    "message": "important: define a UNIQUE tag name!"
+  },
+  "optionsFortuneCookiesUsage4": {
+    "message": "click the text box to edit the cookies"
+  },
+  "optionsFortuneCookiesUsage5": {
+    "message": "use the tag name (enclosed by double square braces) in your signatures at the place where the random cookie should appear"
+  },
+  "optionsFortuneCookiesUsageExample": {
+    "message": "For example:"
+  },
+  "optionsFortuneCookiesUsageExampleCode": {
+    "message": "Moe Zilla<br>\nemail: <a href=\"mailto:moe@zilla.org\">moe@zilla.org</a><br>\n<br>\nChuck Norris fact of the day:<br>\n<pre>\n[[chuck]]\n</pre>"
+  },
+  "optionsFortuneCookiesUsageHeader": {
+    "message": "Usage:"
+  },
   "optionsHeader": {
     "message": "$1"
   },
@@ -146,6 +206,9 @@
   "optionsImageUsageExample": {
     "message": "For example:"
   },
+  "optionsImageUsageExampleCode": {
+    "message": "<img src=\"{{logo}}\" border=\"0\" width=\"150\" height=\"100\">"
+  },
   "optionsImageUsageHeader": {
     "message": "Usage:"
   },
@@ -183,7 +246,7 @@
     "message": "This feature is primarily intended for backup/restore purposes. Export your signatures; copy them to the clipboard; paste into a text editor of your choice and save the data to a file. (Vice versa: Paste previously backed up data in here and import.)"
   },
   "optionsImportExportDescription2": {
-    "message": "NOTE: This export won't include the separately stored image data; only signatures!"
+    "message": "NOTE: This export won't include the separately stored image data or 'Fortune Cookies' data; only signatures!"
   },
   "optionsImportExportExport": {
     "message": "Export"
@@ -245,6 +308,9 @@
   "optionsSignatureEditModalHtml": {
     "message": "HTML"
   },
+  "optionsSignatureEditModalHtmlPlaceholder": {
+    "message": "<b>Moe Zilla<b><br>\nemail: <a href=\"mailto:moe@zilla.org\">moe@zilla.org</a><br>\nphone: (666) 12345"
+  },
   "optionsSignatureEditModalName": {
     "message": "Name"
   },
@@ -260,8 +326,8 @@
   "optionsSignatureEditModalSave": {
     "message": "Save"
   },
-  "optionsSignatureEditModalTextHtmlPlaceholderEg": {
-    "message": "e.g."
+  "optionsSignatureEditModalTextPlaceholder": {
+    "message": "Moe Zilla\nemail: moe@zilla.org\nphone: (666) 12345"
   },
   "optionsSignatureEditModalTitle": {
     "message": "Edit signature"
@@ -286,6 +352,24 @@
   },
   "optionsSwitchCommandLabel": {
     "message": "Switch (on/off):"
+  },
+  "optionsTableColumnFortuneCookiesDelete": {
+    "message": "Delete"
+  },
+  "optionsTableColumnFortuneCookiesFortuneCookies": {
+    "message": "Cookies"
+  },
+  "optionsTableColumnFortuneCookiesName": {
+    "message": "Name"
+  },
+  "optionsTableColumnFortuneCookiesNamePlaceholder": {
+    "message": "e.g. 'Chuck Norris'"
+  },
+  "optionsTableColumnFortuneCookiesTag": {
+    "message": "Tag"
+  },
+  "optionsTableColumnFortuneCookiesTagPlaceholder": {
+    "message": "e.g. 'chuck'"
   },
   "optionsTableColumnImagesDelete": {
     "message": "Delete"

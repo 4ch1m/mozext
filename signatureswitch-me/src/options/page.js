@@ -13,6 +13,9 @@ $(function() {
     $(".imagesAdd").click(() => {
         addImage();
     });
+    $(".fortuneCookiesAdd").click(() => {
+        addFortuneCookies();
+    });
     // --------------------------------------------------
     $("#defaultActionNothing").click(() => {
         addOrUpdateStoredValue("defaultAction", "");
@@ -95,6 +98,15 @@ function newImage() {
     };
 }
 
+function newFortuneCookies() {
+    return {
+        id: uuidv4(),
+        name: "",
+        tag: "",
+        cookies: []
+    };
+}
+
 /* =====================================================================================================================
    UI operations ...
  */
@@ -133,6 +145,13 @@ async function initUI(localStorage) {
         if (localStorage.images) {
             localStorage.images.forEach(image => {
                 addImage(image);
+            });
+        }
+
+        // build fortune cookies (tablerows + modals) ...
+        if (localStorage.fortuneCookies) {
+            localStorage.fortuneCookies.forEach(fortuneCookies => {
+                addFortuneCookies(fortuneCookies);
             });
         }
 
@@ -187,7 +206,7 @@ async function initUI(localStorage) {
                     label = i18n("optionsNextCommandLabel");
                     break;
                 case "previous":
-                    label = i18n("optionsCommandReset");
+                    label = i18n("optionsPreviousCommandLabel");
                     break;
             }
 
@@ -229,9 +248,25 @@ async function initUI(localStorage) {
             for (let i = 1; i <= 12; i++) {
                 keyOptions += createOptionElement("F" + i, commandValueCheck(commandValues, "F" + i), "F" + i);
             }
-            // the rest ...
+            /*
+                the rest ...
+
+                    - optionsCommandKeyComma
+                    - optionsCommandKeyDelete
+                    - optionsCommandKeyDown
+                    - optionsCommandKeyEnd
+                    - optionsCommandKeyHome
+                    - optionsCommandKeyInsert
+                    - optionsCommandKeyLeft
+                    - optionsCommandKeyPageDown
+                    - optionsCommandKeyPageUp
+                    - optionsCommandKeyPeriod
+                    - optionsCommandKeyRight
+                    - optionsCommandKeySpace
+                    - optionsCommandKeyUp
+            */
             for (let key of ["Comma", "Period", "Home", "End", "PageUp", "PageDown", "Space", "Insert", "Delete", "Up", "Down", "Left", "Right"]) {
-                keyOptions += createOptionElement(key, commandValueCheck(commandValues, key), key);
+                keyOptions += createOptionElement(key, commandValueCheck(commandValues, key), i18n("optionsCommandKey" + key));
             }
 
             commandsContainer.append(Mustache.render(COMMAND_ROW, {
@@ -336,9 +371,9 @@ function addSignature(signature) {
         contentLabel: i18n("optionsSignatureEditModalContent"),
         contentTooltip: i18n("optionsSignatureEditModalContentTooltip"),
         textHeading: i18n("optionsSignatureEditModalPlaintext"),
-        textPlaceholder: i18n("optionsSignatureEditModalTextHtmlPlaceholderEg") + "\n" + "Moe Zilla\nemail: moe@zilla.org\nphone: (666) 12345",
+        textPlaceholder: i18n("optionsSignatureEditModalTextPlaceholder"),
         htmlHeading: i18n("optionsSignatureEditModalHtml"),
-        htmlPlaceholder: i18n("optionsSignatureEditModalTextHtmlPlaceholderEg") + "\n" + "<b>Moe Zilla<b><br>\nemail: <a href=\"mailto:moe@zilla.org\">moe@zilla.org</a><br>\nphone: (666) 12345",
+        htmlPlaceholder: i18n("optionsSignatureEditModalHtmlPlaceholder"),
         autoSwitchLabel: i18n("optionsSignatureEditModalAutoSwitch"),
         autoSwitchTooltip: i18n("optionsSignatureEditModalAutoSwitchTooltip"),
         autoSwitchPlaceholder: i18n("optionsSignatureEditModalAutoSwitchPlaceholder"),
@@ -474,6 +509,75 @@ function addImage(image) {
     });
 }
 
+function addFortuneCookies(fortuneCookies) {
+    if (!fortuneCookies) {
+        fortuneCookies = newFortuneCookies();
+    }
+
+    $("#fortuneCookiesTableBody").append(Mustache.render(FORTUNE_COOKIES_ROW, {
+        id: fortuneCookies.id,
+        name: fortuneCookies.name,
+        namePlaceholder: i18n("optionsTableColumnFortuneCookiesNamePlaceholder"),
+        tag: fortuneCookies.tag,
+        tagPlaceholder: i18n("optionsTableColumnFortuneCookiesTagPlaceholder"),
+        cookies: fortuneCookies.cookies.join("\n%\n")
+    }));
+
+    let fortuneCookiesModals = $("#fortuneCookiesModals");
+
+    // edit modal ...
+    fortuneCookiesModals.append(Mustache.render(FORTUNE_COOKIES_EDIT_MODAL, {
+        id: fortuneCookies.id,
+        title: i18n("optionsFortuneCookiesEditModalTitle"),
+        cookiesLabel: i18n("optionsFortuneCookiesEditModalLabel"),
+        cookiesTooltip: i18n("optionsFortuneCookiesEditModalTooltip"),
+        cookiesPlaceholder: i18n("optionsFortuneCookiesEditModalPlaceholder"),
+        cookies: fortuneCookies.cookies.join("\n%\n"),
+        close: i18n("optionsFortuneCookiesEditModalClose"),
+        save: i18n("optionsFortuneCookiesEditModalSave")
+    }));
+    $("#fortuneCookiesCookies-" + fortuneCookies.id).click(() => {
+        $("#fortuneCookiesEditModal-" + fortuneCookies.id).modal("show");
+    });
+    $("#fortuneCookiesEditModalSave-" + fortuneCookies.id).click(() => {
+        let editedFortuneCookiesContent = $("#fortuneCookiesEditModalCookies-" + fortuneCookies.id).val();
+        let xxx = $("#fortuneCookiesCookies-" + fortuneCookies.id);
+        xxx.val(editedFortuneCookiesContent);
+        xxx.change();
+        $("#fortuneCookiesEditModal-" + fortuneCookies.id).modal("hide");
+    });
+    initTooltips();
+
+    // remove modal ...
+    fortuneCookiesModals.append(Mustache.render(FORTUNE_COOKIES_REMOVE_MODAL, {
+        id: fortuneCookies.id,
+        title: i18n("optionsFortuneCookiesRemoveModalTitle"),
+        question: i18n("optionsFortuneCookiesRemoveModalQuestion"),
+        no: i18n("optionsFortuneCookiesRemoveModalNo"),
+        yes: i18n("optionsFortuneCookiesRemoveModalYes")
+    }));
+    $("#fortuneCookiesRemoveModalYes-" + fortuneCookies.id).click(() => {
+        deleteItemFromStoredArrayViaId(fortuneCookies.id, "fortuneCookies", function () {
+            $("#fortuneCookiesRemoveModal-" + fortuneCookies.id).modal("hide");
+            $(`tr[data-fortunecookies-id="${fortuneCookies.id}"]`).remove();
+        });
+    });
+
+    let updatedFortuneCookies = () => {
+        return {
+            id: fortuneCookies.id,
+            name: $("#fortuneCookiesName-" + fortuneCookies.id).val(),
+            tag: $("#fortuneCookiesTag-" + fortuneCookies.id).val(),
+            cookies: $("#fortuneCookiesCookies-" + fortuneCookies.id).val().split("\n%\n")
+        };
+    };
+
+    // input-/change-listeners ...
+    $(`#fortuneCookiesName-${fortuneCookies.id}, #fortuneCookiesTag-${fortuneCookies.id}, #fortuneCookiesCookies-${fortuneCookies.id}`).on("change keyup", () => {
+        addOrUpdateItemInStoredArray(updatedFortuneCookies(), "fortuneCookies")
+    });
+}
+
 function loadAndShowSignaturesAsJsonString() {
     browser.storage.local.get().then(localStorage => {
         if (localStorage.signatures) {
@@ -504,9 +608,9 @@ function validateImportExportData() {
 
         if (signatures.length > 0) {
             for (let signature of signatures) {
-                if (! ( signature.hasOwnProperty("id")    &&
-                    signature.hasOwnProperty("name")  &&
-                    (signature.hasOwnProperty("text") || signature.hasOwnProperty("html")))) {
+                if ( !( signature.hasOwnProperty("id")    &&
+                        signature.hasOwnProperty("name")  &&
+                        (signature.hasOwnProperty("text") || signature.hasOwnProperty("html"))) ) {
                     throw "missing signature-attributes!"
                 }
             }

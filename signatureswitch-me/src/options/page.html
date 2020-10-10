@@ -43,6 +43,7 @@
                     <div class="nav nav-tabs nav-fill" role="tablist">
                         <a class="nav-item nav-link active" id="signaturesTab" data-toggle="tab" href="#signaturesTabContent" role="tab" data-i18n="optionsSignatures"></a>
                         <a class="nav-item nav-link" id="imagesTab" data-toggle="tab" href="#imagesTabContent" role="tab" data-i18n="optionsImages"></a>
+                        <a class="nav-item nav-link" id="fortuneCookiesTab" data-toggle="tab" href="#fortuneCookiesTabContent" role="tab" data-i18n="optionsFortuneCookies"></a>
                         <a class="nav-item nav-link" id="miscellaneousTab" data-toggle="tab" href="#miscellaneousTabContent" role="tab" data-i18n="optionsMiscellaneous"></a>
                         <a class="nav-item nav-link" id="importExportTab" data-toggle="tab" href="#importExportTabContent" role="tab" data-i18n="optionsImportExport"></a>
                         <a class="nav-item nav-link" id="helpTab" data-toggle="tab" href="#helpTabContent" role="tab" data-i18n="optionsHelp"></a>
@@ -135,7 +136,7 @@
                                     </ul>
                                     <span data-i18n="optionsImageUsageExample"></span><br>
                                     <div class="ml-3">
-                                        <pre><code>&lt;img src="{{logo}}" border="0" width="150" height="100"&gt;</code></pre>
+                                        <pre><code data-i18n="optionsImageUsageExampleCode"></code></pre>
                                     </div>
                                 </div>
                             </div>
@@ -143,6 +144,62 @@
                             <!-- image usage - note -->
                             <div class="row">
                                 <b data-i18n="optionsImageUsageNote"></b>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- fortune cookies -->
+                    <div class="tab-pane m-2" id="fortuneCookiesTabContent" role="tabpanel">
+                        <div class="container">
+                            <div class="row section">
+                                <div id="fortuneCookiesTable">
+                                    <table class="table table-bordered text-center">
+                                        <thead class="thead-dark">
+                                        <tr>
+                                            <!-- name -->
+                                            <th class="w-25 text-center" data-i18n="optionsTableColumnFortuneCookiesName"></th>
+                                            <!-- tag -->
+                                            <th class="w-20 text-center" data-i18n="optionsTableColumnFortuneCookiesTag"></th>
+                                            <!-- content -->
+                                            <th class="w-50 text-center" data-i18n="optionsTableColumnFortuneCookiesFortuneCookies"></th>
+                                            <!-- delete -->
+                                            <th class="w-auto text-center" data-i18n="optionsTableColumnFortuneCookiesDelete"></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="fortuneCookiesTableBody">
+                                            <!-- fortuneCookies ... -->
+                                        </tbody>
+                                    </table>
+                                    <!-- add -->
+                                    <span class="fortuneCookiesAdd">
+                                        <button type="button" class="btn btn-light btn-sm">
+                                            <svg class="bi" width="2em" height="2em" fill="currentColor">
+                                                <use xlink:href="/_images/bootstrap-icons.svg#plus"/>
+                                            </svg>
+                                            &nbsp;
+                                            <span data-i18n="optionsAddFortuneCookies"></span>
+                                        </button>
+                                    </span>
+                                </div>
+                                <!-- modals -->
+                                <span id="fortuneCookiesModals">
+                                </span>
+                            </div>
+                            <!-- fortune cookies usage -->
+                            <div class="row section">
+                                <div>
+                                    <u data-i18n="optionsFortuneCookiesUsageHeader"></u><br>
+                                    <ul>
+                                        <li data-i18n="optionsFortuneCookiesUsage1"></li>
+                                        <li data-i18n="optionsFortuneCookiesUsage2"></li>
+                                        <li data-i18n="optionsFortuneCookiesUsage3"></li>
+                                        <li data-i18n="optionsFortuneCookiesUsage4"></li>
+                                        <li data-i18n="optionsFortuneCookiesUsage5"></li>
+                                    </ul>
+                                    <span data-i18n="optionsFortuneCookiesUsageExample"></span><br>
+                                    <div class="ml-3">
+                                        <pre><code data-i18n="optionsFortuneCookiesUsageExampleCode"></code></pre>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -220,7 +277,7 @@
                                 <textarea class="form-control" id="importExportData" rows="10" spellcheck="false"></textarea>
                             </div>
                             <div class="row section">
-                                <div class="col-md-6">
+                                <div class="col-md-6 nobr">
                                     <button id="importSignatures" type="button" class="btn btn-light btn-sm" data-toggle="modal" data-target="#importConfirmationModal" disabled>
                                         <svg class="bi" width="2em" height="2em" fill="currentColor">
                                             <use xlink:href="/_images/bootstrap-icons.svg#download"/>

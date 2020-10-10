@@ -281,7 +281,7 @@ async function appendSignatureToComposer(signature, tabId = composeActionTabId) 
     let cleansedBody = getBodyWithoutSignature(details);
 
     if (details.isPlainText) {
-        cleansedBody += createPlainTextSignature(signature.text);
+        cleansedBody += await createPlainTextSignature(signature.text);
         browser.compose.setComposeDetails(tabId, {plainTextBody: cleansedBody});
     } else {
         let document = domParser.parseFromString(cleansedBody, "text/html");
@@ -358,8 +358,30 @@ async function searchSignatureInComposer(tabId = composeActionTabId) {
 
         for (let signature of signatures) {
             if (details.isPlainText) {
-                if (details.plainTextBody.endsWith(createPlainTextSignature(signature.text))) {
-                    return signature.id;
+                // check if the signature contains a fortune-cookie placeholder
+                if (new RegExp(".*\\[\\[.*\\]\\].*").test(signature.text)) {
+                    if (localStorage.fortuneCookies) {
+                        // TODO
+                        // refactor me! pretty wonky implementation/concept!
+                        // this assumes that only ONE fc-tag is present/used in the signature
+                        let fortuneCookiesTag = signature.text.substring(signature.text.indexOf("[[") + 2, signature.text.indexOf("]]"));
+                        for (let fortuneCookies of localStorage.fortuneCookies) {
+                            if (fortuneCookies.tag === fortuneCookiesTag) {
+                                for (let cookie of fortuneCookies.cookies) {
+                                    // check if the composer body contains a cookie of that sig, plus the text before AND after the fc-tag
+                                    if (details.plainTextBody.includes(cookie) &&
+                                        details.plainTextBody.includes(signature.text.substring(0, signature.text.indexOf("[["))) &&
+                                        details.plainTextBody.includes(signature.text.substring(signature.text.indexOf("]]") + 2), signature.text.length - 1)) {
+                                        return signature.id;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    if (details.plainTextBody.endsWith(await createPlainTextSignature(signature.text))) {
+                        return signature.id;
+                    }
                 }
             } else {
                 let htmlSignatures = bodyDocument.getElementsByClassName(HTML_SIGNATURE_CLASS);
@@ -406,21 +428,17 @@ function autoSwitchBasedOnRecipients(tabId = composeActionTabId) {
    signature creation ...
  */
 
-function createPlainTextSignature(text) {
-    return NEW_LINE + PLAINTEXT_SIGNATURE_SEPARATOR + text;
+async function createPlainTextSignature(text) {
+    text = await searchAndReplaceFortuneCookiePlaceholder(text);
+
+    return  NEW_LINE +
+            PLAINTEXT_SIGNATURE_SEPARATOR +
+            text;
 }
 
 async function createHtmlSignature(document, html, signatureId, elementType = "div") {
-    // check if html-content contains image-placeholders, which need to be resolved
-    if (new RegExp(".*{{.*}}.*").test(html)) {
-        await browser.storage.local.get().then(localStorage => {
-            if (localStorage.images) {
-                for (let image of localStorage.images) {
-                    html = html.replace(new RegExp("{{" + image.tag + "}}"), image.data);
-                }
-            }
-        });
-    }
+    html = await searchAndReplaceImagePlaceholder(html);
+    html = await searchAndReplaceFortuneCookiePlaceholder(html);
 
     let element = document.createElement(elementType);
     element.innerHTML = html;
@@ -433,6 +451,34 @@ async function createHtmlSignature(document, html, signatureId, elementType = "d
     }
 
     return element;
+}
+
+async function searchAndReplaceImagePlaceholder(content) {
+    if (new RegExp(".*{{.*}}.*").test(content)) {
+        await browser.storage.local.get().then(localStorage => {
+            if (localStorage.images) {
+                for (let image of localStorage.images) {
+                    content = content.replace(new RegExp("{{" + image.tag + "}}"), image.data);
+                }
+            }
+        });
+    }
+
+    return content;
+}
+
+async function searchAndReplaceFortuneCookiePlaceholder(content) {
+    if (new RegExp(".*\\[\\[.*\\]\\].*").test(content)) {
+        await browser.storage.local.get().then(localStorage => {
+            if (localStorage.fortuneCookies) {
+                for (let fortuneCookies of localStorage.fortuneCookies) {
+                    content = content.replace(new RegExp("\\[\\[" + fortuneCookies.tag + "\\]\\]"), fortuneCookies.cookies[random(fortuneCookies.cookies.length) - 1]);
+                }
+            }
+        });
+    }
+
+    return content;
 }
 
 /* =====================================================================================================================

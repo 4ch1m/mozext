@@ -66,3 +66,7 @@ function toBase64(file) {
         reader.onerror = error => reject(error);
     });
 }
+
+function random(n) {
+    return (Math.floor(Math.random() * n + 1));
+}

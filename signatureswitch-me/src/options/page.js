@@ -1,3 +1,7 @@
+const COMMAND_SEPARATOR = "+";
+const NEW_LINE = "\n";
+const FORTUNE_COOKIE_SEPARATOR =  NEW_LINE + "%" + NEW_LINE;
+
 // document ready
 $(function() {
     // init UI; listen for storage changes
@@ -210,7 +214,7 @@ async function initUI(localStorage) {
                     break;
             }
 
-            let commandValues = command.shortcut.split("+");
+            let commandValues = command.shortcut.split(COMMAND_SEPARATOR);
 
             let commandValueCheck = (commandValuesArray, commandValue) => {
                 if (typeof commandValuesArray !== "undefined" && commandValuesArray.length > 0 && commandValuesArray[0] === commandValue) {
@@ -302,7 +306,7 @@ async function initUI(localStorage) {
                         elements.push(selectedKey.val());
                     }
 
-                    updateCommand(command.name, elements.join("+")).then(() => {
+                    updateCommand(command.name, elements.join(COMMAND_SEPARATOR)).then(() => {
                         successIcon.removeClass("d-none");
                         failIcon.addClass("d-none");
                     }, () => {
@@ -524,10 +528,11 @@ function addFortuneCookies(fortuneCookies) {
         namePlaceholder: i18n("optionsTableColumnFortuneCookiesNamePlaceholder"),
         tag: fortuneCookies.tag,
         tagPlaceholder: i18n("optionsTableColumnFortuneCookiesTagPlaceholder"),
-        cookies: fortuneCookies.cookies.join("\n%\n")
+        cookies: fortuneCookies.cookies.join(FORTUNE_COOKIE_SEPARATOR)
     }));
 
     let fortuneCookiesModals = $("#fortuneCookiesModals");
+    let fortuneCookiesTableRowTextarea = $("#fortuneCookiesCookies-" + fortuneCookies.id);
 
     // edit modal ...
     fortuneCookiesModals.append(Mustache.render(FORTUNE_COOKIES_EDIT_MODAL, {
@@ -536,19 +541,19 @@ function addFortuneCookies(fortuneCookies) {
         cookiesLabel: i18n("optionsFortuneCookiesEditModalLabel"),
         cookiesTooltip: i18n("optionsFortuneCookiesEditModalTooltip"),
         cookiesPlaceholder: i18n("optionsFortuneCookiesEditModalPlaceholder"),
-        cookies: fortuneCookies.cookies.join("\n%\n"),
+        cookies: fortuneCookies.cookies.join(FORTUNE_COOKIE_SEPARATOR),
         close: i18n("optionsFortuneCookiesEditModalClose"),
         save: i18n("optionsFortuneCookiesEditModalSave")
     }));
-    $("#fortuneCookiesCookies-" + fortuneCookies.id).click(() => {
-        $("#fortuneCookiesEditModal-" + fortuneCookies.id).modal("show");
+    let fortuneCookiesEditModal = $("#fortuneCookiesEditModal-" + fortuneCookies.id);
+    let fortuneCookiesEditModalTextarea = $("#fortuneCookiesEditModalCookies-" + fortuneCookies.id);
+    fortuneCookiesTableRowTextarea.click(() => {
+        fortuneCookiesEditModal.modal("show");
     });
     $("#fortuneCookiesEditModalSave-" + fortuneCookies.id).click(() => {
-        let editedFortuneCookiesContent = $("#fortuneCookiesEditModalCookies-" + fortuneCookies.id).val();
-        let xxx = $("#fortuneCookiesCookies-" + fortuneCookies.id);
-        xxx.val(editedFortuneCookiesContent);
-        xxx.change();
-        $("#fortuneCookiesEditModal-" + fortuneCookies.id).modal("hide");
+        fortuneCookiesTableRowTextarea.val(fortuneCookiesEditModalTextarea.val());
+        fortuneCookiesTableRowTextarea.change();
+        fortuneCookiesEditModal.modal("hide");
     });
     initTooltips();
 
@@ -574,7 +579,7 @@ function addFortuneCookies(fortuneCookies) {
             id: fortuneCookies.id,
             name: $("#fortuneCookiesName-" + fortuneCookies.id).val(),
             tag: $("#fortuneCookiesTag-" + fortuneCookies.id).val(),
-            cookies: $("#fortuneCookiesCookies-" + fortuneCookies.id).val().split("\n%\n")
+            cookies: $("#fortuneCookiesCookies-" + fortuneCookies.id).val().split(FORTUNE_COOKIE_SEPARATOR)
         };
     };
 
@@ -644,7 +649,7 @@ async function resetCommand(name) {
         for (let command of commands) {
             if (command.name === name) {
                 // TODO refactor - this will only work if the default command consists of three values
-                let commandValues = command.shortcut.split("+");
+                let commandValues = command.shortcut.split(COMMAND_SEPARATOR);
                 $(`#command-${command.name}-modifier1`).val(commandValues[0]);
                 $(`#command-${command.name}-modifier2`).val(commandValues[1]);
                 $(`#command-${command.name}-key`).val(commandValues[2]);

@@ -393,7 +393,9 @@ function addSignature(signature) {
     initTooltips();
 
     // remove modal ...
-    signatureModals.append(Mustache.render(SIGNATURE_REMOVE_MODAL, {
+    signatureModals.append(Mustache.render(GENERIC_REMOVE_MODAL, {
+        modalId: "signatureRemoveModal-" + signature.id,
+        modalYesButtonId: "signatureRemoveModalYes-" + signature.id,
         id: signature.id,
         title: i18n("optionsSignatureRemoveModalTitle"),
         question: i18n("optionsSignatureRemoveModalQuestion"),
@@ -476,7 +478,9 @@ function addImage(image) {
     }));
 
     // modals ...
-    $("#imageModals").append(Mustache.render(IMAGE_REMOVE_MODAL, {
+    $("#imageModals").append(Mustache.render(GENERIC_REMOVE_MODAL, {
+        modalId: "imageRemoveModal-" + image.id,
+        modalYesButtonId: "imageRemoveModalYes-" + image.id,
         id: image.id,
         title: i18n("optionsImageRemoveModalTitle"),
         question: i18n("optionsImageRemoveModalQuestion"),
@@ -549,7 +553,9 @@ function addFortuneCookies(fortuneCookies) {
     initTooltips();
 
     // remove modal ...
-    fortuneCookiesModals.append(Mustache.render(FORTUNE_COOKIES_REMOVE_MODAL, {
+    fortuneCookiesModals.append(Mustache.render(GENERIC_REMOVE_MODAL, {
+        modalId: "fortuneCookiesRemoveModal-" + fortuneCookies.id,
+        modalYesButtonId: "fortuneCookiesRemoveModalYes-" + fortuneCookies.id,
         id: fortuneCookies.id,
         title: i18n("optionsFortuneCookiesRemoveModalTitle"),
         question: i18n("optionsFortuneCookiesRemoveModalQuestion"),

@@ -144,8 +144,8 @@ const SIGNATURE_EDIT_MODAL = `
     </div>
 `;
 
-const SIGNATURE_REMOVE_MODAL = `
-    <div class="modal fade" id="signatureRemoveModal-{{id}}" tabindex="-1" role="dialog">
+const GENERIC_REMOVE_MODAL = `
+    <div class="modal fade" id="{{modalId}}" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -165,7 +165,7 @@ const SIGNATURE_REMOVE_MODAL = `
                         &nbsp;
                         {{no}}
                     </button>
-                    <button id="signatureRemoveModalYes-{{id}}" type="button" class="btn btn-light">
+                    <button id="{{modalYesButtonId}}" type="button" class="btn btn-light">
                         <svg class="bi" width="2em" height="2em" fill="currentColor">
                             <use xlink:href="/_images/bootstrap-icons.svg#check"/>
                         </svg>
@@ -242,40 +242,6 @@ const IMAGES_ROW = `
     </tr>
 `;
 
-const IMAGE_REMOVE_MODAL = `
-    <div class="modal fade" id="imageRemoveModal-{{id}}" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">{{title}}</h5>
-                    <button type="button" class="close" data-dismiss="modal">
-                        <span>&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    {{question}}
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-dismiss="modal">
-                        <svg class="bi" width="2em" height="2em" fill="currentColor">
-                            <use xlink:href="/_images/bootstrap-icons.svg#x"/>
-                        </svg>
-                        &nbsp;
-                        {{no}}
-                    </button>
-                    <button id="imageRemoveModalYes-{{id}}" type="button" class="btn btn-light">
-                        <svg class="bi" width="2em" height="2em" fill="currentColor">
-                            <use xlink:href="/_images/bootstrap-icons.svg#check"/>
-                        </svg>
-                        &nbsp;
-                        {{yes}}
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-`;
-
 const FORTUNE_COOKIES_ROW = `
     <tr class="hide" data-fortunecookies-id="{{id}}">
         <!-- name -->
@@ -336,40 +302,6 @@ const FORTUNE_COOKIES_EDIT_MODAL = `
                         </svg>
                         &nbsp;
                         {{save}}
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-`;
-
-const FORTUNE_COOKIES_REMOVE_MODAL = `
-    <div class="modal fade" id="fortuneCookiesRemoveModal-{{id}}" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">{{title}}</h5>
-                    <button type="button" class="close" data-dismiss="modal">
-                        <span>&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    {{question}}
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-dismiss="modal">
-                        <svg class="bi" width="2em" height="2em" fill="currentColor">
-                            <use xlink:href="/_images/bootstrap-icons.svg#x"/>
-                        </svg>
-                        &nbsp;
-                        {{no}}
-                    </button>
-                    <button id="fortuneCookiesRemoveModalYes-{{id}}" type="button" class="btn btn-light">
-                        <svg class="bi" width="2em" height="2em" fill="currentColor">
-                            <use xlink:href="/_images/bootstrap-icons.svg#check"/>
-                        </svg>
-                        &nbsp;
-                        {{yes}}
                     </button>
                 </div>
             </div>

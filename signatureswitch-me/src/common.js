@@ -67,6 +67,15 @@ function toBase64(file) {
     });
 }
 
+function toText(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsText(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = error => reject(error);
+    });
+}
+
 function random(n) {
     return (Math.floor(Math.random() * n + 1));
 }

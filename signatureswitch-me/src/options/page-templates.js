@@ -278,15 +278,21 @@ const FORTUNE_COOKIES_EDIT_MODAL = `
                     </button>
                 </div>
                 <div class="modal-body">
-                    <label for="fortuneCookiesEditModalCookies-{{id}}">
-                        {{cookiesLabel}}
-                        <span data-toggle="tooltip" title="{{cookiesTooltip}}">
-                            <svg class="bi" width="1em" height="1em" fill="currentColor">
-                                <use xlink:href="/_images/bootstrap-icons.svg#info-circle"/>
-                            </svg>
-                        </span>
-                    </label>
-                    <textarea class="form-control" id="fortuneCookiesEditModalCookies-{{id}}" rows="10" spellcheck="false" placeholder="{{cookiesPlaceholder}}">{{cookies}}</textarea>
+                    <div>
+                        <label for="fortuneCookiesEditModalCookies-{{id}}">
+                            {{cookiesLabel}}
+                            <span data-toggle="tooltip" title="{{cookiesTooltip}}">
+                                <svg class="bi" width="1em" height="1em" fill="currentColor">
+                                    <use xlink:href="/_images/bootstrap-icons.svg#info-circle"/>
+                                </svg>
+                            </span>
+                        </label>
+                        <textarea class="form-control" id="fortuneCookiesEditModalCookies-{{id}}" rows="10" spellcheck="false" placeholder="{{cookiesPlaceholder}}">{{cookies}}</textarea>
+                    </div>
+                    <div class="mt-3">
+                        <span>{{fileImportLabel}}</span>
+                        <input type="file" accept="text/plain" id="fortuneCookiesFileInput-{{id}}">
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-light" data-dismiss="modal">

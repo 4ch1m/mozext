@@ -104,6 +104,9 @@
   "optionsFortuneCookiesEditModalClose": {
     "message": "Close"
   },
+  "optionsFortuneCookiesEditModalFileImport": {
+    "message": "Import from file:"
+  },
   "optionsFortuneCookiesEditModalLabel": {
     "message": "Cookies"
   },

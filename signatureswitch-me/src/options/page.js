@@ -542,6 +542,7 @@ function addFortuneCookies(fortuneCookies) {
         cookiesTooltip: i18n("optionsFortuneCookiesEditModalTooltip"),
         cookiesPlaceholder: i18n("optionsFortuneCookiesEditModalPlaceholder"),
         cookies: fortuneCookies.cookies.join(FORTUNE_COOKIE_SEPARATOR),
+        fileImportLabel: i18n("optionsFortuneCookiesEditModalFileImport"),
         close: i18n("optionsFortuneCookiesEditModalClose"),
         save: i18n("optionsFortuneCookiesEditModalSave")
     }));
@@ -586,6 +587,9 @@ function addFortuneCookies(fortuneCookies) {
     // input-/change-listeners ...
     $(`#fortuneCookiesName-${fortuneCookies.id}, #fortuneCookiesTag-${fortuneCookies.id}, #fortuneCookiesCookies-${fortuneCookies.id}`).on("change keyup", () => {
         addOrUpdateItemInStoredArray(updatedFortuneCookies(), "fortuneCookies")
+    });
+    $("#fortuneCookiesFileInput-" + fortuneCookies.id).change(async (e) => {
+        fortuneCookiesEditModalTextarea.val(await toText(e.target.files[0]));
     });
 }
 

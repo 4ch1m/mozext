@@ -79,18 +79,18 @@
   },
   "theme_icons": [
     {
-      "dark": "/_images/signatureswitch-64px-white.png",
-      "light": "/_images/signatureswitch-64px-black.png",
+      "dark": "/_images/signatureswitch-64px-black.png",
+      "light": "/_images/signatureswitch-64px-white.png",
       "size": 64
     },
     {
-      "dark": "/_images/signatureswitch-32px-white.png",
-      "light": "/_images/signatureswitch-32px-black.png",
+      "dark": "/_images/signatureswitch-32px-black.png",
+      "light": "/_images/signatureswitch-32px-white.png",
       "size": 32
     },
     {
-      "dark": "/_images/signatureswitch-16px-white.png",
-      "light": "/_images/signatureswitch-16px-black.png",
+      "dark": "/_images/signatureswitch-16px-black.png",
+      "light": "/_images/signatureswitch-16px-white.png",
       "size": 16
     }
   ]

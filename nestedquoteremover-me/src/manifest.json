@@ -17,8 +17,8 @@
     "default_icon": "_images/nestedquoteremover-32px-black.png",
     "theme_icons": [
       {
-        "dark": "_images/nestedquoteremover-32px-white.png",
-        "light": "_images/nestedquoteremover-32px-black.png",
+        "light": "_images/nestedquoteremover-32px-white.png",
+        "dark": "_images/nestedquoteremover-32px-black.png",
         "size": 32
       }
     ]

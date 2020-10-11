@@ -458,7 +458,7 @@ async function searchAndReplaceImagePlaceholder(content) {
         await browser.storage.local.get().then(localStorage => {
             if (localStorage.images) {
                 for (let image of localStorage.images) {
-                    content = content.replace(new RegExp("{{" + image.tag + "}}"), image.data);
+                    content = content.replaceAll(new RegExp("{{" + image.tag + "}}", "g"), image.data);
                 }
             }
         });
@@ -472,7 +472,7 @@ async function searchAndReplaceFortuneCookiePlaceholder(content) {
         await browser.storage.local.get().then(localStorage => {
             if (localStorage.fortuneCookies) {
                 for (let fortuneCookies of localStorage.fortuneCookies) {
-                    content = content.replace(new RegExp("\\[\\[" + fortuneCookies.tag + "\\]\\]"), fortuneCookies.cookies[random(fortuneCookies.cookies.length) - 1]);
+                    content = content.replaceAll(new RegExp("\\[\\[" + fortuneCookies.tag + "\\]\\]", "g"), fortuneCookies.cookies[random(fortuneCookies.cookies.length) - 1]);
                 }
             }
         });

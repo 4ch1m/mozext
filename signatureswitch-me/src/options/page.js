@@ -548,7 +548,7 @@ function addFortuneCookies(fortuneCookies) {
     }));
     let fortuneCookiesEditModal = $("#fortuneCookiesEditModal-" + fortuneCookies.id);
     let fortuneCookiesEditModalTextarea = $("#fortuneCookiesEditModalCookies-" + fortuneCookies.id);
-    fortuneCookiesTableRowTextarea.click(() => {
+    fortuneCookiesTableRowTextarea.on("click keydown", () => {
         fortuneCookiesEditModal.modal("show");
     });
     $("#fortuneCookiesEditModalSave-" + fortuneCookies.id).click(() => {

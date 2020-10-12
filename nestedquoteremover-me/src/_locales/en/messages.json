@@ -31,11 +31,5 @@
   },
   "optionsMaxAllowedQuoteDepth": {
     "message": "Maximum quote depth allowed:"
-  },
-  "optionsSupport1": {
-    "message": "If you like this add-on and want to support the author, please visit"
-  },
-  "optionsSupport2": {
-    "message": "and make a donation. Thanks!"
   }
 }

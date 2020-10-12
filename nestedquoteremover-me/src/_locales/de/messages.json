@@ -31,11 +31,5 @@
   },
   "optionsMaxAllowedQuoteDepth": {
     "message": "Maximal erlaubte Zitattiefe:"
-  },
-  "optionsSupport1": {
-    "message": "Wenn Ihnen dieses Add-On gefällt und Sie den Autor unterstützen möchten, dann besuchen sie bitte "
-  },
-  "optionsSupport2": {
-    "message": " und hinterlassen eine Spende. Vielen Dank!"
   }
 }

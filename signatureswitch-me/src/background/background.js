@@ -450,6 +450,13 @@ async function createHtmlSignature(document, html, signatureId, elementType = "d
         element.setAttribute("cols", "72");
     }
 
+    // prepend the sig-separator if activated in options
+    if ((await browser.storage.local.get()).signatureSeparatorHtml) {
+        let separator = document.createElement("pre");
+        separator.innerText = PLAINTEXT_SIGNATURE_SEPARATOR;
+        element.prepend(separator);
+    }
+
     return element;
 }
 

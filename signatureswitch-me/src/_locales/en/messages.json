@@ -350,6 +350,12 @@
   "optionsSignatureRemoveModalYes": {
     "message": "Yes"
   },
+  "optionsSignatureSeparator": {
+    "message": "Signature Separator"
+  },
+  "optionsSignatureSeparatorHtml": {
+    "message": "Automatically add signature separator ('-- \\n') to HTML signatures."
+  },
   "optionsSignatures": {
     "message": "Signatures"
   },

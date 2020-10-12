@@ -187,6 +187,13 @@ async function initUI(localStorage) {
             addOrUpdateStoredValue("repliesNoDefaultAction", repliesNoDefaultAction.prop("checked"));
         });
 
+        // signature separator ...
+        let signatureSeparatorHtml = $("#signatureSeparatorHtml");
+        signatureSeparatorHtml.prop("checked", localStorage.signatureSeparatorHtml ? localStorage.signatureSeparatorHtml : false);
+        signatureSeparatorHtml.click(() => {
+            addOrUpdateStoredValue("signatureSeparatorHtml", signatureSeparatorHtml.prop("checked"));
+        });
+
         // init tooltips ...
         initTooltips();
     }

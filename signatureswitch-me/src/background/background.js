@@ -4,6 +4,7 @@ const HTML_SIGNATURE_CLASS = "moz-signature";
 const WINDOW_TYPE_MESSAGE_COMPOSE = "messageCompose";
 const CUSTOM_SIGNATURE_ID_ATTRIBUTE = "signature-switch-id";
 const REPLY_SUBJECT_PREFIX = "Re:";
+const FORWARD_SUBJECT_PREFIX = "Fwd:";
 
 const MENU_ROOT_ID = "signature_switch";
 const MENU_ID_SEPARATOR = "_";
@@ -246,10 +247,11 @@ function addWindowCreateListener() {
                 let tabId = tabs[0].id;
                 let storage = await browser.storage.local.get();
                 let isReply = await isReplyComposer(tabId);
+                let isForward = await isForwardComposer(tabId);
 
-                // check if it's a reply and if we don't want to perform
-                // the default-action on replies
-                if (isReply && storage.repliesNoDefaultAction === true) {
+                // check if it's a reply/forward and if we DON'T want to perform the default-action
+                if ((isReply && storage.repliesNoDefaultAction === true) ||
+                    (isForward && storage.forwardingsNoDefaultAction === true) ) {
                     // don't perform any default-actions.
                 } else {
                     // check if a default-action is set
@@ -263,8 +265,9 @@ function addWindowCreateListener() {
                     }
                 }
 
-                // don't trigger auto-switch on reply if disabled in options
-                if (!(isReply && storage.repliesDisableAutoSwitch === true)) {
+                // don't trigger auto-switch for replies/forwardings if disabled in options
+                if (!(isReply && storage.repliesDisableAutoSwitch === true) ||
+                    !(isForward && storage.forwardingsDisableAutoSwitch === true)) {
                     startRecipientChangeListener(tabId);
                 }
             });
@@ -533,6 +536,12 @@ async function getAllSignatureIds(signaturesArray) {
 async function isReplyComposer(tabId = composeActionTabId) {
     return await browser.compose.getComposeDetails(tabId).then(details => {
         return details.subject.startsWith(REPLY_SUBJECT_PREFIX);
+    });
+}
+
+async function isForwardComposer(tabId = composeActionTabId) {
+    return await browser.compose.getComposeDetails(tabId).then(details => {
+        return details.subject.startsWith(FORWARD_SUBJECT_PREFIX);
     });
 }
 

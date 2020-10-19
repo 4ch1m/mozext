@@ -187,6 +187,18 @@ async function initUI(localStorage) {
             addOrUpdateStoredValue("repliesNoDefaultAction", repliesNoDefaultAction.prop("checked"));
         });
 
+        // forwardings ...
+        let forwardingsDisableAutoSwitch = $("#forwardingsDisableAutoSwitch");
+        forwardingsDisableAutoSwitch.prop("checked", localStorage.forwardingsDisableAutoSwitch ? localStorage.forwardingsDisableAutoSwitch : false);
+        forwardingsDisableAutoSwitch.click(() => {
+            addOrUpdateStoredValue("forwardingsDisableAutoSwitch", forwardingsDisableAutoSwitch.prop("checked"));
+        });
+        let forwardingsNoDefaultAction = $("#forwardingsNoDefaultAction");
+        forwardingsNoDefaultAction.prop("checked", localStorage.forwardingsNoDefaultAction ? localStorage.forwardingsNoDefaultAction : false);
+        forwardingsNoDefaultAction.click(() => {
+            addOrUpdateStoredValue("forwardingsNoDefaultAction", forwardingsNoDefaultAction.prop("checked"));
+        });
+
         // signature separator ...
         let signatureSeparatorHtml = $("#signatureSeparatorHtml");
         signatureSeparatorHtml.prop("checked", localStorage.signatureSeparatorHtml ? localStorage.signatureSeparatorHtml : false);

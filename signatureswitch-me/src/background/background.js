@@ -361,6 +361,8 @@ async function searchSignatureInComposer(tabId = composeActionTabId) {
 
         for (let signature of signatures) {
             if (details.isPlainText) {
+                let plainTextBody = await normalizePlainTextBody(details.plainTextBody);
+
                 // check if the signature contains a fortune-cookie placeholder
                 if (new RegExp(".*\\[\\[.*\\]\\].*").test(signature.text)) {
                     if (localStorage.fortuneCookies) {
@@ -372,9 +374,9 @@ async function searchSignatureInComposer(tabId = composeActionTabId) {
                             if (fortuneCookies.tag === fortuneCookiesTag) {
                                 for (let cookie of fortuneCookies.cookies) {
                                     // check if the composer body contains a cookie of that sig, plus the text before AND after the fc-tag
-                                    if (details.plainTextBody.includes(cookie) &&
-                                        details.plainTextBody.includes(signature.text.substring(0, signature.text.indexOf("[["))) &&
-                                        details.plainTextBody.includes(signature.text.substring(signature.text.indexOf("]]") + 2), signature.text.length - 1)) {
+                                    if (plainTextBody.includes(cookie) &&
+                                        plainTextBody.includes(signature.text.substring(0, signature.text.indexOf("[["))) &&
+                                        plainTextBody.includes(signature.text.substring(signature.text.indexOf("]]") + 2), signature.text.length - 1)) {
                                         return signature.id;
                                     }
                                 }
@@ -382,7 +384,7 @@ async function searchSignatureInComposer(tabId = composeActionTabId) {
                         }
                     }
                 } else {
-                    if (details.plainTextBody.endsWith(await createPlainTextSignature(signature.text))) {
+                    if (plainTextBody.endsWith(await createPlainTextSignature(signature.text))) {
                         return signature.id;
                     }
                 }
@@ -495,9 +497,9 @@ async function searchAndReplaceFortuneCookiePlaceholder(content) {
    helpers ...
  */
 
-function getBodyWithoutSignature(composeDetails) {
+async function getBodyWithoutSignature(composeDetails) {
     if (composeDetails.isPlainText) {
-        let body = composeDetails.plainTextBody;
+        let body = await normalizePlainTextBody(composeDetails.plainTextBody);
         let signatureIndex = body.lastIndexOf(NEW_LINE + PLAINTEXT_SIGNATURE_SEPARATOR);
 
         return signatureIndex > -1 ? body.substring(0, body.lastIndexOf(NEW_LINE + PLAINTEXT_SIGNATURE_SEPARATOR)) : body;
@@ -578,4 +580,16 @@ function cleanseRecipientString(recipient) {
     }
 
     return recipient;
+}
+
+// workaround; until this issue is resolved: https://bugzilla.mozilla.org/show_bug.cgi?id=1672407
+async function normalizePlainTextBody(plainTextBody) {
+    let platformInfo = await browser.runtime.getPlatformInfo();
+
+    // remove all "carriage return" sequences from the plaintext-body if running on windows
+    if (platformInfo.os === browser.runtime.PlatformOs.WIN) {
+        return plainTextBody.replaceAll(new RegExp("\\r", "g"), "");
+    }
+
+    return plainTextBody;
 }

@@ -281,7 +281,7 @@ function addWindowCreateListener() {
 
 async function appendSignatureToComposer(signature, tabId = composeActionTabId) {
     let details = await browser.compose.getComposeDetails(tabId);
-    let cleansedBody = getBodyWithoutSignature(details);
+    let cleansedBody = await getBodyWithoutSignature(details);
 
     if (details.isPlainText) {
         cleansedBody += await createPlainTextSignature(signature.text);
@@ -345,8 +345,9 @@ async function appendSignatureViaIdToComposer(signatureId, tabId = composeAction
 }
 
 async function removeSignatureFromComposer(tabId = composeActionTabId) {
-    browser.compose.getComposeDetails(tabId).then(details => {
-        let newDetails = details.isPlainText ? {plainTextBody: getBodyWithoutSignature(details)} : {body: getBodyWithoutSignature(details)};
+    browser.compose.getComposeDetails(tabId).then(async details => {
+        let bodyWithoutSignature = await getBodyWithoutSignature(details);
+        let newDetails = details.isPlainText ? {plainTextBody: bodyWithoutSignature} : {body: bodyWithoutSignature};
         browser.compose.setComposeDetails(tabId, newDetails);
     });
 }

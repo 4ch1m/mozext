@@ -4,6 +4,7 @@ const HTML_SIGNATURE_CLASS = "moz-signature";
 const WINDOW_TYPE_MESSAGE_COMPOSE = "messageCompose";
 const CUSTOM_SIGNATURE_ID_ATTRIBUTE = "signature-switch-id";
 const REPLY_SUBJECT_PREFIX = "Re:";
+const FORWARD_SUBJECT_PREFIX = "Fwd:";
 
 const MENU_ROOT_ID = "signature_switch";
 const MENU_ID_SEPARATOR = "_";
@@ -246,10 +247,11 @@ function addWindowCreateListener() {
                 let tabId = tabs[0].id;
                 let storage = await browser.storage.local.get();
                 let isReply = await isReplyComposer(tabId);
+                let isForward = await isForwardComposer(tabId);
 
-                // check if it's a reply and if we don't want to perform
-                // the default-action on replies
-                if (isReply && storage.repliesNoDefaultAction === true) {
+                // check if it's a reply/forward and if we DON'T want to perform the default-action
+                if ((isReply && storage.repliesNoDefaultAction === true) ||
+                    (isForward && storage.forwardingsNoDefaultAction === true) ) {
                     // don't perform any default-actions.
                 } else {
                     // check if a default-action is set
@@ -263,8 +265,9 @@ function addWindowCreateListener() {
                     }
                 }
 
-                // don't trigger auto-switch on reply if disabled in options
-                if (!(isReply && storage.repliesDisableAutoSwitch === true)) {
+                // don't trigger auto-switch for replies/forwardings if disabled in options
+                if (!(isReply && storage.repliesDisableAutoSwitch === true) ||
+                    !(isForward && storage.forwardingsDisableAutoSwitch === true)) {
                     startRecipientChangeListener(tabId);
                 }
             });
@@ -278,7 +281,7 @@ function addWindowCreateListener() {
 
 async function appendSignatureToComposer(signature, tabId = composeActionTabId) {
     let details = await browser.compose.getComposeDetails(tabId);
-    let cleansedBody = getBodyWithoutSignature(details);
+    let cleansedBody = await getBodyWithoutSignature(details);
 
     if (details.isPlainText) {
         cleansedBody += await createPlainTextSignature(signature.text);
@@ -342,8 +345,9 @@ async function appendSignatureViaIdToComposer(signatureId, tabId = composeAction
 }
 
 async function removeSignatureFromComposer(tabId = composeActionTabId) {
-    browser.compose.getComposeDetails(tabId).then(details => {
-        let newDetails = details.isPlainText ? {plainTextBody: getBodyWithoutSignature(details)} : {body: getBodyWithoutSignature(details)};
+    browser.compose.getComposeDetails(tabId).then(async details => {
+        let bodyWithoutSignature = await getBodyWithoutSignature(details);
+        let newDetails = details.isPlainText ? {plainTextBody: bodyWithoutSignature} : {body: bodyWithoutSignature};
         browser.compose.setComposeDetails(tabId, newDetails);
     });
 }
@@ -358,6 +362,8 @@ async function searchSignatureInComposer(tabId = composeActionTabId) {
 
         for (let signature of signatures) {
             if (details.isPlainText) {
+                let plainTextBody = await normalizePlainTextBody(details.plainTextBody);
+
                 // check if the signature contains a fortune-cookie placeholder
                 if (new RegExp(".*\\[\\[.*\\]\\].*").test(signature.text)) {
                     if (localStorage.fortuneCookies) {
@@ -369,9 +375,9 @@ async function searchSignatureInComposer(tabId = composeActionTabId) {
                             if (fortuneCookies.tag === fortuneCookiesTag) {
                                 for (let cookie of fortuneCookies.cookies) {
                                     // check if the composer body contains a cookie of that sig, plus the text before AND after the fc-tag
-                                    if (details.plainTextBody.includes(cookie) &&
-                                        details.plainTextBody.includes(signature.text.substring(0, signature.text.indexOf("[["))) &&
-                                        details.plainTextBody.includes(signature.text.substring(signature.text.indexOf("]]") + 2), signature.text.length - 1)) {
+                                    if (plainTextBody.includes(cookie) &&
+                                        plainTextBody.includes(signature.text.substring(0, signature.text.indexOf("[["))) &&
+                                        plainTextBody.includes(signature.text.substring(signature.text.indexOf("]]") + 2), signature.text.length - 1)) {
                                         return signature.id;
                                     }
                                 }
@@ -379,7 +385,7 @@ async function searchSignatureInComposer(tabId = composeActionTabId) {
                         }
                     }
                 } else {
-                    if (details.plainTextBody.endsWith(await createPlainTextSignature(signature.text))) {
+                    if (plainTextBody.endsWith(await createPlainTextSignature(signature.text))) {
                         return signature.id;
                     }
                 }
@@ -492,9 +498,9 @@ async function searchAndReplaceFortuneCookiePlaceholder(content) {
    helpers ...
  */
 
-function getBodyWithoutSignature(composeDetails) {
+async function getBodyWithoutSignature(composeDetails) {
     if (composeDetails.isPlainText) {
-        let body = composeDetails.plainTextBody;
+        let body = await normalizePlainTextBody(composeDetails.plainTextBody);
         let signatureIndex = body.lastIndexOf(NEW_LINE + PLAINTEXT_SIGNATURE_SEPARATOR);
 
         return signatureIndex > -1 ? body.substring(0, body.lastIndexOf(NEW_LINE + PLAINTEXT_SIGNATURE_SEPARATOR)) : body;
@@ -536,6 +542,12 @@ async function isReplyComposer(tabId = composeActionTabId) {
     });
 }
 
+async function isForwardComposer(tabId = composeActionTabId) {
+    return await browser.compose.getComposeDetails(tabId).then(details => {
+        return details.subject.startsWith(FORWARD_SUBJECT_PREFIX);
+    });
+}
+
 async function startRecipientChangeListener(tabId, timeout = 1000, previousRecipients = "") {
     try {
         let details = await browser.compose.getComposeDetails(tabId);
@@ -569,4 +581,16 @@ function cleanseRecipientString(recipient) {
     }
 
     return recipient;
+}
+
+// workaround; until this issue is resolved: https://bugzilla.mozilla.org/show_bug.cgi?id=1672407
+async function normalizePlainTextBody(plainTextBody) {
+    let platformInfo = await browser.runtime.getPlatformInfo();
+
+    // remove all "carriage return" sequences from the plaintext-body if running on windows
+    if (platformInfo.os === browser.runtime.PlatformOs.WIN) {
+        return plainTextBody.replaceAll(new RegExp("\\r", "g"), "");
+    }
+
+    return plainTextBody;
 }

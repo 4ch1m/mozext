@@ -158,6 +158,15 @@
   "optionsFortuneCookiesUsageHeader": {
     "message": "Usage:"
   },
+  "optionsForwardings": {
+    "message": "Forwardings"
+  },
+  "optionsForwardingsDisableAutoSwitch": {
+    "message": "Disable auto switch on forwardings."
+  },
+  "optionsForwardingsNoDefaultAction": {
+    "message": "Don't apply default action when forwarding a mail."
+  },
   "optionsHeader": {
     "message": "$1"
   },

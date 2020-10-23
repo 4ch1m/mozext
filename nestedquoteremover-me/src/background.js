@@ -6,6 +6,8 @@ const WINDOW_TYPE_MESSAGE_COMPOSE = "messageCompose";
 const xmlSerializer = new XMLSerializer();
 const domParser = new DOMParser();
 
+let platformInfo;
+
 let deletableBlockQuotes = [];
 
 let maxAllowedQuoteDepth = 1;
@@ -13,6 +15,8 @@ let autoRemove = false;
 let contextMenuEntry = true;
 
 (async () => {
+    platformInfo = await browser.runtime.getPlatformInfo();
+
     await browser.storage.local.get().then(localStorage => {
         if (localStorage.maxAllowedQuoteDepth) {
             maxAllowedQuoteDepth = parseInt(localStorage.maxAllowedQuoteDepth);
@@ -122,9 +126,16 @@ function removeNestedQuotes(tabId) {
 
         if (details.isPlainText) {
             let quotePattern = getPlainTextQuotePattern(maxAllowedQuoteDepth + 1);
+            let currentPlainTextBody = details.plainTextBody;
             let newPlainTextBody = "";
 
-            details.plainTextBody.split(NEW_LINE).forEach(line => {
+            // workaround; until this issue is resolved: https://bugzilla.mozilla.org/show_bug.cgi?id=1672407
+            // remove all "carriage return" sequences from the plaintext-body if running on Windows
+            if (platformInfo.os === browser.runtime.PlatformOs.WIN) {
+                currentPlainTextBody = currentPlainTextBody.replaceAll(new RegExp("\\r", "g"), "");
+            }
+
+            currentPlainTextBody.split(NEW_LINE).forEach(line => {
                 if (!line.startsWith(quotePattern)) {
                     nestedQuotesFound = true;
                     newPlainTextBody += (newPlainTextBody === "") ? line : (NEW_LINE + line);

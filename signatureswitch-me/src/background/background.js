@@ -246,30 +246,60 @@ function addWindowCreateListener() {
         if (window.type === WINDOW_TYPE_MESSAGE_COMPOSE) {
             browser.tabs.query({windowId: window.id}).then(async tabs => {
                 let tabId = tabs[0].id;
+
                 let storage = await browser.storage.local.get();
-                let isReply = await isReplyComposer(tabId);
-                let isForward = await isForwardComposer(tabId);
+                let details = await browser.compose.getComposeDetails(tabId);
+
+                let isReply = details.subject.startsWith(REPLY_SUBJECT_PREFIX);
+                let isForward = details.subject.startsWith(FORWARD_SUBJECT_PREFIX);
 
                 // check if it's a reply/forward and if we DON'T want to perform the default-action
-                if ((isReply && storage.repliesNoDefaultAction === true) ||
-                    (isForward && storage.forwardingsNoDefaultAction === true) ) {
-                    // don't perform any default-actions.
-                } else {
-                    // check if a default-action is set
-                    if (storage.defaultAction) {
-                        // execute default-action
-                        if (storage.defaultAction === "insert") {
-                            appendDefaultSignatureToComposer(tabId);
-                        } else {
-                            removeSignatureFromComposer(tabId);
+                let noDefaultAction = (isReply && storage.repliesNoDefaultAction === true) || (isForward && storage.forwardingsNoDefaultAction === true);
+
+                // check if we have an assigned signature for the current identity
+                let identitySignatureId = "";
+                if (storage.identities) {
+                    for (let i = 0; i < storage.identities.length; i++) {
+                        if (storage.identities[i].id === details.identityId) {
+                            identitySignatureId = storage.identities[i].signatureId;
+                            break;
                         }
                     }
                 }
 
-                // don't trigger auto-switch for replies/forwardings if disabled in options
+                // check if we have an signature sig AND if it should take precedence over the default action/sig
+                let identitySigAvailableAndOverrulesDefault = (identitySignatureId !== "") && (storage.identitiesOverruleDefaultAction === true);
+
+                if (!noDefaultAction && !identitySigAvailableAndOverrulesDefault) {
+                    // check if a default-action is set
+                    if (storage.defaultAction) {
+                        // execute default-action
+                        switch (storage.defaultAction) {
+                            case "insert":
+                                appendDefaultSignatureToComposer(tabId);
+                                break;
+                            case "off":
+                                removeSignatureFromComposer(tabId);
+                                break;
+                            default:
+                                // do nothing
+                                break;
+                        }
+                    }
+                } else if (identitySignatureId !== "") {
+                    // insert identity sig
+                    appendSignatureViaIdToComposer(identitySignatureId, tabId);
+                }
+
+                // don't trigger recipient-based auto-switch for replies/forwardings if disabled in options
                 if (!(isReply && storage.repliesDisableAutoSwitch === true) ||
                     !(isForward && storage.forwardingsDisableAutoSwitch === true)) {
                     startRecipientChangeListener(tabId);
+                }
+
+                // only enable identity-based auto-switch if activated in options
+                if (storage.identitiesSwitchSignatureOnChange === true) {
+                    startIdentityChangeListener(tabId, undefined, details.identityId);
                 }
             });
         }
@@ -517,41 +547,9 @@ async function getBodyWithoutSignature(composeDetails) {
     }
 }
 
-async function getAllSignatureIds(signaturesArray) {
-    let ids = [];
-    let signatures;
-
-    if (!signaturesArray) {
-        await browser.storage.local.get().then(localStorage => {
-            signatures = localStorage.signatures ? localStorage.signatures : [];
-        });
-    } else {
-        signatures = signaturesArray;
-    }
-
-    signatures.forEach(signature => {
-        ids.push(signature.id);
-    });
-
-    return ids;
-}
-
-async function isReplyComposer(tabId = composeActionTabId) {
-    return await browser.compose.getComposeDetails(tabId).then(details => {
-        return details.subject.startsWith(REPLY_SUBJECT_PREFIX);
-    });
-}
-
-async function isForwardComposer(tabId = composeActionTabId) {
-    return await browser.compose.getComposeDetails(tabId).then(details => {
-        return details.subject.startsWith(FORWARD_SUBJECT_PREFIX);
-    });
-}
-
 async function startRecipientChangeListener(tabId, timeout = 1000, previousRecipients = "") {
     try {
-        let details = await browser.compose.getComposeDetails(tabId);
-        let currentRecipients = details.to + "";
+        let currentRecipients = (await browser.compose.getComposeDetails(tabId)).to + "";
 
         if (currentRecipients !== previousRecipients) {
             autoSwitchBasedOnRecipients(tabId);
@@ -562,7 +560,40 @@ async function startRecipientChangeListener(tabId, timeout = 1000, previousRecip
         }, timeout);
     } catch (e) {
         // tabId probably not valid anymore; window closed
-        return;
+    }
+}
+
+async function startIdentityChangeListener(tabId, timeout = 1000, previousIdentityId = "") {
+    try {
+        let currentIdentityId = (await browser.compose.getComposeDetails(tabId)).identityId;
+
+        if (currentIdentityId !== previousIdentityId) {
+            console.log("*** identity changed: " + currentIdentityId);
+
+            let mailAccounts = await browser.accounts.list();
+            for (let mailAccount of mailAccounts) {
+                for (let mailIdentity of mailAccount.identities) {
+                    if (mailIdentity.id === currentIdentityId) {
+                        let localStorage = await browser.storage.local.get();
+                        if (localStorage.identities) {
+                            let identities = localStorage.identities;
+                            for (let i = 0; i < identities.length; i++) {
+                                if (identities[i].id === mailIdentity.id) {
+                                    appendSignatureViaIdToComposer(identities[i].signatureId, tabId);
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        setTimeout(() => {
+            startIdentityChangeListener(tabId, timeout, currentIdentityId);
+        }, timeout);
+    } catch (e) {
+        // tabId probably not valid anymore; window closed
     }
 }
 

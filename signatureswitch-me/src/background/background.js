@@ -134,13 +134,15 @@ function addContextMenuListener() {
 
 function addStorageChangeListener() {
     browser.storage.onChanged.addListener(changes => {
-        createContextMenu();
-
         let changedItems = Object.keys(changes);
 
         for (let item of changedItems) {
-            // TODO
-            if (item === "???") {
+            switch (item) {
+                case "signatures":
+                    if (JSON.stringify(changes[item].newValue) !== JSON.stringify(changes[item].oldValue)) {
+                        createContextMenu();
+                    }
+                    break;
             }
         }
     });

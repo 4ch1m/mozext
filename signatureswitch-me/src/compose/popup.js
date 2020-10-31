@@ -6,14 +6,14 @@ $(function() {
     browser.runtime.sendMessage({ type: "isSignaturePresent" }).then(response => {
         // on/off button ...
         $("#onOffButtonContainer").append(Mustache.render(ON_OFF_BUTTON, {
-            class: response.result === true ? "btn-danger" : "btn-success",
-            image: response.result === true ? "toggle-off" : "toggle-on",
-            text: response.result === true ? i18n("composeSwitchOff") : i18n("composeSwitchOn")
+            class: response.result ? "btn-danger" : "btn-success",
+            image: response.result ? "toggle-off" : "toggle-on",
+            text: response.result ? i18n("composeSwitchOff") : i18n("composeSwitchOn")
         }));
         $("#onOffButton").on("click", () => {
             browser.runtime.sendMessage({
                 type: "switchSignature",
-                value: response.result === true ? "off" : "on"
+                value: response.result ? "off" : "on"
             });
             window.close();
         });

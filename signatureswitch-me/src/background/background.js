@@ -152,7 +152,7 @@ function addCommandListener() {
     browser.commands.onCommand.addListener(name => {
         browser.windows.getAll().then(windows => {
             for (let window of windows) {
-                if (window.type === WINDOW_TYPE_MESSAGE_COMPOSE && window.focused === true) {
+                if (window.type === WINDOW_TYPE_MESSAGE_COMPOSE && window.focused) {
                     browser.tabs.query({windowId: window.id}).then(async tabs => {
                         let mailTabId = tabs[0].id;
                         let foundSignatureId = await searchSignatureInComposer(mailTabId);
@@ -256,7 +256,7 @@ function addWindowCreateListener() {
                 let isForward = details.subject.startsWith(FORWARD_SUBJECT_PREFIX);
 
                 // check if it's a reply/forward and if we DON'T want to perform the default-action
-                let noDefaultAction = (isReply && storage.repliesNoDefaultAction === true) || (isForward && storage.forwardingsNoDefaultAction === true);
+                let noDefaultAction = (isReply && storage.repliesNoDefaultAction) || (isForward && storage.forwardingsNoDefaultAction === true);
 
                 // check if we have an assigned signature for the current identity
                 let identitySignatureId = "";
@@ -270,7 +270,7 @@ function addWindowCreateListener() {
                 }
 
                 // check if we have an signature sig AND if it should take precedence over the default action/sig
-                let identitySigAvailableAndOverrulesDefault = (identitySignatureId !== "") && (storage.identitiesOverruleDefaultAction === true);
+                let identitySigAvailableAndOverrulesDefault = (identitySignatureId !== "") && (storage.identitiesOverruleDefaultAction);
 
                 if (!noDefaultAction && !identitySigAvailableAndOverrulesDefault) {
                     // check if a default-action is set
@@ -294,13 +294,13 @@ function addWindowCreateListener() {
                 }
 
                 // don't trigger recipient-based auto-switch for replies/forwardings if disabled in options
-                if (!(isReply && storage.repliesDisableAutoSwitch === true) ||
-                    !(isForward && storage.forwardingsDisableAutoSwitch === true)) {
+                if (!(isReply && storage.repliesDisableAutoSwitch) ||
+                    !(isForward && storage.forwardingsDisableAutoSwitch)) {
                     startRecipientChangeListener(tabId);
                 }
 
                 // only enable identity-based auto-switch if activated in options
-                if (storage.identitiesSwitchSignatureOnChange === true) {
+                if (storage.identitiesSwitchSignatureOnChange) {
                     startIdentityChangeListener(tabId, undefined, details.identityId);
                 }
             });

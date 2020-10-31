@@ -66,7 +66,7 @@ function addContextMenuListener() {
 }
 
 function addStorageChangeListener() {
-    browser.storage.onChanged.addListener((changes) => {
+    browser.storage.onChanged.addListener(changes => {
         let changedItems = Object.keys(changes);
 
         for (let item of changedItems) {

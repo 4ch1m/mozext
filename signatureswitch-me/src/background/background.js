@@ -258,9 +258,12 @@ function addWindowCreateListener() {
                 // check if it's a reply/forward and if we DON'T want to perform the default-action
                 let noDefaultAction = (isReply && storage.repliesNoDefaultAction) || (isForward && storage.forwardingsNoDefaultAction === true);
 
-                // check if we have an assigned signature for the current identity
+                // check if we should ignore a the identity-sig b/c it's a reply or forwarding
+                let ignoreIdentitySig = (isReply || isForward) && (!storage.identitiesUseAssignedSignatureOnReplyOrForwarding);
+
+                // see if we can find an assigned signature for the current identity (but only if we don't ignore identitity-sigs)
                 let identitySignatureId = "";
-                if (storage.identities) {
+                if (!ignoreIdentitySig && storage.identities) {
                     for (let i = 0; i < storage.identities.length; i++) {
                         if (storage.identities[i].id === details.identityId) {
                             identitySignatureId = storage.identities[i].signatureId;

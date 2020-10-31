@@ -97,7 +97,7 @@ function addCommandListener() {
         if (name === "removeNestedQuotes") {
             browser.windows.getAll().then(windows => {
                 for (let window of windows) {
-                    if (window.type === WINDOW_TYPE_MESSAGE_COMPOSE && window.focused === true) {
+                    if (window.type === WINDOW_TYPE_MESSAGE_COMPOSE && window.focused) {
                         browser.tabs.query({windowId: window.id}).then(tabs => {
                             removeNestedQuotes(tabs[0].id);
                         });

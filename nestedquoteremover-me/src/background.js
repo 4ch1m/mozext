@@ -18,15 +18,15 @@ let contextMenuEntry = true;
     platformInfo = await browser.runtime.getPlatformInfo();
 
     await browser.storage.local.get().then(localStorage => {
-        if (localStorage.maxAllowedQuoteDepth) {
+        if (localStorage.maxAllowedQuoteDepth !== undefined) {
             maxAllowedQuoteDepth = parseInt(localStorage.maxAllowedQuoteDepth);
         }
 
-        if (localStorage.autoRemove) {
+        if (localStorage.autoRemove !== undefined) {
             autoRemove = localStorage.autoRemove;
         }
 
-        if (localStorage.contextMenuEntry) {
+        if (localStorage.contextMenuEntry !== undefined) {
             contextMenuEntry = localStorage.contextMenuEntry;
         }
     });

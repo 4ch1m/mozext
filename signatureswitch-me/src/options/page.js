@@ -4,9 +4,23 @@ const FORTUNE_COOKIE_SEPARATOR =  NEW_LINE + "%" + NEW_LINE;
 
 // document ready
 $(function() {
-    // init UI; listen for storage changes
-    browser.storage.local.get().then(initUI);
-    browser.storage.onChanged.addListener(updateUI);
+    browser.storage.local.get().then(localStorage => {
+        // ensure that default values for bool preferences are set (otherwise would be 'undefined')
+        validateDefaultsForBoolPreferences(localStorage, [
+            {name: "identitiesSwitchSignatureOnChange", default: false},
+            {name: "identitiesUseAssignedSignatureOnReplyOrForwarding", default: false},
+            {name: "identitiesOverruleDefaultAction", default: true},
+            {name: "repliesDisableAutoSwitch", default: false},
+            {name: "repliesNoDefaultAction", default: false},
+            {name: "forwardingsDisableAutoSwitch", default: false},
+            {name: "forwardingsNoDefaultAction", default: false},
+            {name: "signatureSeparatorHtml", default: false}
+        ]);
+
+        // init UI; listen for storage changes
+        browser.storage.local.get().then(initUI);
+        browser.storage.onChanged.addListener(updateUI);
+    });
 });
 
 /* =====================================================================================================================
@@ -67,11 +81,11 @@ function newFortuneCookies() {
  */
 
 async function initUI(localStorage) {
-    let signatureIds = [];
-
     /* -----------
         Signatures
        ------------ */
+
+    let signatureIds = [];
 
     // build signatures (tablerows + modals)
     if (localStorage.signatures) {
@@ -142,17 +156,17 @@ async function initUI(localStorage) {
 
     // checkboxes
     let identitiesSwitchSignatureOnChange = $("#identitiesSwitchSignatureOnChange");
-    identitiesSwitchSignatureOnChange.prop("checked", localStorage.identitiesSwitchSignatureOnChange ? localStorage.identitiesSwitchSignatureOnChange : false);
+    identitiesSwitchSignatureOnChange.prop("checked", localStorage.identitiesSwitchSignatureOnChange);
     identitiesSwitchSignatureOnChange.click(() => {
         addOrUpdateStoredValue("identitiesSwitchSignatureOnChange", identitiesSwitchSignatureOnChange.prop("checked"));
     });
     let identitiesUseAssignedSignatureOnReplyOrForwarding = $("#identitiesUseAssignedSignatureOnReplyOrForwarding");
-    identitiesUseAssignedSignatureOnReplyOrForwarding.prop("checked", localStorage.identitiesUseAssignedSignatureOnReplyOrForwarding ? localStorage.identitiesUseAssignedSignatureOnReplyOrForwarding : false);
+    identitiesUseAssignedSignatureOnReplyOrForwarding.prop("checked", localStorage.identitiesUseAssignedSignatureOnReplyOrForwarding);
     identitiesUseAssignedSignatureOnReplyOrForwarding.click(() => {
         addOrUpdateStoredValue("identitiesUseAssignedSignatureOnReplyOrForwarding", identitiesUseAssignedSignatureOnReplyOrForwarding.prop("checked"));
     });
     let identitiesOverruleDefaultAction = $("#identitiesOverruleDefaultAction");
-    identitiesOverruleDefaultAction.prop("checked", localStorage.identitiesOverruleDefaultAction ? localStorage.identitiesOverruleDefaultAction : true);
+    identitiesOverruleDefaultAction.prop("checked", localStorage.identitiesOverruleDefaultAction);
     identitiesOverruleDefaultAction.click(() => {
         addOrUpdateStoredValue("identitiesOverruleDefaultAction", identitiesOverruleDefaultAction.prop("checked"));
     });
@@ -341,31 +355,31 @@ async function initUI(localStorage) {
 
     // replies
     let repliesDisableAutoSwitch = $("#repliesDisableAutoSwitch");
-    repliesDisableAutoSwitch.prop("checked", localStorage.repliesDisableAutoSwitch ? localStorage.repliesDisableAutoSwitch : false);
+    repliesDisableAutoSwitch.prop("checked", localStorage.repliesDisableAutoSwitch);
     repliesDisableAutoSwitch.click(() => {
         addOrUpdateStoredValue("repliesDisableAutoSwitch", repliesDisableAutoSwitch.prop("checked"));
     });
     let repliesNoDefaultAction = $("#repliesNoDefaultAction");
-    repliesNoDefaultAction.prop("checked", localStorage.repliesNoDefaultAction ? localStorage.repliesNoDefaultAction : false);
+    repliesNoDefaultAction.prop("checked", localStorage.repliesNoDefaultAction);
     repliesNoDefaultAction.click(() => {
         addOrUpdateStoredValue("repliesNoDefaultAction", repliesNoDefaultAction.prop("checked"));
     });
 
     // forwardings
     let forwardingsDisableAutoSwitch = $("#forwardingsDisableAutoSwitch");
-    forwardingsDisableAutoSwitch.prop("checked", localStorage.forwardingsDisableAutoSwitch ? localStorage.forwardingsDisableAutoSwitch : false);
+    forwardingsDisableAutoSwitch.prop("checked", localStorage.forwardingsDisableAutoSwitch);
     forwardingsDisableAutoSwitch.click(() => {
         addOrUpdateStoredValue("forwardingsDisableAutoSwitch", forwardingsDisableAutoSwitch.prop("checked"));
     });
     let forwardingsNoDefaultAction = $("#forwardingsNoDefaultAction");
-    forwardingsNoDefaultAction.prop("checked", localStorage.forwardingsNoDefaultAction ? localStorage.forwardingsNoDefaultAction : false);
+    forwardingsNoDefaultAction.prop("checked", localStorage.forwardingsNoDefaultAction);
     forwardingsNoDefaultAction.click(() => {
         addOrUpdateStoredValue("forwardingsNoDefaultAction", forwardingsNoDefaultAction.prop("checked"));
     });
 
     // signature separator
     let signatureSeparatorHtml = $("#signatureSeparatorHtml");
-    signatureSeparatorHtml.prop("checked", localStorage.signatureSeparatorHtml ? localStorage.signatureSeparatorHtml : false);
+    signatureSeparatorHtml.prop("checked", localStorage.signatureSeparatorHtml);
     signatureSeparatorHtml.click(() => {
         addOrUpdateStoredValue("signatureSeparatorHtml", signatureSeparatorHtml.prop("checked"));
     });
@@ -901,6 +915,14 @@ function deleteItemFromStoredArrayViaId(itemId, arrayName, onSuccess) {
             }
         });
     });
+}
+
+function validateDefaultsForBoolPreferences(localStorage, preferences) {
+    for (let preference of preferences) {
+        if (localStorage[preference.name] === undefined) {
+            addOrUpdateStoredValue(preference.name, preference.default);
+        }
+    }
 }
 
 /* =====================================================================================================================

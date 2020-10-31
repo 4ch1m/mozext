@@ -570,8 +570,6 @@ async function startIdentityChangeListener(tabId, timeout = 1000, previousIdenti
         let currentIdentityId = (await browser.compose.getComposeDetails(tabId)).identityId;
 
         if (currentIdentityId !== previousIdentityId) {
-            console.log("*** identity changed: " + currentIdentityId);
-
             let mailAccounts = await browser.accounts.list();
             for (let mailAccount of mailAccounts) {
                 for (let mailIdentity of mailAccount.identities) {

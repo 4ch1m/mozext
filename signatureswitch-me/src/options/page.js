@@ -741,7 +741,7 @@ function buildIdentitiesTableBody(localStorage) {
                     // append a new "identity row" to the table
                     tableBody.append(Mustache.render(IDENTITIES_ROW, {
                         id: mailIdentity.id,
-                        name: `${mailIdentity.name} &lgt;${mailIdentity.email}&gt;`,
+                        name: `${mailIdentity.name} <${mailIdentity.email}>`,
                         signatures: optionItems
                     }));
 

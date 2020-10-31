@@ -431,8 +431,11 @@ function initTooltips() {
 }
 
 function addSignature(signature) {
+    let immediatelyShowModal = false;
+
     if (!signature) {
         signature = newSignature();
+        immediatelyShowModal = true;
     }
 
     $("#signaturesTableBody").append(Mustache.render(SIGNATURE_ROW, {
@@ -475,6 +478,7 @@ function addSignature(signature) {
         close: i18n("optionsSignatureEditModalClose"),
         save: i18n("optionsSignatureEditModalSave")
     }));
+    let signatureEditModal = $("#signatureEditModal-" + signature.id);
     $("#signatureModalSave-" + signature.id).click(() => {
         addOrUpdateItemInStoredArray({
             id: signature.id,
@@ -483,7 +487,7 @@ function addSignature(signature) {
             html: $("#signatureModalHtml-" + signature.id).val(),
             autoSwitch: $("#signatureModalAutoSwitch-" + signature.id).val()
         }, "signatures");
-        $("#signatureEditModal-" + signature.id).modal("hide");
+        signatureEditModal.modal("hide");
     });
     initTooltips();
 
@@ -503,6 +507,10 @@ function addSignature(signature) {
             $(`tr[data-signature-id="${signature.id}"]`).remove();
         });
     });
+
+    if (immediatelyShowModal) {
+        signatureEditModal.modal("show");
+    }
 }
 
 function reorderSignatures(id, direction) {

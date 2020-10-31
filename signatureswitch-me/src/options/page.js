@@ -168,7 +168,10 @@ async function initUI(localStorage) {
     });
 
     // tooltip
-    $("#identitiesTooltip").attr("title", i18n("optionsIdentitiesTooltip"));
+    $("#identitiesTooltip").attr({
+        "data-toggle": "tooltip",
+        "title": i18n("optionsIdentitiesTooltip")
+    });
 
     /* ---------------
         Miscellaneous
@@ -387,7 +390,10 @@ async function initUI(localStorage) {
     });
 
     // tooltip
-    $("#importExportDataTooltip").attr("title", i18n("optionsImportExportDataTooltip") + `
+    $("#importExportDataTooltip").attr({
+        "data-toggle": "tooltip",
+        "data-html": "true",
+        "title": i18n("optionsImportExportDataTooltip") + `
             <br><br>
             <div class="text-left nobr">
             [<br>
@@ -396,8 +402,8 @@ async function initUI(localStorage) {
             &nbsp;&nbsp;"name": "Business",<br>
             &nbsp;&nbsp;"text": "email: moe@zilla.org"<br>
             &nbsp;}<br>
-            ]</div>
-        `);
+            ]</div>`
+    });
 
     // init all tooltips
     initTooltips();

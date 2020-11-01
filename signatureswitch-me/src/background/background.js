@@ -401,7 +401,7 @@ async function searchSignatureInComposer(tabId = composeActionTabId) {
                 let plainTextBody = await normalizePlainTextBody(details.plainTextBody);
 
                 // check if the signature contains a fortune-cookie placeholder
-                if (new RegExp(".*\\[\\[.*\\]\\].*").test(signature.text)) {
+                if (new RegExp("\\[\\[.*?\\]\\]").test(signature.text)) {
                     if (localStorage.fortuneCookies) {
                         // TODO
                         // refactor me! pretty wonky implementation/concept!
@@ -502,7 +502,7 @@ async function createHtmlSignature(document, html, signatureId, elementType = "d
 }
 
 async function searchAndReplaceImagePlaceholder(content) {
-    if (new RegExp(".*{{.*}}.*").test(content)) {
+    if (new RegExp("\\{{.*?}}").test(content)) {
         await browser.storage.local.get().then(localStorage => {
             if (localStorage.images) {
                 for (let image of localStorage.images) {
@@ -516,7 +516,7 @@ async function searchAndReplaceImagePlaceholder(content) {
 }
 
 async function searchAndReplaceFortuneCookiePlaceholder(content) {
-    if (new RegExp(".*\\[\\[.*\\]\\].*").test(content)) {
+    if (new RegExp("\\[\\[.*?\\]\\]").test(content)) {
         await browser.storage.local.get().then(localStorage => {
             if (localStorage.fortuneCookies) {
                 for (let fortuneCookies of localStorage.fortuneCookies) {

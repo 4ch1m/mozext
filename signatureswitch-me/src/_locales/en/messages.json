@@ -188,6 +188,24 @@
   "optionsHelpText": {
     "message": "For detailed instructions or help, please check"
   },
+  "optionsIdentities": {
+    "message": "Identities"
+  },
+  "optionsIdentitiesLabel": {
+    "message": "Your current identities:"
+  },
+  "optionsIdentitiesOverruleDefaultAction": {
+    "message": "Assigned signatures overrule the default action (insert/remove signature) when starting a new mail."
+  },
+  "optionsIdentitiesSwitchSignatureUponChange": {
+    "message": "Automatically switch to assigned signature upon changing identity."
+  },
+  "optionsIdentitiesTooltip": {
+    "message": "This list shows all mail-identities you've created in Thunderbird's native account settings."
+  },
+  "optionsIdentitiesUseAssignedSignatureOnReplyOrForwarding": {
+    "message": "Use the assigned signature when starting a reply or forwarding."
+  },
   "optionsImageRemoveModalNo": {
     "message": "No"
   },
@@ -290,6 +308,9 @@
   "optionsPreviousCommandLabel": {
     "message": "Cycle (previous):"
   },
+  "optionsReloadIdentities": {
+    "message": "Reload"
+  },
   "optionsReplies": {
     "message": "Replies"
   },
@@ -388,6 +409,12 @@
   },
   "optionsTableColumnFortuneCookiesTagPlaceholder": {
     "message": "e.g. 'chuck'"
+  },
+  "optionsTableColumnIdentityAssignedSignature": {
+    "message": "Assigned Signature"
+  },
+  "optionsTableColumnIdentityName": {
+    "message": "Identity"
   },
   "optionsTableColumnImagesDelete": {
     "message": "Delete"

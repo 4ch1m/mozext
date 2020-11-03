@@ -4,58 +4,23 @@ const FORTUNE_COOKIE_SEPARATOR =  NEW_LINE + "%" + NEW_LINE;
 
 // document ready
 $(function() {
-    // init UI; listen for storage changes
-    browser.storage.local.get().then(initUI);
-    browser.storage.onChanged.addListener(updateUI);
+    browser.storage.local.get().then(localStorage => {
+        // ensure that default values for bool preferences are set (otherwise would be 'undefined')
+        validateDefaultsForBoolPreferences(localStorage, [
+            {name: "identitiesSwitchSignatureOnChange", default: false},
+            {name: "identitiesUseAssignedSignatureOnReplyOrForwarding", default: false},
+            {name: "identitiesOverruleDefaultAction", default: true},
+            {name: "repliesDisableAutoSwitch", default: false},
+            {name: "repliesNoDefaultAction", default: false},
+            {name: "forwardingsDisableAutoSwitch", default: false},
+            {name: "forwardingsNoDefaultAction", default: false},
+            {name: "signatureSeparatorHtml", default: false}
+        ]);
 
-    dataI18n();
-
-    // --------------------------------------------------
-    $(".signaturesAdd").click(() => {
-        addSignature();
+        // init UI; listen for storage changes
+        browser.storage.local.get().then(initUI);
+        browser.storage.onChanged.addListener(updateUI);
     });
-    $(".imagesAdd").click(() => {
-        addImage();
-    });
-    $(".fortuneCookiesAdd").click(() => {
-        addFortuneCookies();
-    });
-    // --------------------------------------------------
-    $("#defaultActionNothing").click(() => {
-        addOrUpdateStoredValue("defaultAction", "");
-    });
-    $("#defaultActionInsert").click(() => {
-        addOrUpdateStoredValue("defaultAction", "insert");
-    });
-    $("#defaultActionOff").click(() => {
-        addOrUpdateStoredValue("defaultAction", "off");
-    });
-    // --------------------------------------------------
-    let importExportData = $("#importExportData");
-    importExportData.on("change keyup", () => {
-        validateImportExportData();
-    });
-    $("#importConfirmation").click(() => {
-        importSignaturesFromJsonString(importExportData.val());
-        $("#importConfirmationModal").modal("hide");
-    });
-    $("#copySignaturesToClipboard").click(() => {
-        copyTextToClipboard(importExportData.val());
-    });
-    $("#exportSignatures").click(() => {
-        loadAndShowSignaturesAsJsonString();
-    });
-    $("#importExportDataTooltip").attr("title", i18n("optionsImportExportDataTooltip") + `
-    <br><br>
-    <div class="text-left nobr">
-    [<br>
-    &nbsp;{<br>
-    &nbsp;&nbsp;"id": "666",<br>
-    &nbsp;&nbsp;"name": "Business",<br>
-    &nbsp;&nbsp;"text": "email: moe@zilla.org"<br>
-    &nbsp;}<br>
-    ]</div>
-    `);
 });
 
 /* =====================================================================================================================
@@ -116,101 +81,145 @@ function newFortuneCookies() {
  */
 
 async function initUI(localStorage) {
-    if (localStorage) {
-        let signatureIds = [];
+    /* -----------
+        Signatures
+       ------------ */
 
-        // build signatures (tablerows + modals) ...
-        if (localStorage.signatures) {
-            localStorage.signatures.forEach(signature => {
-                signatureIds.push(signature.id);
-                addSignature(signature);
-            });
-        }
+    let signatureIds = [];
 
-        // default signature ...
-        let actualDefaultSignature = "";
-        if (localStorage.defaultSignature) {
-            // check if stored defaultSignatureId actually still exists
-            if (signatureIds.some(id => id === localStorage.defaultSignature)) {
-                actualDefaultSignature = localStorage.defaultSignature;
-            }
-        }
-        if (signatureIds.length > 0) {
-            if (actualDefaultSignature === "") {
-                // if the stored defaultSignatureId doesn't exist anymore or (for whatever reason) never got stored;
-                // simply use the first one as default and store it now
-                actualDefaultSignature = signatureIds[0];
-                addOrUpdateStoredValue("defaultSignature", actualDefaultSignature);
-            }
-            $("#signatureDefault-" + actualDefaultSignature).prop("checked", true);
-        }
-
-        // build images (tablerows + modals) ...
-        if (localStorage.images) {
-            localStorage.images.forEach(image => {
-                addImage(image);
-            });
-        }
-
-        // build fortune cookies (tablerows + modals) ...
-        if (localStorage.fortuneCookies) {
-            localStorage.fortuneCookies.forEach(fortuneCookies => {
-                addFortuneCookies(fortuneCookies);
-            });
-        }
-
-        // default action ...
-        if (localStorage.defaultAction) {
-            switch (localStorage.defaultAction) {
-                case "insert":
-                    $("#defaultActionInsert").prop("checked", true);
-                    break;
-                case "off":
-                    $("#defaultActionOff").prop("checked", true);
-                    break;
-                default:
-                    $("#defaultActionNothing").prop("checked", true);
-            }
-        } else {
-            $("#defaultActionNothing").prop("checked", true);
-        }
-
-        // replies ...
-        let repliesDisableAutoSwitch = $("#repliesDisableAutoSwitch");
-        repliesDisableAutoSwitch.prop("checked", localStorage.repliesDisableAutoSwitch ? localStorage.repliesDisableAutoSwitch : false);
-        repliesDisableAutoSwitch.click(() => {
-            addOrUpdateStoredValue("repliesDisableAutoSwitch", repliesDisableAutoSwitch.prop("checked"));
+    // build signatures (tablerows + modals)
+    if (localStorage.signatures) {
+        localStorage.signatures.forEach(signature => {
+            signatureIds.push(signature.id);
+            addSignature(signature);
         });
-        let repliesNoDefaultAction = $("#repliesNoDefaultAction");
-        repliesNoDefaultAction.prop("checked", localStorage.repliesNoDefaultAction ? localStorage.repliesNoDefaultAction : false);
-        repliesNoDefaultAction.click(() => {
-            addOrUpdateStoredValue("repliesNoDefaultAction", repliesNoDefaultAction.prop("checked"));
-        });
-
-        // forwardings ...
-        let forwardingsDisableAutoSwitch = $("#forwardingsDisableAutoSwitch");
-        forwardingsDisableAutoSwitch.prop("checked", localStorage.forwardingsDisableAutoSwitch ? localStorage.forwardingsDisableAutoSwitch : false);
-        forwardingsDisableAutoSwitch.click(() => {
-            addOrUpdateStoredValue("forwardingsDisableAutoSwitch", forwardingsDisableAutoSwitch.prop("checked"));
-        });
-        let forwardingsNoDefaultAction = $("#forwardingsNoDefaultAction");
-        forwardingsNoDefaultAction.prop("checked", localStorage.forwardingsNoDefaultAction ? localStorage.forwardingsNoDefaultAction : false);
-        forwardingsNoDefaultAction.click(() => {
-            addOrUpdateStoredValue("forwardingsNoDefaultAction", forwardingsNoDefaultAction.prop("checked"));
-        });
-
-        // signature separator ...
-        let signatureSeparatorHtml = $("#signatureSeparatorHtml");
-        signatureSeparatorHtml.prop("checked", localStorage.signatureSeparatorHtml ? localStorage.signatureSeparatorHtml : false);
-        signatureSeparatorHtml.click(() => {
-            addOrUpdateStoredValue("signatureSeparatorHtml", signatureSeparatorHtml.prop("checked"));
-        });
-
-        // init tooltips ...
-        initTooltips();
     }
 
-    // commands ...
+    // default signature
+    let actualDefaultSignature = "";
+    if (localStorage.defaultSignature) {
+        // check if stored defaultSignatureId actually still exists
+        if (signatureIds.some(id => id === localStorage.defaultSignature)) {
+            actualDefaultSignature = localStorage.defaultSignature;
+        }
+    }
+    if (signatureIds.length > 0) {
+        if (actualDefaultSignature === "") {
+            // if the stored defaultSignatureId doesn't exist anymore or (for whatever reason) never got stored;
+            // simply use the first one as default and store it now
+            actualDefaultSignature = signatureIds[0];
+            addOrUpdateStoredValue("defaultSignature", actualDefaultSignature);
+        }
+        $("#signatureDefault-" + actualDefaultSignature).prop("checked", true);
+    }
+
+    // add button
+    $(".signaturesAdd").click(() => {
+        addSignature();
+    });
+
+    /* --------
+        Images
+       -------- */
+
+    // build images (tablerows + modals)
+    if (localStorage.images) {
+        localStorage.images.forEach(image => {
+            addImage(image);
+        });
+    }
+
+    // add button
+    $(".imagesAdd").click(() => {
+        addImage();
+    });
+
+    /* -----------------
+        Fortune Cookies
+       ----------------- */
+
+    // build fortune cookies (tablerows + modals)
+    if (localStorage.fortuneCookies) {
+        localStorage.fortuneCookies.forEach(fortuneCookies => {
+            addFortuneCookies(fortuneCookies);
+        });
+    }
+
+    // add button
+    $(".fortuneCookiesAdd").click(() => {
+        addFortuneCookies();
+    });
+
+    /* ------------
+        Identities
+       ------------ */
+
+    // checkboxes
+    let identitiesSwitchSignatureOnChange = $("#identitiesSwitchSignatureOnChange");
+    identitiesSwitchSignatureOnChange.prop("checked", localStorage.identitiesSwitchSignatureOnChange);
+    identitiesSwitchSignatureOnChange.click(() => {
+        addOrUpdateStoredValue("identitiesSwitchSignatureOnChange", identitiesSwitchSignatureOnChange.prop("checked"));
+    });
+    let identitiesUseAssignedSignatureOnReplyOrForwarding = $("#identitiesUseAssignedSignatureOnReplyOrForwarding");
+    identitiesUseAssignedSignatureOnReplyOrForwarding.prop("checked", localStorage.identitiesUseAssignedSignatureOnReplyOrForwarding);
+    identitiesUseAssignedSignatureOnReplyOrForwarding.click(() => {
+        addOrUpdateStoredValue("identitiesUseAssignedSignatureOnReplyOrForwarding", identitiesUseAssignedSignatureOnReplyOrForwarding.prop("checked"));
+    });
+    let identitiesOverruleDefaultAction = $("#identitiesOverruleDefaultAction");
+    identitiesOverruleDefaultAction.prop("checked", localStorage.identitiesOverruleDefaultAction);
+    identitiesOverruleDefaultAction.click(() => {
+        addOrUpdateStoredValue("identitiesOverruleDefaultAction", identitiesOverruleDefaultAction.prop("checked"));
+    });
+
+    // tablerows
+    buildIdentitiesTableBody(localStorage);
+
+    // reload-button
+    $("#reloadIdentities").click(() => {
+        browser.storage.local.get().then(localStorage => {
+            buildIdentitiesTableBody(localStorage);
+        });
+    });
+
+    // tooltip
+    $("#identitiesTooltip").attr({
+        "data-toggle": "tooltip",
+        "title": i18n("optionsIdentitiesTooltip")
+    });
+
+    /* ---------------
+        Miscellaneous
+       --------------- */
+
+    // default action
+    let defaultActionNothing = $("#defaultActionNothing");
+    let defaultActionInsert = $("#defaultActionInsert");
+    let defaultActionOff = $("#defaultActionOff");
+    if (localStorage.defaultAction) {
+        switch (localStorage.defaultAction) {
+            case "insert":
+                defaultActionNothing.prop("checked", true);
+                break;
+            case "off":
+                defaultActionInsert.prop("checked", true);
+                break;
+            default:
+                defaultActionOff.prop("checked", true);
+        }
+    } else {
+        defaultActionNothing.prop("checked", true);
+    }
+    defaultActionNothing.click(() => {
+        addOrUpdateStoredValue("defaultAction", "");
+    });
+    defaultActionInsert.click(() => {
+        addOrUpdateStoredValue("defaultAction", "insert");
+    });
+    defaultActionOff.click(() => {
+        addOrUpdateStoredValue("defaultAction", "off");
+    });
+
+    // commands
     // TODO
     // Temporary workaround until this issue is fixed:
     //    https://developer.thunderbird.net/add-ons/updating/tb78#replacing-options
@@ -259,11 +268,11 @@ async function initUI(localStorage) {
             }
 
             let keyOptions = "";
-            // A-Z ...
+            // A-Z
             for (let i = "A".charCodeAt(0); i <= "Z".charCodeAt(0); i++) {
                 keyOptions += createOptionElement(String.fromCharCode(i), commandValueCheck(commandValues, String.fromCharCode(i)), String.fromCharCode(i));
             }
-            // 0-9 ...
+            // 0-9
             for (let i = 0; i <= 9; i++) {
                 keyOptions += createOptionElement(i, commandValueCheck(commandValues, i), i);
             }
@@ -343,15 +352,98 @@ async function initUI(localStorage) {
             });
         }
     });
+
+    // replies
+    let repliesDisableAutoSwitch = $("#repliesDisableAutoSwitch");
+    repliesDisableAutoSwitch.prop("checked", localStorage.repliesDisableAutoSwitch);
+    repliesDisableAutoSwitch.click(() => {
+        addOrUpdateStoredValue("repliesDisableAutoSwitch", repliesDisableAutoSwitch.prop("checked"));
+    });
+    let repliesNoDefaultAction = $("#repliesNoDefaultAction");
+    repliesNoDefaultAction.prop("checked", localStorage.repliesNoDefaultAction);
+    repliesNoDefaultAction.click(() => {
+        addOrUpdateStoredValue("repliesNoDefaultAction", repliesNoDefaultAction.prop("checked"));
+    });
+
+    // forwardings
+    let forwardingsDisableAutoSwitch = $("#forwardingsDisableAutoSwitch");
+    forwardingsDisableAutoSwitch.prop("checked", localStorage.forwardingsDisableAutoSwitch);
+    forwardingsDisableAutoSwitch.click(() => {
+        addOrUpdateStoredValue("forwardingsDisableAutoSwitch", forwardingsDisableAutoSwitch.prop("checked"));
+    });
+    let forwardingsNoDefaultAction = $("#forwardingsNoDefaultAction");
+    forwardingsNoDefaultAction.prop("checked", localStorage.forwardingsNoDefaultAction);
+    forwardingsNoDefaultAction.click(() => {
+        addOrUpdateStoredValue("forwardingsNoDefaultAction", forwardingsNoDefaultAction.prop("checked"));
+    });
+
+    // signature separator
+    let signatureSeparatorHtml = $("#signatureSeparatorHtml");
+    signatureSeparatorHtml.prop("checked", localStorage.signatureSeparatorHtml);
+    signatureSeparatorHtml.click(() => {
+        addOrUpdateStoredValue("signatureSeparatorHtml", signatureSeparatorHtml.prop("checked"));
+    });
+
+    /* -----------------
+        Import / Export
+       ----------------- */
+
+    let importExportData = $("#importExportData");
+    importExportData.on("change keyup", () => {
+        validateImportExportData();
+    });
+    $("#importConfirmation").click(() => {
+        importSignaturesFromJsonString(importExportData.val());
+        $("#importConfirmationModal").modal("hide");
+    });
+    $("#copySignaturesToClipboard").click(() => {
+        copyTextToClipboard(importExportData.val());
+    });
+    $("#exportSignatures").click(() => {
+        loadAndShowSignaturesAsJsonString();
+    });
+
+    // tooltip
+    $("#importExportDataTooltip").attr({
+        "data-toggle": "tooltip",
+        "data-html": "true",
+        "title": i18n("optionsImportExportDataTooltip") + `
+            <br><br>
+            <div class="text-left nobr">
+            [<br>
+            &nbsp;{<br>
+            &nbsp;&nbsp;"id": "666",<br>
+            &nbsp;&nbsp;"name": "Business",<br>
+            &nbsp;&nbsp;"text": "email: moe@zilla.org"<br>
+            &nbsp;}<br>
+            ]</div>`
+    });
+
+    // init all tooltips
+    initTooltips();
+
+    // trigger i18n
+    dataI18n();
 }
 
-function updateUI() {
-    // update signature names
-    browser.storage.local.get().then(localStorage => {
-        localStorage.signatures.forEach(signature => {
-            $("#signatureName-" + signature.id).text(signature.name);
-        });
-    });
+function updateUI(changes) {
+    let changedItems = Object.keys(changes);
+
+    for (let item of changedItems) {
+        switch (item) {
+            case "signatures":
+                if (JSON.stringify(changes[item].newValue) !== JSON.stringify(changes[item].oldValue)) {
+                    browser.storage.local.get().then(localStorage => {
+                        localStorage.signatures.forEach(signature => {
+                            $("#signatureName-" + signature.id).text(signature.name);
+                        });
+
+                        buildIdentitiesTableBody(localStorage);
+                    });
+                }
+                break;
+        }
+    }
 }
 
 function initTooltips() {
@@ -359,8 +451,11 @@ function initTooltips() {
 }
 
 function addSignature(signature) {
+    let immediatelyShowModal = false;
+
     if (!signature) {
         signature = newSignature();
+        immediatelyShowModal = true;
     }
 
     $("#signaturesTableBody").append(Mustache.render(SIGNATURE_ROW, {
@@ -380,7 +475,7 @@ function addSignature(signature) {
 
     let signatureModals = $("#signatureModals");
 
-    // edit modal ...
+    // edit modal
     signatureModals.append(Mustache.render(SIGNATURE_EDIT_MODAL, {
         id: signature.id,
         name: signature.name,
@@ -403,6 +498,7 @@ function addSignature(signature) {
         close: i18n("optionsSignatureEditModalClose"),
         save: i18n("optionsSignatureEditModalSave")
     }));
+    let signatureEditModal = $("#signatureEditModal-" + signature.id);
     $("#signatureModalSave-" + signature.id).click(() => {
         addOrUpdateItemInStoredArray({
             id: signature.id,
@@ -411,11 +507,11 @@ function addSignature(signature) {
             html: $("#signatureModalHtml-" + signature.id).val(),
             autoSwitch: $("#signatureModalAutoSwitch-" + signature.id).val()
         }, "signatures");
-        $("#signatureEditModal-" + signature.id).modal("hide");
+        signatureEditModal.modal("hide");
     });
     initTooltips();
 
-    // remove modal ...
+    // remove modal
     signatureModals.append(Mustache.render(GENERIC_REMOVE_MODAL, {
         modalId: "signatureRemoveModal-" + signature.id,
         modalYesButtonId: "signatureRemoveModalYes-" + signature.id,
@@ -431,6 +527,10 @@ function addSignature(signature) {
             $(`tr[data-signature-id="${signature.id}"]`).remove();
         });
     });
+
+    if (immediatelyShowModal) {
+        signatureEditModal.modal("show");
+    }
 }
 
 function reorderSignatures(id, direction) {
@@ -483,7 +583,7 @@ function addImage(image) {
         image = newImage();
     }
 
-    // table row ...
+    // table row
     let imageData = undefined;
     if (image.data) {
         if (image.data !== "") {
@@ -500,7 +600,7 @@ function addImage(image) {
         class: fileInputClass
     }));
 
-    // modals ...
+    // modals
     $("#imageModals").append(Mustache.render(GENERIC_REMOVE_MODAL, {
         modalId: "imageRemoveModal-" + image.id,
         modalYesButtonId: "imageRemoveModalYes-" + image.id,
@@ -526,7 +626,7 @@ function addImage(image) {
         };
     };
 
-    // input-/change-listeners ...
+    // input-/change-listeners
     $(`#imageName-${image.id}, #imageTag-${image.id}`).on("change keyup", () => {
         addOrUpdateItemInStoredArray(updatedImage(), "images")
     });
@@ -553,7 +653,7 @@ function addFortuneCookies(fortuneCookies) {
     let fortuneCookiesModals = $("#fortuneCookiesModals");
     let fortuneCookiesTableRowTextarea = $("#fortuneCookiesCookies-" + fortuneCookies.id);
 
-    // edit modal ...
+    // edit modal
     fortuneCookiesModals.append(Mustache.render(FORTUNE_COOKIES_EDIT_MODAL, {
         id: fortuneCookies.id,
         title: i18n("optionsFortuneCookiesEditModalTitle"),
@@ -577,7 +677,7 @@ function addFortuneCookies(fortuneCookies) {
     });
     initTooltips();
 
-    // remove modal ...
+    // remove modal
     fortuneCookiesModals.append(Mustache.render(GENERIC_REMOVE_MODAL, {
         modalId: "fortuneCookiesRemoveModal-" + fortuneCookies.id,
         modalYesButtonId: "fortuneCookiesRemoveModalYes-" + fortuneCookies.id,
@@ -603,12 +703,70 @@ function addFortuneCookies(fortuneCookies) {
         };
     };
 
-    // input-/change-listeners ...
+    // input-/change-listeners
     $(`#fortuneCookiesName-${fortuneCookies.id}, #fortuneCookiesTag-${fortuneCookies.id}, #fortuneCookiesCookies-${fortuneCookies.id}`).on("change keyup", () => {
         addOrUpdateItemInStoredArray(updatedFortuneCookies(), "fortuneCookies")
     });
     $("#fortuneCookiesFileInput-" + fortuneCookies.id).change(async (e) => {
         fortuneCookiesEditModalTextarea.val(await toText(e.target.files[0]));
+    });
+}
+
+function buildIdentitiesTableBody(localStorage) {
+    // get all existing signature ids first
+    getAllSignatureIds(localStorage.signatures).then(allSignatureIds => {
+        // helper-function to get the the already assigned sig-id of an identity
+        let getAssignedSignatureIdForMailIdentityId = mailIdentityId => {
+            let signatureId = "";
+            if (localStorage.identities) {
+                let identities = localStorage.identities;
+                for (let i = 0; i < identities.length; i++) {
+                    if (identities[i].id === mailIdentityId) {
+                        if (allSignatureIds.includes(identities[i].signatureId)) {
+                            signatureId = identities[i].signatureId;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            return signatureId;
+        };
+
+        // clear table body
+        let tableBody = $("#identitiesTableBody");
+        tableBody.empty();
+
+        // get all mail accounts
+        browser.accounts.list().then(mailAccounts => {
+            // iterate over all mail accounts
+            for (let mailAccount of mailAccounts) {
+                for (let mailIdentity of mailAccount.identities) {
+                    let assignedSignature = getAssignedSignatureIdForMailIdentityId(mailIdentity.id);
+                    let optionItems = "<option></option>"; // = no selection
+
+                    // create options for select element
+                    if (localStorage.signatures) {
+                        localStorage.signatures.forEach(signature => {
+                            optionItems += `<option value="${signature.id}" ${assignedSignature === signature.id ? "selected" : ""}>${signature.name}</option>`
+                        });
+                    }
+
+                    // append a new "identity row" to the table
+                    tableBody.append(Mustache.render(IDENTITIES_ROW, {
+                        id: mailIdentity.id,
+                        name: `${mailIdentity.name} <${mailIdentity.email}>`,
+                        signatures: optionItems
+                    }));
+
+                    // change-listener for the select element
+                    let identitySignature = $(`#identity-${mailIdentity.id}-signature`);
+                    identitySignature.change(() => {
+                        addOrUpdateItemInStoredArray({id: mailIdentity.id, signatureId: identitySignature.find("option:selected").val()} , "identities");
+                    });
+                }
+            }
+        });
     });
 }
 
@@ -757,6 +915,14 @@ function deleteItemFromStoredArrayViaId(itemId, arrayName, onSuccess) {
             }
         });
     });
+}
+
+function validateDefaultsForBoolPreferences(localStorage, preferences) {
+    for (let preference of preferences) {
+        if (localStorage[preference.name] === undefined) {
+            addOrUpdateStoredValue(preference.name, preference.default);
+        }
+    }
 }
 
 /* =====================================================================================================================

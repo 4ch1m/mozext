@@ -79,3 +79,22 @@ function toText(file) {
 function random(n) {
     return (Math.floor(Math.random() * n + 1));
 }
+
+async function getAllSignatureIds(signaturesArray) {
+    let ids = [];
+    let signatures;
+
+    if (!signaturesArray) {
+        await browser.storage.local.get().then(localStorage => {
+            signatures = localStorage.signatures ? localStorage.signatures : [];
+        });
+    } else {
+        signatures = signaturesArray;
+    }
+
+    signatures.forEach(signature => {
+        ids.push(signature.id);
+    });
+
+    return ids;
+}

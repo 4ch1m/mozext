@@ -134,13 +134,15 @@ function addContextMenuListener() {
 
 function addStorageChangeListener() {
     browser.storage.onChanged.addListener(changes => {
-        createContextMenu();
-
         let changedItems = Object.keys(changes);
 
         for (let item of changedItems) {
-            // TODO
-            if (item === "???") {
+            switch (item) {
+                case "signatures":
+                    if (JSON.stringify(changes[item].newValue) !== JSON.stringify(changes[item].oldValue)) {
+                        createContextMenu();
+                    }
+                    break;
             }
         }
     });
@@ -150,7 +152,7 @@ function addCommandListener() {
     browser.commands.onCommand.addListener(name => {
         browser.windows.getAll().then(windows => {
             for (let window of windows) {
-                if (window.type === WINDOW_TYPE_MESSAGE_COMPOSE && window.focused === true) {
+                if (window.type === WINDOW_TYPE_MESSAGE_COMPOSE && window.focused) {
                     browser.tabs.query({windowId: window.id}).then(async tabs => {
                         let mailTabId = tabs[0].id;
                         let foundSignatureId = await searchSignatureInComposer(mailTabId);
@@ -246,30 +248,63 @@ function addWindowCreateListener() {
         if (window.type === WINDOW_TYPE_MESSAGE_COMPOSE) {
             browser.tabs.query({windowId: window.id}).then(async tabs => {
                 let tabId = tabs[0].id;
+
                 let storage = await browser.storage.local.get();
-                let isReply = await isReplyComposer(tabId);
-                let isForward = await isForwardComposer(tabId);
+                let details = await browser.compose.getComposeDetails(tabId);
+
+                let isReply = details.subject.startsWith(REPLY_SUBJECT_PREFIX);
+                let isForward = details.subject.startsWith(FORWARD_SUBJECT_PREFIX);
 
                 // check if it's a reply/forward and if we DON'T want to perform the default-action
-                if ((isReply && storage.repliesNoDefaultAction === true) ||
-                    (isForward && storage.forwardingsNoDefaultAction === true) ) {
-                    // don't perform any default-actions.
-                } else {
-                    // check if a default-action is set
-                    if (storage.defaultAction) {
-                        // execute default-action
-                        if (storage.defaultAction === "insert") {
-                            appendDefaultSignatureToComposer(tabId);
-                        } else {
-                            removeSignatureFromComposer(tabId);
+                let noDefaultAction = (isReply && storage.repliesNoDefaultAction) || (isForward && storage.forwardingsNoDefaultAction === true);
+
+                // check if we should ignore a the identity-sig b/c it's a reply or forwarding
+                let ignoreIdentitySig = (isReply || isForward) && (!storage.identitiesUseAssignedSignatureOnReplyOrForwarding);
+
+                // see if we can find an assigned signature for the current identity (but only if we don't ignore identitity-sigs)
+                let identitySignatureId = "";
+                if (!ignoreIdentitySig && storage.identities) {
+                    for (let i = 0; i < storage.identities.length; i++) {
+                        if (storage.identities[i].id === details.identityId) {
+                            identitySignatureId = storage.identities[i].signatureId;
+                            break;
                         }
                     }
                 }
 
-                // don't trigger auto-switch for replies/forwardings if disabled in options
-                if (!(isReply && storage.repliesDisableAutoSwitch === true) ||
-                    !(isForward && storage.forwardingsDisableAutoSwitch === true)) {
+                // check if we have an signature sig AND if it should take precedence over the default action/sig
+                let identitySigAvailableAndOverrulesDefault = (identitySignatureId !== "") && (storage.identitiesOverruleDefaultAction);
+
+                if (!noDefaultAction && !identitySigAvailableAndOverrulesDefault) {
+                    // check if a default-action is set
+                    if (storage.defaultAction) {
+                        // execute default-action
+                        switch (storage.defaultAction) {
+                            case "insert":
+                                appendDefaultSignatureToComposer(tabId);
+                                break;
+                            case "off":
+                                removeSignatureFromComposer(tabId);
+                                break;
+                            default:
+                                // do nothing
+                                break;
+                        }
+                    }
+                } else if (identitySignatureId !== "") {
+                    // insert identity sig
+                    appendSignatureViaIdToComposer(identitySignatureId, tabId);
+                }
+
+                // don't trigger recipient-based auto-switch for replies/forwardings if disabled in options
+                if (!(isReply && storage.repliesDisableAutoSwitch) ||
+                    !(isForward && storage.forwardingsDisableAutoSwitch)) {
                     startRecipientChangeListener(tabId);
+                }
+
+                // only enable identity-based auto-switch if activated in options
+                if (storage.identitiesSwitchSignatureOnChange) {
+                    startIdentityChangeListener(tabId, undefined, details.identityId);
                 }
             });
         }
@@ -366,7 +401,7 @@ async function searchSignatureInComposer(tabId = composeActionTabId) {
                 let plainTextBody = await normalizePlainTextBody(details.plainTextBody);
 
                 // check if the signature contains a fortune-cookie placeholder
-                if (new RegExp(".*\\[\\[.*\\]\\].*").test(signature.text)) {
+                if (new RegExp("\\[\\[.*?\\]\\]").test(signature.text)) {
                     if (localStorage.fortuneCookies) {
                         // TODO
                         // refactor me! pretty wonky implementation/concept!
@@ -467,7 +502,7 @@ async function createHtmlSignature(document, html, signatureId, elementType = "d
 }
 
 async function searchAndReplaceImagePlaceholder(content) {
-    if (new RegExp(".*{{.*}}.*").test(content)) {
+    if (new RegExp("\\{{.*?}}").test(content)) {
         await browser.storage.local.get().then(localStorage => {
             if (localStorage.images) {
                 for (let image of localStorage.images) {
@@ -481,7 +516,7 @@ async function searchAndReplaceImagePlaceholder(content) {
 }
 
 async function searchAndReplaceFortuneCookiePlaceholder(content) {
-    if (new RegExp(".*\\[\\[.*\\]\\].*").test(content)) {
+    if (new RegExp("\\[\\[.*?\\]\\]").test(content)) {
         await browser.storage.local.get().then(localStorage => {
             if (localStorage.fortuneCookies) {
                 for (let fortuneCookies of localStorage.fortuneCookies) {
@@ -517,41 +552,9 @@ async function getBodyWithoutSignature(composeDetails) {
     }
 }
 
-async function getAllSignatureIds(signaturesArray) {
-    let ids = [];
-    let signatures;
-
-    if (!signaturesArray) {
-        await browser.storage.local.get().then(localStorage => {
-            signatures = localStorage.signatures ? localStorage.signatures : [];
-        });
-    } else {
-        signatures = signaturesArray;
-    }
-
-    signatures.forEach(signature => {
-        ids.push(signature.id);
-    });
-
-    return ids;
-}
-
-async function isReplyComposer(tabId = composeActionTabId) {
-    return await browser.compose.getComposeDetails(tabId).then(details => {
-        return details.subject.startsWith(REPLY_SUBJECT_PREFIX);
-    });
-}
-
-async function isForwardComposer(tabId = composeActionTabId) {
-    return await browser.compose.getComposeDetails(tabId).then(details => {
-        return details.subject.startsWith(FORWARD_SUBJECT_PREFIX);
-    });
-}
-
 async function startRecipientChangeListener(tabId, timeout = 1000, previousRecipients = "") {
     try {
-        let details = await browser.compose.getComposeDetails(tabId);
-        let currentRecipients = details.to + "";
+        let currentRecipients = (await browser.compose.getComposeDetails(tabId)).to + "";
 
         if (currentRecipients !== previousRecipients) {
             autoSwitchBasedOnRecipients(tabId);
@@ -562,7 +565,38 @@ async function startRecipientChangeListener(tabId, timeout = 1000, previousRecip
         }, timeout);
     } catch (e) {
         // tabId probably not valid anymore; window closed
-        return;
+    }
+}
+
+async function startIdentityChangeListener(tabId, timeout = 1000, previousIdentityId = "") {
+    try {
+        let currentIdentityId = (await browser.compose.getComposeDetails(tabId)).identityId;
+
+        if (currentIdentityId !== previousIdentityId) {
+            let mailAccounts = await browser.accounts.list();
+            for (let mailAccount of mailAccounts) {
+                for (let mailIdentity of mailAccount.identities) {
+                    if (mailIdentity.id === currentIdentityId) {
+                        let localStorage = await browser.storage.local.get();
+                        if (localStorage.identities) {
+                            let identities = localStorage.identities;
+                            for (let i = 0; i < identities.length; i++) {
+                                if (identities[i].id === mailIdentity.id) {
+                                    appendSignatureViaIdToComposer(identities[i].signatureId, tabId);
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        setTimeout(() => {
+            startIdentityChangeListener(tabId, timeout, currentIdentityId);
+        }, timeout);
+    } catch (e) {
+        // tabId probably not valid anymore; window closed
     }
 }
 

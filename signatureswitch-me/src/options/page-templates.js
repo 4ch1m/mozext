@@ -314,3 +314,18 @@ const FORTUNE_COOKIES_EDIT_MODAL = `
         </div>
     </div>
 `;
+
+const IDENTITIES_ROW = `
+    <tr class="hide">
+        <!-- name -->
+        <td class="text-center">
+            <b class="nobr">{{name}}</b>
+        </td>
+        <!-- signature -->
+        <td class="text-center">
+            <select id="identity-{{id}}-signature" class="custom-select custom-select-sm" style="width:auto">
+                {{{signatures}}}
+            </select>
+        </td>
+    </tr>
+`;

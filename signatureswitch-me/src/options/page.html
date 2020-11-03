@@ -44,6 +44,7 @@
                         <a class="nav-item nav-link active" id="signaturesTab" data-toggle="tab" href="#signaturesTabContent" role="tab" data-i18n="optionsSignatures"></a>
                         <a class="nav-item nav-link" id="imagesTab" data-toggle="tab" href="#imagesTabContent" role="tab" data-i18n="optionsImages"></a>
                         <a class="nav-item nav-link" id="fortuneCookiesTab" data-toggle="tab" href="#fortuneCookiesTabContent" role="tab" data-i18n="optionsFortuneCookies"></a>
+                        <a class="nav-item nav-link" id="identitiesTab" data-toggle="tab" href="#identitiesTabContent" role="tab" data-i18n="optionsIdentities"></a>
                         <a class="nav-item nav-link" id="miscellaneousTab" data-toggle="tab" href="#miscellaneousTabContent" role="tab" data-i18n="optionsMiscellaneous"></a>
                         <a class="nav-item nav-link" id="importExportTab" data-toggle="tab" href="#importExportTabContent" role="tab" data-i18n="optionsImportExport"></a>
                         <a class="nav-item nav-link" id="helpTab" data-toggle="tab" href="#helpTabContent" role="tab" data-i18n="optionsHelp"></a>
@@ -203,6 +204,65 @@
                             </div>
                         </div>
                     </div>
+                    <!-- identities -->
+                    <div class="tab-pane m-2" id="identitiesTabContent" role="tabpanel">
+                        <div class="container">
+                            <div class="row section">
+                                <div class="col-12">
+                                    <input type="checkbox" id="identitiesSwitchSignatureOnChange">
+                                    <label for="identitiesSwitchSignatureOnChange" data-i18n="optionsIdentitiesSwitchSignatureUponChange"></label>
+                                </div>
+                                <div class="col-12">
+                                    <input type="checkbox" id="identitiesUseAssignedSignatureOnReplyOrForwarding">
+                                    <label for="identitiesUseAssignedSignatureOnReplyOrForwarding" data-i18n="optionsIdentitiesUseAssignedSignatureOnReplyOrForwarding"></label>
+                                </div>
+                                <div class="col-12">
+                                    <input type="checkbox" id="identitiesOverruleDefaultAction">
+                                    <label for="identitiesOverruleDefaultAction" data-i18n="optionsIdentitiesOverruleDefaultAction"></label>
+                                </div>
+                            </div>
+                            <div class="row section">
+                                <label>
+                                    <span data-i18n="optionsIdentitiesLabel"></span>
+                                    <span id="identitiesTooltip"> <!-- tooltip added programmatically -->
+                                        <svg class="bi" width="1em" height="1em" fill="currentColor">
+                                            <use xlink:href="/_images/bootstrap-icons.svg#info-circle"/>
+                                        </svg>
+                                    </span>
+                                </label>
+                            </div>
+                            <div class="row section">
+                                <div class="col-md-1">
+                                </div>
+                                <div class="col-md-8">
+                                    <table class="table">
+                                        <thead class="thead-light">
+                                        <tr>
+                                            <!-- name -->
+                                            <th class="w-25 text-center" data-i18n="optionsTableColumnIdentityName"></th>
+                                            <!-- tag -->
+                                            <th class="w-25 text-center" data-i18n="optionsTableColumnIdentityAssignedSignature"></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="identitiesTableBody">
+                                            <!-- identities ... -->
+                                        </tbody>
+                                    </table>
+                                    <div class="text-center">
+                                        <button id="reloadIdentities" type="button" class="btn btn-light btn-sm">
+                                            <svg class="bi" width="2em" height="2em" fill="currentColor">
+                                                <use xlink:href="/_images/bootstrap-icons.svg#arrow-clockwise"/>
+                                            </svg>
+                                            &nbsp;
+                                            <span data-i18n="optionsReloadIdentities"></span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <!-- miscellaneous -->
                     <div class="tab-pane m-2" id="miscellaneousTabContent" role="tabpanel">
                         <!-- default action -->
@@ -298,7 +358,7 @@
                             <div class="row">
                                 <label for="importExportData">
                                     <span data-i18n="optionsImportExportDataLabel"></span>
-                                    <span id="importExportDataTooltip" data-toggle="tooltip" data-html="true" title="">
+                                    <span id="importExportDataTooltip"> <!-- tooltip added programmatically -->
                                         <svg class="bi" width="1em" height="1em" fill="currentColor">
                                             <use xlink:href="/_images/bootstrap-icons.svg#info-circle"/>
                                         </svg>

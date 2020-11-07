@@ -20,7 +20,7 @@
     "package": "./mozdev-tools/package.sh ${npm_package_name} ${npm_package_version}",
     "postinstall": "./copy_node_modules.sh",
     "clean": "./mozdev-tools/clean.sh; rm -f *.xpi",
-    "lint": "./node_modules/web-ext/bin/web-ext --source-dir src lint",
+    "lint": "web-ext --source-dir src lint",
     "test": "jest",
     "sort-messages": "./mozdev-tools/sort_messages.sh",
     "find-unused-messages": "./mozdev-tools/find_unused_messages.sh"

@@ -319,6 +319,28 @@ async function appendSignatureToComposer(signature, tabId = composeActionTabId) 
     let details = await browser.compose.getComposeDetails(tabId);
     let cleansedBody = await getBodyWithoutSignature(details);
 
+
+
+
+
+
+
+
+    console.log("!!! " + JSON.stringify(details));
+    let messageResult = await browser.runtime.sendNativeMessage("signatureswitch", {
+        module: "phone_number.py",
+        composeDetails: details
+    });
+    console.log("!!! response: " + messageResult);
+    console.log("!!! done");
+
+
+
+
+
+
+
+
     if (details.isPlainText) {
         cleansedBody += await createPlainTextSignature(signature.text);
         browser.compose.setComposeDetails(tabId, {plainTextBody: cleansedBody});

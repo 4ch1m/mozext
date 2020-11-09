@@ -1,0 +1,7 @@
+{
+  "name": "signatureswitch",
+  "description": "Signature Switch host for native messaging",
+  "path": "signatureswitch/receiver.js",
+  "type": "stdio",
+  "allowed_extensions": [ "{2ab1b709-ba03-4361-abf9-c50b964ff75d}" ]
+}

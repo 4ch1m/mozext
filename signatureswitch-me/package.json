@@ -15,14 +15,14 @@
     "rewire": "^5.0.0"
   },
   "scripts": {
+    "postinstall": "./copy_node_modules.sh",
     "prestart": "./mozdev-tools/setup.sh tb; ./mozdev-tools/install.sh tb; ./mozdev-tools/move_devtools_window.sh 3841 0 &",
     "start": "./mozdev-tools/start.sh tb",
-    "package": "./mozdev-tools/package.sh ${npm_package_name} ${npm_package_version}",
-    "postinstall": "./copy_node_modules.sh",
     "clean": "./mozdev-tools/clean.sh; rm -f *.xpi",
-    "lint": "web-ext --source-dir src lint",
-    "test": "jest",
     "sort-messages": "./mozdev-tools/sort_messages.sh",
-    "find-unused-messages": "./mozdev-tools/find_unused_messages.sh"
+    "find-unused-messages": "./mozdev-tools/find_unused_messages.sh",
+    "lint": "web-ext --source-dir src lint",
+    "build": "web-ext --source-dir src build --overwrite-dest",
+    "test": "jest"
   }
 }

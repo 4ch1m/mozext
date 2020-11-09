@@ -31,6 +31,7 @@ let composeActionSignatureId;
 
 (() => {
     createContextMenu();
+    addComposeScript();
 
     addContextMenuListener();
     addStorageChangeListener();
@@ -102,6 +103,14 @@ function createMenuItems(items) {
     if (typeof items !== undefined && items.length > 0) {
         browser.menus.create(items.pop(), createMenuItems(items));
     }
+}
+
+/* =====================================================================================================================
+   compose script ...
+ */
+
+function addComposeScript() {
+    browser.composeScripts.register({js: [{file: "/compose/plaintext-content.js"}]});
 }
 
 /* =====================================================================================================================
@@ -317,12 +326,12 @@ function addWindowCreateListener() {
 
 async function appendSignatureToComposer(signature, tabId = composeActionTabId) {
     let details = await browser.compose.getComposeDetails(tabId);
-    let cleansedBody = await getBodyWithoutSignature(details);
 
     if (details.isPlainText) {
-        cleansedBody += await createPlainTextSignature(signature.text);
-        browser.compose.setComposeDetails(tabId, {plainTextBody: cleansedBody});
+        let plaintextSignature = await createPlainTextSignature(signature.text);
+        browser.tabs.sendMessage(tabId, {action: "setSignature", data: plaintextSignature});
     } else {
+        let cleansedBody = await getBodyWithoutSignature(details);
         let document = domParser.parseFromString(cleansedBody, "text/html");
         let renderedSignature;
         if (signature.html !== "") {
@@ -382,9 +391,12 @@ async function appendSignatureViaIdToComposer(signatureId, tabId = composeAction
 
 async function removeSignatureFromComposer(tabId = composeActionTabId) {
     browser.compose.getComposeDetails(tabId).then(async details => {
-        let bodyWithoutSignature = await getBodyWithoutSignature(details);
-        let newDetails = details.isPlainText ? {plainTextBody: bodyWithoutSignature} : {body: bodyWithoutSignature};
-        browser.compose.setComposeDetails(tabId, newDetails);
+        if (details.isPlainText) {
+            browser.tabs.sendMessage(tabId, {action: "setSignature", data: null});
+        } else {
+            let bodyWithoutSignature = await getBodyWithoutSignature(details);
+            browser.compose.setComposeDetails(tabId, {body: bodyWithoutSignature});
+        }
     });
 }
 
@@ -480,9 +492,9 @@ function autoSwitchBasedOnRecipients(tabId = composeActionTabId) {
 async function createPlainTextSignature(text) {
     text = await searchAndReplaceFortuneCookiePlaceholder(text);
 
-    return  NEW_LINE +
-            PLAINTEXT_SIGNATURE_SEPARATOR +
-            text;
+    return  PLAINTEXT_SIGNATURE_SEPARATOR +
+            text +
+            (!text.endsWith(NEW_LINE) ? NEW_LINE : "");
 }
 
 async function createHtmlSignature(document, html, signatureId, elementType = "div") {

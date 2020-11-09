@@ -3,3 +3,4 @@ node_modules
 *.xpi
 mozdev-tools
 publish-*.sh
+web-ext-artifacts

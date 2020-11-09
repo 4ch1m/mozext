@@ -6,9 +6,9 @@
   "scripts": {
     "prestart": "./mozdev-tools/setup.sh tb; ./mozdev-tools/install.sh tb; ./mozdev-tools/move_devtools_window.sh 3841 0 &",
     "start": "./mozdev-tools/start.sh tb",
-    "package": "./mozdev-tools/package.sh ${npm_package_name} ${npm_package_version}",
     "clean": "./mozdev-tools/clean.sh; rm -f *.xpi",
-    "lint": "./node_modules/web-ext/bin/web-ext --source-dir src lint",
+    "lint": "web-ext --source-dir src lint",
+    "build": "web-ext --source-dir src build --overwrite-dest",
     "sort-messages": "./mozdev-tools/sort_messages.sh"
   }
 }

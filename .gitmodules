@@ -1,6 +1,6 @@
-[submodule "nestedquoteremover-me/mozdev-tools"]
-	path = nestedquoteremover-me/mozdev-tools
-	url = https://github.com/4ch1m/mozdev-tools.git
 [submodule "signatureswitch-me/ansible-mozdev"]
 	path = signatureswitch-me/ansible-mozdev
+	url = https://github.com/4ch1m/ansible-mozdev.git
+[submodule "nestedquoteremover-me/ansible-mozdev"]
+	path = nestedquoteremover-me/ansible-mozdev
 	url = https://github.com/4ch1m/ansible-mozdev.git

@@ -7,9 +7,8 @@
 
 * [How To](#how-to)
   * [Setup](#setup)
+  * [Install](#install)
   * [Build](#build)
-  * [Run](#run)
-  * [Create XPI](#create-xpi)
 * [Credits](#credits)
 * [License](#license)
 
@@ -25,23 +24,18 @@ git submodule update
 cd nestedquoteremover-me
 ```
 
-### Build
+### Install
 
 ```
 npm install
 ```
 
-### Run
+### Build
 
 ```
-npm start
+npm run build
 ```
-
-### Create XPI
-
-```
-npm run package
-```
+(Builds a zip-archive in a folder called `web-ext-artifacts`.)
 
 ## Credits
 

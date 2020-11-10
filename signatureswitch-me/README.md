@@ -7,9 +7,8 @@
 
 * [How To](#how-to)
   * [Setup](#setup)
+  * [Install](#install)
   * [Build](#build)
-  * [Run](#run)
-  * [Create XPI](#create-xpi)
 * [Credits](#credits)
   * [Used Libraries](#used-libraries)
   * [Other than that](#other-than-that)
@@ -27,23 +26,18 @@ git submodule update
 cd signatureswitch-me
 ```
 
-### Build
+### Install
 
 ```
 npm install
 ```
 
-### Run
+### Build
 
 ```
-npm start
+npm run build
 ```
-
-### Create XPI
-
-```
-npm run package
-```
+(Builds a zip-archive in a folder called `web-ext-artifacts`.)
 
 ## Credits
 

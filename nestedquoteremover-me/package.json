@@ -3,12 +3,14 @@
   "dependencies": {
     "web-ext": "^5.3.0"
   },
+  "ansible": "ansible-playbook --extra-vars @ansible-mozdev.yml",
   "scripts": {
-    "prestart": "./mozdev-tools/setup.sh tb; ./mozdev-tools/install.sh tb; ./mozdev-tools/move_devtools_window.sh 3841 0 &",
-    "start": "./mozdev-tools/start.sh tb",
-    "package": "./mozdev-tools/package.sh ${npm_package_name} ${npm_package_version}",
-    "clean": "./mozdev-tools/clean.sh; rm -f *.xpi",
-    "lint": "./node_modules/web-ext/bin/web-ext --source-dir src lint",
-    "sort-messages": "./mozdev-tools/sort_messages.sh"
+    "prestart": "$npm_package_ansible ansible-mozdev/install.yml & $npm_package_ansible ansible-mozdev/move_devtools_window.yml &",
+    "start": "$npm_package_ansible ansible-mozdev/run.yml",
+    "clean": "$npm_package_ansible ansible-mozdev/remove.yml",
+    "sort-messages": "$npm_package_ansible ansible-mozdev/sort_messages.yml",
+    "find-unused-messages": "$npm_package_ansible ansible-mozdev/find_unused_messages.yml",
+    "lint": "web-ext --source-dir src lint",
+    "build": "web-ext --source-dir src build --overwrite-dest"
   }
 }

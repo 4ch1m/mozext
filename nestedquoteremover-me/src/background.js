@@ -18,15 +18,15 @@ let contextMenuEntry = true;
     platformInfo = await browser.runtime.getPlatformInfo();
 
     await browser.storage.local.get().then(localStorage => {
-        if (localStorage.maxAllowedQuoteDepth) {
+        if (localStorage.maxAllowedQuoteDepth !== undefined) {
             maxAllowedQuoteDepth = parseInt(localStorage.maxAllowedQuoteDepth);
         }
 
-        if (localStorage.autoRemove) {
+        if (localStorage.autoRemove !== undefined) {
             autoRemove = localStorage.autoRemove;
         }
 
-        if (localStorage.contextMenuEntry) {
+        if (localStorage.contextMenuEntry !== undefined) {
             contextMenuEntry = localStorage.contextMenuEntry;
         }
     });
@@ -66,7 +66,7 @@ function addContextMenuListener() {
 }
 
 function addStorageChangeListener() {
-    browser.storage.onChanged.addListener((changes) => {
+    browser.storage.onChanged.addListener(changes => {
         let changedItems = Object.keys(changes);
 
         for (let item of changedItems) {
@@ -97,7 +97,7 @@ function addCommandListener() {
         if (name === "removeNestedQuotes") {
             browser.windows.getAll().then(windows => {
                 for (let window of windows) {
-                    if (window.type === WINDOW_TYPE_MESSAGE_COMPOSE && window.focused === true) {
+                    if (window.type === WINDOW_TYPE_MESSAGE_COMPOSE && window.focused) {
                         browser.tabs.query({windowId: window.id}).then(tabs => {
                             removeNestedQuotes(tabs[0].id);
                         });

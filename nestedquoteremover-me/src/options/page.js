@@ -13,7 +13,7 @@ let ui = {};
         // =============================================================================================================
         // maxAllowedQuoteDepth
         // =============================================================================================================
-        ui.maxAllowedQuoteDepth.value = localStorage.maxAllowedQuoteDepth ? localStorage.maxAllowedQuoteDepth : 1;
+        ui.maxAllowedQuoteDepth.value = localStorage.maxAllowedQuoteDepth !== undefined ? localStorage.maxAllowedQuoteDepth : 1;
         ui.maxAllowedQuoteDepth.addEventListener("change", () => {
             browser.storage.local.set({maxAllowedQuoteDepth: ui.maxAllowedQuoteDepth.value});
         });
@@ -33,7 +33,7 @@ let ui = {};
         // =============================================================================================================
         // autoRemove
         // =============================================================================================================
-        ui.autoRemove.checked = localStorage.autoRemove ? localStorage.autoRemove : false;
+        ui.autoRemove.checked = localStorage.autoRemove !== undefined ? localStorage.autoRemove : false;
         ui.autoRemove.addEventListener("change", () => {
             browser.storage.local.set({autoRemove: ui.autoRemove.checked});
         });
@@ -41,7 +41,7 @@ let ui = {};
         // =============================================================================================================
         // contextMenuEntry
         // =============================================================================================================
-        ui.contextMenuEntry.checked = localStorage.contextMenuEntry ? localStorage.contextMenuEntry : true;
+        ui.contextMenuEntry.checked = localStorage.contextMenuEntry !== undefined ? localStorage.contextMenuEntry : true;
         ui.contextMenuEntry.addEventListener("change", () => {
             browser.storage.local.set({contextMenuEntry: ui.contextMenuEntry.checked});
         });

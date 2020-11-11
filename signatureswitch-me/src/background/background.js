@@ -421,7 +421,14 @@ async function searchSignatureInComposer(tabId = composeActionTabId) {
                         }
                     }
                 } else {
-                    if (plainTextBody.endsWith(await createPlainTextSignature(signature.text))) {
+                    while (plainTextBody.endsWith("\n")) {
+                        plainTextBody = plainTextBody.substring(0, plainTextBody.length - 1);
+                    }
+                    let plainTextSignature = await createPlainTextSignature(signature.text);
+                    while (plainTextSignature.endsWith("\n")) {
+                        plainTextSignature = plainTextSignature.substring(0, plainTextSignature.length - 1);
+                    }
+                    if (plainTextBody.endsWith(plainTextSignature)) {
                         return signature.id;
                     }
                 }

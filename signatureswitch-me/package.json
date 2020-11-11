@@ -11,7 +11,7 @@
     "mustache": "^4.0.1"
   },
   "devDependencies": {
-    "jest": "^26.6.1",
+    "jest": "^26.6.3",
     "rewire": "^5.0.0",
     "copy": "^0.3.2"
   },

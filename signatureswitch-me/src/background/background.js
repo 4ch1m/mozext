@@ -299,7 +299,7 @@ function addWindowCreateListener() {
                 // don't trigger recipient-based auto-switch for replies/forwardings if disabled in options
                 if (!(isReply && storage.repliesDisableAutoSwitch) ||
                     !(isForward && storage.forwardingsDisableAutoSwitch)) {
-                    startRecipientChangeListener(tabId);
+                    startRecipientChangeListener(tabId, 1000, "", storage.autoSwitchIncludeCc, storage.autoSwitchIncludeBcc);
                 }
 
                 // only enable identity-based auto-switch if activated in options
@@ -443,26 +443,37 @@ async function searchSignatureInComposer(tabId = composeActionTabId) {
 
 function autoSwitchBasedOnRecipients(tabId = composeActionTabId) {
     browser.compose.getComposeDetails(tabId).then(details => {
-        if (details.to.length > 0) {
-            browser.storage.local.get().then(localStorage => {
-                if (localStorage.signatures) {
-                    for (let signature of localStorage.signatures) {
-                        if (signature.autoSwitch && signature.autoSwitch.trim() !== "") {
-                            let autoSwitchItems = signature.autoSwitch.split(",");
-                            for (let autoSwitchItem of autoSwitchItems) {
-                                let regEx = createRegexFromAutoSwitchString(autoSwitchItem.trim());
-                                for (let recipient of details.to) {
+        browser.storage.local.get().then(localStorage => {
+            if (localStorage.signatures) {
+                for (let signature of localStorage.signatures) {
+                    if (signature.autoSwitch && signature.autoSwitch.trim() !== "") {
+                        let autoSwitchItems = signature.autoSwitch.split(",");
+                        for (let autoSwitchItem of autoSwitchItems) {
+                            let regEx = createRegexFromAutoSwitchString(autoSwitchItem.trim());
+                            let checkRecipients = recipients => {
+                                for (let recipient of recipients) {
                                     if (regEx.test(cleanseRecipientString(recipient))) {
                                         appendSignatureViaIdToComposer(signature.id, tabId);
-                                        return;
+                                        return true;
                                     }
                                 }
+                                return false;
+                            };
+
+                            if (checkRecipients(details.to)) {
+                                return;
+                            }
+                            if (localStorage.autoSwitchIncludeCc && checkRecipients(details.cc)) {
+                                return;
+                            }
+                            if (localStorage.autoSwitchIncludeBcc && checkRecipients(details.bcc)) {
+                                return;
                             }
                         }
                     }
                 }
-            });
-        }
+            }
+        });
     });
 }
 
@@ -552,16 +563,24 @@ async function getBodyWithoutSignature(composeDetails) {
     }
 }
 
-async function startRecipientChangeListener(tabId, timeout = 1000, previousRecipients = "") {
+async function startRecipientChangeListener(tabId, timeout = 1000, previousRecipients = "", includeCc = false, includeBcc = false) {
     try {
-        let currentRecipients = (await browser.compose.getComposeDetails(tabId)).to + "";
+        let details = await browser.compose.getComposeDetails(tabId);
+        let currentRecipients = "" + details.to;
+
+        if (includeCc) {
+            currentRecipients += " " + details.cc;
+        }
+        if (includeBcc) {
+            currentRecipients += " " + details.bcc;
+        }
 
         if (currentRecipients !== previousRecipients) {
             autoSwitchBasedOnRecipients(tabId);
         }
 
         setTimeout(() => {
-            startRecipientChangeListener(tabId, timeout, currentRecipients);
+            startRecipientChangeListener(tabId, timeout, currentRecipients, includeCc, includeBcc);
         }, timeout);
     } catch (e) {
         // tabId probably not valid anymore; window closed

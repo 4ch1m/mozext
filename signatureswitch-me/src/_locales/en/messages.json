@@ -38,6 +38,15 @@
   "optionsAddSignature": {
     "message": "Add new signature"
   },
+  "optionsAutoSwitch": {
+    "message": "Auto Switch"
+  },
+  "optionsAutoSwitchIncludeBcc": {
+    "message": "Include 'Bcc' recipients."
+  },
+  "optionsAutoSwitchIncludeCc": {
+    "message": "Include 'Cc' recipients."
+  },
   "optionsCommandKeyComma": {
     "message": "Comma"
   },

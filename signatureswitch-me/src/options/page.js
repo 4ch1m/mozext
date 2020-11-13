@@ -14,6 +14,8 @@ $(function() {
             {name: "repliesNoDefaultAction", default: false},
             {name: "forwardingsDisableAutoSwitch", default: false},
             {name: "forwardingsNoDefaultAction", default: false},
+            {name: "autoSwitchIncludeCc", default: false},
+            {name: "autoSwitchIncludeBcc", default: false},
             {name: "signatureSeparatorHtml", default: false}
         ]);
 
@@ -198,13 +200,13 @@ async function initUI(localStorage) {
     if (localStorage.defaultAction) {
         switch (localStorage.defaultAction) {
             case "insert":
-                defaultActionNothing.prop("checked", true);
-                break;
-            case "off":
                 defaultActionInsert.prop("checked", true);
                 break;
-            default:
+            case "off":
                 defaultActionOff.prop("checked", true);
+                break;
+            default:
+                defaultActionNothing.prop("checked", true);
         }
     } else {
         defaultActionNothing.prop("checked", true);
@@ -375,6 +377,18 @@ async function initUI(localStorage) {
     forwardingsNoDefaultAction.prop("checked", localStorage.forwardingsNoDefaultAction);
     forwardingsNoDefaultAction.click(() => {
         addOrUpdateStoredValue("forwardingsNoDefaultAction", forwardingsNoDefaultAction.prop("checked"));
+    });
+
+    // auto switch
+    let autoSwitchIncludeCc = $("#autoSwitchIncludeCc");
+    autoSwitchIncludeCc.prop("checked", localStorage.autoSwitchIncludeCc);
+    autoSwitchIncludeCc.click(() => {
+        addOrUpdateStoredValue("autoSwitchIncludeCc", autoSwitchIncludeCc.prop("checked"));
+    });
+    let autoSwitchIncludeBcc = $("#autoSwitchIncludeBcc");
+    autoSwitchIncludeBcc.prop("checked", localStorage.autoSwitchIncludeBcc);
+    autoSwitchIncludeBcc.click(() => {
+        addOrUpdateStoredValue("autoSwitchIncludeBcc", autoSwitchIncludeBcc.prop("checked"));
     });
 
     // signature separator

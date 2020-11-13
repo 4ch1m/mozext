@@ -200,13 +200,13 @@ async function initUI(localStorage) {
     if (localStorage.defaultAction) {
         switch (localStorage.defaultAction) {
             case "insert":
-                defaultActionNothing.prop("checked", true);
-                break;
-            case "off":
                 defaultActionInsert.prop("checked", true);
                 break;
-            default:
+            case "off":
                 defaultActionOff.prop("checked", true);
+                break;
+            default:
+                defaultActionNothing.prop("checked", true);
         }
     } else {
         defaultActionNothing.prop("checked", true);

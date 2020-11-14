@@ -205,10 +205,7 @@ function addCommandListener() {
 }
 
 function addMessageListener() {
-    // TODO refactor me!
-    // "sendResponse" will be removed from W3C spec
-    // (see: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage)
-    browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    browser.runtime.onMessage.addListener(request => {
         switch (request.type) {
             case "switchSignature":
                 if (request.value === "on") {
@@ -221,8 +218,7 @@ function addMessageListener() {
                 appendSignatureViaIdToComposer(request.value);
                 break;
             case "isSignaturePresent":
-                sendResponse({result: composeActionSignatureId !== ""});
-                break;
+                return Promise.resolve({result: composeActionSignatureId !== ""});
             case "focusOptionsWindow":
                 browser.windows.update(request.value, {
                     drawAttention: true,

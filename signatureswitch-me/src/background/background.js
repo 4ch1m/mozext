@@ -355,7 +355,7 @@ async function appendSignatureToComposer(signature, tabId = composeActionTabId) 
             content: await createSignatureForPlainTextComposer(signature.text)
         };
     } else {
-        // check if we need to use the plaintext-signature, if no html-signature available
+        // check if we need to use the plaintext-signature, b/c there's no html-signature available
         let plaintextFallback = signature.html === "";
 
         if (plaintextFallback) {
@@ -482,10 +482,8 @@ async function createSignatureForPlainTextComposer(content) {
         content = PLAINTEXT_SIGNATURE_SEPARATOR + content;
     }
 
-    // transform new-lines to BRs with mozdirty-attribute
-    content.replaceAll(NEW_LINE, `<br ${ATTRIBUTE_MOZ_DIRTY}="">`);
-
-    return content;
+    // transform new-lines to BRs with mozdirty-attribute and return
+    return content.replaceAll(NEW_LINE, `<br ${ATTRIBUTE_MOZ_DIRTY}="">`);
 }
 
 async function createSignatureForHtmlComposer(content) {

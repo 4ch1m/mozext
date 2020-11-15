@@ -488,8 +488,8 @@ async function createSignatureForPlainTextComposer(content) {
 
 async function createSignatureForHtmlComposer(content) {
     // resolve placeholders
-    content = await searchAndReplaceImagePlaceholder(content);
     content = await searchAndReplaceFortuneCookiePlaceholder(content);
+    content = await searchAndReplaceImagePlaceholder(content);
 
     // prepend the sig-separator if activated in options
     if ((await browser.storage.local.get()).signatureSeparatorHtml) {

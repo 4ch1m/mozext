@@ -4,6 +4,7 @@ const DOUBLE_DASH = "--";
 const PLAINTEXT_SIGNATURE_SEPARATOR = DOUBLE_DASH + " " + NEW_LINE;
 
 const CLASS_MOZ_SIGNATURE = "moz-signature";
+const CLASS_SIGNATURE_SWITCH_SUFFIX = "signature-switch-suffix";
 
 const ATTRIBUTE_SIGNATURE_SWITCH_ID = "signature-switch-id";
 const ATTRIBUTE_MOZ_DIRTY = "_moz_dirty";
@@ -328,9 +329,9 @@ function addWindowCreateListener() {
 async function appendSignatureToComposer(signature, tabId = composeActionTabId) {
     let details = await browser.compose.getComposeDetails(tabId);
 
-    let classes = [ CLASS_MOZ_SIGNATURE ];
+    let signatureClasses = [ CLASS_MOZ_SIGNATURE ];
 
-    let attributes = [
+    let signatureAttributes = [
         {key: ATTRIBUTE_SIGNATURE_SWITCH_ID, value: signature.id},
         {key: ATTRIBUTE_MOZ_DIRTY, value: ""}
     ];
@@ -339,20 +340,30 @@ async function appendSignatureToComposer(signature, tabId = composeActionTabId) 
 
     if (details.isPlainText) {
         signatureElementProperties = {
-            id: signature.id,
-            type: "div",
-            classes: classes,
-            attributes: attributes,
+            // when the body is still empty upon adding the sig, add a br _before_ the actual signature;
+            // otherwise all entered text on top will be _inside_ the signature div - which is bad
             prepend: details.plainTextBody === "" ? {
-                /* when the body is still empty upon adding the sig, add a br _before_ the actual signature;
-                   otherwise all entered text on top will be _inside_ the signature div - which is bad */
                 type: "br",
-                classes: [],
                 attributes: [
                     {key: ATTRIBUTE_MOZ_DIRTY, value: ""}
                 ]
             } : undefined,
-            content: await createSignatureForPlainTextComposer(signature.text)
+            signature: {
+                type: "div",
+                classes: signatureClasses,
+                attributes: signatureAttributes,
+                innerHtml: await createSignatureForPlainTextComposer(signature.text)
+            },
+            // TB also always adds a new line at the end of a signature in plaintext mode
+            postpend: {
+                type: "br",
+                classes: [
+                    CLASS_SIGNATURE_SWITCH_SUFFIX // custom class for easier clean up later on
+                ],
+                attributes: [
+                    {key: ATTRIBUTE_MOZ_DIRTY, value: ""}
+                ]
+            }
         };
     } else {
         // check if we need to use the plaintext-signature, b/c there's no html-signature available
@@ -360,15 +371,16 @@ async function appendSignatureToComposer(signature, tabId = composeActionTabId) 
 
         if (plaintextFallback) {
             // this attribute usually gets set by TB if a plaintext-sig is being used in HTML-mode
-            attributes.push({key: ATTRIBUTE_COLS, value: "72"})
+            signatureAttributes.push({key: ATTRIBUTE_COLS, value: "72"})
         }
 
         signatureElementProperties = {
-            id: signature.id,
-            type: `${ plaintextFallback ? "pre" : "div" }`,
-            classes: classes,
-            attributes: attributes,
-            content: await createSignatureForHtmlComposer(plaintextFallback ? signature.text : signature.html)
+            signature: {
+                type: `${plaintextFallback ? "pre" : "div"}`,
+                classes: signatureClasses,
+                attributes: signatureAttributes,
+                innerHtml: await createSignatureForHtmlComposer(plaintextFallback ? signature.text : signature.html)
+            }
         };
     }
 
@@ -421,7 +433,21 @@ async function appendSignatureViaIdToComposer(signatureId, tabId = composeAction
 }
 
 async function removeSignatureFromComposer(tabId = composeActionTabId) {
-    browser.tabs.sendMessage(tabId, {type: "removeSignature", value: `[${ATTRIBUTE_SIGNATURE_SWITCH_ID}].${CLASS_MOZ_SIGNATURE}`});
+    browser.tabs.sendMessage(tabId, {
+        type: "removeSignature",
+        value: {
+            selector: `.${CLASS_MOZ_SIGNATURE}`,
+            separator: `${DOUBLE_DASH} <br` // closing angle bracket omitted on purpose
+        }
+    });
+
+    // also clean up extra trailing new lines (which we may have inserted on purpose when inserting the plaintext sig)
+    browser.tabs.sendMessage(tabId, {
+        type: "cleanUp",
+        value: {
+            selector: `.${CLASS_SIGNATURE_SWITCH_SUFFIX}`
+        }
+    });
 }
 
 async function searchSignatureInComposer(tabId = composeActionTabId) {

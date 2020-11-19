@@ -1,9 +1,17 @@
 const NEW_LINE = "\n";
 const DOUBLE_DASH = "--";
+
 const PLAINTEXT_SIGNATURE_SEPARATOR = DOUBLE_DASH + " " + NEW_LINE;
-const HTML_SIGNATURE_CLASS = "moz-signature";
+
+const CLASS_MOZ_SIGNATURE = "moz-signature";
+const CLASS_SIGNATURE_SWITCH_SUFFIX = "signature-switch-suffix";
+
+const ATTRIBUTE_SIGNATURE_SWITCH_ID = "signature-switch-id";
+const ATTRIBUTE_MOZ_DIRTY = "_moz_dirty";
+const ATTRIBUTE_COLS = "cols";
+
 const WINDOW_TYPE_MESSAGE_COMPOSE = "messageCompose";
-const CUSTOM_SIGNATURE_ID_ATTRIBUTE = "signature-switch-id";
+
 const REPLY_SUBJECT_PREFIX = "Re:";
 const FORWARD_SUBJECT_PREFIX = "Fwd:";
 
@@ -19,9 +27,6 @@ const COMMAND_PREVIOUS = "previous";
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-const xmlSerializer = new XMLSerializer();
-const domParser = new DOMParser();
-
 let composeActionTabId;
 let composeActionSignatureId;
 
@@ -30,8 +35,15 @@ let composeActionSignatureId;
  */
 
 (() => {
+    // compose script
+    browser.composeScripts.register({
+        js: [ {file: "/compose/compose.js"} ]
+    });
+
+    // context-menu
     createContextMenu();
 
+    // listeners
     addContextMenuListener();
     addStorageChangeListener();
     addCommandListener();
@@ -194,7 +206,7 @@ function addCommandListener() {
 }
 
 function addMessageListener() {
-    browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    browser.runtime.onMessage.addListener(request => {
         switch (request.type) {
             case "switchSignature":
                 if (request.value === "on") {
@@ -207,8 +219,7 @@ function addMessageListener() {
                 appendSignatureViaIdToComposer(request.value);
                 break;
             case "isSignaturePresent":
-                sendResponse({result: composeActionSignatureId !== ""});
-                break;
+                return Promise.resolve({result: composeActionSignatureId !== ""});
             case "focusOptionsWindow":
                 browser.windows.update(request.value, {
                     drawAttention: true,
@@ -317,25 +328,66 @@ function addWindowCreateListener() {
 
 async function appendSignatureToComposer(signature, tabId = composeActionTabId) {
     let details = await browser.compose.getComposeDetails(tabId);
-    let cleansedBody = await getBodyWithoutSignature(details);
+
+    let signatureClasses = [ CLASS_MOZ_SIGNATURE ];
+
+    let signatureAttributes = [
+        {key: ATTRIBUTE_SIGNATURE_SWITCH_ID, value: signature.id},
+        {key: ATTRIBUTE_MOZ_DIRTY, value: ""}
+    ];
+
+    let signatureElementProperties;
 
     if (details.isPlainText) {
-        cleansedBody += await createPlainTextSignature(signature.text);
-        browser.compose.setComposeDetails(tabId, {plainTextBody: cleansedBody});
+        signatureElementProperties = {
+            // when the body is still empty upon adding the sig, add a br _before_ the actual signature;
+            // otherwise all entered text on top will be _inside_ the signature div - which is bad
+            prepend: details.plainTextBody === "" ? {
+                type: "br",
+                attributes: [
+                    {key: ATTRIBUTE_MOZ_DIRTY, value: ""}
+                ]
+            } : undefined,
+            signature: {
+                type: "div",
+                classes: signatureClasses,
+                attributes: signatureAttributes,
+                innerHtml: await createSignatureForPlainTextComposer(signature.text)
+            },
+            // TB also always adds a new line at the end of a signature in plaintext mode
+            postpend: {
+                type: "br",
+                classes: [
+                    CLASS_SIGNATURE_SWITCH_SUFFIX // custom class for easier clean up later on
+                ],
+                attributes: [
+                    {key: ATTRIBUTE_MOZ_DIRTY, value: ""}
+                ]
+            }
+        };
     } else {
-        let document = domParser.parseFromString(cleansedBody, "text/html");
-        let renderedSignature;
-        if (signature.html !== "") {
-            renderedSignature = await createHtmlSignature(document, signature.html, signature.id);
-        } else {
-            // fallback to plaintext-signature content
-            renderedSignature = await createHtmlSignature(document, signature.text, signature.id, "pre");
+        // check if we need to use the plaintext-signature, b/c there's no html-signature available
+        let plaintextFallback = signature.html === "";
+
+        if (plaintextFallback) {
+            // this attribute usually gets set by TB if a plaintext-sig is being used in HTML-mode
+            signatureAttributes.push({key: ATTRIBUTE_COLS, value: "72"})
         }
 
-        document.body.appendChild(renderedSignature);
-
-        browser.compose.setComposeDetails(tabId, {body: xmlSerializer.serializeToString(document)});
+        signatureElementProperties = {
+            signature: {
+                type: `${plaintextFallback ? "pre" : "div"}`,
+                classes: signatureClasses,
+                attributes: signatureAttributes,
+                innerHtml: await createSignatureForHtmlComposer(plaintextFallback ? signature.text : signature.html)
+            }
+        };
     }
+
+    // make sure to remove any existing signature beforehand
+    await removeSignatureFromComposer(tabId);
+
+    browser.tabs.sendMessage(tabId, {type: "appendSignature", value: signatureElementProperties});
 }
 
 async function appendDefaultSignatureToComposer(tabId = composeActionTabId) {
@@ -381,64 +433,30 @@ async function appendSignatureViaIdToComposer(signatureId, tabId = composeAction
 }
 
 async function removeSignatureFromComposer(tabId = composeActionTabId) {
-    browser.compose.getComposeDetails(tabId).then(async details => {
-        let bodyWithoutSignature = await getBodyWithoutSignature(details);
-        let newDetails = details.isPlainText ? {plainTextBody: bodyWithoutSignature} : {body: bodyWithoutSignature};
-        browser.compose.setComposeDetails(tabId, newDetails);
+    browser.tabs.sendMessage(tabId, {
+        type: "removeSignature",
+        value: {
+            selector: `.${CLASS_MOZ_SIGNATURE}`,
+            separator: `${DOUBLE_DASH} <br` // closing angle bracket omitted on purpose
+        }
+    });
+
+    // also clean up extra trailing new lines (which we may have inserted on purpose when inserting the plaintext sig)
+    browser.tabs.sendMessage(tabId, {
+        type: "cleanUp",
+        value: {
+            selector: `.${CLASS_SIGNATURE_SWITCH_SUFFIX}`
+        }
     });
 }
 
 async function searchSignatureInComposer(tabId = composeActionTabId) {
-    let localStorage = await browser.storage.local.get();
-
-    if (localStorage.signatures) {
-        let signatures = localStorage.signatures;
-        let details = await browser.compose.getComposeDetails(tabId);
-        let bodyDocument = details.isPlainText ? undefined : domParser.parseFromString(details.body, "text/html");
-
-        for (let signature of signatures) {
-            if (details.isPlainText) {
-                let plainTextBody = await normalizePlainTextBody(details.plainTextBody);
-
-                // check if the signature contains a fortune-cookie placeholder
-                if (new RegExp("\\[\\[.*?\\]\\]").test(signature.text)) {
-                    if (localStorage.fortuneCookies) {
-                        // TODO
-                        // refactor me! pretty wonky implementation/concept!
-                        // this assumes that only ONE fc-tag is present/used in the signature
-                        let fortuneCookiesTag = signature.text.substring(signature.text.indexOf("[[") + 2, signature.text.indexOf("]]"));
-                        for (let fortuneCookies of localStorage.fortuneCookies) {
-                            if (fortuneCookies.tag === fortuneCookiesTag) {
-                                for (let cookie of fortuneCookies.cookies) {
-                                    // check if the composer body contains a cookie of that sig, plus the text before AND after the fc-tag
-                                    if (plainTextBody.includes(cookie) &&
-                                        plainTextBody.includes(signature.text.substring(0, signature.text.indexOf("[["))) &&
-                                        plainTextBody.includes(signature.text.substring(signature.text.indexOf("]]") + 2), signature.text.length - 1)) {
-                                        return signature.id;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                } else {
-                    if (plainTextBody.endsWith(await createPlainTextSignature(signature.text))) {
-                        return signature.id;
-                    }
-                }
-            } else {
-                let htmlSignatures = bodyDocument.getElementsByClassName(HTML_SIGNATURE_CLASS);
-
-                if (htmlSignatures && htmlSignatures.length > 0) {
-                    let lastHtmlSignature = htmlSignatures[htmlSignatures.length - 1];
-                    if (lastHtmlSignature.hasAttribute(CUSTOM_SIGNATURE_ID_ATTRIBUTE)) {
-                        return lastHtmlSignature.getAttribute(CUSTOM_SIGNATURE_ID_ATTRIBUTE);
-                    }
-                }
-            }
-        }
-    }
-
-    return "";
+    return (await browser.tabs.sendMessage(tabId, {
+        type: "searchSignature",
+        value: {
+            selector: `[${ATTRIBUTE_SIGNATURE_SWITCH_ID}].${CLASS_MOZ_SIGNATURE}`,
+            idAttribute: ATTRIBUTE_SIGNATURE_SWITCH_ID}
+    })).signatureId;
 }
 
 function autoSwitchBasedOnRecipients(tabId = composeActionTabId) {
@@ -481,35 +499,30 @@ function autoSwitchBasedOnRecipients(tabId = composeActionTabId) {
    signature creation ...
  */
 
-async function createPlainTextSignature(text) {
-    text = await searchAndReplaceFortuneCookiePlaceholder(text);
+async function createSignatureForPlainTextComposer(content) {
+    // resolve fc-placeholders
+    content = await searchAndReplaceFortuneCookiePlaceholder(content);
 
-    return  NEW_LINE +
-            PLAINTEXT_SIGNATURE_SEPARATOR +
-            text;
+    // make sure we have a sig-separator
+    if (!content.trim().startsWith(PLAINTEXT_SIGNATURE_SEPARATOR)) {
+        content = PLAINTEXT_SIGNATURE_SEPARATOR + content;
+    }
+
+    // transform new-lines to BRs with mozdirty-attribute and return
+    return content.replaceAll(NEW_LINE, `<br ${ATTRIBUTE_MOZ_DIRTY}="">`);
 }
 
-async function createHtmlSignature(document, html, signatureId, elementType = "div") {
-    html = await searchAndReplaceImagePlaceholder(html);
-    html = await searchAndReplaceFortuneCookiePlaceholder(html);
-
-    let element = document.createElement(elementType);
-    element.innerHTML = html;
-    element.className = HTML_SIGNATURE_CLASS;
-    element.setAttribute(CUSTOM_SIGNATURE_ID_ATTRIBUTE, signatureId);
-
-    // TB itself also adds this attribute on plaintext-sigs in HTML-mode
-    if (elementType === "pre") {
-        element.setAttribute("cols", "72");
-    }
+async function createSignatureForHtmlComposer(content) {
+    // resolve placeholders
+    content = await searchAndReplaceFortuneCookiePlaceholder(content);
+    content = await searchAndReplaceImagePlaceholder(content);
 
     // prepend the sig-separator if activated in options
     if ((await browser.storage.local.get()).signatureSeparatorHtml) {
-        element.prepend(document.createElement("br"));
-        element.prepend(DOUBLE_DASH + " ");
+        content = `${DOUBLE_DASH} <br ${ATTRIBUTE_MOZ_DIRTY}="">${content}`;
     }
 
-    return element;
+    return content;
 }
 
 async function searchAndReplaceImagePlaceholder(content) {
@@ -543,25 +556,6 @@ async function searchAndReplaceFortuneCookiePlaceholder(content) {
 /* =====================================================================================================================
    helpers ...
  */
-
-async function getBodyWithoutSignature(composeDetails) {
-    if (composeDetails.isPlainText) {
-        let body = await normalizePlainTextBody(composeDetails.plainTextBody);
-        let signatureIndex = body.lastIndexOf(NEW_LINE + PLAINTEXT_SIGNATURE_SEPARATOR);
-
-        return signatureIndex > -1 ? body.substring(0, signatureIndex) : body;
-    } else {
-        let document = domParser.parseFromString(composeDetails.body, "text/html");
-        let signatures = document.getElementsByClassName(HTML_SIGNATURE_CLASS);
-
-        if (signatures && signatures.length > 0) {
-            signatures[signatures.length - 1].remove();
-            return xmlSerializer.serializeToString(document);
-        } else {
-            return composeDetails.body;
-        }
-    }
-}
 
 async function startRecipientChangeListener(tabId, timeout = 1000, previousRecipients = "", includeCc = false, includeBcc = false) {
     try {
@@ -634,16 +628,4 @@ function cleanseRecipientString(recipient) {
     }
 
     return recipient;
-}
-
-// workaround; until this issue is resolved: https://bugzilla.mozilla.org/show_bug.cgi?id=1672407
-async function normalizePlainTextBody(plainTextBody) {
-    let platformInfo = await browser.runtime.getPlatformInfo();
-
-    // remove all "carriage return" sequences from the plaintext-body if running on windows
-    if (platformInfo.os === browser.runtime.PlatformOs.WIN) {
-        return plainTextBody.replaceAll(new RegExp("\\r", "g"), "");
-    }
-
-    return plainTextBody;
 }

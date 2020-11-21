@@ -82,6 +82,9 @@ const SIGNATURE_EDIT_MODAL = `
                                 <div class="card-header" id="signatureEditAccordionPlaintext-{{id}}">
                                     <h5 class="mb-0">
                                         <button class="btn btn-block btn-link" data-toggle="collapse" data-target="#signatureEditCollapsePlaintext-{{id}}">
+                                            <svg class="bi mr-3" width="2em" height="2em" fill="currentColor">
+                                                <use xlink:href="/_images/bootstrap-icons.svg#type"/>
+                                            </svg>
                                             {{textHeading}}
                                         </button>
                                     </h5>
@@ -97,6 +100,9 @@ const SIGNATURE_EDIT_MODAL = `
                                 <div class="card-header" id="signatureEditAccordionHtml-{{id}}">
                                     <h5 class="mb-0">
                                         <button class="btn btn-block btn-link collapsed" data-toggle="collapse" data-target="#signatureEditCollapseHtml-{{id}}">
+                                            <svg class="bi mr-3" width="2em" height="2em" fill="currentColor">
+                                                <use xlink:href="/_images/bootstrap-icons.svg#code-slash"/>
+                                            </svg>
                                             {{htmlHeading}}
                                         </button>
                                     </h5>

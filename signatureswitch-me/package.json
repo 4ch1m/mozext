@@ -11,14 +11,14 @@
     "mustache": "^4.0.1"
   },
   "devDependencies": {
-    "jest": "^26.6.1",
+    "jest": "^26.6.3",
     "rewire": "^5.0.0",
     "copy": "^0.3.2"
   },
   "ansible": "ansible-playbook --extra-vars @ansible-mozdev.yml",
   "scripts": {
     "postinstall": "node copy_libraries.js",
-    "prestart": "$npm_package_ansible ansible-mozdev/install.yml & $npm_package_ansible ansible-mozdev/move_devtools_window.yml &",
+    "prestart": "$npm_package_ansible ansible-mozdev/install.yml; $npm_package_ansible ansible-mozdev/move_devtools_window.yml &",
     "start": "$npm_package_ansible ansible-mozdev/run.yml",
     "clean": "$npm_package_ansible ansible-mozdev/remove.yml",
     "sort-messages": "$npm_package_ansible ansible-mozdev/sort_messages.yml",

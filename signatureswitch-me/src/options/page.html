@@ -329,6 +329,23 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- auto switch -->
+                        <div class="section">
+                            <h5><b data-i18n="optionsAutoSwitch"></b></h5>
+                            <hr class="w-100">
+                            <div>
+                                <div class="ml-3">
+                                    <div>
+                                        <input type="checkbox" id="autoSwitchIncludeCc">
+                                        <label for="autoSwitchIncludeCc" data-i18n="optionsAutoSwitchIncludeCc"></label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" id="autoSwitchIncludeBcc">
+                                        <label for="autoSwitchIncludeBcc" data-i18n="optionsAutoSwitchIncludeBcc"></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <!-- signature separator -->
                         <div class="section">
                             <h5><b data-i18n="optionsSignatureSeparator"></b></h5>
@@ -453,16 +470,16 @@
                     <div class="tab-pane m-2" id="helpTabContent" role="tabpanel">
                         <div class="section">
                             <div class="container mt-4">
-                                <div class="row h-100">
+                                <div class="row">
                                     <div class="col-md-12">
                                         <span data-i18n="optionsHelpText"></span>&nbsp;&hellip;
                                     </div>
                                 </div>
-                                <div class="row align-items-center h-100">
+                                <div class="row align-items-center">
                                     <div class="col-auto">
                                         <div class="btn-group">
                                             <a href="http://mozext.achimonline.de" class="btn btn-link active">
-                                                <img class="img-fluid" src="/_images/mozilla-dino.png"><br>
+                                                <img id="helpImageMozillaDino" class="img-fluid"><br>
                                                 <span class="nobr">mozext.achimonline.de</span>
                                             </a>
                                         </div>
@@ -474,7 +491,7 @@
                                         <div class="btn-group">
                                             <a href="https://github.com/4ch1m/mozext/tree/master/signatureswitch-me"
                                                class="btn btn-link active">
-                                                <img class="img-fluid" src="/_images/octocat.png"><br>
+                                                <img id="helpImageGithubOctocat" class="img-fluid"><br>
                                                 <span class="nobr">github.com/4ch1m/mozext</span>
                                             </a>
                                         </div>
@@ -483,7 +500,7 @@
                                 <div class="row">
                                     <hr class="w-100">
                                 </div>
-                                <div class="row h-100 mt-2">
+                                <div class="row mt-2">
                                     <div class="col-md-1 text-center">
                                         <svg class="bi" width="2em" height="2em" fill="currentColor">
                                             <use xlink:href="/_images/bootstrap-icons.svg#heart-fill"/>

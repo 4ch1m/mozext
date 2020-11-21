@@ -31,5 +31,14 @@
   },
   "optionsMaxAllowedQuoteDepth": {
     "message": "Maximum quote depth allowed:"
+  },
+  "optionsRemoveQuotedReplyHeader": {
+    "message": "Remove quoted reply header:"
+  },
+  "optionsReplyHeaderPattern": {
+    "message": "(Use asterisk as wildcard.)"
+  },
+  "optionsReplyHeaderPatternDefault": {
+    "message": "On *, * wrote:"
   }
 }

@@ -141,5 +141,12 @@ function removeNestedQuotes(tabId) {
                 replyHeaderPattern: replyHeaderPattern
             }
         });
+    }).catch(() => {
+        // we sometime get an "editor is null" error from 'getComposeDetails';
+        // seems that the editor isn't ready fast enough sometimes;
+        // so we try again in half a second
+        setTimeout(() => {
+            removeNestedQuotes(tabId);
+        }, 500);
     });
 }

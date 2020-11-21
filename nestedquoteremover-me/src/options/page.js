@@ -19,6 +19,14 @@ let ui = {};
         });
 
         // =============================================================================================================
+        // autoRemove
+        // =============================================================================================================
+        ui.autoRemove.checked = localStorage.autoRemove !== undefined ? localStorage.autoRemove : false;
+        ui.autoRemove.addEventListener("change", () => {
+            browser.storage.local.set({autoRemove: ui.autoRemove.checked});
+        });
+
+        // =============================================================================================================
         // keyboardShortcut
         // =============================================================================================================
         displayCurrentKeyboardShortcut();
@@ -31,11 +39,19 @@ let ui = {};
         });
 
         // =============================================================================================================
-        // autoRemove
+        // removeQuotedReplyHeader
         // =============================================================================================================
-        ui.autoRemove.checked = localStorage.autoRemove !== undefined ? localStorage.autoRemove : false;
-        ui.autoRemove.addEventListener("change", () => {
-            browser.storage.local.set({autoRemove: ui.autoRemove.checked});
+        ui.removeQuotedReplyHeader.checked = localStorage.removeQuotedReplyHeader !== undefined ? localStorage.removeQuotedReplyHeader : true;
+        ui.removeQuotedReplyHeader.addEventListener("change", () => {
+            browser.storage.local.set({removeQuotedReplyHeader: ui.removeQuotedReplyHeader.checked});
+        });
+
+        // =============================================================================================================
+        // replyHeaderPattern
+        // =============================================================================================================
+        ui.replyHeaderPattern.value = localStorage.replyHeaderPattern !== undefined ? localStorage.replyHeaderPattern : browser.i18n.getMessage("optionsReplyHeaderPatternDefault");
+        ui.replyHeaderPattern.addEventListener("change", () => {
+            browser.storage.local.set({replyHeaderPattern: ui.replyHeaderPattern.value});
         });
 
         // =============================================================================================================

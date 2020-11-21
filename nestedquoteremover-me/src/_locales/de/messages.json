@@ -31,5 +31,14 @@
   },
   "optionsMaxAllowedQuoteDepth": {
     "message": "Maximal erlaubte Zitattiefe:"
+  },
+  "optionsRemoveQuotedReplyHeader": {
+    "message": "Zitierte Antwortüberschrift entfernen:"
+  },
+  "optionsReplyHeaderPattern": {
+    "message": "(Sternchen als Platzhalter benutzen.)"
+  },
+  "optionsReplyHeaderPatternDefault": {
+    "message": "Am * um * schrieb *:"
   }
 }

@@ -1,43 +1,48 @@
-const BLOCKQUOTE_CITE_SELECTOR = 'blockquote[type="cite"]';
-const DOCUMENT_TYPE = "text/html";
-const NEW_LINE = "\n";
 const WINDOW_TYPE_MESSAGE_COMPOSE = "messageCompose";
 
-const xmlSerializer = new XMLSerializer();
-const domParser = new DOMParser();
-
-let platformInfo;
-
-let deletableBlockQuotes = [];
-
+// defaults ...
 let maxAllowedQuoteDepth = 1;
 let autoRemove = false;
+let removeQuotedReplyHeader = true;
+let replyHeaderPattern = browser.i18n.getMessage("optionsReplyHeaderPatternDefault");
 let contextMenuEntry = true;
 
 (async () => {
-    platformInfo = await browser.runtime.getPlatformInfo();
 
     await browser.storage.local.get().then(localStorage => {
         if (localStorage.maxAllowedQuoteDepth !== undefined) {
             maxAllowedQuoteDepth = parseInt(localStorage.maxAllowedQuoteDepth);
         }
-
         if (localStorage.autoRemove !== undefined) {
             autoRemove = localStorage.autoRemove;
         }
-
+        if (localStorage.removeQuotedReplyHeader !== undefined) {
+            removeQuotedReplyHeader = localStorage.removeQuotedReplyHeader;
+        }
+        if (localStorage.replyHeaderPattern !== undefined) {
+            replyHeaderPattern = localStorage.replyHeaderPattern;
+        }
         if (localStorage.contextMenuEntry !== undefined) {
             contextMenuEntry = localStorage.contextMenuEntry;
         }
     });
 
+    registerComposeScript();
     addContextMenuEntry();
+
+    // listeners ...
     addContextMenuListener();
     addStorageChangeListener();
     addComposeActionListener();
     addCommandListener();
     addWindowCreateListener();
 })();
+
+function registerComposeScript() {
+    browser.composeScripts.register({
+        js: [ {file: "compose.js"} ]
+    });
+}
 
 function addContextMenuEntry() {
     browser.menus.remove("nestedquote_remover");
@@ -49,7 +54,7 @@ function addContextMenuEntry() {
             command: "_execute_browser_action",
             contexts: [
                 // TODO
-                // the MailExtension-API lacks a suitable context-type for the composer-window;
+                // the MailExtension-API currently lacks a suitable context-type for the composer-window (see: https://thunderbird-webextensions.readthedocs.io/en/latest/menus.html#menus-contexttype);
                 // so this won't work atm
                 "editable"
             ]
@@ -76,6 +81,12 @@ function addStorageChangeListener() {
                     break;
                 case "autoRemove":
                     autoRemove = changes[item].newValue;
+                    break;
+                case "removeQuotedReplyHeader":
+                    removeQuotedReplyHeader = changes[item].newValue;
+                    break;
+                case "replyHeaderPattern":
+                    replyHeaderPattern = changes[item].newValue;
                     break;
                 case "contextMenuEntry":
                     contextMenuEntry = changes[item].newValue;
@@ -121,77 +132,21 @@ function addWindowCreateListener() {
 
 function removeNestedQuotes(tabId) {
     browser.compose.getComposeDetails(tabId).then(details => {
-        let nestedQuotesFound = false;
-        let newDetails;
-
-        if (details.isPlainText) {
-            let quotePattern = getPlainTextQuotePattern(maxAllowedQuoteDepth + 1);
-            let currentPlainTextBody = details.plainTextBody;
-            let newPlainTextBody = "";
-
-            // workaround; until this issue is resolved: https://bugzilla.mozilla.org/show_bug.cgi?id=1672407
-            // remove all "carriage return" sequences from the plaintext-body if running on Windows
-            if (platformInfo.os === browser.runtime.PlatformOs.WIN) {
-                currentPlainTextBody = currentPlainTextBody.replaceAll(new RegExp("\\r", "g"), "");
+        browser.tabs.sendMessage(tabId, {
+            type: "removeNestedQuotes",
+            value: {
+                isPlaintext: details.isPlainText,
+                maxAllowedQuoteDepth: maxAllowedQuoteDepth,
+                removeQuotedReplyHeader: removeQuotedReplyHeader && replyHeaderPattern.trim() !== "",
+                replyHeaderPattern: replyHeaderPattern
             }
-
-            currentPlainTextBody.split(NEW_LINE).forEach(line => {
-                if (!line.startsWith(quotePattern)) {
-                    nestedQuotesFound = true;
-                    newPlainTextBody += (newPlainTextBody === "") ? line : (NEW_LINE + line);
-                }
-            })
-
-            newDetails = {plainTextBody: newPlainTextBody};
-        } else {
-            deletableBlockQuotes = [];
-
-            let document = domParser.parseFromString(details.body, DOCUMENT_TYPE);
-            let blockQuotes = document.querySelectorAll(BLOCKQUOTE_CITE_SELECTOR);
-
-            if (blockQuotes.length > 0) {
-                searchDeletableBlockQuotes(blockQuotes, 1);
-
-                if (deletableBlockQuotes.length > 0) {
-                    nestedQuotesFound = true;
-
-                    while (deletableBlockQuotes.length > 0) {
-                        deletableBlockQuotes.pop().remove();
-                    }
-
-                    newDetails = {body: xmlSerializer.serializeToString(document)};
-                }
-            }
-        }
-
-        if (nestedQuotesFound) {
-            browser.compose.setComposeDetails(tabId, newDetails);
-        }
+        });
+    }).catch(() => {
+        // we sometime get an "editor is null" error from 'getComposeDetails';
+        // seems that the editor isn't ready fast enough sometimes;
+        // so we try again in half a second
+        setTimeout(() => {
+            removeNestedQuotes(tabId);
+        }, 500);
     });
-}
-
-function getPlainTextQuotePattern(depth) {
-    let pattern = ">";
-
-    if (depth) {
-        let i = 0;
-        while (++i < depth) {
-            pattern += ">";
-        }
-    }
-
-    return pattern;
-}
-
-function searchDeletableBlockQuotes(blockQuotes, quoteLevel) {
-    for (let blockQuote of blockQuotes) {
-        if (quoteLevel > maxAllowedQuoteDepth) {
-            deletableBlockQuotes.push(blockQuote);
-        } else {
-            let subBlockQuotes = blockQuote.querySelectorAll(BLOCKQUOTE_CITE_SELECTOR);
-            if (subBlockQuotes.length > 0) {
-                searchDeletableBlockQuotes(subBlockQuotes, quoteLevel + 1);
-            }
-        }
-    }
 }

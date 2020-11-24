@@ -68,7 +68,7 @@ function createContextMenu() {
             title: i18n("extensionName"),
             contexts: [
                 // TODO
-                // the MailExtension-API lacks a suitable context-type for the composer-window;
+                // the MailExtension-API currently lacks a suitable context-type for the composer-window (see: https://thunderbird-webextensions.readthedocs.io/en/latest/menus.html#menus-contexttype);
                 // so this won't work atm
                 "editable"
             ]

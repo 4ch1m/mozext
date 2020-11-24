@@ -2,14 +2,14 @@
   "manifest_version": 2,
   "name": "__MSG_extensionName__",
   "description": "__MSG_extensionDescription__",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "default_locale": "en",
   "author": "Achim Seufert",
   "homepage_url": "http://mozext.achimonline.de",
   "applications": {
     "gecko": {
       "id": "{2ab1b709-ba03-4361-abf9-c50b964ff75d}",
-      "strict_min_version": "78.0"
+      "strict_min_version": "78.4.0"
     }
   },
   "compose_action": {

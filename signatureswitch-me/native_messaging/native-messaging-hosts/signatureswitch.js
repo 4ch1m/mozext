@@ -14,12 +14,17 @@ function createReturnMessage(message) {
     return buffer;
 }
 
-let message = require("fs").readFileSync(0); // STDIN_FILENO = 0
-let messageSize = message.readUInt32LE(0);
-let messageContent = message.slice(OFFSET, (messageSize + OFFSET));
+let messageString = require("fs").readFileSync(0, "utf8");
+let messageByteLength = Buffer.byteLength(messageString, "utf8");
+let messageBuffer = Buffer.alloc(messageByteLength, messageString);
 
-let messageJson = JSON.parse(messageContent);
+let messagePayloadSize = messageBuffer.readUInt32LE(0);
+let messagePayload = messageBuffer.slice(OFFSET, (messagePayloadSize + OFFSET));
 
-process.stdout.write(createReturnMessage(JSON.stringify({
-    message: "SUCCESS! Your tag was: " + messageJson.tag
-})));
+let messageJson = JSON.parse(messagePayload);
+
+let returnMessage = createReturnMessage(JSON.stringify({
+    message: "SUCCESS! The message's tag was: " + messageJson.tag
+}));
+
+process.stdout.write(returnMessage);

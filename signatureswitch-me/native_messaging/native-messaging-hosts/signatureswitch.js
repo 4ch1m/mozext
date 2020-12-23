@@ -1,11 +1,8 @@
 #!/usr/bin/node
 
 const OFFSET = 4; // 4 bytes at the beginning of the outgoing message; used to store actual message length
-const fs = require('fs');
 
-function addToLog(msg) {
-    fs.appendFile('/tmp/test.txt', msg + "\n", () => {});
-}
+require('fs').appendFile('/tmp/test.txt', "native app triggered.\n", () => {});
 
 function createReturnMessage(message) {
     let messageLength = Buffer.byteLength(message);
@@ -17,25 +14,12 @@ function createReturnMessage(message) {
     return buffer;
 }
 
-(async () => {
-        addToLog("starting.");
+let message = require('fs').readFileSync(0); // STDIN_FILENO = 0
+let messageSize = message.readUInt32LE(0);
+let messageContent = message.slice(OFFSET, (messageSize + OFFSET));
 
-        var message = fs.readFileSync(0); // STDIN_FILENO = 0
+let messageJson = JSON.parse(messageContent);
 
-        addToLog("message read.");
-
-        let messageSize = message.readUInt32LE(0);
-
-        addToLog("message size: " + messageSize);
-
-        let messageContent = message.slice(OFFSET, (messageSize + OFFSET));
-
-        let messageJson = JSON.parse(messageContent);
-
-        let output = {
-            message: "SUCCESS! Your tag was: " + messageJson.tag
-        };
-
-        process.stdout.write(createReturnMessage(JSON.stringify(output)));
-    }
-)();
+process.stdout.write(createReturnMessage(JSON.stringify({
+    message: "SUCCESS! Your tag was: " + messageJson.tag
+})));

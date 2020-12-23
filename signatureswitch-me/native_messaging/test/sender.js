@@ -13,11 +13,11 @@ let data = JSON.stringify({
 });
 
 function createMessageBuffer(message) {
-    let messageLength = Buffer.byteLength(message);
+    let messageLength = Buffer.byteLength(message, "utf8");
 
     let buffer = Buffer.alloc(OFFSET + messageLength);
     buffer.writeUInt32LE(messageLength, 0);
-    buffer.write(message, OFFSET);
+    buffer.write(message, OFFSET, "utf8");
 
     return buffer;
 }

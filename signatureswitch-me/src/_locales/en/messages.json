@@ -311,6 +311,18 @@
   "optionsMiscellaneous": {
     "message": "Miscellaneous"
   },
+  "optionsNativeMessaging": {
+    "message": "Native Messaging"
+  },
+  "optionsNativeMessagingTag": {
+    "message": "tag:"
+  },
+  "optionsNativeMessagingComposeDetails": {
+    "message": "composeDetails:"
+  },
+  "optionsNativeMessagingSend": {
+    "message": "Send"
+  },
   "optionsNextCommandLabel": {
     "message": "Cycle (next):"
   },

@@ -226,6 +226,9 @@ function addMessageListener() {
                     focused: true}
                 );
                 break;
+            case "sendNativeMessage":
+                sendNativeMessage(request.value);
+                break;
             default:
                 console.log("invalid message type!");
         }
@@ -337,28 +340,6 @@ async function appendSignatureToComposer(signature, tabId = composeActionTabId) 
     ];
 
     let signatureElementProperties;
-
-
-
-
-
-
-
-
-    console.log("!!! " + JSON.stringify(details));
-    let messageResult = await browser.runtime.sendNativeMessage("signatureswitch", {
-        module: "phone_number.py",
-        composeDetails: details
-    });
-    console.log("!!! response: " + messageResult);
-    console.log("!!! done");
-
-
-
-
-
-
-
 
     if (details.isPlainText) {
         signatureElementProperties = {
@@ -650,4 +631,12 @@ function cleanseRecipientString(recipient) {
     }
 
     return recipient;
+}
+
+async function sendNativeMessage(object) {
+    console.log("!!! sending native message: " + JSON.stringify(object));
+    await messenger.runtime.sendNativeMessage("signatureswitch", object).then(response => {
+        console.log("!!! native app returned: " + response.message);
+    });
+    console.log("!!! finished sending native message");
 }

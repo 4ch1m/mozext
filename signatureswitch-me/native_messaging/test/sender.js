@@ -5,9 +5,10 @@
 const OFFSET = 4; // 4 bytes at the beginning of the outgoing message; used to store actual message length
 
 let data = JSON.stringify({
-    module: 'phone_number.py',
+    tag: "test",
     composeDetails: {
-        to: [ "moe@zilla","test@test.com" ]
+        to: "<moe@zilla.org>",
+        subject: "test"
     }
 });
 

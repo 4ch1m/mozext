@@ -398,6 +398,23 @@ async function initUI(localStorage) {
         addOrUpdateStoredValue("signatureSeparatorHtml", signatureSeparatorHtml.prop("checked"));
     });
 
+    /* ------------------
+        Native Messaging
+       ------------------ */
+
+    $("#testNativeMessagingComposeDetails").val(JSON.stringify({
+        to: "Moe Zilla <moe@zilla.com>",
+        cc: "Joe Zilla <joe@zilla.com>",
+        bcc: "Doe Zilla <doe@zilla.com>",
+        replyTo: "Toe Zilla <toe@zilla.com>",
+        subject: "Hi there!",
+        isPlainText: true
+    }, null, 3));
+
+    $("#testNativeMessagingButton").click(() => {
+        testNativeMessaging();
+    });
+
     /* -----------------
         Import / Export
        ----------------- */
@@ -974,4 +991,11 @@ function copyTextToClipboard(text, callback) {
     if (callback) {
         promise.then(callback());
     }
+}
+
+function testNativeMessaging() {
+    browser.runtime.sendMessage({type: "sendNativeMessage", value: {
+            tag: $("#testNativeMessagingTag").val(),
+            composeDetails: $("#testNativeMessagingComposeDetails").val()
+    }});
 }

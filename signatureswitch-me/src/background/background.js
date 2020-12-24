@@ -635,8 +635,6 @@ function cleanseRecipientString(recipient) {
 
 async function sendNativeMessage(object) {
     console.log("!!! sending native message: " + JSON.stringify(object));
-    await messenger.runtime.sendNativeMessage("signatureswitch", object).then(response => {
-        console.log("!!! native app returned: " + response.message);
-    });
-    console.log("!!! finished sending native message");
+    let response = await messenger.runtime.sendNativeMessage("signatureswitch", object);
+    console.log("!!! finished sending native message; response: " + response.message);
 }

@@ -615,7 +615,7 @@ async function startIdentityChangeListener(tabId, timeout = 1000, previousIdenti
 
 function createRegexFromAutoSwitchString(autoSwitchString) {
     return new RegExp(autoSwitchString
-        .replaceAll(".", "\.")
+        .replaceAll(".", "\\.")
         .replaceAll("*", ".*"),
         "i");
 }

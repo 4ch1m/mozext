@@ -7,7 +7,13 @@ browser.runtime.onMessage.addListener(request => {
                 document.body.appendChild(createElement(request.value.prepend));
             }
 
-            document.body.appendChild(createElement(request.value.signature));
+            let citeOrForward = document.querySelectorAll(".moz-cite-prefix,blockquote[type='cite'],.moz-forward-container");
+
+            if (request.value.signature.aboveQuoteOrForwarding && citeOrForward.length > 0) {
+                citeOrForward[0].parentElement.insertBefore(createElement(request.value.signature), citeOrForward[0]);
+            } else {
+                document.body.appendChild(createElement(request.value.signature));
+            }
 
             if (request.value.postpend) {
                 document.body.appendChild(createElement(request.value.postpend));

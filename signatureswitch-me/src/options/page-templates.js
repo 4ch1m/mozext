@@ -335,3 +335,72 @@ const IDENTITIES_ROW = `
         </td>
     </tr>
 `;
+
+const SIGNATURE_PLACEMENT_CONFIRMATION_MODAL = `
+    <div class="modal fade" id="signaturePlacementConfirmationModal-{{id}}" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">{{title}}</h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">{{question}}</div>
+                {{{confirmationCode}}}
+                <div class="modal-footer">
+                    <button id="signaturePlacementConfirmation-{{id}}" type="button" class="btn btn-sm btn-light" style="{{yesStyle}}">
+                        <svg class="bi" width="2em" height="2em" fill="currentColor">
+                            <use xlink:href="/_images/bootstrap-icons.svg#check"/>
+                        </svg>
+                        &nbsp;
+                        <span>{{yes}}</span>
+                    </button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal" style="{{noStyle}}">
+                        <svg class="bi" width="2em" height="2em" fill="currentColor">
+                            <use xlink:href="/_images/bootstrap-icons.svg#x"/>
+                        </svg>
+                        &nbsp;
+                        <span>{{no}}</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+`;
+
+const SIGNATURE_PLACEMENT_CONFIRMATION_CODE_DIV = `
+    <div class="d-flex align-items-center justify-content-center text-large mb-3">
+        <kbd id="signaturePlacementConfirmationCode-0">&uparrow;</kbd>
+        &nbsp;
+        <kbd id="signaturePlacementConfirmationCode-1">&uparrow;</kbd>
+        &nbsp;
+        <kbd id="signaturePlacementConfirmationCode-2">&downarrow;</kbd>
+        &nbsp;
+        <kbd id="signaturePlacementConfirmationCode-3">&downarrow;</kbd>
+        &nbsp;
+        <kbd id="signaturePlacementConfirmationCode-4">&leftarrow;</kbd>
+        &nbsp;
+        <kbd id="signaturePlacementConfirmationCode-5">&rightarrow;</kbd>
+        &nbsp;
+        <kbd id="signaturePlacementConfirmationCode-6">&leftarrow;</kbd>
+        &nbsp;
+        <kbd id="signaturePlacementConfirmationCode-7">&rightarrow;</kbd>
+        &nbsp;
+        <kbd id="signaturePlacementConfirmationCode-8">B</kbd>
+        &nbsp;
+        <kbd id="signaturePlacementConfirmationCode-9">A</kbd>
+        &nbsp;
+        &mdash;
+        &nbsp;
+        <kbd id="signaturePlacementConfirmationCode-10">S</kbd>
+        &nbsp;
+        <kbd id="signaturePlacementConfirmationCode-11">T</kbd>
+        &nbsp;
+        <kbd id="signaturePlacementConfirmationCode-12">A</kbd>
+        &nbsp;
+        <kbd id="signaturePlacementConfirmationCode-13">R</kbd>
+        &nbsp;
+        <kbd id="signaturePlacementConfirmationCode-14">T</kbd>
+    </div>
+`;

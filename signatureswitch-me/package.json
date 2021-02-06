@@ -1,32 +1,32 @@
 {
   "name": "signatureswitch",
   "dependencies": {
-    "jquery": "^3.5.1",
+    "@popperjs/core": "^2.6.0",
     "bootstrap": "^4.6.0",
     "bootstrap-icons": "^1.3.0",
+    "jquery": "^3.5.1",
     "mdbootstrap": "^4.19.2",
-    "@popperjs/core": "^2.6.0",
-    "uuid": "^8.3.2",
-    "mustache": "^4.1.0"
+    "mustache": "^4.1.0",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "web-ext": "^5.5.0",
+    "copy": "^0.3.2",
     "jest": "^26.6.3",
     "rewire": "^5.0.0",
-    "copy": "^0.3.2"
+    "web-ext": "^5.5.0"
   },
-  "config":{
+  "config": {
     "ANSIBLE": "ansible-playbook --extra-vars @ansible-mozdev.yml"
   },
   "scripts": {
-             "postinstall": "node copy_libraries.js",
-                "prestart": "$npm_package_config_ANSIBLE ansible-mozdev/install.yml; $npm_package_config_ANSIBLE ansible-mozdev/move_devtools_window.yml &",
-                   "start": "$npm_package_config_ANSIBLE ansible-mozdev/run.yml",
-                   "clean": "$npm_package_config_ANSIBLE ansible-mozdev/remove.yml",
-           "sort-messages": "$npm_package_config_ANSIBLE ansible-mozdev/sort_messages.yml",
+    "postinstall": "node copy_libraries.js",
+    "prestart": "$npm_package_config_ANSIBLE ansible-mozdev/install.yml; $npm_package_config_ANSIBLE ansible-mozdev/move_devtools_window.yml &",
+    "start": "$npm_package_config_ANSIBLE ansible-mozdev/run.yml",
+    "clean": "$npm_package_config_ANSIBLE ansible-mozdev/remove.yml",
+    "sort-messages": "$npm_package_config_ANSIBLE ansible-mozdev/sort_messages.yml",
     "find-unused-messages": "$npm_package_config_ANSIBLE ansible-mozdev/find_unused_messages.yml",
-                    "lint": "web-ext --source-dir src lint",
-                   "build": "web-ext --source-dir src build --overwrite-dest",
-                    "test": "jest"
+    "lint": "web-ext --source-dir src lint",
+    "build": "web-ext --source-dir src build --overwrite-dest",
+    "test": "jest"
   }
 }

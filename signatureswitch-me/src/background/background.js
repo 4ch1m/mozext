@@ -66,12 +66,7 @@ function createContextMenu() {
         menuItems.push({
             id: MENU_ROOT_ID,
             title: i18n("extensionName"),
-            contexts: [
-                // TODO
-                // the MailExtension-API currently lacks a suitable context-type for the composer-window (see: https://thunderbird-webextensions.readthedocs.io/en/latest/menus.html#menus-contexttype);
-                // so this won't work atm
-                "editable"
-            ]
+            contexts: [ "page" ]
         });
 
         menuItems.push({
@@ -122,9 +117,11 @@ function createMenuItems(items) {
 
 function addContextMenuListener() {
     browser.menus.onClicked.addListener(async (info, tab) => {
-        let commandOrSignatureId = info.menuItemId.startsWith(MENU_SUBENTRY_ID_PREFIX) ? info.menuItemId.substring(info.menuItemId.lastIndexOf(MENU_ID_SEPARATOR + 1)) : undefined;
+        let commandOrSignatureId = info.menuItemId.startsWith(MENU_SUBENTRY_ID_PREFIX) ? info.menuItemId.substring(info.menuItemId.lastIndexOf(MENU_ID_SEPARATOR) + 1) : undefined;
 
-        switch (info.menuItemId) {
+        switch (commandOrSignatureId) {
+            case undefined:
+                break;
             case MENU_ENTRY_ONOFF:
                 searchSignatureInComposer(tab.id).then(foundSignatureId => {
                     if (foundSignatureId === "") {

@@ -2,6 +2,20 @@ const COMMAND_SEPARATOR = "+";
 const NEW_LINE = "\n";
 const FORTUNE_COOKIE_SEPARATOR =  NEW_LINE + "%" + NEW_LINE;
 
+const KEY_LEFT = 37;
+const KEY_UP = 38;
+const KEY_RIGHT = 39;
+const KEY_DOWN = 40;
+const KEY_A = 65;
+const KEY_B = 66;
+const KEY_R = 82;
+const KEY_S = 83;
+const KEY_T = 84;
+
+const SIGNATURE_PLACEMENT_CONFIRMATION_CODE = `${KEY_UP}${KEY_UP}${KEY_DOWN}${KEY_DOWN}${KEY_LEFT}${KEY_RIGHT}${KEY_LEFT}${KEY_RIGHT}${KEY_B}${KEY_A}${KEY_S}${KEY_T}${KEY_A}${KEY_R}${KEY_T}`;
+let signaturePlacementConfirmationCodeInput = "";
+let signaturePlacementConfirmationCodeInputCount = 0;
+
 // document ready
 $(function() {
     browser.storage.local.get().then(localStorage => {
@@ -16,7 +30,8 @@ $(function() {
             {name: "forwardingsNoDefaultAction", default: false},
             {name: "autoSwitchIncludeCc", default: false},
             {name: "autoSwitchIncludeBcc", default: false},
-            {name: "signatureSeparatorHtml", default: false}
+            {name: "signatureSeparatorHtml", default: false},
+			{name: "signaturePlacementAboveQuoteOrForwarding", default: false}
         ]);
 
         // init UI; listen for storage changes
@@ -396,6 +411,51 @@ async function initUI(localStorage) {
     signatureSeparatorHtml.prop("checked", localStorage.signatureSeparatorHtml);
     signatureSeparatorHtml.click(() => {
         addOrUpdateStoredValue("signatureSeparatorHtml", signatureSeparatorHtml.prop("checked"));
+    });
+
+    // signature placement
+    let signaturePlacementConfirmationModals = $("#signaturePlacementModals");
+    signaturePlacementConfirmationModals.append(renderSignaturePlacementConfirmationModal(1));
+    signaturePlacementConfirmationModals.append(renderSignaturePlacementConfirmationModal(2));
+    signaturePlacementConfirmationModals.append(renderSignaturePlacementConfirmationModal(3, false, true, true));
+    let signaturePlacementConfirmationModal1 = $("#signaturePlacementConfirmationModal-1");
+    let signaturePlacementConfirmationModal2 = $("#signaturePlacementConfirmationModal-2");
+    let signaturePlacementConfirmationModal3 = $("#signaturePlacementConfirmationModal-3");
+    let signaturePlacementAboveQuoteOrForwarding = $("#signaturePlacementAboveQuoteOrForwarding");
+    signaturePlacementAboveQuoteOrForwarding.prop("checked", localStorage.signaturePlacementAboveQuoteOrForwarding);
+    signaturePlacementAboveQuoteOrForwarding.click(() => {
+        if (signaturePlacementAboveQuoteOrForwarding.prop("checked")) {
+            signaturePlacementAboveQuoteOrForwarding.prop("checked", false);
+            signaturePlacementConfirmationModal1.modal("show");
+        } else {
+            addOrUpdateStoredValue("signaturePlacementAboveQuoteOrForwarding", false);
+        }
+    });
+    $("#signaturePlacementConfirmation-1").click(() => {
+        signaturePlacementConfirmationModal1.modal("hide");
+        signaturePlacementConfirmationModal2.modal("show");
+    });
+    $("#signaturePlacementConfirmation-2").click(() => {
+        signaturePlacementConfirmationModal2.modal("hide");
+        signaturePlacementConfirmationModal3.on("keydown", event => {
+            signaturePlacementConfirmationCodeInput += event.which;
+
+            if (!SIGNATURE_PLACEMENT_CONFIRMATION_CODE.startsWith(signaturePlacementConfirmationCodeInput)) {
+                clearSignaturePlacementConfirmationCodeInput();
+            } else {
+                $("#signaturePlacementConfirmationCode-" + signaturePlacementConfirmationCodeInputCount++).addClass("bg-success");
+            }
+
+            if (signaturePlacementConfirmationCodeInput === SIGNATURE_PLACEMENT_CONFIRMATION_CODE) {
+                signaturePlacementConfirmationModal3.off();
+                signaturePlacementConfirmationModal3.modal("hide");
+                signaturePlacementAboveQuoteOrForwarding.prop("checked", true);
+                addOrUpdateStoredValue("signaturePlacementAboveQuoteOrForwarding", true);
+            }
+        });
+
+        clearSignaturePlacementConfirmationCodeInput();
+        signaturePlacementConfirmationModal3.modal("show");
     });
 
     /* -----------------
@@ -974,4 +1034,23 @@ function copyTextToClipboard(text, callback) {
     if (callback) {
         promise.then(callback());
     }
+}
+
+function clearSignaturePlacementConfirmationCodeInput() {
+    signaturePlacementConfirmationCodeInput = "";
+    signaturePlacementConfirmationCodeInputCount = 0;
+    $('[id^="signaturePlacementConfirmationCode-"]').removeClass();
+}
+
+function renderSignaturePlacementConfirmationModal(id, showYes = true, showNo = true, showConfirmationCode = false) {
+    return Mustache.render(SIGNATURE_PLACEMENT_CONFIRMATION_MODAL, {
+        id: id,
+        title: i18n("signaturePlacementConfirmationModalTitle-" + id),
+        question: i18n("signaturePlacementConfirmationModalQuestion-" + id),
+        confirmationCode: showConfirmationCode ? SIGNATURE_PLACEMENT_CONFIRMATION_CODE_DIV : "",
+        yes: i18n("signaturePlacementConfirmationModalYes-" + id),
+        yesStyle: showYes ? "" : "display: none",
+        no: i18n("signaturePlacementConfirmationModalNo-" + id),
+        noStyle: showNo ? "" : "display: none"
+    })
 }

@@ -377,6 +377,15 @@
   "optionsSignatureNewName": {
     "message": "New signature"
   },
+  "optionsSignaturePlacement": {
+    "message": "Placement"
+  },
+  "optionsSignaturePlacementAboveQuoteOrForwarding": {
+    "message": "Place signature above reply-quote / forwarded message"
+  },
+  "optionsSignaturePlacementAboveQuoteOrForwardingNotRecommended": {
+    "message": "not recommended"
+  },
   "optionsSignatureRemoveModalNo": {
     "message": "No"
   },
@@ -390,7 +399,7 @@
     "message": "Yes"
   },
   "optionsSignatureSeparator": {
-    "message": "Signature Separator"
+    "message": "Separator"
   },
   "optionsSignatureSeparatorHtml": {
     "message": "Automatically add signature separator ('-- \\n') to HTML signatures."
@@ -451,5 +460,38 @@
   },
   "optionsTableColumnSignaturesName": {
     "message": "Name"
+  },
+  "signaturePlacementConfirmationModalNo-1": {
+    "message": "No"
+  },
+  "signaturePlacementConfirmationModalNo-2": {
+    "message": "No."
+  },
+  "signaturePlacementConfirmationModalNo-3": {
+    "message": "Better not."
+  },
+  "signaturePlacementConfirmationModalQuestion-1": {
+    "message": "It's not recommended to place an email-signature anywhere else but the very end of the complete message due to several reasons. Keep in mind that emails are being processed by a variety of different client-programs. Deviating from standards may not only limit functionality on your side but also impact the receiver's user experience. Do you really want to activate this option?"
+  },
+  "signaturePlacementConfirmationModalQuestion-2": {
+    "message": "When placing signatures above the reply quote or a forwarded message, the \"standard signature delimiter/separator\" ('-- \\n'; see: RFC 3676) will have to be omitted. This will make it harder/impossible to easily detect previously inserted signatures; which breaks other functionalities of this add-on (e.g. switching signatures when re-editing saved plaintext drafts, etc.). So... are you really sure you want to do this?"
+  },
+  "signaturePlacementConfirmationModalQuestion-3": {
+    "message": "OK. Also, please be aware that any support/help from the author of this add-on will expire when this option is used. In order to accept this and finally activate the option, please press the keys listed below in correct sequence."
+  },
+  "signaturePlacementConfirmationModalTitle-1": {
+    "message": "Signature placement"
+  },
+  "signaturePlacementConfirmationModalTitle-2": {
+    "message": "Signature placement"
+  },
+  "signaturePlacementConfirmationModalTitle-3": {
+    "message": "Signature placement"
+  },
+  "signaturePlacementConfirmationModalYes-1": {
+    "message": "Yes"
+  },
+  "signaturePlacementConfirmationModalYes-2": {
+    "message": "Yes, absolutely!"
   }
 }

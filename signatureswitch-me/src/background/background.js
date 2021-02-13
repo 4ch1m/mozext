@@ -326,7 +326,7 @@ function addWindowCreateListener() {
    composer interaction ...
  */
 
-async function appendSignatureToComposer(signature, tabId = composeActionTabId) {
+async function appendSignatureToComposer(signature, tabId = composeActionTabId, signatureSeparatorHtml = true, aboveQuoteOrForwarding = false) {
     let details = await browser.compose.getComposeDetails(tabId);
 
     let signatureClasses = [ CLASS_MOZ_SIGNATURE ];
@@ -352,7 +352,7 @@ async function appendSignatureToComposer(signature, tabId = composeActionTabId) 
                 type: "div",
                 classes: signatureClasses,
                 attributes: signatureAttributes,
-                innerHtml: await createSignatureForPlainTextComposer(signature.text)
+                innerHtml: await createSignatureForPlainTextComposer(signature.text, aboveQuoteOrForwarding)
             },
             // TB also always adds a new line at the end of a signature in plaintext mode
             postpend: {
@@ -363,7 +363,8 @@ async function appendSignatureToComposer(signature, tabId = composeActionTabId) 
                 attributes: [
                     {key: ATTRIBUTE_MOZ_DIRTY, value: ""}
                 ]
-            }
+            },
+            aboveQuoteOrForwarding: aboveQuoteOrForwarding
         };
     } else {
         // check if we need to use the plaintext-signature, b/c there's no html-signature available
@@ -379,7 +380,8 @@ async function appendSignatureToComposer(signature, tabId = composeActionTabId) 
                 type: `${plaintextFallback ? "pre" : "div"}`,
                 classes: signatureClasses,
                 attributes: signatureAttributes,
-                innerHtml: await createSignatureForHtmlComposer(plaintextFallback ? signature.text : signature.html)
+                innerHtml: await createSignatureForHtmlComposer(plaintextFallback ? signature.text : signature.html, signatureSeparatorHtml, aboveQuoteOrForwarding),
+                aboveQuoteOrForwarding: aboveQuoteOrForwarding
             }
         };
     }
@@ -387,7 +389,10 @@ async function appendSignatureToComposer(signature, tabId = composeActionTabId) 
     // make sure to remove any existing signature beforehand
     await removeSignatureFromComposer(tabId);
 
-    browser.tabs.sendMessage(tabId, {type: "appendSignature", value: signatureElementProperties});
+    browser.tabs.sendMessage(tabId, {
+        type: "appendSignature",
+        value: signatureElementProperties
+    });
 }
 
 async function appendDefaultSignatureToComposer(tabId = composeActionTabId) {
@@ -413,7 +418,7 @@ async function appendDefaultSignatureToComposer(tabId = composeActionTabId) {
                 actualDefaultSignature = localStorage.signatures[0];
             }
 
-            appendSignatureToComposer(actualDefaultSignature, tabId);
+            appendSignatureToComposer(actualDefaultSignature, tabId, localStorage.signatureSeparatorHtml, localStorage.signaturePlacementAboveQuoteOrForwarding);
         }
     });
 }
@@ -424,7 +429,7 @@ async function appendSignatureViaIdToComposer(signatureId, tabId = composeAction
             let signatures = localStorage.signatures;
             for (let signature of signatures) {
                 if (signature.id === signatureId) {
-                    appendSignatureToComposer(signature, tabId);
+                    appendSignatureToComposer(signature, tabId, localStorage.signatureSeparatorHtml, localStorage.signaturePlacementAboveQuoteOrForwarding);
                     break;
                 }
             }
@@ -499,12 +504,12 @@ function autoSwitchBasedOnRecipients(tabId = composeActionTabId) {
    signature creation ...
  */
 
-async function createSignatureForPlainTextComposer(content) {
+async function createSignatureForPlainTextComposer(content, signaturePlacementAboveQuoteOrForwarding = false) {
     // resolve fc-placeholders
     content = await searchAndReplaceFortuneCookiePlaceholder(content);
 
-    // make sure we have a sig-separator
-    if (!content.trim().startsWith(PLAINTEXT_SIGNATURE_SEPARATOR)) {
+    // make sure we have a sig-separator (but only if we don't put the signature above the reply-quote or forwarding)
+    if (!content.trim().startsWith(PLAINTEXT_SIGNATURE_SEPARATOR) && !signaturePlacementAboveQuoteOrForwarding) {
         content = PLAINTEXT_SIGNATURE_SEPARATOR + content;
     }
 
@@ -512,13 +517,13 @@ async function createSignatureForPlainTextComposer(content) {
     return content.replaceAll(NEW_LINE, `<br ${ATTRIBUTE_MOZ_DIRTY}="">`);
 }
 
-async function createSignatureForHtmlComposer(content) {
+async function createSignatureForHtmlComposer(content, signatureSeparatorHtml, aboveQuote = false) {
     // resolve placeholders
     content = await searchAndReplaceFortuneCookiePlaceholder(content);
     content = await searchAndReplaceImagePlaceholder(content);
 
-    // prepend the sig-separator if activated in options
-    if ((await browser.storage.local.get()).signatureSeparatorHtml) {
+    // prepend the sig-separator if activated in options (but only if we don't put the signature above the reply-quote or forwarding)
+    if (signatureSeparatorHtml && !aboveQuote) {
         content = `${DOUBLE_DASH} <br ${ATTRIBUTE_MOZ_DIRTY}="">${content}`;
     }
 
@@ -615,7 +620,7 @@ async function startIdentityChangeListener(tabId, timeout = 1000, previousIdenti
 
 function createRegexFromAutoSwitchString(autoSwitchString) {
     return new RegExp(autoSwitchString
-        .replaceAll(".", "\.")
+        .replaceAll(".", "\\.")
         .replaceAll("*", ".*"),
         "i");
 }

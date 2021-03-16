@@ -1048,9 +1048,9 @@ function renderSignaturePlacementConfirmationModal(id, showYes = true, showNo = 
         title: i18n("signaturePlacementConfirmationModalTitle-" + id),
         question: i18n("signaturePlacementConfirmationModalQuestion-" + id),
         confirmationCode: showConfirmationCode ? SIGNATURE_PLACEMENT_CONFIRMATION_CODE_DIV : "",
-        yes: i18n("signaturePlacementConfirmationModalYes-" + id),
+        yes: showYes ? i18n("signaturePlacementConfirmationModalYes-" + id) : "",
         yesStyle: showYes ? "" : "display: none",
-        no: i18n("signaturePlacementConfirmationModalNo-" + id),
+        no: showNo ? i18n("signaturePlacementConfirmationModalNo-" + id) : "",
         noStyle: showNo ? "" : "display: none"
     })
 }

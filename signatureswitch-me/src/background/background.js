@@ -461,39 +461,24 @@ async function searchSignatureInComposer(tabId = composeActionTabId) {
     })).signatureId;
 }
 
-function autoSwitchBasedOnRecipients(tabId = composeActionTabId) {
-    browser.compose.getComposeDetails(tabId).then(details => {
-        browser.storage.local.get().then(localStorage => {
-            if (localStorage.signatures) {
-                for (let signature of localStorage.signatures) {
-                    if (signature.autoSwitch && signature.autoSwitch.trim() !== "") {
-                        let autoSwitchItems = signature.autoSwitch.split(",");
-                        for (let autoSwitchItem of autoSwitchItems) {
-                            let regEx = createRegexFromAutoSwitchString(autoSwitchItem.trim());
-                            let checkRecipients = recipients => {
-                                for (let recipient of recipients) {
-                                    if (regEx.test(cleanseRecipientString(recipient))) {
-                                        appendSignatureViaIdToComposer(signature.id, tabId);
-                                        return true;
-                                    }
-                                }
-                                return false;
-                            };
-
-                            if (checkRecipients(details.to)) {
-                                return;
-                            }
-                            if (localStorage.autoSwitchIncludeCc && checkRecipients(details.cc)) {
-                                return;
-                            }
-                            if (localStorage.autoSwitchIncludeBcc && checkRecipients(details.bcc)) {
-                                return;
+function autoSwitchBasedOnRecipients(tabId = composeActionTabId, recipients) {
+    browser.storage.local.get().then(localStorage => {
+        if (localStorage.signatures) {
+            for (let signature of localStorage.signatures) {
+                if (signature.autoSwitch && signature.autoSwitch.trim() !== "") {
+                    let autoSwitchItems = signature.autoSwitch.split(",");
+                    for (let autoSwitchItem of autoSwitchItems) {
+                        let regEx = createRegexFromAutoSwitchString(autoSwitchItem.trim());
+                        for (let recipient of recipients) {
+                            if (regEx.test(recipient)) {
+                                appendSignatureViaIdToComposer(signature.id, tabId);
+                                return true;
                             }
                         }
                     }
                 }
             }
-        });
+        }
     });
 }
 
@@ -562,17 +547,18 @@ async function searchAndReplaceFortuneCookiePlaceholder(content) {
 async function startRecipientChangeListener(tabId, timeout = 1000, previousRecipients = "", includeCc = false, includeBcc = false) {
     try {
         let details = await browser.compose.getComposeDetails(tabId);
-        let currentRecipients = "" + details.to;
+        let serializedRecipients = await serializeRecipients(details.to);
 
         if (includeCc) {
-            currentRecipients += " " + details.cc;
+            serializedRecipients = [].concat(serializedRecipients, await serializeRecipients(details.cc));
         }
         if (includeBcc) {
-            currentRecipients += " " + details.bcc;
+            serializedRecipients = [].concat(serializedRecipients, await serializeRecipients(details.bcc));
         }
 
+        let currentRecipients = serializedRecipients.join("|");
         if (currentRecipients !== previousRecipients) {
-            autoSwitchBasedOnRecipients(tabId);
+            autoSwitchBasedOnRecipients(tabId, serializedRecipients);
         }
 
         setTimeout(() => {
@@ -630,4 +616,42 @@ function cleanseRecipientString(recipient) {
     }
 
     return recipient;
+}
+
+async function serializeRecipients(recipients) {
+    let serializedRecipients = [];
+
+    for (let recipient of (Array.isArray(recipients) ? recipients : [ recipients ])) {
+        if (typeof recipient === "string" || recipient instanceof String) {
+            let cleansedRecipientString = cleanseRecipientString(recipient);
+            if (cleansedRecipientString != "") {
+                serializedRecipients.push(cleansedRecipientString);
+            }
+        } else {
+            // see:
+            //   https://thunderbird-webextensions.readthedocs.io/en/78/compose.html?highlight=getComposeDetails#compose-composerecipientlist
+            switch(recipient.type) {
+                case "contact":
+                    for (let contact of await browser.contacts.list(recipient.id)) {
+                        let primaryEmail = contact.properties.primaryEmail;
+                        if (primaryEmail != "") {
+                            serializedRecipients.push(primaryEmail);
+                        }
+                    }
+                    break;
+                case "mailingList":
+                    for (let list of await browser.mailingLists.get(recipient.id)) {
+                        let listName = list.name;
+                        if (listName != "") {
+                            serializedRecipients.push(listName);
+                        }
+                    }
+                    break;
+                default:
+                    serializedRecipients.push(recipient);
+            }
+        }
+    }
+
+    return serializedRecipients;
 }

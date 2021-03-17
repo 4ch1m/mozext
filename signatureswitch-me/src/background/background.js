@@ -30,6 +30,8 @@ const COMMAND_PREVIOUS = "previous";
 let composeActionTabId;
 let composeActionSignatureId;
 
+let recipientChangeListeners = new Map();
+
 /* =====================================================================================================================
    init ...
  */
@@ -51,6 +53,8 @@ let composeActionSignatureId;
     addBrowserActionListener();
     addComposeActionListener();
     addWindowCreateListener();
+    addOnBeforeSendListener();
+    addIdentityChangeListener();
 })();
 
 /* =====================================================================================================================
@@ -266,15 +270,15 @@ function addWindowCreateListener() {
                 // check if it's a reply/forward and if we DON'T want to perform the default-action
                 let noDefaultAction = (isReply && storage.repliesNoDefaultAction) || (isForward && storage.forwardingsNoDefaultAction === true);
 
-                // check if we should ignore a the identity-sig b/c it's a reply or forwarding
+                // check if we should ignore the identity-sig b/c it's a reply or forwarding
                 let ignoreIdentitySig = (isReply || isForward) && (!storage.identitiesUseAssignedSignatureOnReplyOrForwarding);
 
                 // see if we can find an assigned signature for the current identity (but only if we don't ignore identitity-sigs)
                 let identitySignatureId = "";
                 if (!ignoreIdentitySig && storage.identities) {
-                    for (let i = 0; i < storage.identities.length; i++) {
-                        if (storage.identities[i].id === details.identityId) {
-                            identitySignatureId = storage.identities[i].signatureId;
+                    for (let storageIdentity of storage.identities) {
+                        if (storageIdentity.id === details.identityId) {
+                            identitySignatureId = storageIdentity.signatureId;
                             break;
                         }
                     }
@@ -309,12 +313,35 @@ function addWindowCreateListener() {
                     !(isForward && storage.forwardingsDisableAutoSwitch)) {
                     startRecipientChangeListener(tabId, 1000, "", storage.autoSwitchIncludeCc, storage.autoSwitchIncludeBcc);
                 }
-
-                // only enable identity-based auto-switch if activated in options
-                if (storage.identitiesSwitchSignatureOnChange) {
-                    startIdentityChangeListener(tabId, undefined, details.identityId);
-                }
             });
+        }
+    });
+}
+
+function addOnBeforeSendListener() {
+    browser.compose.onBeforeSend.addListener(tab => {
+        clearTimeout(recipientChangeListeners.get(tab.id));
+        recipientChangeListeners.delete(tab.id);
+    });
+}
+
+function addIdentityChangeListener() {
+    browser.compose.onIdentityChanged.addListener(async (tab, identityId) => {
+        let localStorage = await browser.storage.local.get();
+
+        if (localStorage.identities && localStorage.identitiesSwitchSignatureOnChange) {
+            for (let mailAccount of (await browser.accounts.list())) {
+                for (let mailIdentity of mailAccount.identities) {
+                    if (mailIdentity.id === identityId) {
+                        for (let localStorageIdentity of localStorage.identities) {
+                            if (localStorageIdentity.id === mailIdentity.id) {
+                                appendSignatureViaIdToComposer(localStorageIdentity.signatureId, tab.id);
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
         }
     });
 }
@@ -561,41 +588,11 @@ async function startRecipientChangeListener(tabId, timeout = 1000, previousRecip
             autoSwitchBasedOnRecipients(tabId, serializedRecipients);
         }
 
-        setTimeout(() => {
+        let timeoutId = setTimeout(() => {
             startRecipientChangeListener(tabId, timeout, currentRecipients, includeCc, includeBcc);
         }, timeout);
-    } catch (e) {
-        // tabId probably not valid anymore; window closed
-    }
-}
 
-async function startIdentityChangeListener(tabId, timeout = 1000, previousIdentityId = "") {
-    try {
-        let currentIdentityId = (await browser.compose.getComposeDetails(tabId)).identityId;
-
-        if (currentIdentityId !== previousIdentityId) {
-            let mailAccounts = await browser.accounts.list();
-            for (let mailAccount of mailAccounts) {
-                for (let mailIdentity of mailAccount.identities) {
-                    if (mailIdentity.id === currentIdentityId) {
-                        let localStorage = await browser.storage.local.get();
-                        if (localStorage.identities) {
-                            let identities = localStorage.identities;
-                            for (let i = 0; i < identities.length; i++) {
-                                if (identities[i].id === mailIdentity.id) {
-                                    appendSignatureViaIdToComposer(identities[i].signatureId, tabId);
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        setTimeout(() => {
-            startIdentityChangeListener(tabId, timeout, currentIdentityId);
-        }, timeout);
+        recipientChangeListeners.set(tabId, timeoutId);
     } catch (e) {
         // tabId probably not valid anymore; window closed
     }

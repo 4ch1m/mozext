@@ -262,11 +262,6 @@ function addWindowCreateListener() {
                 let tabId = tabs[0].id;
 
                 let storage = await browser.storage.local.get();
-
-                // *** TODO : remove this temporary workaround when bug in TB-codebase is fixed (https://bugzilla.mozilla.org/show_bug.cgi?id=1702957)
-                await new Promise(resolve => window.setTimeout(resolve, 500));
-                // ***
-
                 let details = await browser.compose.getComposeDetails(tabId);
 
                 let isReply = details.subject.startsWith(REPLY_SUBJECT_PREFIX);

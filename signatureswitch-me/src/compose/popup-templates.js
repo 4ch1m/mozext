@@ -8,7 +8,7 @@ const ON_OFF_BUTTON = `
 `;
 
 const SIGNATURE_BUTTON = `
-    <button id="signatureButton-{{id}}" type="button" class="btn btn-light btn-sm btn-block mt-2">
+    <button id="signatureButton-{{id}}" type="button" class="btn btn-primary btn-sm btn-block mt-2">
         {{name}}
     </button>
 `;

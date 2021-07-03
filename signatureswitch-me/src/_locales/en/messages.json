@@ -86,6 +86,15 @@
   "optionsCommandKeyUp": {
     "message": "Up"
   },
+  "optionsCommandLabelNext": {
+    "message": "Cycle (next):"
+  },
+  "optionsCommandLabelPrevious": {
+    "message": "Cycle (previous):"
+  },
+  "optionsCommandLabelSwitch": {
+    "message": "Switch (on/off):"
+  },
   "optionsCommandReset": {
     "message": "Reset"
   },
@@ -278,9 +287,6 @@
   "optionsImportExportDataLabel": {
     "message": "Signatures:"
   },
-  "optionsImportExportDataTooltip": {
-    "message": "JSON data in the form of:"
-  },
   "optionsImportExportDescription1": {
     "message": "This feature is primarily intended for backup/restore purposes. Export your signatures; copy them to the clipboard; paste into a text editor of your choice and save the data to a file. (Vice versa: Paste previously backed up data in here and import.)"
   },
@@ -311,12 +317,6 @@
   "optionsMiscellaneous": {
     "message": "Miscellaneous"
   },
-  "optionsNextCommandLabel": {
-    "message": "Cycle (next):"
-  },
-  "optionsPreviousCommandLabel": {
-    "message": "Cycle (previous):"
-  },
   "optionsReloadIdentities": {
     "message": "Reload"
   },
@@ -333,7 +333,7 @@
     "message": "Auto switch"
   },
   "optionsSignatureEditModalAutoSwitchPlaceholder": {
-    "message": "e.g. '*@company.com, *smith*@*.de, moe@zilla.com'"
+    "message": "*@company.com, *smith*@*.de, moe@zilla.com"
   },
   "optionsSignatureEditModalAutoSwitchTooltip": {
     "message": "A comma separated list of email addresses, which - when detected as recipient - will automatically trigger insertion of this signature. (NOTE: The asterisk character can be used as wildcard.)"
@@ -357,7 +357,7 @@
     "message": "Name"
   },
   "optionsSignatureEditModalNamePlaceholder": {
-    "message": "e.g. 'Private Signature'"
+    "message": "Business Signature"
   },
   "optionsSignatureEditModalNameTooltip": {
     "message": "The name which gets displayed when selecting your signature via button or context menu."
@@ -407,9 +407,6 @@
   "optionsSignatures": {
     "message": "Signatures"
   },
-  "optionsSwitchCommandLabel": {
-    "message": "Switch (on/off):"
-  },
   "optionsTableColumnFortuneCookiesDelete": {
     "message": "Delete"
   },
@@ -420,13 +417,13 @@
     "message": "Name"
   },
   "optionsTableColumnFortuneCookiesNamePlaceholder": {
-    "message": "e.g. 'Chuck Norris'"
+    "message": "Chuck Norris"
   },
   "optionsTableColumnFortuneCookiesTag": {
     "message": "Tag"
   },
   "optionsTableColumnFortuneCookiesTagPlaceholder": {
-    "message": "e.g. 'chuck'"
+    "message": "chuck"
   },
   "optionsTableColumnIdentityAssignedSignature": {
     "message": "Assigned Signature"
@@ -444,13 +441,13 @@
     "message": "Name"
   },
   "optionsTableColumnImagesNamePlaceholder": {
-    "message": "e.g. 'Company Logo (large)'"
+    "message": "Company Logo"
   },
   "optionsTableColumnImagesTag": {
     "message": "Tag"
   },
   "optionsTableColumnImagesTagPlaceholder": {
-    "message": "e.g. 'clogo-l'"
+    "message": "logo"
   },
   "optionsTableColumnSignaturesAction": {
     "message": "Action"

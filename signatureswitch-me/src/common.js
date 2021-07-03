@@ -1,6 +1,28 @@
 let optionsTabId;
 let optionsWindowId;
 
+function addEventListeners(target, events, eventFunction) {
+    let elements = [];
+
+    if (typeof target === "string" || target instanceof String) {
+        if (target.includes(",")) {
+            document.querySelectorAll(target).forEach(element => {
+                elements.push(element);
+            });
+        } else {
+            elements.push(document.querySelector(target));
+        }
+    } else {
+        elements.push(target);
+    }
+
+    elements.forEach(element => {
+        events.split(" ").forEach(event => {
+            element.addEventListener(event, eventFunction);
+        });
+    });
+}
+
 function openOptions(callback) {
     browser.tabs.create({url: "/options/page.html"}).then(optionsTab => {
         optionsTabId = optionsTab.id;
@@ -32,9 +54,9 @@ function i18n(messageName, substitutions = undefined) {
 }
 
 function dataI18n() {
-    for (const node of document.querySelectorAll('[data-i18n]')) {
+    document.querySelectorAll('[data-i18n]').forEach(element => {
         // NOTE: we only support _ONE_ attribute (separated by '|') atm!
-        let [text, attr] = node.dataset.i18n.split('|');
+        let [text, attr] = element.dataset.i18n.split('|');
 
         if (attr) {
             if (attr.charAt(0) === "$") {
@@ -46,8 +68,8 @@ function dataI18n() {
             text = i18n(text);
         }
 
-        node.appendChild(document.createTextNode(text));
-    }
+        element.appendChild(document.createTextNode(text));
+    });
 }
 
 function truncateString(string, length = 20) {

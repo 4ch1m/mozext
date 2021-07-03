@@ -43,7 +43,6 @@ npm run build
 
 ### Used Libraries
 
-* [jQuery](https://jquery.com/)
 * [Bootstrap](https://getbootstrap.com/)
 * [Bootstrap Icons](https://icons.getbootstrap.com/)
 * [Popper](https://popper.js.org/)
@@ -51,6 +50,9 @@ npm run build
 * [mustache](https://mustache.github.io/)
 * [uuid](https://www.npmjs.com/package/uuid)
 * [web-ext](https://www.npmjs.com/package/web-ext)
+* [jest](https://github.com/facebook/jest)
+* [rewire](https://github.com/jhnns/rewire)
+* [copy](https://github.com/jonschlinkert/copy)
 
 ### Other than that
 

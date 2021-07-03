@@ -30,6 +30,8 @@ const COMMAND_PREVIOUS = "previous";
 let composeActionTabId;
 let composeActionSignatureId;
 
+let recipientChangeListeners = new Map();
+
 /* =====================================================================================================================
    init ...
  */
@@ -51,6 +53,8 @@ let composeActionSignatureId;
     addBrowserActionListener();
     addComposeActionListener();
     addWindowCreateListener();
+    addOnBeforeSendListener();
+    addIdentityChangeListener();
 })();
 
 /* =====================================================================================================================
@@ -269,15 +273,15 @@ function addWindowCreateListener() {
                 // check if it's a reply/forward and if we DON'T want to perform the default-action
                 let noDefaultAction = (isReply && storage.repliesNoDefaultAction) || (isForward && storage.forwardingsNoDefaultAction === true);
 
-                // check if we should ignore a the identity-sig b/c it's a reply or forwarding
+                // check if we should ignore the identity-sig b/c it's a reply or forwarding
                 let ignoreIdentitySig = (isReply || isForward) && (!storage.identitiesUseAssignedSignatureOnReplyOrForwarding);
 
                 // see if we can find an assigned signature for the current identity (but only if we don't ignore identitity-sigs)
                 let identitySignatureId = "";
                 if (!ignoreIdentitySig && storage.identities) {
-                    for (let i = 0; i < storage.identities.length; i++) {
-                        if (storage.identities[i].id === details.identityId) {
-                            identitySignatureId = storage.identities[i].signatureId;
+                    for (let storageIdentity of storage.identities) {
+                        if (storageIdentity.id === details.identityId) {
+                            identitySignatureId = storageIdentity.signatureId;
                             break;
                         }
                     }
@@ -312,12 +316,35 @@ function addWindowCreateListener() {
                     !(isForward && storage.forwardingsDisableAutoSwitch)) {
                     startRecipientChangeListener(tabId, 1000, "", storage.autoSwitchIncludeCc, storage.autoSwitchIncludeBcc);
                 }
-
-                // only enable identity-based auto-switch if activated in options
-                if (storage.identitiesSwitchSignatureOnChange) {
-                    startIdentityChangeListener(tabId, undefined, details.identityId);
-                }
             });
+        }
+    });
+}
+
+function addOnBeforeSendListener() {
+    browser.compose.onBeforeSend.addListener(tab => {
+        clearTimeout(recipientChangeListeners.get(tab.id));
+        recipientChangeListeners.delete(tab.id);
+    });
+}
+
+function addIdentityChangeListener() {
+    browser.compose.onIdentityChanged.addListener(async (tab, identityId) => {
+        let localStorage = await browser.storage.local.get();
+
+        if (localStorage.identities && localStorage.identitiesSwitchSignatureOnChange) {
+            for (let mailAccount of (await browser.accounts.list())) {
+                for (let mailIdentity of mailAccount.identities) {
+                    if (mailIdentity.id === identityId) {
+                        for (let localStorageIdentity of localStorage.identities) {
+                            if (localStorageIdentity.id === mailIdentity.id) {
+                                appendSignatureViaIdToComposer(localStorageIdentity.signatureId, tab.id);
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
         }
     });
 }
@@ -464,39 +491,24 @@ async function searchSignatureInComposer(tabId = composeActionTabId) {
     })).signatureId;
 }
 
-function autoSwitchBasedOnRecipients(tabId = composeActionTabId) {
-    browser.compose.getComposeDetails(tabId).then(details => {
-        browser.storage.local.get().then(localStorage => {
-            if (localStorage.signatures) {
-                for (let signature of localStorage.signatures) {
-                    if (signature.autoSwitch && signature.autoSwitch.trim() !== "") {
-                        let autoSwitchItems = signature.autoSwitch.split(",");
-                        for (let autoSwitchItem of autoSwitchItems) {
-                            let regEx = createRegexFromAutoSwitchString(autoSwitchItem.trim());
-                            let checkRecipients = recipients => {
-                                for (let recipient of recipients) {
-                                    if (regEx.test(cleanseRecipientString(recipient))) {
-                                        appendSignatureViaIdToComposer(signature.id, tabId);
-                                        return true;
-                                    }
-                                }
-                                return false;
-                            };
-
-                            if (checkRecipients(details.to)) {
-                                return;
-                            }
-                            if (localStorage.autoSwitchIncludeCc && checkRecipients(details.cc)) {
-                                return;
-                            }
-                            if (localStorage.autoSwitchIncludeBcc && checkRecipients(details.bcc)) {
-                                return;
+function autoSwitchBasedOnRecipients(tabId = composeActionTabId, recipients) {
+    browser.storage.local.get().then(localStorage => {
+        if (localStorage.signatures) {
+            for (let signature of localStorage.signatures) {
+                if (signature.autoSwitch && signature.autoSwitch.trim() !== "") {
+                    let autoSwitchItems = signature.autoSwitch.split(",");
+                    for (let autoSwitchItem of autoSwitchItems) {
+                        let regEx = createRegexFromAutoSwitchString(autoSwitchItem.trim());
+                        for (let recipient of recipients) {
+                            if (regEx.test(recipient)) {
+                                appendSignatureViaIdToComposer(signature.id, tabId);
+                                return true;
                             }
                         }
                     }
                 }
             }
-        });
+        }
     });
 }
 
@@ -565,54 +577,25 @@ async function searchAndReplaceFortuneCookiePlaceholder(content) {
 async function startRecipientChangeListener(tabId, timeout = 1000, previousRecipients = "", includeCc = false, includeBcc = false) {
     try {
         let details = await browser.compose.getComposeDetails(tabId);
-        let currentRecipients = "" + details.to;
+        let serializedRecipients = await serializeRecipients(details.to);
 
         if (includeCc) {
-            currentRecipients += " " + details.cc;
+            serializedRecipients = [].concat(serializedRecipients, await serializeRecipients(details.cc));
         }
         if (includeBcc) {
-            currentRecipients += " " + details.bcc;
+            serializedRecipients = [].concat(serializedRecipients, await serializeRecipients(details.bcc));
         }
 
+        let currentRecipients = serializedRecipients.join("|");
         if (currentRecipients !== previousRecipients) {
-            autoSwitchBasedOnRecipients(tabId);
+            autoSwitchBasedOnRecipients(tabId, serializedRecipients);
         }
 
-        setTimeout(() => {
+        let timeoutId = setTimeout(() => {
             startRecipientChangeListener(tabId, timeout, currentRecipients, includeCc, includeBcc);
         }, timeout);
-    } catch (e) {
-        // tabId probably not valid anymore; window closed
-    }
-}
 
-async function startIdentityChangeListener(tabId, timeout = 1000, previousIdentityId = "") {
-    try {
-        let currentIdentityId = (await browser.compose.getComposeDetails(tabId)).identityId;
-
-        if (currentIdentityId !== previousIdentityId) {
-            let mailAccounts = await browser.accounts.list();
-            for (let mailAccount of mailAccounts) {
-                for (let mailIdentity of mailAccount.identities) {
-                    if (mailIdentity.id === currentIdentityId) {
-                        let localStorage = await browser.storage.local.get();
-                        if (localStorage.identities) {
-                            let identities = localStorage.identities;
-                            for (let i = 0; i < identities.length; i++) {
-                                if (identities[i].id === mailIdentity.id) {
-                                    appendSignatureViaIdToComposer(identities[i].signatureId, tabId);
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        setTimeout(() => {
-            startIdentityChangeListener(tabId, timeout, currentIdentityId);
-        }, timeout);
+        recipientChangeListeners.set(tabId, timeoutId);
     } catch (e) {
         // tabId probably not valid anymore; window closed
     }
@@ -633,6 +616,44 @@ function cleanseRecipientString(recipient) {
     }
 
     return recipient;
+}
+
+async function serializeRecipients(recipients) {
+    let serializedRecipients = [];
+
+    for (let recipient of (Array.isArray(recipients) ? recipients : [ recipients ])) {
+        if (typeof recipient === "string" || recipient instanceof String) {
+            let cleansedRecipientString = cleanseRecipientString(recipient);
+            if (cleansedRecipientString != "") {
+                serializedRecipients.push(cleansedRecipientString);
+            }
+        } else {
+            // see:
+            //   https://thunderbird-webextensions.readthedocs.io/en/78/compose.html?highlight=getComposeDetails#compose-composerecipientlist
+            switch(recipient.type) {
+                case "contact":
+                    for (let contact of await browser.contacts.list(recipient.id)) {
+                        let primaryEmail = contact.properties.primaryEmail;
+                        if (primaryEmail != "") {
+                            serializedRecipients.push(primaryEmail);
+                        }
+                    }
+                    break;
+                case "mailingList":
+                    for (let list of await browser.mailingLists.get(recipient.id)) {
+                        let listName = list.name;
+                        if (listName != "") {
+                            serializedRecipients.push(listName);
+                        }
+                    }
+                    break;
+                default:
+                    serializedRecipients.push(recipient);
+            }
+        }
+    }
+
+    return serializedRecipients;
 }
 
 async function sendNativeMessage(object) {

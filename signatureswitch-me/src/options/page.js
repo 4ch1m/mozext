@@ -100,13 +100,14 @@ let ready = (callback) => {
 ready(() => {
     document.body.innerHTML = Mustache.render(BODY, {
         navItems: [
-            { status: "active", id: "signaturesTab",     href: "#signaturesTabContent",     i18n: "optionsSignatures"},
-            { status: "",       id: "imagesTab",         href: "#imagesTabContent",         i18n: "optionsImages"},
-            { status: "",       id: "fortuneCookiesTab", href: "#fortuneCookiesTabContent", i18n: "optionsFortuneCookies"},
-            { status: "",       id: "identitiesTab",     href: "#identitiesTabContent",     i18n: "optionsIdentities"},
-            { status: "",       id: "miscellaneousTab",  href: "#miscellaneousTabContent",  i18n: "optionsMiscellaneous"},
-            { status: "",       id: "importExportTab",   href: "#importExportTabContent",   i18n: "optionsImportExport"},
-            { status: "",       id: "helpTab",           href: "#helpTabContent",           i18n: "optionsHelp"}
+            { status: "active", id: "signaturesTab",      href: "#signaturesTabContent",      i18n: "optionsSignatures"},
+            { status: "",       id: "imagesTab",          href: "#imagesTabContent",          i18n: "optionsImages"},
+            { status: "",       id: "fortuneCookiesTab",  href: "#fortuneCookiesTabContent",  i18n: "optionsFortuneCookies"},
+            { status: "",       id: "identitiesTab",      href: "#identitiesTabContent",      i18n: "optionsIdentities"},
+            { status: "",       id: "miscellaneousTab",   href: "#miscellaneousTabContent",   i18n: "optionsMiscellaneous"},
+            { status: "",       id: "nativeMessagingTab", href: "#nativeMessagingTabContent", i18n: "optionsNativeMessaging"},
+            { status: "",       id: "importExportTab",    href: "#importExportTabContent",    i18n: "optionsImportExport"},
+            { status: "",       id: "helpTab",            href: "#helpTabContent",            i18n: "optionsHelp"}
         ],
         tabPanes: {
             signatures: SIGNATURES_TAB_PANE,
@@ -114,6 +115,7 @@ ready(() => {
             fortuneCookies: FORTUNE_COOKIES_TAB_PANE,
             identities: IDENTITIES_TAB_PANE,
             miscellaneous: MISCELLANEOUS_TAB_PANE,
+            nativeMessaging: NATIVE_MESSAGING_TAB_PANE,
             importExport: IMPORT_EXPORT_TAB_PANE,
             help: HELP_TAB_PANE
         }
@@ -756,16 +758,16 @@ async function initUI(localStorage) {
         Native Messaging
        ------------------ */
 
-    $("#testNativeMessagingComposeDetails").val(JSON.stringify({
+    document.getElementById("testNativeMessagingComposeDetails").value = JSON.stringify({
         to: "Moe Zilla <moe@zilla.com>",
         cc: "Joe Zilla <joe@zilla.com>",
         bcc: "Doe Zilla <doe@zilla.com>",
         replyTo: "Toe Zilla <toe@zilla.com>",
         subject: "Hi there!",
         isPlainText: true
-    }, null, 3));
+    }, null, 3);
 
-    $("#testNativeMessagingButton").click(() => {
+    document.getElementById("testNativeMessagingButton").addEventListener("click", () => {
         testNativeMessaging();
     });
 
@@ -1163,7 +1165,7 @@ function renderSignaturePlacementConfirmationModal(id, showYes = true, showNo = 
 
 function testNativeMessaging() {
     browser.runtime.sendMessage({type: "sendNativeMessage", value: {
-            tag: $("#testNativeMessagingTag").val(),
-            composeDetails: $("#testNativeMessagingComposeDetails").val()
+            tag: document.getElementById("testNativeMessagingTag").value,
+            composeDetails: document.getElementById("testNativeMessagingComposeDetails").value
     }});
 }

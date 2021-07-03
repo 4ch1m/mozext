@@ -26,6 +26,7 @@ const BODY = `
                         {{{tabPanes.fortuneCookies}}}
                         {{{tabPanes.identities}}}
                         {{{tabPanes.miscellaneous}}}
+                        {{{tabPanes.nativeMessaging}}}
                         {{{tabPanes.importExport}}}
                         {{{tabPanes.help}}}
                     </div>

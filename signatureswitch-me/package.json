@@ -12,7 +12,7 @@
     "copy": "^0.3.2",
     "jest": "^27.0.6",
     "rewire": "^5.0.0",
-    "web-ext": "^6.0.0"
+    "web-ext": "^6.1.0"
   },
   "config": {
     "ANSIBLE": "ansible-playbook --extra-vars @ansible-mozdev.yml"

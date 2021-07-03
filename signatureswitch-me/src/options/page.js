@@ -1144,25 +1144,6 @@ function copyTextToClipboard(text, callback) {
     }
 }
 
-function clearSignaturePlacementConfirmationCodeInput() {
-    signaturePlacementConfirmationCodeInput = "";
-    signaturePlacementConfirmationCodeInputCount = 0;
-    $('[id^="signaturePlacementConfirmationCode-"]').removeClass();
-}
-
-function renderSignaturePlacementConfirmationModal(id, showYes = true, showNo = true, showConfirmationCode = false) {
-    return Mustache.render(SIGNATURE_PLACEMENT_CONFIRMATION_MODAL, {
-        id: id,
-        title: i18n("signaturePlacementConfirmationModalTitle-" + id),
-        question: i18n("signaturePlacementConfirmationModalQuestion-" + id),
-        confirmationCode: showConfirmationCode ? SIGNATURE_PLACEMENT_CONFIRMATION_CODE_DIV : "",
-        yes: showYes ? i18n("signaturePlacementConfirmationModalYes-" + id) : "",
-        yesStyle: showYes ? "" : "display: none",
-        no: showNo ? i18n("signaturePlacementConfirmationModalNo-" + id) : "",
-        noStyle: showNo ? "" : "display: none"
-    })
-}
-
 function testNativeMessaging() {
     browser.runtime.sendMessage({type: "sendNativeMessage", value: {
             tag: document.getElementById("testNativeMessagingTag").value,

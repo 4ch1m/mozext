@@ -108,15 +108,15 @@ ready(() => {
             { status: "",       id: "importExportTab",   href: "#importExportTabContent",   i18n: "optionsImportExport"},
             { status: "",       id: "helpTab",           href: "#helpTabContent",           i18n: "optionsHelp"}
         ],
-        tabPanes: {
-            signatures: SIGNATURES_TAB_PANE,
-            images: IMAGES_TAB_PANE,
-            fortuneCookies: FORTUNE_COOKIES_TAB_PANE,
-            identities: IDENTITIES_TAB_PANE,
-            miscellaneous: MISCELLANEOUS_TAB_PANE,
-            importExport: IMPORT_EXPORT_TAB_PANE,
-            help: HELP_TAB_PANE
-        }
+        tabPanes: [
+            SIGNATURES_TAB_PANE,
+            IMAGES_TAB_PANE,
+            FORTUNE_COOKIES_TAB_PANE,
+            IDENTITIES_TAB_PANE,
+            MISCELLANEOUS_TAB_PANE,
+            IMPORT_EXPORT_TAB_PANE,
+            HELP_TAB_PANE
+        ]
     });
 
     browser.storage.local.get().then(localStorage => {

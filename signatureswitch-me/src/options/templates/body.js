@@ -21,14 +21,9 @@ const BODY = `
                         </div>
                     </nav>
                     <div class="tab-content">
-                        {{{tabPanes.signatures}}}
-                        {{{tabPanes.images}}}
-                        {{{tabPanes.fortuneCookies}}}
-                        {{{tabPanes.identities}}}
-                        {{{tabPanes.miscellaneous}}}
-                        {{{tabPanes.nativeMessaging}}}
-                        {{{tabPanes.importExport}}}
-                        {{{tabPanes.help}}}
+                        {{#tabPanes}}
+                            {{{.}}}
+                        {{/tabPanes}}
                     </div>
                 </div>
             </div>

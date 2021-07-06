@@ -1,7 +1,7 @@
 const IDENTITIES_TAB_PANE = `
     <div class="tab-pane m-2" id="identitiesTabContent" role="tabpanel">
         <div class="container">
-            <div class="row section">
+            <div class="row mt-3">
                 <div class="col-12">
                     <input type="checkbox" class="form-check-input" id="identitiesSwitchSignatureOnChange">
                     <label for="identitiesSwitchSignatureOnChange" data-i18n="optionsIdentitiesSwitchSignatureUponChange"></label>
@@ -15,7 +15,7 @@ const IDENTITIES_TAB_PANE = `
                     <label for="identitiesOverruleDefaultAction" data-i18n="optionsIdentitiesOverruleDefaultAction"></label>
                 </div>
             </div>
-            <div class="row section">
+            <div class="row mt-3">
                 <label>
                     <span data-i18n="optionsIdentitiesLabel"></span>
                     <span id="identitiesTooltip"> <!-- tooltip added programmatically -->
@@ -25,7 +25,7 @@ const IDENTITIES_TAB_PANE = `
                     </span>
                 </label>
             </div>
-            <div class="row section">
+            <div class="row mt-3">
                 <div class="col-md-1">
                 </div>
                 <div class="col-md-8">

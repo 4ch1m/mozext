@@ -1,6 +1,6 @@
 const SIGNATURES_TAB_PANE = `
     <div class="tab-pane m-2 active" id="signaturesTabContent" role="tabpanel">
-        <div class="section">
+        <div class="mt-3">
             <div id="signaturesTable">
                 <table class="table table-bordered text-center">
                     <thead class="table-dark">

@@ -1,7 +1,7 @@
 const MISCELLANEOUS_TAB_PANE = `
     <div class="tab-pane m-2" id="miscellaneousTabContent" role="tabpanel">
         <!-- default action -->
-        <div class="section">
+        <div class="mt-3">
             <h5><b data-i18n="optionsDefaultAction"></b></h5>
             <hr class="w-100">
             <div>
@@ -23,7 +23,7 @@ const MISCELLANEOUS_TAB_PANE = `
             </div>
         </div>
         <!-- commands -->
-        <div class="section">
+        <div class="mt-3">
             <h5><b data-i18n="optionsCommands"></b></h5>
             <hr class="w-100">
             <div id="commandsContainer" class="container">
@@ -31,7 +31,7 @@ const MISCELLANEOUS_TAB_PANE = `
             </div>
         </div>
         <!-- replies -->
-        <div class="section">
+        <div class="mt-3">
             <h5><b data-i18n="optionsReplies"></b></h5>
             <hr class="w-100">
             <div>
@@ -48,7 +48,7 @@ const MISCELLANEOUS_TAB_PANE = `
             </div>
         </div>
         <!-- forwardings -->
-        <div class="section">
+        <div class="mt-3">
             <h5><b data-i18n="optionsForwardings"></b></h5>
             <hr class="w-100">
             <div>
@@ -65,7 +65,7 @@ const MISCELLANEOUS_TAB_PANE = `
             </div>
         </div>
         <!-- auto switch -->
-        <div class="section">
+        <div class="mt-3">
             <h5><b data-i18n="optionsAutoSwitch"></b></h5>
             <hr class="w-100">
             <div>
@@ -82,7 +82,7 @@ const MISCELLANEOUS_TAB_PANE = `
             </div>
         </div>
         <!-- signature separator -->
-        <div class="section">
+        <div class="mt-3">
             <h5><b data-i18n="optionsSignatureSeparator"></b></h5>
             <hr class="w-100">
             <div>
@@ -95,7 +95,7 @@ const MISCELLANEOUS_TAB_PANE = `
             </div>
         </div>
        <!-- signature placement -->
-        <div class="section">
+        <div class="mt-3">
             <h5><b data-i18n="optionsSignaturePlacement"></b></h5>
             <hr class="w-100">
             <div>

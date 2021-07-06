@@ -1,7 +1,7 @@
 const IMPORT_EXPORT_TAB_PANE = `
     <div class="tab-pane m-2" id="importExportTabContent" role="tabpanel">
         <div class="container">
-            <div class="row section">
+            <div class="row mt-3">
                 <div class="col-md-auto alert bg-warning" role="alert">
                     <span data-i18n="optionsImportExportDescription1"></span><br>
                     <br>
@@ -14,7 +14,7 @@ const IMPORT_EXPORT_TAB_PANE = `
                 </label>
                 <textarea class="form-control" id="importExportData" rows="10" spellcheck="false"></textarea>
             </div>
-            <div class="row section">
+            <div class="row mt-3">
                 <div class="col-md-6 nobr">
                     <button id="importSignatures" type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#importExportConfirmationModal" disabled>
                         <svg class="bi" width="2em" height="2em" fill="currentColor">

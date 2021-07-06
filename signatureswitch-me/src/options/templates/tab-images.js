@@ -1,7 +1,7 @@
 const IMAGES_TAB_PANE = `
     <div class="tab-pane m-2" id="imagesTabContent" role="tabpanel">
         <div class="container">
-            <div class="row section">
+            <div class="row mt-3">
                 <div id="imagesTable">
                     <table class="table table-bordered text-center">
                         <thead class="table-dark">
@@ -36,7 +36,7 @@ const IMAGES_TAB_PANE = `
                 </span>
             </div>
             <!-- image usage -->
-            <div class="row section">
+            <div class="row mt-3">
                 <div>
                     <u data-i18n="optionsImageUsageHeader"></u><br>
                     <ul>

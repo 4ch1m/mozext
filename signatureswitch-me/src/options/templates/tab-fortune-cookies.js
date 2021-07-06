@@ -1,7 +1,7 @@
 const FORTUNE_COOKIES_TAB_PANE = `
     <div class="tab-pane m-2" id="fortuneCookiesTabContent" role="tabpanel">
         <div class="container">
-            <div class="row section">
+            <div class="row mt-3">
                 <div id="fortuneCookiesTable">
                     <table class="table table-bordered text-center">
                         <thead class="table-dark">
@@ -36,7 +36,7 @@ const FORTUNE_COOKIES_TAB_PANE = `
                 </span>
             </div>
             <!-- fortune cookies usage -->
-            <div class="row section">
+            <div class="row mt-3">
                 <div>
                     <u data-i18n="optionsFortuneCookiesUsageHeader"></u><br>
                     <ul>

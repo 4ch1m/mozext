@@ -1,6 +1,6 @@
 const HELP_TAB_PANE = `
     <div class="tab-pane m-2" id="helpTabContent" role="tabpanel">
-        <div class="section">
+        <div class="mt-3">
             <div class="container mt-4">
                 <div class="row">
                     <div class="col-md-12">

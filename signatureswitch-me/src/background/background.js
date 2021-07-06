@@ -228,8 +228,9 @@ function addMessageListener() {
                 );
                 break;
             case "sendNativeMessage":
-                sendNativeMessage(request.value);
-                break;
+                return new Promise(async resolve => {
+                    resolve(JSON.stringify(await sendNativeMessage(request.value)));
+                });
             default:
                 console.log("invalid message type!");
         }
@@ -379,7 +380,7 @@ async function appendSignatureToComposer(signature, tabId = composeActionTabId, 
                 type: "div",
                 classes: signatureClasses,
                 attributes: signatureAttributes,
-                innerHtml: await createSignatureForPlainTextComposer(signature.text, aboveQuoteOrForwarding)
+                innerHtml: await createSignatureForPlainTextComposer(signature.text, details.type, aboveQuoteOrForwarding)
             },
             // TB also always adds a new line at the end of a signature in plaintext mode
             postpend: {
@@ -407,7 +408,7 @@ async function appendSignatureToComposer(signature, tabId = composeActionTabId, 
                 type: `${plaintextFallback ? "pre" : "div"}`,
                 classes: signatureClasses,
                 attributes: signatureAttributes,
-                innerHtml: await createSignatureForHtmlComposer(plaintextFallback ? signature.text : signature.html, signatureSeparatorHtml, aboveQuoteOrForwarding),
+                innerHtml: await createSignatureForHtmlComposer(plaintextFallback ? signature.text : signature.html, details.type, signatureSeparatorHtml, aboveQuoteOrForwarding),
                 aboveQuoteOrForwarding: aboveQuoteOrForwarding
             }
         };
@@ -516,9 +517,10 @@ function autoSwitchBasedOnRecipients(tabId = composeActionTabId, recipients) {
    signature creation ...
  */
 
-async function createSignatureForPlainTextComposer(content, signaturePlacementAboveQuoteOrForwarding = false) {
-    // resolve fc-placeholders
+async function createSignatureForPlainTextComposer(content, composeType, signaturePlacementAboveQuoteOrForwarding = false) {
+    // resolve placeholders
     content = await searchAndReplaceFortuneCookiePlaceholder(content);
+    content = await searchAndReplaceNativeMessagingPlaceholder(content, { isPlainText: true, type: composeType });
 
     // make sure we have a sig-separator (but only if we don't put the signature above the reply-quote or forwarding)
     if (!content.trim().startsWith(PLAINTEXT_SIGNATURE_SEPARATOR) && !signaturePlacementAboveQuoteOrForwarding) {
@@ -529,10 +531,11 @@ async function createSignatureForPlainTextComposer(content, signaturePlacementAb
     return content.replaceAll(NEW_LINE, `<br ${ATTRIBUTE_MOZ_DIRTY}="">`);
 }
 
-async function createSignatureForHtmlComposer(content, signatureSeparatorHtml, aboveQuote = false) {
+async function createSignatureForHtmlComposer(content, composeType, signatureSeparatorHtml = true, aboveQuote = false) {
     // resolve placeholders
     content = await searchAndReplaceFortuneCookiePlaceholder(content);
     content = await searchAndReplaceImagePlaceholder(content);
+    content = await searchAndReplaceNativeMessagingPlaceholder(content, { isPlainText: false, type: composeType });
 
     // prepend the sig-separator if activated in options (but only if we don't put the signature above the reply-quote or forwarding)
     if (signatureSeparatorHtml && !aboveQuote) {
@@ -565,6 +568,25 @@ async function searchAndReplaceFortuneCookiePlaceholder(content) {
                 }
             }
         });
+    }
+
+    return content;
+}
+
+async function searchAndReplaceNativeMessagingPlaceholder(content, composeDetails) {
+    let regExp = new RegExp("__.*?__");
+
+    if (regExp.test(content)) {
+        let match;
+        while (match = regExp.exec(content)) {
+            let tag = match[0].substring(2, match[0].length - 2);
+            let nativeMessage = await sendNativeMessage({
+                tag: tag,
+                isPlainText: composeDetails.isPlainText,
+                type: composeDetails.type
+            });
+            content = content.replace(`__${tag}__`, nativeMessage.success ? nativeMessage.response.message : "");
+        }
     }
 
     return content;
@@ -657,7 +679,12 @@ async function serializeRecipients(recipients) {
 }
 
 async function sendNativeMessage(object) {
-    console.log("!!! sending native message: " + JSON.stringify(object));
-    let response = await messenger.runtime.sendNativeMessage("signatureswitch", object);
-    console.log("!!! finished sending native message; response: " + response.message);
+    try {
+        return { success: true,
+                 response: await messenger.runtime.sendNativeMessage("signatureswitch", object) };
+    } catch(e) {
+        return { success: false,
+                 response: { message: e.message } };
+    }
+
 }

@@ -29,6 +29,63 @@
   "menuOptions": {
     "message": "Options"
   },
+  "nativeMessagingDescription1": {
+    "message": "Native messaging can be used to insert dynamic content into your signature received from a native application installed on your computer."
+  },
+  "nativeMessagingDescription2": {
+    "message": "However, it is quite cumbersome to get Thunderbird to talk to the native application. Plus, it's even more complicated to provide/implement an application that behaves exactly like the 'Native Messaging API' expects (mainly because the transferred data needs to be in a specific \"format\")."
+  },
+  "nativeMessagingDescription3": {
+    "message": "For detailed information and working sample code please check the documentation on GitHub before you continue:"
+  },
+  "nativeMessagingMessage": {
+    "message": "Message:"
+  },
+  "nativeMessagingMessageTooltip": {
+    "message": "This resembles the message that is being sent to the native application via native messaging. Aside from your tag, all other values will be filled automatically."
+  },
+  "nativeMessagingMessageValidationFailure": {
+    "message": "Invalid!"
+  },
+  "nativeMessagingMessageValidationSuccess": {
+    "message": "Valid."
+  },
+  "nativeMessagingResponse": {
+    "message": "Response:"
+  },
+  "nativeMessagingResponseTooltip": {
+    "message": "This should show the message your native application returned. It need to be a JSON-object containing a 'message'-attribute."
+  },
+  "nativeMessagingResponseValidationFailure": {
+    "message": "Failure!"
+  },
+  "nativeMessagingResponseValidationInvalid": {
+    "message": "Invalid or incomplete result!"
+  },
+  "nativeMessagingResponseValidationSuccess": {
+    "message": "Success."
+  },
+  "nativeMessagingSend": {
+    "message": "Send Message"
+  },
+  "nativeMessagingTestHeader": {
+    "message": "Native Messaging Test"
+  },
+  "nativeMessagingTestHint": {
+    "message": "The 'Native Messaging Setup' for Signature Switch can be verified by making a test request with the (mockup) message below. Upon success you should see the response of the native application."
+  },
+  "nativeMessagingUsageCode": {
+    "message": "Moe Zilla<br>\nemail: <a href=\"mailto:moe@zilla.org\">moe@zilla.org</a><br>\n<br>\nMy current IP address: __IP__"
+  },
+  "nativeMessagingUsageDescription": {
+    "message": "An arbitrary tag name - enclosed by double underscores - can be used within your signature to send a message to the native application; and have the tag replaced with the returned content."
+  },
+  "nativeMessagingUsageExample": {
+    "message": "For example:"
+  },
+  "nativeMessagingUsageHeader": {
+    "message": "Usage:"
+  },
   "optionsAddFortuneCookies": {
     "message": "Add new fortune cookies"
   },
@@ -319,15 +376,6 @@
   },
   "optionsNativeMessaging": {
     "message": "Native Messaging"
-  },
-  "optionsNativeMessagingTag": {
-    "message": "tag:"
-  },
-  "optionsNativeMessagingComposeDetails": {
-    "message": "composeDetails:"
-  },
-  "optionsNativeMessagingSend": {
-    "message": "Send"
   },
   "optionsNextCommandLabel": {
     "message": "Cycle (next):"

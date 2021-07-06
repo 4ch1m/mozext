@@ -9,9 +9,16 @@
 ```
 {
     tag: "your-individual-tag"
-    composeDetails: { ... }
+    isPlainText: true,
+    type: "reply"
 }
 ```
+The values for ...
+
+* isPlainText
+* type
+
+... are fetched from the mail's [ComposeDetails](https://thunderbird-webextensions.readthedocs.io/en/latest/compose.html#compose-composedetails) before sending the native message.
 
 ### Native app
 #### response

@@ -2,7 +2,7 @@ const IMPORT_EXPORT_TAB_PANE = `
     <div class="tab-pane m-2" id="importExportTabContent" role="tabpanel">
         <div class="container">
             <div class="row section">
-                <div class="col-md-auto alert alert-warning" role="alert">
+                <div class="col-md-auto alert bg-warning" role="alert">
                     <span data-i18n="optionsImportExportDescription1"></span><br>
                     <br>
                     <b data-i18n="optionsImportExportDescription2"></b>

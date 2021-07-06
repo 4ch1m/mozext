@@ -1,30 +1,70 @@
 #!/usr/bin/node
 
-const OFFSET = 4; // 4 bytes at the beginning of the outgoing message; used to store actual message length
+/*
+    A small example application for receiving/sending "native messaging data" from Signature Switch (Thunderbird).
 
-require("fs").appendFile("/tmp/test.txt", "native app triggered.\n", () => {});
+    Based on the example found here:
+        https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Native_messaging
+ */
 
-function createReturnMessage(message) {
-    let messageLength = Buffer.byteLength(message, "utf8");
+(() => {
+    let done = false;
+    let payloadSize = null;
+    let chunks = [];
 
-    let buffer = Buffer.alloc(OFFSET + messageLength);
-    buffer.writeUInt32LE(messageLength, 0);
-    buffer.write(message, OFFSET, "utf8");
+    const sizeHasBeenRead = () => Boolean(payloadSize);
 
-    return buffer;
-}
+    const flushChunksQueue = () => {
+        payloadSize = null;
+        chunks.splice(0);
+    };
 
-let messageString = require("fs").readFileSync(0, "utf8");
-let messageByteLength = Buffer.byteLength(messageString, "utf8");
-let messageBuffer = Buffer.alloc(messageByteLength, messageString);
+    const processData = () => {
+        const stringData = Buffer.concat(chunks);
 
-let messagePayloadSize = messageBuffer.readUInt32LE(0);
-let messagePayload = messageBuffer.slice(OFFSET, (messagePayloadSize + OFFSET));
+        if (!sizeHasBeenRead()) {
+            payloadSize = stringData.readUInt32LE(0);
+        }
 
-let messageJson = JSON.parse(messagePayload);
+        if (stringData.length >= (payloadSize + 4)) {
+            const contentWithoutSize = stringData.slice(4, (payloadSize + 4));
 
-let returnMessage = createReturnMessage(JSON.stringify({
-    message: "SUCCESS! The message's tag was: " + messageJson.tag
-}));
+            flushChunksQueue();
 
-process.stdout.write(returnMessage);
+            const json = JSON.parse(contentWithoutSize);
+
+            // *********************************************************************************************************
+            // at this point the received message can be evaluated; creating a custom/dynamic response message ...
+
+            process.stdout.write(createReturnMessage(JSON.stringify({
+                message: `It worked! The used tag was '${json.tag}'. Your mail is of type '${json.type}' and being composed in ${json.isPlainText ? "plaintext" : "HTML"} mode.`
+            })));
+
+            // *********************************************************************************************************
+
+            done = true;
+        }
+    };
+
+    const createReturnMessage = message => {
+        let messageLength = Buffer.byteLength(message, "utf8");
+
+        let buffer = Buffer.alloc(4 + messageLength, "", "utf8");
+        buffer.writeUInt32LE(messageLength);
+        buffer.write(message, 4, "utf8");
+
+        return buffer;
+    };
+
+    process.stdin.on("readable", () => {
+        let chunk = null;
+
+        while ((chunk = process.stdin.read()) !== null) {
+            chunks.push(chunk);
+        }
+
+        if (!done) {
+            processData();
+        }
+    });
+})();

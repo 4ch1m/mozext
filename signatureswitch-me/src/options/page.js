@@ -758,18 +758,29 @@ async function initUI(localStorage) {
         Native Messaging
        ------------------ */
 
-    document.getElementById("testNativeMessagingComposeDetails").value = JSON.stringify({
-        to: "Moe Zilla <moe@zilla.com>",
-        cc: "Joe Zilla <joe@zilla.com>",
-        bcc: "Doe Zilla <doe@zilla.com>",
-        replyTo: "Toe Zilla <toe@zilla.com>",
-        subject: "Hi there!",
-        isPlainText: true
-    }, null, 3);
+    // Github link
+    let nativeMessagingGithubLink = document.getElementById("nativeMessagingGithubLink");
+    nativeMessagingGithubLink.innerText = nativeMessagingGithubLink.href;
 
-    document.getElementById("testNativeMessagingButton").addEventListener("click", () => {
+    // message input
+    let nativeMessagingMessage = document.getElementById("nativeMessagingMessage");
+    nativeMessagingMessage.value = JSON.stringify({
+        tag: "test",
+        isPlainText: true,
+        type: "reply"
+    }, null, 2);
+    addEventListeners(nativeMessagingMessage, "change keyup", () => {
+        validateNativeMessagingMessage();
+    });
+
+    // send button
+    document.getElementById("nativeMessagingSendButton").addEventListener("click", () => {
         testNativeMessaging();
     });
+
+    // tooltips
+    new bootstrap.Tooltip(document.getElementById("nativeMessagingMessageTooltip"), {"title": i18n("nativeMessagingMessageTooltip")})
+    new bootstrap.Tooltip(document.getElementById("nativeMessagingResponseTooltip"), {"title": i18n("nativeMessagingResponseTooltip")})
 
     /* -----------------
         Import / Export
@@ -1034,6 +1045,26 @@ async function resetCommand(name) {
     });
 }
 
+function validateNativeMessagingMessage() {
+    let message = document.getElementById("nativeMessagingMessage").value
+
+    let validationInfo = document.getElementById("nativeMessagingMessageValidation");
+    let sendButton = document.getElementById("nativeMessagingSendButton");
+
+    let success = true;
+
+    try {
+        JSON.parse(message);
+    } catch(e) {
+        success = false;
+    }
+
+    validationInfo.innerText = success ? i18n("nativeMessagingMessageValidationSuccess") : i18n("nativeMessagingMessageValidationFailure");
+    validationInfo.classList.remove(success ? "text-danger" : "text-success");
+    validationInfo.classList.add(success ? "text-success" : "text-danger");
+    sendButton.disabled = !success;
+}
+
 /* =====================================================================================================================
    abstracted storage operations ...
  */
@@ -1145,8 +1176,25 @@ function copyTextToClipboard(text, callback) {
 }
 
 function testNativeMessaging() {
-    browser.runtime.sendMessage({type: "sendNativeMessage", value: {
-            tag: document.getElementById("testNativeMessagingTag").value,
-            composeDetails: document.getElementById("testNativeMessagingComposeDetails").value
-    }});
+    let validationInfo = document.getElementById("nativeMessagingResponseValidation");
+    validationInfo.innerText = "";
+    validationInfo.className = "";
+
+    browser.runtime.sendMessage({
+        type: "sendNativeMessage",
+        value: JSON.parse(document.getElementById("nativeMessagingMessage").value)
+    }).then(result => {
+        let resultObject = JSON.parse(result);
+
+        document.getElementById("nativeMessagingResponse").value = JSON.stringify(resultObject.response, null, 2);
+
+        if (resultObject.success) {
+            let messagePropertyIsPresent = resultObject.response.hasOwnProperty("message"); // for now we only check if the "message" property is provided in the response
+            validationInfo.classList.add(messagePropertyIsPresent ? "text-success" : "text-danger");
+            validationInfo.innerText =  i18n(messagePropertyIsPresent ? "nativeMessagingResponseValidationSuccess" : "nativeMessagingResponseValidationInvalid");
+        } else {
+            validationInfo.classList.add("text-danger");
+            validationInfo.innerText = i18n("nativeMessagingResponseValidationFailure");
+        }
+    });
 }

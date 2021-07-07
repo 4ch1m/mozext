@@ -15,8 +15,8 @@ Table of Contents
 These sources give in-depth information on how native messaging works:
 
 * [MDN Web Docs | Native Messaging](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Native_messaging)
-* [GitHub | webextensions-examples / native-messaging](https://github.com/mdn/webextensions-examples/tree/master/native-messaging)
-* [Thunderbird WebExtension APIs | ComposeDetails](https://thunderbird-webextensions.readthedocs.io/en/latest/compose.html#compose-composedetails)
+* [Chrome Developers | Native Messaging](https://developer.chrome.com/docs/apps/nativeMessaging/)
+* [MDN GitHub | webextensions-examples / native-messaging](https://github.com/mdn/webextensions-examples/tree/master/native-messaging)
 
 ## Setup
 

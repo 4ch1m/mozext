@@ -6,3 +6,23 @@ product_version: 78.11.0
 # used for "move_devtools_window" playbook
 x_coord: 3841
 y_coord: 0
+
+# some i18n-keynames are being generated programmatically (so ignore them here)
+find_unused_messages_ignores:
+  - "optionsCommandLabelNext"
+  - "optionsCommandLabelPrevious"
+  - "optionsCommandLabelSwitch"
+  #
+  - "signaturePlacementConfirmationModalTitle-1"
+  - "signaturePlacementConfirmationModalQuestion-1"
+  - "signaturePlacementConfirmationModalYes-1"
+  - "signaturePlacementConfirmationModalNo-1"
+  #
+  - "signaturePlacementConfirmationModalTitle-2"
+  - "signaturePlacementConfirmationModalQuestion-2"
+  - "signaturePlacementConfirmationModalYes-2"
+  - "signaturePlacementConfirmationModalNo-2"
+  #
+  - "signaturePlacementConfirmationModalTitle-3"
+  - "signaturePlacementConfirmationModalQuestion-3"
+  - "signaturePlacementConfirmationModalNo-3"

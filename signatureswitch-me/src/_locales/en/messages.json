@@ -377,12 +377,6 @@
   "optionsNativeMessaging": {
     "message": "Native Messaging"
   },
-  "optionsNextCommandLabel": {
-    "message": "Cycle (next):"
-  },
-  "optionsPreviousCommandLabel": {
-    "message": "Cycle (previous):"
-  },
   "optionsReloadIdentities": {
     "message": "Reload"
   },

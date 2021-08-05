@@ -3,7 +3,7 @@
 
 Please check my dedicated website for more detailed information:
 
-&rarr; [mozext.achimonline.de](http://mozext.achimonline.de/)
+&rarr; [www.achimonline.de/mozext/](https://www.achimonline.de/mozext/)
 
 Table of Contents
 =================

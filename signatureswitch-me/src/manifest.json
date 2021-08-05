@@ -5,7 +5,7 @@
   "version": "2.7.0",
   "default_locale": "en",
   "author": "Achim Seufert",
-  "homepage_url": "http://mozext.achimonline.de",
+  "homepage_url": "https://www.achimonline.de/mozext/",
   "applications": {
     "gecko": {
       "id": "{2ab1b709-ba03-4361-abf9-c50b964ff75d}",
@@ -79,22 +79,5 @@
     "64": "/_images/signatureswitch-64px-black.png",
     "32": "/_images/signatureswitch-32px-black.png",
     "16": "/_images/signatureswitch-16px-black.png"
-  },
-  "theme_icons": [
-    {
-      "dark": "/_images/signatureswitch-64px-black.png",
-      "light": "/_images/signatureswitch-64px-white.png",
-      "size": 64
-    },
-    {
-      "dark": "/_images/signatureswitch-32px-black.png",
-      "light": "/_images/signatureswitch-32px-white.png",
-      "size": 32
-    },
-    {
-      "dark": "/_images/signatureswitch-16px-black.png",
-      "light": "/_images/signatureswitch-16px-white.png",
-      "size": 16
-    }
-  ]
+  }
 }

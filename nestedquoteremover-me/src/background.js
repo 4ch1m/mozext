@@ -129,7 +129,6 @@ function addWindowCreateListener() {
 
 function removeNestedQuotes(tabId) {
     browser.compose.getComposeDetails(tabId).then(details => {
-        console.log("???finally_remove: " + tabId);
         browser.tabs.sendMessage(tabId, {
             type: "removeNestedQuotes",
             value: {

@@ -2,6 +2,9 @@ browser.runtime.onMessage.addListener(request => {
 
     switch (request.type) {
 
+        case "ping":
+            return Promise.resolve("pong");
+
         case "appendSignature":
             if (request.value.prepend) {
                 document.body.appendChild(createElement(request.value.prepend));

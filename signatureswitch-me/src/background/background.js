@@ -265,6 +265,9 @@ function addWindowCreateListener() {
             browser.tabs.query({windowId: window.id}).then(async tabs => {
                 let tabId = tabs[0].id;
 
+                // wait until compose script is ready
+                await waitForComposeMessageListener(tabId);
+
                 let storage = await browser.storage.local.get();
                 let details = await browser.compose.getComposeDetails(tabId);
 
@@ -687,4 +690,14 @@ async function sendNativeMessage(object) {
                  response: { message: e.message } };
     }
 
+}
+
+// make sure the compose-script is injected and ready to receive messages
+async function waitForComposeMessageListener(tabId) {
+    let result = "";
+    while (result === "") {
+        try {
+            result = await browser.tabs.sendMessage(tabId, { type: "ping" }) === "";
+        } catch(e) {}
+    }
 }

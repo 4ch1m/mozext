@@ -10,9 +10,9 @@ const HELP_TAB_PANE = `
                 <div class="row align-items-center m-4">
                     <div class="col-auto">
                         <div class="btn-group">
-                            <a href="http://mozext.achimonline.de" class="btn btn-link">
+                            <a href="https://www.achimonline.de/mozext/" class="btn btn-link">
                                 <img id="helpImageMozillaDino" class="img-fluid"><br>
-                                <span class="nobr">mozext.achimonline.de</span>
+                                <span class="nobr">www.achimonline.de/mozext/</span>
                             </a>
                         </div>
                     </div>
@@ -39,7 +39,7 @@ const HELP_TAB_PANE = `
                     </div>
                     <div class="col-md-11">
                         <span data-i18n="optionsHelpSupport1"></span>&nbsp;&hellip;<br>
-                        <a href="http://mozext.achimonline.de/contact.php" target="_blank">Achim's Mozilla Extensions <small><small>(http://mozext.achimonline.de/contact.php)</small></small></a><br>
+                        <a href="https://www.achimonline.de/mozext/contact.php" target="_blank">Achim's Mozilla Extensions <small><small>(https://www.achimonline.de/mozext/contact.php)</small></small></a><br>
                         &hellip;&nbsp;<span data-i18n="optionsHelpSupport2"></span>
                     </div>
                 </div>

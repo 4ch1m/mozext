@@ -2,6 +2,9 @@ browser.runtime.onMessage.addListener(request => {
 
     switch (request.type) {
 
+        case "ping":
+            return Promise.resolve("pong");
+
         case "removeNestedQuotes":
             if (request.value.isPlaintext) {
                 let removalRegExps = [

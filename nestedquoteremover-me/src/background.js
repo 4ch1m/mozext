@@ -118,8 +118,10 @@ function addCommandListener() {
 function addWindowCreateListener() {
     browser.windows.onCreated.addListener(window => {
         if (autoRemove && window.type === WINDOW_TYPE_MESSAGE_COMPOSE) {
-            browser.tabs.query({windowId: window.id}).then(tabs => {
-                removeNestedQuotes(tabs[0].id);
+            browser.tabs.query({windowId: window.id}).then(async tabs => {
+                let tabId = tabs[0].id;
+                await waitForComposeMessageListener(tabId);
+                removeNestedQuotes(tabId);
             });
         }
     });
@@ -127,6 +129,7 @@ function addWindowCreateListener() {
 
 function removeNestedQuotes(tabId) {
     browser.compose.getComposeDetails(tabId).then(details => {
+        console.log("???finally_remove: " + tabId);
         browser.tabs.sendMessage(tabId, {
             type: "removeNestedQuotes",
             value: {
@@ -144,4 +147,14 @@ function removeNestedQuotes(tabId) {
             removeNestedQuotes(tabId);
         }, 500);
     });
+}
+
+// make sure the compose-script is injected and ready to receive messages
+async function waitForComposeMessageListener(tabId) {
+    let result = "";
+    while (result === "") {
+        try {
+            result = await browser.tabs.sendMessage(tabId, { type: "ping" }) === "";
+        } catch(e) {}
+    }
 }

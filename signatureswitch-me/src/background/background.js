@@ -549,11 +549,11 @@ async function createSignatureForHtmlComposer(content, composeType, signatureSep
 }
 
 async function searchAndReplaceImagePlaceholder(content) {
-    if (new RegExp("\\{{.*?}}").test(content)) {
+    if (new RegExp("\\{\\{.*[a-zA-Z0-9]\\}\\}").test(content)) {
         await browser.storage.local.get().then(localStorage => {
             if (localStorage.images) {
                 for (let image of localStorage.images) {
-                    content = content.replaceAll(new RegExp("{{" + image.tag + "}}", "g"), image.data);
+                    content = content.replaceAll(new RegExp("\\{\\{" + image.tag + "\\}\\}", "g"), image.data);
                 }
             }
         });
@@ -563,7 +563,7 @@ async function searchAndReplaceImagePlaceholder(content) {
 }
 
 async function searchAndReplaceFortuneCookiePlaceholder(content) {
-    if (new RegExp("\\[\\[.*?\\]\\]").test(content)) {
+    if (new RegExp("\\[\\[.*[a-zA-Z0-9]\\]\\]").test(content)) {
         await browser.storage.local.get().then(localStorage => {
             if (localStorage.fortuneCookies) {
                 for (let fortuneCookies of localStorage.fortuneCookies) {
@@ -577,7 +577,7 @@ async function searchAndReplaceFortuneCookiePlaceholder(content) {
 }
 
 async function searchAndReplaceNativeMessagingPlaceholder(content, composeDetails) {
-    let regExp = new RegExp("__.*?__");
+    let regExp = new RegExp("__.*[a-zA-Z0-9]__");
 
     if (regExp.test(content)) {
         let match;

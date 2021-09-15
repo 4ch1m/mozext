@@ -77,12 +77,27 @@ function processHtmlBlockquotes(nodes, replyHeaderHandling, maxDepth, depth) {
     for (let node of nodes) {
         if (node.nodeType === Node.ELEMENT_NODE &&
             node.nodeName === "BLOCKQUOTE" &&
-            node.hasAttribute("type") && node.getAttribute("type") === "cite") {
+            (node.hasAttribute("type") && node.getAttribute("type") === "cite" || // regular quote
+            node.hasAttribute("class") && node.getAttribute("class") === "gmail_quote")) // gmail web interface quote
+        {
             if (depth > maxDepth) {
                 node.remove();
             } else {
                 processHtmlBlockquotes(node.childNodes, replyHeaderHandling, maxDepth, depth + 1);
             }
+        }
+
+        else if (node.nodeType === Node.ELEMENT_NODE &&
+            node.nodeName === "DIV" &&
+            node.hasAttribute("class") && node.getAttribute("class") === "gmail_quote") // gmail web interface pre-quote div
+        {
+            processHtmlBlockquotes(node.childNodes, replyHeaderHandling, maxDepth, depth);
+        }
+
+        else if (node.nodeType === Node.ELEMENT_NODE &&
+            node.nodeName === "DIV") // generic div
+        {
+            processHtmlBlockquotes(node.childNodes, replyHeaderHandling, maxDepth, depth);
         }
 
         if (replyHeaderHandling.remove && depth > maxDepth) {

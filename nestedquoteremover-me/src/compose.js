@@ -76,14 +76,16 @@ function processHtmlBlockquotes(nodes, replyHeaderHandling, maxDepth, depth) {
 
     for (let node of nodes) {
         if (node.nodeType === Node.ELEMENT_NODE) {
-            if ((node.nodeName === "BLOCKQUOTE" || node.nodeName === "DIV") &&
+            if (node.nodeName === "BLOCKQUOTE" &&
                 (node.hasAttribute("type") && node.getAttribute("type") === "cite") /* regular quote */ ||
                 (node.hasAttribute("class") && node.getAttribute("class") === "gmail_quote") /* gmail style quote */ ) {
                 if (depth > maxDepth) {
                     node.remove();
                 } else {
-                    processHtmlBlockquotes(node.childNodes, replyHeaderHandling, maxDepth, depth + (node.nodeName === "BLOCKQUOTE" ? 1 : 0));
+                    processHtmlBlockquotes(node.childNodes, replyHeaderHandling, maxDepth, depth + 1);
                 }
+            } else if (node.nodeName === "DIV") /* generic div quote */ {
+                processHtmlBlockquotes(node.childNodes, replyHeaderHandling, maxDepth, depth);
             }
         }
 

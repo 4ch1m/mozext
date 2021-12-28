@@ -17,7 +17,7 @@ Table of Contents
 * [License](#license)
 
 
-## WebExtensions / MailExtensions | [![Build Status](https://travis-ci.org/4ch1m/mozext.svg?branch=master)](https://travis-ci.org/4ch1m/mozext)
+## WebExtensions / MailExtensions
 
 Please check the specific README-file in each folder for build-instructions.
 

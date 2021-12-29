@@ -593,11 +593,11 @@ async function createSignatureForHtmlComposer(content, composeType, signatureSep
 }
 
 async function searchAndReplaceImagePlaceholder(content) {
-    if (new RegExp("\\{{.*?}}").test(content)) {
+    if (new RegExp("\\{\\{.*?\\}\\}").test(content)) {
         await browser.storage.local.get().then(localStorage => {
             if (localStorage.images) {
                 for (let image of localStorage.images) {
-                    content = content.replaceAll(new RegExp("{{" + image.tag + "}}", "g"), image.data);
+                    content = content.replaceAll(new RegExp("\\{\\{" + image.tag + "\\}\\}", "g"), image.data);
                 }
             }
         });

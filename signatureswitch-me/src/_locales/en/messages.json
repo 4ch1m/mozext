@@ -389,6 +389,9 @@
   "optionsRepliesNoDefaultAction": {
     "message": "Don't apply default action when replying to a mail."
   },
+  "optionsSignatureComposeSeparator": {
+    "message": "Show a visual signature separator while composing. (Doesn't get sent with the actual message or shown when printed.)"
+  },
   "optionsSignatureEditModalAutoSwitch": {
     "message": "Auto switch"
   },

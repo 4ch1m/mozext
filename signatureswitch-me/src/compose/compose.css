@@ -1,0 +1,11 @@
+@media print {
+    .no-print {
+        display: none;
+    }
+}
+
+.signature-switch-compose-separator {
+    border: 1px dashed lightgrey;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}

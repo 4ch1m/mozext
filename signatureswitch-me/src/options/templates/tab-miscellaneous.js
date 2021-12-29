@@ -91,6 +91,10 @@ const MISCELLANEOUS_TAB_PANE = `
                         <input type="checkbox" class="form-check-input" id="signatureSeparatorHtml">
                         <label for="signatureSeparatorHtml" data-i18n="optionsSignatureSeparatorHtml"></label>
                     </div>
+                    <div>
+                        <input type="checkbox" class="form-check-input" id="signatureComposeSeparator">
+                        <label for="signatureComposeSeparator" data-i18n="optionsSignatureComposeSeparator"></label>
+                    </div>
                 </div>
             </div>
         </div>

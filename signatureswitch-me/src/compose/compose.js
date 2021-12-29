@@ -6,20 +6,27 @@ browser.runtime.onMessage.addListener(request => {
             return Promise.resolve("pong");
 
         case "appendSignature":
-            if (request.value.prepend) {
-                document.body.appendChild(createElement(request.value.prepend));
+            let elements = request.value.elements;
+            let aboveQuoteOrForwarding = request.value.aboveQuoteOrForwarding;
+
+            if (elements.prepend) {
+                document.body.appendChild(createElement(elements.prepend));
             }
 
             let citeOrForward = document.querySelectorAll(".moz-cite-prefix,blockquote[type='cite'],.moz-forward-container");
 
-            if (request.value.signature.aboveQuoteOrForwarding && citeOrForward.length > 0) {
-                citeOrForward[0].parentElement.insertBefore(createElement(request.value.signature), citeOrForward[0]);
+            if (aboveQuoteOrForwarding && citeOrForward.length > 0) {
+                citeOrForward[0].parentElement.insertBefore(createElement(elements.signature), citeOrForward[0]);
             } else {
-                document.body.appendChild(createElement(request.value.signature));
+                if (elements.composeSeparator) {
+                    document.body.appendChild(createElement(elements.composeSeparator));
+                }
+
+                document.body.appendChild(createElement(elements.signature));
             }
 
-            if (request.value.postpend) {
-                document.body.appendChild(createElement(request.value.postpend));
+            if (elements.postpend) {
+                document.body.appendChild(createElement(elements.postpend));
             }
 
             break;

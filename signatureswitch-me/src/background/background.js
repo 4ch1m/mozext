@@ -5,6 +5,8 @@ const PLAINTEXT_SIGNATURE_SEPARATOR = DOUBLE_DASH + " " + NEW_LINE;
 
 const CLASS_MOZ_SIGNATURE = "moz-signature";
 const CLASS_SIGNATURE_SWITCH_SUFFIX = "signature-switch-suffix";
+const CLASS_SIGNATURE_SWITCH_COMPOSE_SEPARATOR = "signature-switch-compose-separator";
+const CLASS_NO_PRINT = "no-print";
 
 const ATTRIBUTE_SIGNATURE_SWITCH_ID = "signature-switch-id";
 const ATTRIBUTE_MOZ_DIRTY = "_moz_dirty";
@@ -39,7 +41,8 @@ let recipientChangeListeners = new Map();
 (() => {
     // compose script
     browser.composeScripts.register({
-        js: [ {file: "/compose/compose.js"} ]
+        js: [ {file: "/compose/compose.js"} ],
+        css: [ {file: "/compose/compose.css"} ]
     });
 
     // context-menu
@@ -326,7 +329,13 @@ function addWindowCreateListener() {
 }
 
 function addOnBeforeSendListener() {
-    browser.compose.onBeforeSend.addListener(tab => {
+    browser.compose.onBeforeSend.addListener(async tab => {
+        await browser.tabs.sendMessage(tab.id, {
+            type: "cleanUp",
+            value: {
+                selector: `.${CLASS_SIGNATURE_SWITCH_COMPOSE_SEPARATOR}`
+            }
+        });
         clearTimeout(recipientChangeListeners.get(tab.id));
         recipientChangeListeners.delete(tab.id);
     });
@@ -357,7 +366,12 @@ function addIdentityChangeListener() {
    composer interaction ...
  */
 
-async function appendSignatureToComposer(signature, tabId = composeActionTabId, signatureSeparatorHtml = true, aboveQuoteOrForwarding = false) {
+async function appendSignatureToComposer(
+    signature,
+    tabId = composeActionTabId,
+    signatureSeparatorHtml = true,
+    aboveQuoteOrForwarding = false,
+    composeSeparator = true ) {
     let details = await browser.compose.getComposeDetails(tabId);
 
     let signatureClasses = [ CLASS_MOZ_SIGNATURE ];
@@ -367,10 +381,22 @@ async function appendSignatureToComposer(signature, tabId = composeActionTabId, 
         {key: ATTRIBUTE_MOZ_DIRTY, value: ""}
     ];
 
-    let signatureElementProperties;
+    let composeSeparatorElement = composeSeparator ? {
+        type: "hr",
+        classes: [
+            CLASS_SIGNATURE_SWITCH_COMPOSE_SEPARATOR,
+            CLASS_NO_PRINT
+        ],
+        attributes: [
+            {key: ATTRIBUTE_MOZ_DIRTY, value: ""}
+        ]
+
+    } : undefined;
+
+    let elements;
 
     if (details.isPlainText) {
-        signatureElementProperties = {
+        elements = {
             // when the body is still empty upon adding the sig, add a br _before_ the actual signature;
             // otherwise all entered text on top will be _inside_ the signature div - which is bad
             prepend: details.plainTextBody === "" ? {
@@ -395,7 +421,7 @@ async function appendSignatureToComposer(signature, tabId = composeActionTabId, 
                     {key: ATTRIBUTE_MOZ_DIRTY, value: ""}
                 ]
             },
-            aboveQuoteOrForwarding: aboveQuoteOrForwarding
+            composeSeparator: composeSeparatorElement
         };
     } else {
         // check if we need to use the plaintext-signature, b/c there's no html-signature available
@@ -406,14 +432,14 @@ async function appendSignatureToComposer(signature, tabId = composeActionTabId, 
             signatureAttributes.push({key: ATTRIBUTE_COLS, value: "72"})
         }
 
-        signatureElementProperties = {
+        elements = {
             signature: {
                 type: `${plaintextFallback ? "pre" : "div"}`,
                 classes: signatureClasses,
                 attributes: signatureAttributes,
                 innerHtml: await createSignatureForHtmlComposer(plaintextFallback ? signature.text : signature.html, details.type, signatureSeparatorHtml, aboveQuoteOrForwarding),
-                aboveQuoteOrForwarding: aboveQuoteOrForwarding
-            }
+            },
+            composeSeparator: composeSeparatorElement
         };
     }
 
@@ -422,7 +448,10 @@ async function appendSignatureToComposer(signature, tabId = composeActionTabId, 
 
     browser.tabs.sendMessage(tabId, {
         type: "appendSignature",
-        value: signatureElementProperties
+        value: {
+            elements: elements,
+            aboveQuoteOrForwarding: aboveQuoteOrForwarding
+        }
     });
 }
 
@@ -449,7 +478,13 @@ async function appendDefaultSignatureToComposer(tabId = composeActionTabId) {
                 actualDefaultSignature = localStorage.signatures[0];
             }
 
-            appendSignatureToComposer(actualDefaultSignature, tabId, localStorage.signatureSeparatorHtml, localStorage.signaturePlacementAboveQuoteOrForwarding);
+            appendSignatureToComposer(
+                actualDefaultSignature,
+                tabId,
+                localStorage.signatureSeparatorHtml,
+                localStorage.signaturePlacementAboveQuoteOrForwarding,
+                localStorage.signatureComposeSeparator
+            );
         }
     });
 }
@@ -460,7 +495,13 @@ async function appendSignatureViaIdToComposer(signatureId, tabId = composeAction
             let signatures = localStorage.signatures;
             for (let signature of signatures) {
                 if (signature.id === signatureId) {
-                    appendSignatureToComposer(signature, tabId, localStorage.signatureSeparatorHtml, localStorage.signaturePlacementAboveQuoteOrForwarding);
+                    appendSignatureToComposer(
+                        signature,
+                        tabId,
+                        localStorage.signatureSeparatorHtml,
+                        localStorage.signaturePlacementAboveQuoteOrForwarding,
+                        localStorage.signatureComposeSeparator
+                    );
                     break;
                 }
             }
@@ -477,13 +518,16 @@ async function removeSignatureFromComposer(tabId = composeActionTabId) {
         }
     });
 
-    // also clean up extra trailing new lines (which we may have inserted on purpose when inserting the plaintext sig)
-    browser.tabs.sendMessage(tabId, {
-        type: "cleanUp",
-        value: {
-            selector: `.${CLASS_SIGNATURE_SWITCH_SUFFIX}`
-        }
-    });
+    // also clean up the compose-separator and the extra trailing new lines (which we may have
+    // inserted on purpose when adding the plaintext sig)
+    for (let selector of [CLASS_SIGNATURE_SWITCH_COMPOSE_SEPARATOR, CLASS_SIGNATURE_SWITCH_SUFFIX]) {
+        browser.tabs.sendMessage(tabId, {
+            type: "cleanUp",
+            value: {
+                selector: `.${selector}`
+            }
+        });
+    }
 }
 
 async function searchSignatureInComposer(tabId = composeActionTabId) {

@@ -134,7 +134,8 @@ ready(() => {
             {name: "autoSwitchIncludeCc", default: false},
             {name: "autoSwitchIncludeBcc", default: false},
             {name: "signatureSeparatorHtml", default: false},
-			{name: "signaturePlacementAboveQuoteOrForwarding", default: false}
+			{name: "signaturePlacementAboveQuoteOrForwarding", default: false},
+            {name: "signatureComposeSeparator", default: true}
         ]);
 
         // init UI; listen for storage changes
@@ -685,6 +686,11 @@ async function initUI(localStorage) {
     signatureSeparatorHtml.checked = localStorage.signatureSeparatorHtml;
     signatureSeparatorHtml.addEventListener("click", () => {
         addOrUpdateStoredValue("signatureSeparatorHtml", signatureSeparatorHtml.checked);
+    });
+    let signatureComposeSeparator = document.getElementById("signatureComposeSeparator");
+    signatureComposeSeparator.checked = localStorage.signatureComposeSeparator;
+    signatureComposeSeparator.addEventListener("click", () => {
+        addOrUpdateStoredValue("signatureComposeSeparator", signatureComposeSeparator.checked);
     });
 
     // signature placement

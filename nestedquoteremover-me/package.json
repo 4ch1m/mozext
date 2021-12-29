@@ -7,7 +7,7 @@
     "ANSIBLE": "ansible-playbook --extra-vars @ansible-mozdev.yml"
   },
   "scripts": {
-    "prestart": "$npm_package_config_ANSIBLE ansible-mozdev/install.yml; $npm_package_config_ANSIBLE ansible-mozdev/move_devtools_window.yml &",
+    "prestart": "$npm_package_config_ANSIBLE ansible-mozdev/install.yml && $npm_package_config_ANSIBLE ansible-mozdev/move_devtools_window.yml &",
     "start": "$npm_package_config_ANSIBLE ansible-mozdev/run.yml",
     "clean": "$npm_package_config_ANSIBLE ansible-mozdev/remove.yml",
     "sort-messages": "$npm_package_config_ANSIBLE ansible-mozdev/sort_messages.yml",

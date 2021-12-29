@@ -78,7 +78,7 @@
     "message": "Moe Zilla<br>\nemail: <a href=\"mailto:moe@zilla.org\">moe@zilla.org</a><br>\n<br>\nMy current IP address: __IP__"
   },
   "nativeMessagingUsageDescription": {
-    "message": "An arbitrary tag name (containing letters and numbers only) - enclosed by double underscores - can be used within your signature to send a message to the native application; and have the tag replaced with the returned content."
+    "message": "An arbitrary tag name - enclosed by double underscores - can be used within your signature to send a message to the native application; and have the tag replaced with the returned content."
   },
   "nativeMessagingUsageExample": {
     "message": "For example:"
@@ -216,7 +216,7 @@
     "message": "give the set a descriptive name"
   },
   "optionsFortuneCookiesUsage3": {
-    "message": "important: define a UNIQUE tag name (containing letters and numbers only)!"
+    "message": "important: define a UNIQUE tag name!"
   },
   "optionsFortuneCookiesUsage4": {
     "message": "click the text box to edit the cookies"
@@ -303,7 +303,7 @@
     "message": "give the image a descriptive name"
   },
   "optionsImageUsage4": {
-    "message": "important: define a UNIQUE tag name (containing letters and numbers only)!"
+    "message": "important: define a UNIQUE tag name!"
   },
   "optionsImageUsage5": {
     "message": "use the tag name (enclosed by double curly braces) in your HTML signatures together with the src attribute in an image element"

@@ -93,7 +93,7 @@ let signaturePlacementConfirmationCodeInputCount = 0;
  */
 
 let ready = (callback) => {
-    if (document.readyState != "loading") callback();
+    if (document.readyState !== "loading") callback();
     else document.addEventListener("DOMContentLoaded", callback);
 }
 
@@ -437,9 +437,13 @@ async function initUI(localStorage) {
                 cookies: document.getElementById("fortuneCookiesCookies-" + fortuneCookiesId).value.split(FORTUNE_COOKIE_SEPARATOR)
             };
         };
-        addEventListeners(`#fortuneCookiesName-${fortuneCookiesId}, #fortuneCookiesTag-${fortuneCookiesId}, #fortuneCookiesCookies-${fortuneCookiesId}`, "change keyup", () => {
-            addOrUpdateItemInStoredArray(updatedFortuneCookies(), "fortuneCookies");
-        });
+        addEventListeners(
+            [ `#fortuneCookiesName-${fortuneCookiesId}`,
+              `#fortuneCookiesTag-${fortuneCookiesId}`,
+              `#fortuneCookiesCookies-${fortuneCookiesId}` ].join(", "),
+            "change keyup",
+            () => { addOrUpdateItemInStoredArray(updatedFortuneCookies(), "fortuneCookies"); }
+        );
         document.getElementById("fortuneCookiesFileInput-" + fortuneCookiesId).addEventListener("change", async (e) => {
             document.getElementById("fortuneCookiesEditModalCookies-" + fortuneCookiesId).value = await toText(e.target.files[0]);
         });
@@ -552,27 +556,47 @@ async function initUI(localStorage) {
 
             let modifierOptions1 = [];
             for (let modifier of ["Ctrl", "Alt", "Command", "MacCtrl"]) {
-                modifierOptions1.push({value: modifier, status: commandValueCheckAndShift(commandValues, modifier) ? "selected" : "", text: modifier})
+                modifierOptions1.push({
+                    value: modifier,
+                    status: commandValueCheckAndShift(commandValues, modifier) ? "selected" : "",
+                    text: modifier
+                });
             }
 
             let modifierOptions2 = [{value: "", status: "", text: ""}]; // second modifier can be empty
             for (let modifier of ["Shift", "Ctrl", "Alt", "Command", "MacCtrl"]) {
-                modifierOptions2.push({value: modifier, status: commandValueCheckAndShift(commandValues, modifier) ? "selected" : "", text: modifier})
+                modifierOptions2.push({
+                    value: modifier,
+                    status: commandValueCheckAndShift(commandValues, modifier) ? "selected" : "",
+                    text: modifier
+                });
             }
 
             let keyOptions = [];
             // A-Z
             for (let i = "A".charCodeAt(0); i <= "Z".charCodeAt(0); i++) {
-                keyOptions.push({value: String.fromCharCode(i), status: commandValueCheckAndShift(commandValues, String.fromCharCode(i)) ? "selected" : "", text: String.fromCharCode(i)})
+                keyOptions.push({
+                    value: String.fromCharCode(i),
+                    status: commandValueCheckAndShift(commandValues, String.fromCharCode(i)) ? "selected" : "",
+                    text: String.fromCharCode(i)
+                });
             }
             // 0-9
             for (let i = 0; i <= 9; i++) {
-                keyOptions.push({value: i, status: commandValueCheckAndShift(commandValues, i) ? "selected" : "", text: i})
+                keyOptions.push({
+                    value: i,
+                    status: commandValueCheckAndShift(commandValues, i) ? "selected" : "",
+                    text: i
+                });
             }
             // F1-F12
             for (let i = 1; i <= 12; i++) {
                 let fKey = "F" + i;
-                keyOptions.push({value: fKey, status: commandValueCheckAndShift(commandValues, fKey) ? "selected" : "", text: fKey})
+                keyOptions.push({
+                    value: fKey,
+                    status: commandValueCheckAndShift(commandValues, fKey) ? "selected" : "",
+                    text: fKey
+                });
             }
             /*
                 the rest ...
@@ -592,7 +616,11 @@ async function initUI(localStorage) {
                     - optionsCommandKeyUp
             */
             for (let key of ["Comma", "Period", "Home", "End", "PageUp", "PageDown", "Space", "Insert", "Delete", "Up", "Down", "Left", "Right"]) {
-                keyOptions.push({value: key, status: commandValueCheckAndShift(commandValues, key) ? "selected" : "", text: key})
+                keyOptions.push({
+                    value: key,
+                    status: commandValueCheckAndShift(commandValues, key) ? "selected" : "",
+                    text: key
+                });
             }
 
             commandsContainer.innerHTML += Mustache.render(MISCELLANEOUS_COMMAND_ROW, {
@@ -785,8 +813,8 @@ async function initUI(localStorage) {
     });
 
     // tooltips
-    new bootstrap.Tooltip(document.getElementById("nativeMessagingMessageTooltip"), {"title": i18n("nativeMessagingMessageTooltip")})
-    new bootstrap.Tooltip(document.getElementById("nativeMessagingResponseTooltip"), {"title": i18n("nativeMessagingResponseTooltip")})
+    new bootstrap.Tooltip(document.getElementById("nativeMessagingMessageTooltip"), {"title": i18n("nativeMessagingMessageTooltip")});
+    new bootstrap.Tooltip(document.getElementById("nativeMessagingResponseTooltip"), {"title": i18n("nativeMessagingResponseTooltip")});
 
     /* -----------------
         Import / Export
@@ -932,7 +960,11 @@ function reorderSignatures(id, direction) {
         }
 
         if (signatureIndex > -1) {
-            localStorage.signatures = arrayMove(localStorage.signatures, signatureIndex, (direction === "up" ? signatureIndex - 1 : signatureIndex + 1));
+            localStorage.signatures = arrayMove(
+                localStorage.signatures,
+                signatureIndex,
+                (direction === "up" ? signatureIndex - 1 : signatureIndex + 1)
+            );
             browser.storage.local.set(localStorage);
         }
     });

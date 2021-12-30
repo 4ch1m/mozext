@@ -38,7 +38,8 @@ browser.runtime.onMessage.addListener(request => {
                 removableSignatures[removableSignatures.length - 1].remove();
             } else {
                 // if removal was not possible via attribute/class; fall back to sig-separator
-                // (this is primarily for saved plaintext drafts, which - after saving/upon re-edit - don't contain the original signature classes/attributes in the DOM any more)
+                // (this is primarily for saved plaintext drafts, which - after saving/upon re-edit - don't contain
+                // the original signature classes/attributes in the DOM anymore)
                 if (document.body.innerHTML.includes(request.value.separator)) {
                     document.body.innerHTML = document.body.innerHTML.substring(0, document.body.innerHTML.lastIndexOf(request.value.separator));
                 }

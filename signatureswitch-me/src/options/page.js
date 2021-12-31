@@ -39,12 +39,18 @@ const SIGNATURE_PLACEMENT_CONFIRMATION_CODE = "" +
    objects ...
  */
 
-function Signature(name = i18n("optionsSignatureNewName"), text = "", html = "", autoSwitch = "") {
+function Signature(
+    name = i18n("optionsSignatureNewName"),
+    text = "",
+    html = "",
+    autoSwitch = "",
+    autoSwitchMatchAll = false) {
     this.id = uuidv4();
     this.name = name;
     this.text = text;
     this.html = html;
     this.autoSwitch = autoSwitch;
+    this.autoSwitchMatchAll = autoSwitchMatchAll;
 }
 
 function Image(name = "", tag = "") {
@@ -100,14 +106,14 @@ let ready = (callback) => {
 ready(() => {
     document.body.innerHTML = Mustache.render(BODY, {
         navItems: [
-            { status: "active", id: "signaturesTab",      href: "#signaturesTabContent",      i18n: "optionsSignatures"},
-            { status: "",       id: "imagesTab",          href: "#imagesTabContent",          i18n: "optionsImages"},
-            { status: "",       id: "fortuneCookiesTab",  href: "#fortuneCookiesTabContent",  i18n: "optionsFortuneCookies"},
-            { status: "",       id: "identitiesTab",      href: "#identitiesTabContent",      i18n: "optionsIdentities"},
-            { status: "",       id: "miscellaneousTab",   href: "#miscellaneousTabContent",   i18n: "optionsMiscellaneous"},
-            { status: "",       id: "nativeMessagingTab", href: "#nativeMessagingTabContent", i18n: "optionsNativeMessaging"},
-            { status: "",       id: "importExportTab",    href: "#importExportTabContent",    i18n: "optionsImportExport"},
-            { status: "",       id: "helpTab",            href: "#helpTabContent",            i18n: "optionsHelp"}
+            { status: "active", id: "signaturesTab",      href: "#signaturesTabContent",      i18n: "optionsSignatures"      },
+            { status: "",       id: "imagesTab",          href: "#imagesTabContent",          i18n: "optionsImages"          },
+            { status: "",       id: "fortuneCookiesTab",  href: "#fortuneCookiesTabContent",  i18n: "optionsFortuneCookies"  },
+            { status: "",       id: "identitiesTab",      href: "#identitiesTabContent",      i18n: "optionsIdentities"      },
+            { status: "",       id: "miscellaneousTab",   href: "#miscellaneousTabContent",   i18n: "optionsMiscellaneous"   },
+            { status: "",       id: "nativeMessagingTab", href: "#nativeMessagingTabContent", i18n: "optionsNativeMessaging" },
+            { status: "",       id: "importExportTab",    href: "#importExportTabContent",    i18n: "optionsImportExport"    },
+            { status: "",       id: "helpTab",            href: "#helpTabContent",            i18n: "optionsHelp"            }
         ],
         tabPanes: [
             SIGNATURES_TAB_PANE,
@@ -186,6 +192,7 @@ async function initUI(localStorage) {
             text: signature.text,
             html: signature.html,
             autoSwitch: signature.autoSwitch,
+            autoSwitchMatchAll: signature.autoSwitchMatchAll,
             title: i18n("optionsSignatureEditModalTitle"),
             nameLabel: i18n("optionsSignatureEditModalName"),
             nameTooltip: i18n("optionsSignatureEditModalNameTooltip"),
@@ -199,6 +206,7 @@ async function initUI(localStorage) {
             autoSwitchLabel: i18n("optionsSignatureEditModalAutoSwitch"),
             autoSwitchTooltip: i18n("optionsSignatureEditModalAutoSwitchTooltip"),
             autoSwitchPlaceholder: i18n("optionsSignatureEditModalAutoSwitchPlaceholder"),
+            autoSwitchMatchAllLabel: i18n("optionsSignatureEditModalAutoSwitchMatchAll"),
             close: i18n("optionsSignatureEditModalClose"),
             save: i18n("optionsSignatureEditModalSave")
         });
@@ -234,7 +242,8 @@ async function initUI(localStorage) {
                 name: document.getElementById("signatureModalName-" + signatureId).value,
                 text: document.getElementById("signatureModalText-" + signatureId).value,
                 html: document.getElementById("signatureModalHtml-" + signatureId).value,
-                autoSwitch: document.getElementById("signatureModalAutoSwitch-" + signatureId).value
+                autoSwitch: document.getElementById("signatureModalAutoSwitch-" + signatureId).value,
+                autoSwitchMatchAll: document.getElementById("signatureModalAutoSwitchMatchAll-" + signatureId).checked
             };
         };
         let editModal = new bootstrap.Modal(document.getElementById("signatureEditModal-" + signatureId))

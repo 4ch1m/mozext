@@ -395,6 +395,9 @@
   "optionsSignatureEditModalAutoSwitch": {
     "message": "Auto switch"
   },
+  "optionsSignatureEditModalAutoSwitchMatchAll": {
+    "message": "All recipients must match any of the given criteria."
+  },
   "optionsSignatureEditModalAutoSwitchPlaceholder": {
     "message": "*@company.com, *smith*@*.de, moe@zilla.com"
   },

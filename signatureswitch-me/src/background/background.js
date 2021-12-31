@@ -555,19 +555,47 @@ async function searchSignatureInComposer(tabId = composeActionTabId) {
 }
 
 function autoSwitchBasedOnRecipients(tabId = composeActionTabId, recipients) {
+    if (recipients.length === 0) {
+        return;
+    }
+
+    let anyAutoSwitchItemMatchesWithAnyRecipient = (autoSwitchItems, recipients) => {
+        for (let autoSwitchItem of autoSwitchItems) {
+            let regEx = createRegexFromAutoSwitchString(autoSwitchItem.trim());
+            for (let recipient of recipients) {
+                if (regEx.test(recipient)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    };
+
+    let anyAutoSwitchItemMatchesWithAllRecipients = (autoSwitchItems, recipients) => {
+        for (let recipient of recipients) {
+            for (let autoSwitchItem of autoSwitchItems) {
+                if (createRegexFromAutoSwitchString(autoSwitchItem.trim()).test(recipient)) {
+                    break;
+                }
+                return false;
+            }
+        }
+        return true;
+    }
+
     browser.storage.local.get().then(localStorage => {
         if (localStorage.signatures) {
             for (let signature of localStorage.signatures) {
                 if (signature.autoSwitch && signature.autoSwitch.trim() !== "") {
                     let autoSwitchItems = signature.autoSwitch.split(",");
-                    for (let autoSwitchItem of autoSwitchItems) {
-                        let regEx = createRegexFromAutoSwitchString(autoSwitchItem.trim());
-                        for (let recipient of recipients) {
-                            if (regEx.test(recipient)) {
-                                appendSignatureViaIdToComposer(signature.id, tabId);
-                                return true;
-                            }
-                        }
+
+                    let match = signature.autoSwitchMatchAll ?
+                        anyAutoSwitchItemMatchesWithAllRecipients(autoSwitchItems, recipients) :
+                        anyAutoSwitchItemMatchesWithAnyRecipient(autoSwitchItems, recipients)
+
+                    if (match) {
+                        appendSignatureViaIdToComposer(signature.id, tabId);
+                        return;
                     }
                 }
             }

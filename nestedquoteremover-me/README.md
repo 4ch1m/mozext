@@ -3,8 +3,6 @@
 # NestedQuote Remover - MailExtension
 > A complete rewrite of the (XUL-based) [NestedQuote Remover](../nestedquoteremover) add-on.
 
-## ToC
-
 * [How To](#how-to)
   * [Setup](#setup)
   * [Install](#install)

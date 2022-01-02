@@ -3,8 +3,6 @@
 # Signature Switch - MailExtension
 > A complete rewrite of the (XUL-based) [Signature Switch](../signatureswitch) add-on.
 
-## ToC
-
 * [How To](#how-to)
   * [Setup](#setup)
   * [Install](#install)

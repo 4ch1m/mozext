@@ -1,21 +1,14 @@
 # mozext
 > Extensions / Add-Ons for Mozilla Firefox and Mozilla Thunderbird
 
-Please check my dedicated website for more detailed information:
-
-&rarr; [www.achimonline.de/mozext/](https://www.achimonline.de/mozext/)
-
-Table of Contents
-=================
-
 * [WebExtensions / MailExtensions](#webextensions--mailextensions--)
   * [Thunderbird](#thunderbird)
   * [Firefox](#firefox)
 * [Legacy XUL-/XPCOM-based Extensions](#legacy-xul-xpcom-based-extensions)
   * [Thunderbird](#thunderbird-1)
   * [Firefox](#firefox-1)
+* [Documentation](#documentation)
 * [License](#license)
-
 
 ## WebExtensions / MailExtensions
 
@@ -29,7 +22,6 @@ Please check the specific README-file in each folder for build-instructions.
 ### Firefox
 
 * TBD
-
 
 ## Legacy XUL-/XPCOM-based Extensions
 
@@ -53,6 +45,12 @@ To build them you'll need to have [Apache Ant](https://ant.apache.org/) and [XML
 
 Then simply change into the directory of an extension/add-on and run the `ant`-command.
 This will create an installable XPI-file.
+
+## Documentation
+
+Please check my dedicated website for more detailed information:
+
+&rarr; [www.achimonline.de/mozext/](https://www.achimonline.de/mozext/)
 
 ## License
 Please read the [LICENSE](LICENSE) file.

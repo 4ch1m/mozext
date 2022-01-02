@@ -7,15 +7,15 @@ const MISCELLANEOUS_TAB_PANE = `
             <div>
                 <h6 data-i18n="optionsDefaultActionDescription"></h6>
                 <div class="ms-3">
-                    <div class="formcheck">
+                    <div class="form-check">
                         <input type="radio" class="form-check-input" id="defaultActionNothing" name="defaultAction">
                         <label class="form-check-label" for="defaultActionNothing" data-i18n="optionsDefaultActionNothing"></label>
                     </div>
-                    <div class="formcheck">
+                    <div class="form-check">
                         <input type="radio" class="form-check-input" id="defaultActionInsert" name="defaultAction">
                         <label class="form-check-label" for="defaultActionInsert" data-i18n="optionsDefaultActionInsert"></label>
                     </div>
-                    <div class="formcheck">
+                    <div class="form-check">
                         <input type="radio" class="form-check-input" id="defaultActionOff" name="defaultAction">
                         <label class="form-check-label" for="defaultActionOff" data-i18n="optionsDefaultActionOff"></label>
                     </div>
@@ -90,6 +90,10 @@ const MISCELLANEOUS_TAB_PANE = `
                     <div>
                         <input type="checkbox" class="form-check-input" id="signatureSeparatorHtml">
                         <label for="signatureSeparatorHtml" data-i18n="optionsSignatureSeparatorHtml"></label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="form-check-input" id="signatureComposeSeparator">
+                        <label for="signatureComposeSeparator" data-i18n="optionsSignatureComposeSeparator"></label>
                     </div>
                 </div>
             </div>

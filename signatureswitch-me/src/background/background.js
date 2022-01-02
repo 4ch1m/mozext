@@ -5,6 +5,8 @@ const PLAINTEXT_SIGNATURE_SEPARATOR = DOUBLE_DASH + " " + NEW_LINE;
 
 const CLASS_MOZ_SIGNATURE = "moz-signature";
 const CLASS_SIGNATURE_SWITCH_SUFFIX = "signature-switch-suffix";
+const CLASS_SIGNATURE_SWITCH_COMPOSE_SEPARATOR = "signature-switch-compose-separator";
+const CLASS_NO_PRINT = "no-print";
 
 const ATTRIBUTE_SIGNATURE_SWITCH_ID = "signature-switch-id";
 const ATTRIBUTE_MOZ_DIRTY = "_moz_dirty";
@@ -25,6 +27,10 @@ const COMMAND_SWITCH = "switch";
 const COMMAND_NEXT = "next";
 const COMMAND_PREVIOUS = "previous";
 
+const REGEXP_IMAGES = new RegExp("\\{\\{(.*?)\\}\\}");
+const REGEXP_FORTUNE_COOKIES = new RegExp("\\[\\[(.*?)\\]\\]");
+const REGEXP_NATIVE_MESSAGING = new RegExp("_{2}([^_].+)_{2}");
+
 // ---------------------------------------------------------------------------------------------------------------------
 
 let composeActionTabId;
@@ -37,9 +43,14 @@ let recipientChangeListeners = new Map();
  */
 
 (() => {
+    if (typeof browser === "undefined") {
+        return; // exit init if running unit-tests
+    }
+
     // compose script
     browser.composeScripts.register({
-        js: [ {file: "/compose/compose.js"} ]
+        js: [ {file: "/compose/compose.js"} ],
+        css: [ {file: "/compose/compose.css"} ]
     });
 
     // context-menu
@@ -121,7 +132,9 @@ function createMenuItems(items) {
 
 function addContextMenuListener() {
     browser.menus.onClicked.addListener(async (info, tab) => {
-        let commandOrSignatureId = info.menuItemId.startsWith(MENU_SUBENTRY_ID_PREFIX) ? info.menuItemId.substring(info.menuItemId.lastIndexOf(MENU_ID_SEPARATOR) + 1) : undefined;
+        let commandOrSignatureId =
+            info.menuItemId.startsWith(MENU_SUBENTRY_ID_PREFIX) ?
+                info.menuItemId.substring(info.menuItemId.lastIndexOf(MENU_ID_SEPARATOR) + 1) : undefined;
 
         switch (commandOrSignatureId) {
             case undefined:
@@ -326,7 +339,13 @@ function addWindowCreateListener() {
 }
 
 function addOnBeforeSendListener() {
-    browser.compose.onBeforeSend.addListener(tab => {
+    browser.compose.onBeforeSend.addListener(async tab => {
+        await browser.tabs.sendMessage(tab.id, {
+            type: "cleanUp",
+            value: {
+                selector: `.${CLASS_SIGNATURE_SWITCH_COMPOSE_SEPARATOR}`
+            }
+        });
         clearTimeout(recipientChangeListeners.get(tab.id));
         recipientChangeListeners.delete(tab.id);
     });
@@ -357,7 +376,12 @@ function addIdentityChangeListener() {
    composer interaction ...
  */
 
-async function appendSignatureToComposer(signature, tabId = composeActionTabId, signatureSeparatorHtml = true, aboveQuoteOrForwarding = false) {
+async function appendSignatureToComposer(
+    signature,
+    tabId = composeActionTabId,
+    signatureSeparatorHtml = true,
+    aboveQuoteOrForwarding = false,
+    composeSeparator = true ) {
     let details = await browser.compose.getComposeDetails(tabId);
 
     let signatureClasses = [ CLASS_MOZ_SIGNATURE ];
@@ -367,10 +391,22 @@ async function appendSignatureToComposer(signature, tabId = composeActionTabId, 
         {key: ATTRIBUTE_MOZ_DIRTY, value: ""}
     ];
 
-    let signatureElementProperties;
+    let composeSeparatorElement = composeSeparator ? {
+        type: "hr",
+        classes: [
+            CLASS_SIGNATURE_SWITCH_COMPOSE_SEPARATOR,
+            CLASS_NO_PRINT
+        ],
+        attributes: [
+            {key: ATTRIBUTE_MOZ_DIRTY, value: ""}
+        ]
+
+    } : undefined;
+
+    let elements;
 
     if (details.isPlainText) {
-        signatureElementProperties = {
+        elements = {
             // when the body is still empty upon adding the sig, add a br _before_ the actual signature;
             // otherwise all entered text on top will be _inside_ the signature div - which is bad
             prepend: details.plainTextBody === "" ? {
@@ -395,7 +431,7 @@ async function appendSignatureToComposer(signature, tabId = composeActionTabId, 
                     {key: ATTRIBUTE_MOZ_DIRTY, value: ""}
                 ]
             },
-            aboveQuoteOrForwarding: aboveQuoteOrForwarding
+            composeSeparator: composeSeparatorElement
         };
     } else {
         // check if we need to use the plaintext-signature, b/c there's no html-signature available
@@ -406,14 +442,19 @@ async function appendSignatureToComposer(signature, tabId = composeActionTabId, 
             signatureAttributes.push({key: ATTRIBUTE_COLS, value: "72"})
         }
 
-        signatureElementProperties = {
+        elements = {
             signature: {
                 type: `${plaintextFallback ? "pre" : "div"}`,
                 classes: signatureClasses,
                 attributes: signatureAttributes,
-                innerHtml: await createSignatureForHtmlComposer(plaintextFallback ? signature.text : signature.html, details.type, signatureSeparatorHtml, aboveQuoteOrForwarding),
-                aboveQuoteOrForwarding: aboveQuoteOrForwarding
-            }
+                innerHtml: await createSignatureForHtmlComposer(
+                    plaintextFallback ? signature.text : signature.html,
+                    details.type,
+                    signatureSeparatorHtml,
+                    aboveQuoteOrForwarding
+                )
+            },
+            composeSeparator: composeSeparatorElement
         };
     }
 
@@ -422,7 +463,10 @@ async function appendSignatureToComposer(signature, tabId = composeActionTabId, 
 
     browser.tabs.sendMessage(tabId, {
         type: "appendSignature",
-        value: signatureElementProperties
+        value: {
+            elements: elements,
+            aboveQuoteOrForwarding: aboveQuoteOrForwarding
+        }
     });
 }
 
@@ -449,7 +493,13 @@ async function appendDefaultSignatureToComposer(tabId = composeActionTabId) {
                 actualDefaultSignature = localStorage.signatures[0];
             }
 
-            appendSignatureToComposer(actualDefaultSignature, tabId, localStorage.signatureSeparatorHtml, localStorage.signaturePlacementAboveQuoteOrForwarding);
+            appendSignatureToComposer(
+                actualDefaultSignature,
+                tabId,
+                localStorage.signatureSeparatorHtml,
+                localStorage.signaturePlacementAboveQuoteOrForwarding,
+                localStorage.signatureComposeSeparator
+            );
         }
     });
 }
@@ -460,7 +510,13 @@ async function appendSignatureViaIdToComposer(signatureId, tabId = composeAction
             let signatures = localStorage.signatures;
             for (let signature of signatures) {
                 if (signature.id === signatureId) {
-                    appendSignatureToComposer(signature, tabId, localStorage.signatureSeparatorHtml, localStorage.signaturePlacementAboveQuoteOrForwarding);
+                    appendSignatureToComposer(
+                        signature,
+                        tabId,
+                        localStorage.signatureSeparatorHtml,
+                        localStorage.signaturePlacementAboveQuoteOrForwarding,
+                        localStorage.signatureComposeSeparator
+                    );
                     break;
                 }
             }
@@ -477,13 +533,16 @@ async function removeSignatureFromComposer(tabId = composeActionTabId) {
         }
     });
 
-    // also clean up extra trailing new lines (which we may have inserted on purpose when inserting the plaintext sig)
-    browser.tabs.sendMessage(tabId, {
-        type: "cleanUp",
-        value: {
-            selector: `.${CLASS_SIGNATURE_SWITCH_SUFFIX}`
-        }
-    });
+    // also clean up the compose-separator and the extra trailing new lines (which we may have
+    // inserted on purpose when adding the plaintext sig)
+    for (let selector of [CLASS_SIGNATURE_SWITCH_COMPOSE_SEPARATOR, CLASS_SIGNATURE_SWITCH_SUFFIX]) {
+        browser.tabs.sendMessage(tabId, {
+            type: "cleanUp",
+            value: {
+                selector: `.${selector}`
+            }
+        });
+    }
 }
 
 async function searchSignatureInComposer(tabId = composeActionTabId) {
@@ -496,19 +555,47 @@ async function searchSignatureInComposer(tabId = composeActionTabId) {
 }
 
 function autoSwitchBasedOnRecipients(tabId = composeActionTabId, recipients) {
+    if (recipients.length === 0) {
+        return;
+    }
+
+    let anyAutoSwitchItemMatchesWithAnyRecipient = (autoSwitchItems, recipients) => {
+        for (let autoSwitchItem of autoSwitchItems) {
+            let regEx = createRegexFromAutoSwitchString(autoSwitchItem.trim());
+            for (let recipient of recipients) {
+                if (regEx.test(recipient)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    };
+
+    let anyAutoSwitchItemMatchesWithAllRecipients = (autoSwitchItems, recipients) => {
+        for (let recipient of recipients) {
+            for (let autoSwitchItem of autoSwitchItems) {
+                if (createRegexFromAutoSwitchString(autoSwitchItem.trim()).test(recipient)) {
+                    break;
+                }
+                return false;
+            }
+        }
+        return true;
+    }
+
     browser.storage.local.get().then(localStorage => {
         if (localStorage.signatures) {
             for (let signature of localStorage.signatures) {
                 if (signature.autoSwitch && signature.autoSwitch.trim() !== "") {
                     let autoSwitchItems = signature.autoSwitch.split(",");
-                    for (let autoSwitchItem of autoSwitchItems) {
-                        let regEx = createRegexFromAutoSwitchString(autoSwitchItem.trim());
-                        for (let recipient of recipients) {
-                            if (regEx.test(recipient)) {
-                                appendSignatureViaIdToComposer(signature.id, tabId);
-                                return true;
-                            }
-                        }
+
+                    let match = signature.autoSwitchMatchAll ?
+                        anyAutoSwitchItemMatchesWithAllRecipients(autoSwitchItems, recipients) :
+                        anyAutoSwitchItemMatchesWithAnyRecipient(autoSwitchItems, recipients)
+
+                    if (match) {
+                        appendSignatureViaIdToComposer(signature.id, tabId);
+                        return;
                     }
                 }
             }
@@ -548,51 +635,65 @@ async function createSignatureForHtmlComposer(content, composeType, signatureSep
     return content;
 }
 
-async function searchAndReplaceImagePlaceholder(content) {
-    if (new RegExp("\\{{.*?}}").test(content)) {
-        await browser.storage.local.get().then(localStorage => {
-            if (localStorage.images) {
-                for (let image of localStorage.images) {
-                    content = content.replaceAll(new RegExp("{{" + image.tag + "}}", "g"), image.data);
-                }
-            }
-        });
-    }
+async function genericTagReplacer(content, regex, replacement) {
+    if (regex.test(content)) {
+        let matches = content.matchAll(new RegExp(regex, "g"));
 
-    return content;
-}
-
-async function searchAndReplaceFortuneCookiePlaceholder(content) {
-    if (new RegExp("\\[\\[.*?\\]\\]").test(content)) {
-        await browser.storage.local.get().then(localStorage => {
-            if (localStorage.fortuneCookies) {
-                for (let fortuneCookies of localStorage.fortuneCookies) {
-                    content = content.replaceAll(new RegExp("\\[\\[" + fortuneCookies.tag + "\\]\\]", "g"), fortuneCookies.cookies[random(fortuneCookies.cookies.length) - 1]);
-                }
-            }
-        });
-    }
-
-    return content;
-}
-
-async function searchAndReplaceNativeMessagingPlaceholder(content, composeDetails) {
-    let regExp = new RegExp("__.*?__");
-
-    if (regExp.test(content)) {
-        let match;
-        while (match = regExp.exec(content)) {
-            let tag = match[0].substring(2, match[0].length - 2);
-            let nativeMessage = await sendNativeMessage({
-                tag: tag,
-                isPlainText: composeDetails.isPlainText,
-                type: composeDetails.type
-            });
-            content = content.replace(`__${tag}__`, nativeMessage.success ? nativeMessage.response.message : "");
+        for (let match of matches) {
+            let replacementString = await replacement(match[1])
+            content = content.replace(match[0], replacementString);
         }
     }
 
     return content;
+}
+
+async function searchAndReplaceImagePlaceholder(content) {
+    let images = {};
+
+    await browser.storage.local.get().then(localStorage => {
+        if (localStorage.images) {
+            images = localStorage.images.reduce((map, obj) => {
+                map[obj.tag] = obj.data;
+                return map;
+            }, {});
+        }
+    });
+
+    return await genericTagReplacer(content, REGEXP_IMAGES, tag => {
+        let trimmedTag = tag.trim();
+        return trimmedTag in images ? images[trimmedTag] : "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /* = empty image */;
+    });
+}
+
+async function searchAndReplaceFortuneCookiePlaceholder(content) {
+    let cookies = {};
+
+    await browser.storage.local.get().then(localStorage => {
+        if (localStorage.fortuneCookies) {
+            cookies = localStorage.fortuneCookies.reduce((map, obj) => {
+                map[obj.tag] = obj.cookies;
+                return map;
+            }, {});
+        }
+    });
+
+    return await genericTagReplacer(content, REGEXP_FORTUNE_COOKIES, tag => {
+        let trimmedTag = tag.trim();
+        return trimmedTag  in cookies ? cookies[trimmedTag][random(cookies[trimmedTag].length) - 1] : "";
+    });
+}
+
+async function searchAndReplaceNativeMessagingPlaceholder(content, composeDetails) {
+    return await genericTagReplacer(content, REGEXP_NATIVE_MESSAGING, async tag => {
+        let nativeMessage = await sendNativeMessage({
+            tag: tag,
+            isPlainText: composeDetails.isPlainText,
+            type: composeDetails.type
+        });
+
+        return nativeMessage.success ? nativeMessage.response.message : "";
+    });
 }
 
 /* =====================================================================================================================
@@ -649,7 +750,7 @@ async function serializeRecipients(recipients) {
     for (let recipient of (Array.isArray(recipients) ? recipients : [ recipients ])) {
         if (typeof recipient === "string" || recipient instanceof String) {
             let cleansedRecipientString = cleanseRecipientString(recipient);
-            if (cleansedRecipientString != "") {
+            if (cleansedRecipientString !== "") {
                 serializedRecipients.push(cleansedRecipientString);
             }
         } else {
@@ -659,7 +760,7 @@ async function serializeRecipients(recipients) {
                 case "contact":
                     for (let contact of await browser.contacts.list(recipient.id)) {
                         let primaryEmail = contact.properties.primaryEmail;
-                        if (primaryEmail != "") {
+                        if (primaryEmail !== "") {
                             serializedRecipients.push(primaryEmail);
                         }
                     }
@@ -667,7 +768,7 @@ async function serializeRecipients(recipients) {
                 case "mailingList":
                     for (let list of await browser.mailingLists.get(recipient.id)) {
                         let listName = list.name;
-                        if (listName != "") {
+                        if (listName !== "") {
                             serializedRecipients.push(listName);
                         }
                     }
@@ -689,7 +790,6 @@ async function sendNativeMessage(object) {
         return { success: false,
                  response: { message: e.message } };
     }
-
 }
 
 // make sure the compose-script is injected and ready to receive messages

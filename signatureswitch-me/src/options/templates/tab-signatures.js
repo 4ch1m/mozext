@@ -157,6 +157,11 @@ const SIGNATURE_EDIT_MODAL = `
                         </label>
                         <!-- auto-switch -->
                         <input type="text" class="form-control" id="signatureModalAutoSwitch-{{id}}" placeholder="{{autoSwitchPlaceholder}}" value="{{autoSwitch}}">
+                        <div class="form-check ms-3">
+                            <!-- auto-switch match all -->
+                            <input type="checkbox" class="form-check-input" id="signatureModalAutoSwitchMatchAll-{{id}}"{{#autoSwitchMatchAll}} checked{{/autoSwitchMatchAll}}>
+                            <label class="form-check-label" for="signatureModalAutoSwitchMatchAll-{{id}}">{{autoSwitchMatchAllLabel}}</label>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">

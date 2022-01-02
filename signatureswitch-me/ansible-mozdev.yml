@@ -1,5 +1,5 @@
 # override TB version
-product_version: 91.0
+product_version: 91.4.1
 #download_url: "https://ftp.mozilla.org/pub/thunderbird/nightly/2021/08/2021-08-13-10-04-27-comm-central/thunderbird-93.0a1.en-US.linux-x86_64.tar.bz2"
 
 # used for "move_devtools_window" playbook

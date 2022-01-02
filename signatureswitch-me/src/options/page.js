@@ -39,12 +39,18 @@ const SIGNATURE_PLACEMENT_CONFIRMATION_CODE = "" +
    objects ...
  */
 
-function Signature(name = i18n("optionsSignatureNewName"), text = "", html = "", autoSwitch = "") {
+function Signature(
+    name = i18n("optionsSignatureNewName"),
+    text = "",
+    html = "",
+    autoSwitch = "",
+    autoSwitchMatchAll = false) {
     this.id = uuidv4();
     this.name = name;
     this.text = text;
     this.html = html;
     this.autoSwitch = autoSwitch;
+    this.autoSwitchMatchAll = autoSwitchMatchAll;
 }
 
 function Image(name = "", tag = "") {
@@ -93,21 +99,21 @@ let signaturePlacementConfirmationCodeInputCount = 0;
  */
 
 let ready = (callback) => {
-    if (document.readyState != "loading") callback();
+    if (document.readyState !== "loading") callback();
     else document.addEventListener("DOMContentLoaded", callback);
 }
 
 ready(() => {
     document.body.innerHTML = Mustache.render(BODY, {
         navItems: [
-            { status: "active", id: "signaturesTab",      href: "#signaturesTabContent",      i18n: "optionsSignatures"},
-            { status: "",       id: "imagesTab",          href: "#imagesTabContent",          i18n: "optionsImages"},
-            { status: "",       id: "fortuneCookiesTab",  href: "#fortuneCookiesTabContent",  i18n: "optionsFortuneCookies"},
-            { status: "",       id: "identitiesTab",      href: "#identitiesTabContent",      i18n: "optionsIdentities"},
-            { status: "",       id: "miscellaneousTab",   href: "#miscellaneousTabContent",   i18n: "optionsMiscellaneous"},
-            { status: "",       id: "nativeMessagingTab", href: "#nativeMessagingTabContent", i18n: "optionsNativeMessaging"},
-            { status: "",       id: "importExportTab",    href: "#importExportTabContent",    i18n: "optionsImportExport"},
-            { status: "",       id: "helpTab",            href: "#helpTabContent",            i18n: "optionsHelp"}
+            { status: "active", id: "signaturesTab",      href: "#signaturesTabContent",      i18n: "optionsSignatures"      },
+            { status: "",       id: "imagesTab",          href: "#imagesTabContent",          i18n: "optionsImages"          },
+            { status: "",       id: "fortuneCookiesTab",  href: "#fortuneCookiesTabContent",  i18n: "optionsFortuneCookies"  },
+            { status: "",       id: "identitiesTab",      href: "#identitiesTabContent",      i18n: "optionsIdentities"      },
+            { status: "",       id: "miscellaneousTab",   href: "#miscellaneousTabContent",   i18n: "optionsMiscellaneous"   },
+            { status: "",       id: "nativeMessagingTab", href: "#nativeMessagingTabContent", i18n: "optionsNativeMessaging" },
+            { status: "",       id: "importExportTab",    href: "#importExportTabContent",    i18n: "optionsImportExport"    },
+            { status: "",       id: "helpTab",            href: "#helpTabContent",            i18n: "optionsHelp"            }
         ],
         tabPanes: [
             SIGNATURES_TAB_PANE,
@@ -134,7 +140,8 @@ ready(() => {
             {name: "autoSwitchIncludeCc", default: false},
             {name: "autoSwitchIncludeBcc", default: false},
             {name: "signatureSeparatorHtml", default: false},
-			{name: "signaturePlacementAboveQuoteOrForwarding", default: false}
+			{name: "signaturePlacementAboveQuoteOrForwarding", default: false},
+            {name: "signatureComposeSeparator", default: true}
         ]);
 
         // init UI; listen for storage changes
@@ -185,6 +192,7 @@ async function initUI(localStorage) {
             text: signature.text,
             html: signature.html,
             autoSwitch: signature.autoSwitch,
+            autoSwitchMatchAll: signature.autoSwitchMatchAll,
             title: i18n("optionsSignatureEditModalTitle"),
             nameLabel: i18n("optionsSignatureEditModalName"),
             nameTooltip: i18n("optionsSignatureEditModalNameTooltip"),
@@ -198,6 +206,7 @@ async function initUI(localStorage) {
             autoSwitchLabel: i18n("optionsSignatureEditModalAutoSwitch"),
             autoSwitchTooltip: i18n("optionsSignatureEditModalAutoSwitchTooltip"),
             autoSwitchPlaceholder: i18n("optionsSignatureEditModalAutoSwitchPlaceholder"),
+            autoSwitchMatchAllLabel: i18n("optionsSignatureEditModalAutoSwitchMatchAll"),
             close: i18n("optionsSignatureEditModalClose"),
             save: i18n("optionsSignatureEditModalSave")
         });
@@ -233,7 +242,8 @@ async function initUI(localStorage) {
                 name: document.getElementById("signatureModalName-" + signatureId).value,
                 text: document.getElementById("signatureModalText-" + signatureId).value,
                 html: document.getElementById("signatureModalHtml-" + signatureId).value,
-                autoSwitch: document.getElementById("signatureModalAutoSwitch-" + signatureId).value
+                autoSwitch: document.getElementById("signatureModalAutoSwitch-" + signatureId).value,
+                autoSwitchMatchAll: document.getElementById("signatureModalAutoSwitchMatchAll-" + signatureId).checked
             };
         };
         let editModal = new bootstrap.Modal(document.getElementById("signatureEditModal-" + signatureId))
@@ -436,9 +446,13 @@ async function initUI(localStorage) {
                 cookies: document.getElementById("fortuneCookiesCookies-" + fortuneCookiesId).value.split(FORTUNE_COOKIE_SEPARATOR)
             };
         };
-        addEventListeners(`#fortuneCookiesName-${fortuneCookiesId}, #fortuneCookiesTag-${fortuneCookiesId}, #fortuneCookiesCookies-${fortuneCookiesId}`, "change keyup", () => {
-            addOrUpdateItemInStoredArray(updatedFortuneCookies(), "fortuneCookies");
-        });
+        addEventListeners(
+            [ `#fortuneCookiesName-${fortuneCookiesId}`,
+              `#fortuneCookiesTag-${fortuneCookiesId}`,
+              `#fortuneCookiesCookies-${fortuneCookiesId}` ].join(", "),
+            "change keyup",
+            () => { addOrUpdateItemInStoredArray(updatedFortuneCookies(), "fortuneCookies"); }
+        );
         document.getElementById("fortuneCookiesFileInput-" + fortuneCookiesId).addEventListener("change", async (e) => {
             document.getElementById("fortuneCookiesEditModalCookies-" + fortuneCookiesId).value = await toText(e.target.files[0]);
         });
@@ -551,27 +565,47 @@ async function initUI(localStorage) {
 
             let modifierOptions1 = [];
             for (let modifier of ["Ctrl", "Alt", "Command", "MacCtrl"]) {
-                modifierOptions1.push({value: modifier, status: commandValueCheckAndShift(commandValues, modifier) ? "selected" : "", text: modifier})
+                modifierOptions1.push({
+                    value: modifier,
+                    status: commandValueCheckAndShift(commandValues, modifier) ? "selected" : "",
+                    text: modifier
+                });
             }
 
             let modifierOptions2 = [{value: "", status: "", text: ""}]; // second modifier can be empty
             for (let modifier of ["Shift", "Ctrl", "Alt", "Command", "MacCtrl"]) {
-                modifierOptions2.push({value: modifier, status: commandValueCheckAndShift(commandValues, modifier) ? "selected" : "", text: modifier})
+                modifierOptions2.push({
+                    value: modifier,
+                    status: commandValueCheckAndShift(commandValues, modifier) ? "selected" : "",
+                    text: modifier
+                });
             }
 
             let keyOptions = [];
             // A-Z
             for (let i = "A".charCodeAt(0); i <= "Z".charCodeAt(0); i++) {
-                keyOptions.push({value: String.fromCharCode(i), status: commandValueCheckAndShift(commandValues, String.fromCharCode(i)) ? "selected" : "", text: String.fromCharCode(i)})
+                keyOptions.push({
+                    value: String.fromCharCode(i),
+                    status: commandValueCheckAndShift(commandValues, String.fromCharCode(i)) ? "selected" : "",
+                    text: String.fromCharCode(i)
+                });
             }
             // 0-9
             for (let i = 0; i <= 9; i++) {
-                keyOptions.push({value: i, status: commandValueCheckAndShift(commandValues, i) ? "selected" : "", text: i})
+                keyOptions.push({
+                    value: i,
+                    status: commandValueCheckAndShift(commandValues, i) ? "selected" : "",
+                    text: i
+                });
             }
             // F1-F12
             for (let i = 1; i <= 12; i++) {
                 let fKey = "F" + i;
-                keyOptions.push({value: fKey, status: commandValueCheckAndShift(commandValues, fKey) ? "selected" : "", text: fKey})
+                keyOptions.push({
+                    value: fKey,
+                    status: commandValueCheckAndShift(commandValues, fKey) ? "selected" : "",
+                    text: fKey
+                });
             }
             /*
                 the rest ...
@@ -591,7 +625,11 @@ async function initUI(localStorage) {
                     - optionsCommandKeyUp
             */
             for (let key of ["Comma", "Period", "Home", "End", "PageUp", "PageDown", "Space", "Insert", "Delete", "Up", "Down", "Left", "Right"]) {
-                keyOptions.push({value: key, status: commandValueCheckAndShift(commandValues, key) ? "selected" : "", text: key})
+                keyOptions.push({
+                    value: key,
+                    status: commandValueCheckAndShift(commandValues, key) ? "selected" : "",
+                    text: key
+                });
             }
 
             commandsContainer.innerHTML += Mustache.render(MISCELLANEOUS_COMMAND_ROW, {
@@ -686,6 +724,11 @@ async function initUI(localStorage) {
     signatureSeparatorHtml.addEventListener("click", () => {
         addOrUpdateStoredValue("signatureSeparatorHtml", signatureSeparatorHtml.checked);
     });
+    let signatureComposeSeparator = document.getElementById("signatureComposeSeparator");
+    signatureComposeSeparator.checked = localStorage.signatureComposeSeparator;
+    signatureComposeSeparator.addEventListener("click", () => {
+        addOrUpdateStoredValue("signatureComposeSeparator", signatureComposeSeparator.checked);
+    });
 
     // signature placement
     let renderSignaturePlacementConfirmationModal = (id, showYes = true, showNo = true, showConfirmationCode = false) => {
@@ -779,8 +822,8 @@ async function initUI(localStorage) {
     });
 
     // tooltips
-    new bootstrap.Tooltip(document.getElementById("nativeMessagingMessageTooltip"), {"title": i18n("nativeMessagingMessageTooltip")})
-    new bootstrap.Tooltip(document.getElementById("nativeMessagingResponseTooltip"), {"title": i18n("nativeMessagingResponseTooltip")})
+    new bootstrap.Tooltip(document.getElementById("nativeMessagingMessageTooltip"), {"title": i18n("nativeMessagingMessageTooltip")});
+    new bootstrap.Tooltip(document.getElementById("nativeMessagingResponseTooltip"), {"title": i18n("nativeMessagingResponseTooltip")});
 
     /* -----------------
         Import / Export
@@ -926,7 +969,11 @@ function reorderSignatures(id, direction) {
         }
 
         if (signatureIndex > -1) {
-            localStorage.signatures = arrayMove(localStorage.signatures, signatureIndex, (direction === "up" ? signatureIndex - 1 : signatureIndex + 1));
+            localStorage.signatures = arrayMove(
+                localStorage.signatures,
+                signatureIndex,
+                (direction === "up" ? signatureIndex - 1 : signatureIndex + 1)
+            );
             browser.storage.local.set(localStorage);
         }
     });

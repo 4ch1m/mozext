@@ -123,7 +123,7 @@ const SIGNATURE_EDIT_MODAL = `
                                 </h2>
                                 <div id="signatureEditAccordionPlaintext-{{id}}" class="accordion-collapse collapse show" data-mdb-parent="#signatureEditAccordion-{{id}}">
                                     <div class="accordion-body">
-                                        <textarea class="form-control" id="signatureModalText-{{id}}" rows="5" spellcheck="false" placeholder="{{textPlaceholder}}">{{text}}</textarea>
+                                        <textarea class="form-control" style="font-family:monospace;" id="signatureModalText-{{id}}" rows="5" spellcheck="false" placeholder="{{textPlaceholder}}">{{text}}</textarea>
                                     </div>
                                 </div>
                             </div>

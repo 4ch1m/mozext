@@ -127,9 +127,9 @@ ready(() => {
         ]
     });
 
-    browser.storage.local.get().then(localStorage => {
+    browser.storage.local.get().then(async localStorage => {
         // ensure that default values for bool preferences are set (otherwise would be 'undefined')
-        validateDefaultsForBoolPreferences(localStorage, [
+        await validateDefaultsForBoolPreferences(localStorage, [
             {name: "identitiesSwitchSignatureOnChange", default: false},
             {name: "identitiesUseAssignedSignatureOnReplyOrForwarding", default: false},
             {name: "identitiesOverruleDefaultAction", default: true},
@@ -1190,12 +1190,14 @@ function deleteItemFromStoredArrayViaId(itemId, arrayName, onSuccess) {
     });
 }
 
-function validateDefaultsForBoolPreferences(localStorage, preferences) {
-    preferences.forEach(preference => {
+async function validateDefaultsForBoolPreferences(localStorage, preferences) {
+    for (let preference of preferences) {
         if (localStorage[preference.name] === undefined) {
-            addOrUpdateStoredValue(preference.name, preference.default);
+            localStorage = {...localStorage, [preference.name]: preference.default};
         }
-    });
+    }
+
+    await browser.storage.local.set(localStorage);
 }
 
 /* =====================================================================================================================

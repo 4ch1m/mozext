@@ -1,4 +1,4 @@
-![Signature Switch](https://raw.githubusercontent.com/4ch1m/mozext/master/signatureswitch-me/src/_images/signatureswitch-64px-black.png)
+![Signature Switch](src/_images/signatureswitch-64px-black.png#gh-light-mode-only)![Signature Switch](src/_images/signatureswitch-64px-white.png#gh-dark-mode-only)
 
 # Signature Switch - MailExtension
 > A complete rewrite of the (XUL-based) [Signature Switch](../signatureswitch) add-on.

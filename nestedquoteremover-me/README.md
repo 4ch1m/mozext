@@ -1,4 +1,5 @@
-![NestedQuote Remover](https://raw.githubusercontent.com/4ch1m/mozext/master/nestedquoteremover-me/src/_images/nestedquoteremover-64px-black.png)
+![NestedQuote Remover](src/_images/nestedquoteremover-64px-black.png#gh-light-mode-only)![NestedQuote Remover](src/_images/nestedquoteremover-64px-white.png#gh-dark-mode-only)
+
 
 # NestedQuote Remover - MailExtension
 > A complete rewrite of the (XUL-based) [NestedQuote Remover](../nestedquoteremover) add-on.

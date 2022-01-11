@@ -329,7 +329,7 @@ function addWindowCreateListener() {
                 }
 
                 // don't trigger recipient-based auto-switch for replies/forwardings if disabled in options
-                if (!(isReply && storage.repliesDisableAutoSwitch) ||
+                if (!(isReply && storage.repliesDisableAutoSwitch) &&
                     !(isForward && storage.forwardingsDisableAutoSwitch)) {
                     startRecipientChangeListener(tabId, 1000, "", storage.autoSwitchIncludeCc, storage.autoSwitchIncludeBcc);
                 }

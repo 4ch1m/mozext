@@ -9,7 +9,7 @@ const NATIVE_MESSAGING_TAB_PANE = `
             <div class="row mt-3">
                 <span data-i18n="nativeMessagingDescription3"></span><br>
                 <small><small>
-                    <a id="nativeMessagingGithubLink" class="m-2" href="https://github.com/4ch1m/mozext/tree/master/signatureswitch-me/native_messaging" target="_blank"></a>
+                    <a id="nativeMessagingGithubLink" class="m-2" href="https://github.com/4ch1m/mozext/tree/master/signatureswitch-me/native_messaging"></a>
                 </small></small>
             </div>
             <!-- usage -->

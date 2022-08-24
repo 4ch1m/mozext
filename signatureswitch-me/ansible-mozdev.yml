@@ -1,5 +1,5 @@
 # override TB version
-product_version: "102.0b8"
+product_version: "102.2.0"
 #download_url: "https://ftp.mozilla.org/pub/thunderbird/nightly/2022/07/2022-07-02-00-43-49-comm-central/thunderbird-104.0a1.en-US.linux-x86_64.tar.bz2"
 
 # used for "move_devtools_window" playbook

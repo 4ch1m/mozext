@@ -11,7 +11,7 @@ const HELP_TAB_PANE = `
                     <div class="col-auto">
                         <div class="btn-group">
                             <a href="https://www.achimonline.de/mozext/" class="btn btn-link">
-                                <img id="helpImageMozillaDino" class="img-fluid"><br>
+                                <img src="/_images/mozilla-dino.png" class="img-fluid"><br>
                                 <span class="nobr">www.achimonline.de/mozext/</span>
                             </a>
                         </div>
@@ -22,7 +22,7 @@ const HELP_TAB_PANE = `
                     <div class="col-auto">
                         <div class="btn-group">
                             <a href="https://github.com/4ch1m/mozext/tree/master/signatureswitch-me" class="btn btn-link">
-                                <img id="helpImageGithubOctocat" class="img-fluid"><br>
+                                <img src="/_images/octocat.png" class="img-fluid"><br>
                                 <span class="nobr">github.com/4ch1m/mozext</span>
                             </a>
                         </div>

@@ -21,8 +21,8 @@ copy.each([
     "node_modules/mdb-ui-kit/js/mdb.min.js.map",
     "node_modules/@popperjs/core/dist/umd/popper.min.js",
     "node_modules/@popperjs/core/dist/umd/popper.min.js.map",
-    "node_modules/uuid/dist/umd/uuidv4.min.js",
-    "node_modules/mustache/mustache.min.js"
+    "node_modules/mustache/mustache.min.js",
+    "rollup_dist/uuidv4.min.js",
 ], "src/_libraries/", opts, callback);
 
 copy("node_modules/bootstrap-icons/bootstrap-icons.svg", "src/_images/", opts, callback);

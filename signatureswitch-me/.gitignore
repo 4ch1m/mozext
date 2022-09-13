@@ -4,3 +4,4 @@ node_modules
 ansible-mozdev
 publish-*.sh
 web-ext-artifacts
+rollup_dist

@@ -1,0 +1,560 @@
+{
+  "commandNextDescription": {
+    "message": "Durchlauf (nächste)"
+  },
+  "commandPreviousDescription": {
+    "message": "Durchlauf (vorherige)"
+  },
+  "commandSwitchDescription": {
+    "message": "Signatur an/aus schalten"
+  },
+  "composeOptions": {
+    "message": "Optionen"
+  },
+  "composeSwitchOff": {
+    "message": "Ausschalten"
+  },
+  "composeSwitchOn": {
+    "message": "Einschalten"
+  },
+  "extensionDescription": {
+    "message": "Signaturen ein/aus schalten oder aus einer vordefinierten Liste auswählen."
+  },
+  "extensionName": {
+    "message": "Signature Switch"
+  },
+  "menuOnOff": {
+    "message": "An / Aus"
+  },
+  "menuOptions": {
+    "message": "Optionen"
+  },
+  "nativeMessagingDescription1": {
+    "message": "'Native messaging' kann genutzt werden, um der Signatur dynamische Inhalte/Nachrichten - die von einer lokal installierten Anwendung auf dem Computer erzeugt werden - hinzuzufügen."
+  },
+  "nativeMessagingDescription2": {
+    "message": "Es ist jedoch ziemlich umständlich, Thunderbird dazu zu bewegen mit der lokalen Anwendung zu kommunizieren. Des weiteren ist es womöglich noch komplizierter eine Anwendung zu erstellen bzw. bereitzustellen, welche sich exakt so verhält wie es die 'Native Messaging API' erwartet. (Vor allem deshalb, weil die zu übermittelnden Daten in einem bestimmten \"Format\" vorliegen müssen.)"
+  },
+  "nativeMessagingDescription3": {
+    "message": "Detaillierte Informationen, funktionsfähiger Beispielcode, sowie ergänzende Dokumentation steht auf GitHub zur Verfügung:"
+  },
+  "nativeMessagingMessage": {
+    "message": "Nachricht:"
+  },
+  "nativeMessagingMessageTooltip": {
+    "message": "Dies stellt den Inhalt bzw. die Nachricht dar, die an die lokale Anwendung versandt wird. Abgesehen vom Inhalt des individuellen 'Tag' werden alle anderen Werte automatisch belegt."
+  },
+  "nativeMessagingMessageValidationFailure": {
+    "message": "Ungültig!"
+  },
+  "nativeMessagingMessageValidationSuccess": {
+    "message": "Gültig."
+  },
+  "nativeMessagingResponse": {
+    "message": "Antwort:"
+  },
+  "nativeMessagingResponseTooltip": {
+    "message": "Hier sollte die von der Anwendung zurückgegebene Nachricht angezeigt werden. Es muss ein JSON-Objekt mit dem 'message'-Attribute sein."
+  },
+  "nativeMessagingResponseValidationFailure": {
+    "message": "Fehler!"
+  },
+  "nativeMessagingResponseValidationInvalid": {
+    "message": "Ungültiger oder unvollständiger Rückgabewert."
+  },
+  "nativeMessagingResponseValidationSuccess": {
+    "message": "Gültig."
+  },
+  "nativeMessagingSend": {
+    "message": "Nachricht senden"
+  },
+  "nativeMessagingTestHeader": {
+    "message": "'Native Messaging' Test"
+  },
+  "nativeMessagingTestHint": {
+    "message": "Die Konfiguration des 'Native Messaging' für Signature Switch kann durch einen Testaufruf mittels der untenstehenden Nachricht überprüft werden. Im Erfolgsfall sollte die Antwort der lokalen Anwendung erscheinen."
+  },
+  "nativeMessagingUsageCode": {
+    "message": "Moe Zilla<br>\nE-Mail: <a href=\"mailto:moe@zilla.org\">moe@zilla.org</a><br>\n<br>\nMeine derzeitige IP-Adresse: __IP__"
+  },
+  "nativeMessagingUsageDescription": {
+    "message": "Ein frei wählbahrer Tag-Name - umschlossen von doppelten Unterstrichen - kann innerhalb der Signatur genutzt werden, um eine entsprechende Nachricht an die lokale Anwendung zu senden; dieser Tag wird dann durch den zurückgegebenen Inhalt ersetzt."
+  },
+  "nativeMessagingUsageExample": {
+    "message": "Beispiel:"
+  },
+  "nativeMessagingUsageHeader": {
+    "message": "Nutzungshinweise:"
+  },
+  "optionsAddFortuneCookies": {
+    "message": "Neue 'Fortune cookies' hinzufügen"
+  },
+  "optionsAddImage": {
+    "message": "Neues Bild hinzufügen"
+  },
+  "optionsAddSignature": {
+    "message": "Neue Signatur hinzufügen"
+  },
+  "optionsAutoSwitch": {
+    "message": "Auto Switch"
+  },
+  "optionsAutoSwitchIncludeBcc": {
+    "message": "'Bcc' Empfänger miteinbeziehen."
+  },
+  "optionsAutoSwitchIncludeCc": {
+    "message": "'Cc' Empfänger miteinbeziehen."
+  },
+  "optionsCommandKeyComma": {
+    "message": "Komma"
+  },
+  "optionsCommandKeyDelete": {
+    "message": "Entfernen"
+  },
+  "optionsCommandKeyDown": {
+    "message": "Hoch"
+  },
+  "optionsCommandKeyEnd": {
+    "message": "Ende"
+  },
+  "optionsCommandKeyHome": {
+    "message": "Pos1"
+  },
+  "optionsCommandKeyInsert": {
+    "message": "Einfügen"
+  },
+  "optionsCommandKeyLeft": {
+    "message": "Links"
+  },
+  "optionsCommandKeyPageDown": {
+    "message": "BildAb"
+  },
+  "optionsCommandKeyPageUp": {
+    "message": "BildAuf"
+  },
+  "optionsCommandKeyPeriod": {
+    "message": "Punkt"
+  },
+  "optionsCommandKeyRight": {
+    "message": "Rechts"
+  },
+  "optionsCommandKeySpace": {
+    "message": "Leertaste"
+  },
+  "optionsCommandKeyUp": {
+    "message": "Hoch"
+  },
+  "optionsCommandLabelNext": {
+    "message": "Durchlauf (nächster):"
+  },
+  "optionsCommandLabelPrevious": {
+    "message": "Durchlauf (vorheriger):"
+  },
+  "optionsCommandLabelSwitch": {
+    "message": "Switch (an/aus):"
+  },
+  "optionsCommandReset": {
+    "message": "Zurücksetzen"
+  },
+  "optionsCommands": {
+    "message": "Tastaturkürzel"
+  },
+  "optionsDefaultAction": {
+    "message": "Standardaktion"
+  },
+  "optionsDefaultActionDescription": {
+    "message": "Beim Öffnen eines neuen Editierfensters ..."
+  },
+  "optionsDefaultActionInsert": {
+    "message": "die Standardsignatur einfügen"
+  },
+  "optionsDefaultActionNothing": {
+    "message": "nichts machen"
+  },
+  "optionsDefaultActionOff": {
+    "message": "die Signatur abschalten"
+  },
+  "optionsFortuneCookies": {
+    "message": "Fortune Cookies"
+  },
+  "optionsFortuneCookiesEditModalClose": {
+    "message": "Schliessen"
+  },
+  "optionsFortuneCookiesEditModalFileImport": {
+    "message": "Aus einer Datei importieren:"
+  },
+  "optionsFortuneCookiesEditModalLabel": {
+    "message": "Cookies"
+  },
+  "optionsFortuneCookiesEditModalPlaceholder": {
+    "message": "Chuck Norris kann durch Null teilen.\n%\nChuck Norris kennt die letzte Ziffer von Pi.\n%\nChuck Norris hat beim Schwimmen Amerika entdeckt.\n%\nWenn Chuck Norris ins Wasser geht, wird er nicht nass.\nDas Wasser wird Chuck Norris.\n%\nChuck Norris kann Fische ertränken."
+  },
+  "optionsFortuneCookiesEditModalSave": {
+    "message": "Speichern"
+  },
+  "optionsFortuneCookiesEditModalTitle": {
+    "message": "'Fortune cookies' bearbeiten"
+  },
+  "optionsFortuneCookiesEditModalTooltip": {
+    "message": "Cookies, getrennt durch eine '%'-Zeile."
+  },
+  "optionsFortuneCookiesRemoveModalNo": {
+    "message": "Nein"
+  },
+  "optionsFortuneCookiesRemoveModalQuestion": {
+    "message": "Möchtest Du diese 'Fortune cookies' wirklich entfernen?"
+  },
+  "optionsFortuneCookiesRemoveModalTitle": {
+    "message": "'Fortune cookies' entfernen"
+  },
+  "optionsFortuneCookiesRemoveModalYes": {
+    "message": "Ja"
+  },
+  "optionsFortuneCookiesUsage1": {
+    "message": "eine neue Sammlung mit 'Fortune cookies' durch Klick auf den obigen Button erstellen"
+  },
+  "optionsFortuneCookiesUsage2": {
+    "message": "der Sammlung einen beschreibenden Namen geben"
+  },
+  "optionsFortuneCookiesUsage3": {
+    "message": "Wichtig: Definiere einen EINDEUTIGEN Tag Namen!"
+  },
+  "optionsFortuneCookiesUsage4": {
+    "message": "in die Textbox klicken, um die Cookies zu bearbeiten"
+  },
+  "optionsFortuneCookiesUsage5": {
+    "message": "den Tag Namen (umschlossen von zwei eckigen Klammern) in der Signatur dort platzieren, wo das Zufalls-Cookie erscheinen soll"
+  },
+  "optionsFortuneCookiesUsageExample": {
+    "message": "Beispiel:"
+  },
+  "optionsFortuneCookiesUsageExampleCode": {
+    "message": "Moe Zilla<br>\nE-Mail: <a href=\"mailto:moe@zilla.org\">moe@zilla.org</a><br>\n<br>\nChuck Norris Fakt des Tages:<br>\n<pre>\n[[chuck]]\n</pre>"
+  },
+  "optionsFortuneCookiesUsageHeader": {
+    "message": "Nutzungshinweise:"
+  },
+  "optionsForwardings": {
+    "message": "Weiterleitungen"
+  },
+  "optionsForwardingsDisableAutoSwitch": {
+    "message": "'Auto switch' bei Weiterleitungen deaktivieren."
+  },
+  "optionsForwardingsNoDefaultAction": {
+    "message": "Die Standardaktion bei Weiterleitungen nicht anwenden."
+  },
+  "optionsHeader": {
+    "message": "$1"
+  },
+  "optionsHeaderSecondary": {
+    "message": "Einstellungen"
+  },
+  "optionsHelp": {
+    "message": "Hilfe"
+  },
+  "optionsHelpOr": {
+    "message": "oder"
+  },
+  "optionsHelpSupport1": {
+    "message": "Wenn Dir dieses Add-On gefällt, und Du den Autor unterstützen möchtest, besuche bitte"
+  },
+  "optionsHelpSupport2": {
+    "message": "und tätige eine kleine Spende. Vielen Dank!"
+  },
+  "optionsHelpText": {
+    "message": "Für detaillierte Informationen oder weitere Hilfe, bitte hier nachsehen"
+  },
+  "optionsIdentities": {
+    "message": "Identitäten"
+  },
+  "optionsIdentitiesLabel": {
+    "message": "Deine derzeitigen Identitäten:"
+  },
+  "optionsIdentitiesOverruleDefaultAction": {
+    "message": "Zugewiesene Signaturen überstimmen die Standardaktion (Einfügen/Entfernen der Signatur) beim Erstellen einer neuen Mail."
+  },
+  "optionsIdentitiesSwitchSignatureUponChange": {
+    "message": "Beim Wechsel der Identität, automatisch auf die zugewiesene Signatur umschalten."
+  },
+  "optionsIdentitiesTooltip": {
+    "message": "Hier sind alle Mail-Identitäten gelistet, die Du in Thunderbirds Standard-Einstellungen erstellt hast."
+  },
+  "optionsIdentitiesUseAssignedSignatureOnReplyOrForwarding": {
+    "message": "Beim Erstellen einer Antwort oder Weiterleitung, die zugewiesene Signatur nutzen."
+  },
+  "optionsImageRemoveModalNo": {
+    "message": "Nein"
+  },
+  "optionsImageRemoveModalQuestion": {
+    "message": "Möchtest Du dieses Bild wirklich löschen?"
+  },
+  "optionsImageRemoveModalTitle": {
+    "message": "Bild entfernen"
+  },
+  "optionsImageRemoveModalYes": {
+    "message": "Ja"
+  },
+  "optionsImageUsage1": {
+    "message": "einen neuen Eintrag durch Klick auf den obigen Button erstellen"
+  },
+  "optionsImageUsage2": {
+    "message": "den  \"Durchsuchen...\" Button klicken, und ein neues Bild hinzufügen"
+  },
+  "optionsImageUsage3": {
+    "message": "dem Bild einen beschreibenden Namen geben"
+  },
+  "optionsImageUsage4": {
+    "message": "Wichtig: Definiere einen EINDEUTIGEN Tag Namen!"
+  },
+  "optionsImageUsage5": {
+    "message": "den Tag Namen (umschlossen von zwei geschweiften Klammern) in der HTML-Signatur bei einem Bild-Element als src-Attribut verwenden"
+  },
+  "optionsImageUsageExample": {
+    "message": "Beispiel:"
+  },
+  "optionsImageUsageExampleCode": {
+    "message": "<img src=\"{{logo}}\" border=\"0\" width=\"150\" height=\"100\">"
+  },
+  "optionsImageUsageHeader": {
+    "message": "Nutzungshinweise:"
+  },
+  "optionsImageUsageNote": {
+    "message": "HINWEIS: Bitte das Speichern von Bilddaten hier mit Bedacht vornehmen. Das Hinzufügen von zu vielen oder zu grossen Bildern kann die Gesamtleistung beeinträchtigen und Speicherplatz verschwenden. Es sollten nur optimierte und für die Signaturerstellung notwendige Bilddateien verwendet werden."
+  },
+  "optionsImages": {
+    "message": "Bilder"
+  },
+  "optionsImportExport": {
+    "message": "Importieren / Exportieren"
+  },
+  "optionsImportExportClipboard": {
+    "message": "Zwischenablage"
+  },
+  "optionsImportExportConfirmationModalNo": {
+    "message": "Nein"
+  },
+  "optionsImportExportConfirmationModalQuestion": {
+    "message": "Möchtest Du wirklich die JSON-Daten importieren und alle derzeit gespeicherten Signaturen überschreiben?"
+  },
+  "optionsImportExportConfirmationModalTitle": {
+    "message": "Signaturen importieren"
+  },
+  "optionsImportExportConfirmationModalYes": {
+    "message": "Ja"
+  },
+  "optionsImportExportDataLabel": {
+    "message": "Signaturen:"
+  },
+  "optionsImportExportDescription1": {
+    "message": "Dieses Feature ist primär zur Sicherung/Wiederherstellung gedacht. Exportiere Deine Signaturen; kopiere sie in die Zwischenablage; füge sie in einem Text-Editor Deiner Wahl ein und speichere alles in einer Datei ab. (Und umgekehrt: Zuvor gesicherte Daten können hier wieder eingefügt und importiert werden.)"
+  },
+  "optionsImportExportDescription2": {
+    "message": "HINWEIS: Dieser Export beinhaltet lediglich die Signaturen selbst; die separat/intern abgelegten Bild- oder 'Fortune cookies'-Daten sind nicht enthalten!"
+  },
+  "optionsImportExportExport": {
+    "message": "Exportieren"
+  },
+  "optionsImportExportImport": {
+    "message": "Importieren"
+  },
+  "optionsImportExportSuccessModalInfo": {
+    "message": "Signaturen erfolgreich importiert."
+  },
+  "optionsImportExportSuccessModalOk": {
+    "message": "Ok"
+  },
+  "optionsImportExportSuccessModalTitle": {
+    "message": "Signatur importieren"
+  },
+  "optionsImportExportValidationFailure": {
+    "message": "Ungültig!"
+  },
+  "optionsImportExportValidationSuccess": {
+    "message": "Korrekt."
+  },
+  "optionsMiscellaneous": {
+    "message": "Verschiedenes"
+  },
+  "optionsNativeMessaging": {
+    "message": "Native Messaging"
+  },
+  "optionsReloadIdentities": {
+    "message": "Neu laden"
+  },
+  "optionsReplies": {
+    "message": "Antworten"
+  },
+  "optionsRepliesDisableAutoSwitch": {
+    "message": "'Auto switch' bei Antworten deaktiveren."
+  },
+  "optionsRepliesNoDefaultAction": {
+    "message": "Die Standardaktion beim Antworten auf eine Mail nicht anwenden."
+  },
+  "optionsSignatureComposeSeparator": {
+    "message": "Einen optischen Signatur-Trenner während der Mail-Erstellung anzeigen. (Wird nicht mit der eigentlichen Nachricht versandt oder beim Druck angezeigt.)"
+  },
+  "optionsSignatureEditModalAutoSwitch": {
+    "message": "Auto switch"
+  },
+  "optionsSignatureEditModalAutoSwitchMatchAll": {
+    "message": "Alle Empfänger müssen einem der angegebenen Kriterien entsprechen."
+  },
+  "optionsSignatureEditModalAutoSwitchPlaceholder": {
+    "message": "*@company.com, *smith*@*.de, moe@zilla.com"
+  },
+  "optionsSignatureEditModalAutoSwitchTooltip": {
+    "message": "Eine komma-separierte Liste mit E-Mail-Adressen. Sobald eine Adresse daraus unter den Empfängern ist, wird diese Signatur automatisch eingefügt. (HINWEIS: Das Sternchen kann als Platzhalter verwendet werden.)"
+  },
+  "optionsSignatureEditModalClose": {
+    "message": "Schliessen"
+  },
+  "optionsSignatureEditModalContent": {
+    "message": "Inhalt"
+  },
+  "optionsSignatureEditModalContentTooltip": {
+    "message": "Abhängig vom verwendeten Modus (Text oder HTML), wird der entsprechende Signatur-Inhalt herangezogen."
+  },
+  "optionsSignatureEditModalHtml": {
+    "message": "HTML"
+  },
+  "optionsSignatureEditModalHtmlPlaceholder": {
+    "message": "<b>Moe Zilla<b><br>\nE-Mail: <a href=\"mailto:moe@zilla.org\">moe@zilla.org</a><br>\nTelefon: (666) 12345"
+  },
+  "optionsSignatureEditModalName": {
+    "message": "Name"
+  },
+  "optionsSignatureEditModalNamePlaceholder": {
+    "message": "geschäftliche Signatur"
+  },
+  "optionsSignatureEditModalNameTooltip": {
+    "message": "Der Name, der zur Selektion via Button oder Kontext-Menu angezeigt wird."
+  },
+  "optionsSignatureEditModalPlaintext": {
+    "message": "Text"
+  },
+  "optionsSignatureEditModalSave": {
+    "message": "Speichern"
+  },
+  "optionsSignatureEditModalTextPlaceholder": {
+    "message": "Moe Zilla\nE-Mail: moe@zilla.org\nTelefon: (666) 12345"
+  },
+  "optionsSignatureEditModalTitle": {
+    "message": "Signatur bearbeiten"
+  },
+  "optionsSignatureNewName": {
+    "message": "Neue Signatur"
+  },
+  "optionsSignaturePlacement": {
+    "message": "Platzierung"
+  },
+  "optionsSignaturePlacementAboveQuoteOrForwarding": {
+    "message": "Die Signatur über dem Zitat bzw. der Weiterleitung platzieren."
+  },
+  "optionsSignaturePlacementAboveQuoteOrForwardingNotRecommended": {
+    "message": "nicht empfohlen"
+  },
+  "optionsSignatureRemoveModalNo": {
+    "message": "Nein"
+  },
+  "optionsSignatureRemoveModalQuestion": {
+    "message": "Möchtest Du diese Signatur wirklich entfernen?"
+  },
+  "optionsSignatureRemoveModalTitle": {
+    "message": "Signatur entfernen"
+  },
+  "optionsSignatureRemoveModalYes": {
+    "message": "Ja"
+  },
+  "optionsSignatureSeparator": {
+    "message": "Trenner"
+  },
+  "optionsSignatureSeparatorHtml": {
+    "message": "Signatur-Trenner automatisch zur HTML-Signatur hinzufügen ('-- \\n')."
+  },
+  "optionsSignatures": {
+    "message": "Signaturen"
+  },
+  "optionsTableColumnFortuneCookiesDelete": {
+    "message": "Löschen"
+  },
+  "optionsTableColumnFortuneCookiesFortuneCookies": {
+    "message": "Cookies"
+  },
+  "optionsTableColumnFortuneCookiesName": {
+    "message": "Name"
+  },
+  "optionsTableColumnFortuneCookiesNamePlaceholder": {
+    "message": "Chuck Norris"
+  },
+  "optionsTableColumnFortuneCookiesTag": {
+    "message": "Tag"
+  },
+  "optionsTableColumnFortuneCookiesTagPlaceholder": {
+    "message": "chuck"
+  },
+  "optionsTableColumnIdentityAssignedSignature": {
+    "message": "Zugewiesene Signatur"
+  },
+  "optionsTableColumnIdentityName": {
+    "message": "Identität"
+  },
+  "optionsTableColumnImagesDelete": {
+    "message": "Löschen"
+  },
+  "optionsTableColumnImagesImage": {
+    "message": "Bild"
+  },
+  "optionsTableColumnImagesName": {
+    "message": "Name"
+  },
+  "optionsTableColumnImagesNamePlaceholder": {
+    "message": "Firmenlogo"
+  },
+  "optionsTableColumnImagesTag": {
+    "message": "Tag"
+  },
+  "optionsTableColumnImagesTagPlaceholder": {
+    "message": "logo"
+  },
+  "optionsTableColumnSignaturesAction": {
+    "message": "Aktion"
+  },
+  "optionsTableColumnSignaturesDefault": {
+    "message": "Standard"
+  },
+  "optionsTableColumnSignaturesName": {
+    "message": "Name"
+  },
+  "signaturePlacementConfirmationModalNo-1": {
+    "message": "Nein"
+  },
+  "signaturePlacementConfirmationModalNo-2": {
+    "message": "Nein."
+  },
+  "signaturePlacementConfirmationModalNo-3": {
+    "message": "Lieber nicht."
+  },
+  "signaturePlacementConfirmationModalQuestion-1": {
+    "message": "Es ist nicht empfehlenswert die E-Mail-Signatur an eine andere Stelle als ganz zum Schluss zu platzieren. Hierfür gibt es viele Gründe. Es ist zu beachten, dass E-Mails von einer Vielzahl an verschiedenen Clientprogrammen verarbeitet werden. Das Abweichen von Standards kann hier nicht nur zu eingeschränkter Funktionalität auf Deiner Seite, sondern auch zu negativen Ausswirkungen auf Empfängerseite führen. Möchtest Du diese Option wirklich aktivieren?"
+  },
+  "signaturePlacementConfirmationModalQuestion-2": {
+    "message": "Durch eine Platzierung der Signatur oberhalb von Antworten/Zitaten oder Weiterleitungen muss der \"Standard Signatur-Trenner\" ('-- \\n'; beachte: RFC 3676) entfernt werden. Dadurch wird die einfache Erkennung zuvor eingefügter Signaturen erschwert bzw. unmöglich gemacht; was wiederum weitere Funktionalitäten dieses Add-Ons (wie z.B. das Signatur-Umschalten bei der Nachbearbeitung von gespeicherten Mail-Entwürfen), etc.) beeinträchtigt. Bist Du also wirklich sicher, dass Du dies tun willst?"
+  },
+  "signaturePlacementConfirmationModalQuestion-3": {
+    "message": "OK. Bitte beachte auch, dass jegliche Hilfe/Support vom Autor dieses Add-Ons erlischt, sobald diese Option aktiviert ist. Und dies zu akzeptieren und die Option dennoch endlich zu aktivieren, bitte die angeführten Tasten in korrekter Reihenfolge betätigen."
+  },
+  "signaturePlacementConfirmationModalTitle-1": {
+    "message": "Signatur Platzierung"
+  },
+  "signaturePlacementConfirmationModalTitle-2": {
+    "message": "Signatur Platzierung"
+  },
+  "signaturePlacementConfirmationModalTitle-3": {
+    "message": "Signatur Platzierung"
+  },
+  "signaturePlacementConfirmationModalYes-1": {
+    "message": "Ja"
+  },
+  "signaturePlacementConfirmationModalYes-2": {
+    "message": "Ja, definitiv!"
+  }
+}

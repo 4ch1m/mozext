@@ -54,7 +54,7 @@
     "message": "Response:"
   },
   "nativeMessagingResponseTooltip": {
-    "message": "This should show the message your native application returned. It need to be a JSON-object containing a 'message'-attribute."
+    "message": "This should show the message your native application returned. It needs to be a JSON-object containing a 'message'-attribute."
   },
   "nativeMessagingResponseValidationFailure": {
     "message": "Failure!"
@@ -447,7 +447,7 @@
     "message": "Placement"
   },
   "optionsSignaturePlacementAboveQuoteOrForwarding": {
-    "message": "Place signature above reply-quote / forwarded message"
+    "message": "Place signature above reply-quote / forwarded message."
   },
   "optionsSignaturePlacementAboveQuoteOrForwardingNotRecommended": {
     "message": "not recommended"

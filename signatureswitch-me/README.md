@@ -51,6 +51,7 @@ npm run build
 * [jest](https://github.com/facebook/jest)
 * [rewire](https://github.com/jhnns/rewire)
 * [copy](https://github.com/jonschlinkert/copy)
+* [rollup](https://github.com/rollup/rollup)
 
 ### Other than that
 

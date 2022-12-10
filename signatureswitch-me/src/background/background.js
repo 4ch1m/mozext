@@ -304,7 +304,7 @@ function addWindowCreateListener() {
                     }
                 }
 
-                // check if we have an signature sig AND if it should take precedence over the default action/sig
+                // check if we have a signature sig AND if it should take precedence over the default action/sig
                 let identitySigAvailableAndOverrulesDefault = (identitySignatureId !== "") && (storage.identitiesOverruleDefaultAction);
 
                 if (!noDefaultAction && !identitySigAvailableAndOverrulesDefault) {
@@ -737,8 +737,8 @@ function createRegexFromAutoSwitchString(autoSwitchString) {
 function cleanseRecipientString(recipient) {
     // check if we got something like '"Moe Zilla" <moe@zilla.org>'; return plain email-address
     if (new RegExp(".*<.*>.*").test(recipient)) {
-        recipient = recipient.substr(recipient.indexOf("<") + 1);
-        recipient = recipient.substr(0, recipient.lastIndexOf(">"));
+        recipient = recipient.substring(recipient.indexOf("<") + 1);
+        recipient = recipient.substring(0, recipient.lastIndexOf(">") + 1);
     }
 
     return recipient;

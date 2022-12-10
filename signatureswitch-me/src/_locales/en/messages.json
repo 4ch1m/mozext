@@ -333,22 +333,19 @@
     "message": "No"
   },
   "optionsImportExportConfirmationModalQuestion": {
-    "message": "Do you really want to import the JSON data and overwrite all currently stored signatures?"
+    "message": "Do you really want to import the JSON data and overwrite all currently stored signatures, images, and fortune-cookies?"
   },
   "optionsImportExportConfirmationModalTitle": {
-    "message": "Import signatures"
+    "message": "Import data"
   },
   "optionsImportExportConfirmationModalYes": {
     "message": "Yes"
   },
   "optionsImportExportDataLabel": {
-    "message": "Signatures:"
+    "message": "Data:"
   },
-  "optionsImportExportDescription1": {
-    "message": "This feature is primarily intended for backup/restore purposes. Export your signatures; copy them to the clipboard; paste into a text editor of your choice and save the data to a file. (Vice versa: Paste previously backed up data in here and import.)"
-  },
-  "optionsImportExportDescription2": {
-    "message": "NOTE: This export won't include the separately stored image data or 'Fortune Cookies' data; only signatures!"
+  "optionsImportExportDescription": {
+    "message": "This feature is primarily intended for backup/restore purposes. Export your data; copy it to the clipboard; paste it into a text editor; save it to a file. (Vice versa: Paste previously backed up data in here and then import it.)"
   },
   "optionsImportExportExport": {
     "message": "Export"
@@ -356,14 +353,20 @@
   "optionsImportExportImport": {
     "message": "Import"
   },
+  "optionsImportExportIncludeFortuneCookies": {
+    "message": "Export fortune cookies"
+  },
+  "optionsImportExportIncludeImages": {
+    "message": "Export images"
+  },
   "optionsImportExportSuccessModalInfo": {
-    "message": "Signatures successfully imported."
+    "message": "Data successfully imported."
   },
   "optionsImportExportSuccessModalOk": {
     "message": "Ok"
   },
   "optionsImportExportSuccessModalTitle": {
-    "message": "Signature import"
+    "message": "Data import"
   },
   "optionsImportExportValidationFailure": {
     "message": "Invalid!"

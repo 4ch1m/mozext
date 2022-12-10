@@ -33,7 +33,7 @@
     "message": "'Native messaging' kann genutzt werden, um der Signatur dynamische Inhalte/Nachrichten - die von einer lokal installierten Anwendung auf dem Computer erzeugt werden - hinzuzufügen."
   },
   "nativeMessagingDescription2": {
-    "message": "Es ist jedoch ziemlich umständlich, Thunderbird dazu zu bewegen mit der lokalen Anwendung zu kommunizieren. Des weiteren ist es womöglich noch komplizierter eine Anwendung zu erstellen bzw. bereitzustellen, welche sich exakt so verhält wie es die 'Native Messaging API' erwartet. (Vor allem deshalb, weil die zu übermittelnden Daten in einem bestimmten \"Format\" vorliegen müssen.)"
+    "message": "Es ist jedoch ziemlich umständlich, Thunderbird dazu zu bewegen mit der lokalen Anwendung zu kommunizieren. Des weiteren ist es nicht trivial eine Anwendung zu erstellen bzw. bereitzustellen, welche sich exakt so verhält wie es die 'Native Messaging API' erwartet. (Vor allem deshalb, weil die zu übermittelnden Daten in einem bestimmten \"Format\" vorliegen müssen.)"
   },
   "nativeMessagingDescription3": {
     "message": "Detaillierte Informationen, funktionsfähiger Beispielcode, sowie ergänzende Dokumentation steht auf GitHub zur Verfügung:"
@@ -333,22 +333,19 @@
     "message": "Nein"
   },
   "optionsImportExportConfirmationModalQuestion": {
-    "message": "Möchtest Du wirklich die JSON-Daten importieren und alle derzeit gespeicherten Signaturen überschreiben?"
+    "message": "Möchtest Du wirklich die JSON-Daten importieren und alle derzeit gespeicherten Signaturen, Bilder und Fortune-Cookies überschreiben?"
   },
   "optionsImportExportConfirmationModalTitle": {
-    "message": "Signaturen importieren"
+    "message": "Daten importieren"
   },
   "optionsImportExportConfirmationModalYes": {
     "message": "Ja"
   },
   "optionsImportExportDataLabel": {
-    "message": "Signaturen:"
+    "message": "Daten:"
   },
-  "optionsImportExportDescription1": {
-    "message": "Dieses Feature ist primär zur Sicherung/Wiederherstellung gedacht. Exportiere Deine Signaturen; kopiere sie in die Zwischenablage; füge sie in einem Text-Editor Deiner Wahl ein und speichere alles in einer Datei ab. (Und umgekehrt: Zuvor gesicherte Daten können hier wieder eingefügt und importiert werden.)"
-  },
-  "optionsImportExportDescription2": {
-    "message": "HINWEIS: Dieser Export beinhaltet lediglich die Signaturen selbst; die separat/intern abgelegten Bild- oder 'Fortune cookies'-Daten sind nicht enthalten!"
+  "optionsImportExportDescription": {
+    "message": "Dieses Feature ist primär zur Sicherung/Wiederherstellung gedacht. Exportiere Deine Daten; kopiere sie in die Zwischenablage; füge sie in einem Text-Editor Deiner Wahl ein; speichere alles in einer Datei ab. (Und umgekehrt: Zuvor gesicherte Daten können hier wieder eingefügt und importiert werden.)"
   },
   "optionsImportExportExport": {
     "message": "Exportieren"
@@ -356,14 +353,20 @@
   "optionsImportExportImport": {
     "message": "Importieren"
   },
+  "optionsImportExportIncludeFortuneCookies": {
+    "message": "'Fortune cookies' exportieren"
+  },
+  "optionsImportExportIncludeImages": {
+    "message": "Bilder exportieren"
+  },
   "optionsImportExportSuccessModalInfo": {
-    "message": "Signaturen erfolgreich importiert."
+    "message": "Daten erfolgreich importiert."
   },
   "optionsImportExportSuccessModalOk": {
     "message": "Ok"
   },
   "optionsImportExportSuccessModalTitle": {
-    "message": "Signatur importieren"
+    "message": "Daten importieren"
   },
   "optionsImportExportValidationFailure": {
     "message": "Ungültig!"

@@ -801,7 +801,7 @@ async function initUI(localStorage) {
         Native Messaging
        ------------------ */
 
-    // Github link
+    // GitHub link
     let nativeMessagingGithubLink = document.getElementById("nativeMessagingGithubLink");
     nativeMessagingGithubLink.innerText = nativeMessagingGithubLink.href;
 
@@ -864,28 +864,46 @@ async function initUI(localStorage) {
     });
     importExportModals.appendChild(importExportConfirmationModalElement);
     let importExportConfirmationModal = new bootstrap.Modal(document.getElementById(importExportConfirmationModalId));
-    document.getElementById(importExportConfirmationModalYesButtonId).addEventListener("click", () => {
+    document.getElementById(importExportConfirmationModalYesButtonId).addEventListener("click", async () => {
         try {
-            addOrUpdateStoredValue("signatures", JSON.parse(importExportData.value));
+            await executeDataImport(createImportDataFromJSON(importExportData.value));
             importExportSuccessModal.show();
         } catch(e) {
-            console.log("unable to store signatures. probably invalid json-string.");
+            console.log("unable to store data. probably invalid json-string.");
         }
         importExportConfirmationModal.hide();
+        document.location.reload(true);
     });
 
     // export
-    document.getElementById("exportSignatures").addEventListener("click", () => {
+    let importExportIncludeImages = document.getElementById("importExportIncludeImages");
+    let importExportIncludeFortuneCookies = document.getElementById("importExportIncludeFortuneCookies");
+    document.getElementById("importExportExport").addEventListener("click", () => {
         browser.storage.local.get().then(localStorage => {
-            if (localStorage.signatures) {
-                importExportData.value = JSON.stringify(localStorage.signatures, null, 2);
-                validateImportExportData();
+            let export_data = {};
+            
+            if (importExportIncludeImages.checked || importExportIncludeFortuneCookies.checked) {
+                export_data.signatures = localStorage.signatures ? localStorage.signatures : [];
+
+                if (importExportIncludeImages.checked) {
+                    export_data.images = localStorage.images ? localStorage.images : [];
+                }
+
+                if (importExportIncludeFortuneCookies.checked) {
+                    export_data.fortuneCookies = localStorage.fortuneCookies ? localStorage.fortuneCookies : [];
+                }
+            } else {
+                export_data = localStorage.signatures ? localStorage.signatures : "";
             }
+
+            importExportData.value = JSON.stringify(export_data, null, 2);
+
+            validateImportExportData();
         });
     });
 
     // clipboard
-    document.getElementById("copySignaturesToClipboard").addEventListener("click", () => {
+    document.getElementById("importExportClipboard").addEventListener("click", () => {
         copyTextToClipboard(importExportData.value);
     });
 
@@ -968,7 +986,7 @@ function reorderSignatures(id, direction) {
 function buildIdentitiesTableBody(localStorage) {
     // get all existing signature ids first
     getAllSignatureIds(localStorage.signatures).then(allSignatureIds => {
-        // helper-function to get the the already assigned sig-id of an identity
+        // helper-function to get the already assigned sig-id of an identity
         let getAssignedSignatureIdForMailIdentityId = mailIdentityId => {
             let signatureId = "";
             if (localStorage.identities) {
@@ -1029,24 +1047,12 @@ function buildIdentitiesTableBody(localStorage) {
 function validateImportExportData() {
     let importExportData = document.getElementById("importExportData").value;
     let importExportDataValidation = document.getElementById("importExportDataValidation");
-    let importSignaturesButton = document.getElementById("importSignatures");
+    let importExportDataImportButton = document.getElementById("importExportImport");
 
     let success = true;
 
     try {
-        let signatures = JSON.parse(importExportData);
-
-        if (signatures.length > 0) {
-            for (let signature of signatures) {
-                if ( !( signature.hasOwnProperty("id")    &&
-                        signature.hasOwnProperty("name")  &&
-                        (signature.hasOwnProperty("text") || signature.hasOwnProperty("html"))) ) {
-                    throw "missing signature-attributes!"
-                }
-            }
-        } else {
-            success = false;
-        }
+        createImportDataFromJSON(importExportData)
     } catch(e) {
         success = false;
     }
@@ -1054,7 +1060,7 @@ function validateImportExportData() {
     importExportDataValidation.innerText = success ? i18n("optionsImportExportValidationSuccess") : i18n("optionsImportExportValidationFailure");
     importExportDataValidation.classList.remove(success ? "text-danger" : "text-success");
     importExportDataValidation.classList.add(success ? "text-success" : "text-danger");
-    importSignaturesButton.disabled = !success;
+    importExportDataImportButton.disabled = !success;
 }
 
 async function resetCommand(name) {
@@ -1210,6 +1216,86 @@ function copyTextToClipboard(text, callback) {
     }
 }
 
+function createImportDataFromJSON(json) {
+    let data = JSON.parse(json);
+    let importData = {};
+
+    let validateSignatures = (signatures => {
+            for (let signature of signatures) {
+                if ( !( signature.hasOwnProperty("id")    &&
+                        signature.hasOwnProperty("name")  &&
+                        (signature.hasOwnProperty("text") || signature.hasOwnProperty("html"))) ) {
+                    throw "missing signature-attribute(s)!";
+                }
+            }
+        }
+    );
+
+    let validateImages = (images => {
+        for (let image of images) {
+            if ( !( image.hasOwnProperty("id")   &&
+                    image.hasOwnProperty("name") &&
+                    image.hasOwnProperty("tag")  &&
+                    image.hasOwnProperty("data")) ) {
+                throw "missing image-attribute(s)!";
+            }
+
+            if (!/^data:image\/.*;base64,.*/.test(image.data)) {
+                throw "incompatible image-data!";
+            }
+        }
+    });
+
+    let validateFortuneCookies = (fortuneCookies => {
+        for (let fortuneCookie of fortuneCookies) {
+            if ( !( fortuneCookie.hasOwnProperty("id")   &&
+                    fortuneCookie.hasOwnProperty("name") &&
+                    fortuneCookie.hasOwnProperty("tag")  &&
+                    fortuneCookie.hasOwnProperty("cookies")) ) {
+                throw "missing fortuneCookies-attribute(s)!";
+            }
+        }
+    });
+
+    if (data.hasOwnProperty("signatures")) {
+        validateSignatures(data.signatures);
+        importData.signatures = data.signatures;
+    } else {
+        if (Array.isArray(data)) {
+            validateSignatures(data);
+            importData.signatures = data;
+        } else {
+            throw "incompatible JSON structure!";
+        }
+    }
+
+    if (data.hasOwnProperty("images")) {
+        validateImages(data.images);
+        importData.images = data.images;
+    }
+
+    if (data.hasOwnProperty("fortuneCookies")) {
+        validateFortuneCookies(data.fortuneCookies);
+        importData.fortuneCookies = data.fortuneCookies;
+    }
+
+    return importData;
+}
+
+async function executeDataImport(importData) {
+    let localStorage = await browser.storage.local.get();
+
+    for (let item of ["signatures", "images", "fortuneCookies"]) {
+        if (!localStorage[item]) {
+            localStorage = {...localStorage, [item]: importData[item]};
+        } else {
+            localStorage[item] = importData[item];
+        }
+    }
+
+    await browser.storage.local.set(localStorage);
+}
+
 function testNativeMessaging() {
     let validationInfo = document.getElementById("nativeMessagingResponseValidation");
     validationInfo.innerText = "";
@@ -1224,7 +1310,7 @@ function testNativeMessaging() {
         document.getElementById("nativeMessagingResponse").value = JSON.stringify(resultObject.response, null, 2);
 
         if (resultObject.success) {
-            let messagePropertyIsPresent = resultObject.response.hasOwnProperty("message"); // for now we only check if the "message" property is provided in the response
+            let messagePropertyIsPresent = resultObject.response.hasOwnProperty("message"); // for now, we only check if the "message" property is provided in the response
             validationInfo.classList.add(messagePropertyIsPresent ? "text-success" : "text-danger");
             validationInfo.innerText =  i18n(messagePropertyIsPresent ? "nativeMessagingResponseValidationSuccess" : "nativeMessagingResponseValidationInvalid");
         } else {

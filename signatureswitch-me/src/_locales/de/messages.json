@@ -543,7 +543,7 @@
     "message": "Durch eine Platzierung der Signatur oberhalb von Antworten/Zitaten oder Weiterleitungen muss der \"Standard Signatur-Trenner\" ('-- \\n'; beachte: RFC 3676) entfernt werden. Dadurch wird die einfache Erkennung zuvor eingefügter Signaturen erschwert bzw. unmöglich gemacht; was wiederum weitere Funktionalitäten dieses Add-Ons (wie z.B. das Signatur-Umschalten bei der Nachbearbeitung von gespeicherten Mail-Entwürfen), etc.) beeinträchtigt. Bist Du also wirklich sicher, dass Du dies tun willst?"
   },
   "signaturePlacementConfirmationModalQuestion-3": {
-    "message": "OK. Bitte beachte auch, dass jegliche Hilfe/Support vom Autor dieses Add-Ons erlischt, sobald diese Option aktiviert ist. Und dies zu akzeptieren und die Option dennoch endlich zu aktivieren, bitte die angeführten Tasten in korrekter Reihenfolge betätigen."
+    "message": "OK. Bitte beachte auch, dass jegliche Hilfe/Support vom Autor dieses Add-Ons erlischt, sobald diese Option aktiviert ist. Um dies zu akzeptieren und die Option dennoch endlich zu aktivieren, bitte die angeführten Tasten in korrekter Reihenfolge betätigen."
   },
   "signaturePlacementConfirmationModalTitle-1": {
     "message": "Signatur Platzierung"

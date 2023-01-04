@@ -1,0 +1,44 @@
+{
+  "commandRemoveDescription": {
+    "message": "Usuń zagnieżdżone cytaty"
+  },
+  "contextMenu": {
+    "message": "Usuń zagnieżdżone cytaty"
+  },
+  "extensionDescription": {
+    "message": "Usuń zagnieżdżone cytaty podczas odpowiadania na maila."
+  },
+  "extensionName": {
+    "message": "Usuwacz zagnieżdżonych cytatów"
+  },
+  "optionsAutoRemove": {
+    "message": "Automatycznie usuwaj zagnieżdżone cytaty"
+  },
+  "optionsContextMenuEntry": {
+    "message": "Pokaż pozycję w menu kontekstowym"
+  },
+  "optionsKeyboardShortcut": {
+    "message": "Skrót klawiszowy:"
+  },
+  "optionsKeyboardShortcutPlaceholder": {
+    "message": "np. 'Ctrl+Shift+N'"
+  },
+  "optionsKeyboardShortcutReset": {
+    "message": "Wyzeruj"
+  },
+  "optionsKeyboardShortcutSet": {
+    "message": "Ustaw"
+  },
+  "optionsMaxAllowedQuoteDepth": {
+    "message": "Maksymalny, dozwolony poziom cytatu:"
+  },
+  "optionsRemoveQuotedReplyHeader": {
+    "message": "Usuń cytowany nagłówek odpowiedzi:"
+  },
+  "optionsReplyHeaderPattern": {
+    "message": "(Użyj gwiazdki jako symbolu wieloznacznego.)"
+  },
+  "optionsReplyHeaderPatternDefault": {
+    "message": "Włącz *, * napisano:"
+  }
+}

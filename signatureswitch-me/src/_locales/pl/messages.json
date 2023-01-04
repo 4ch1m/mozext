@@ -312,13 +312,13 @@
     "message": "Na przykład:"
   },
   "optionsImageUsageExampleCode": {
-    "wiadomość": "<img src=\"{{logo}}\" border=\"0\" width=\"150\" height=\"100\">"
+    "message": "<img src=\"{{logo}}\" border=\"0\" width=\"150\" height=\"100\">"
   },
   "optionsImageUsageHeader": {
-    "wiadomość": "Użycie:"
+    "message": "Użycie:"
   },
   "optionsImageUsageNote": {
-    "wiadomość": "UWAGA: Prosimy o ostrożne obchodzenie się z przechowywaniem danych obrazów w tym miejscu. Dodanie zbyt wielu i/lub zbyt dużych obrazów może pogorszyć ogólną wydajność i zmarnować miejsce na dysku. Używaj tylko zoptymalizowanych zasobów naprawdę potrzebnych do tworzenia podpisu."
+    "message": "UWAGA: Prosimy o ostrożne obchodzenie się z przechowywaniem danych obrazów w tym miejscu. Dodanie zbyt wielu i/lub zbyt dużych obrazów może pogorszyć ogólną wydajność i zmarnować miejsce na dysku. Używaj tylko zoptymalizowanych zasobów naprawdę potrzebnych do tworzenia podpisu."
   },
   "optionsImages": {
     "message": "Obrazy"

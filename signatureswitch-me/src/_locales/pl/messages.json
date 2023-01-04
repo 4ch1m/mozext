@@ -1,0 +1,563 @@
+{
+  "commandNextDescription": {
+    "message": "Cykl (następny)"
+  },
+  "commandPreviousDescription": {
+    "message": "Cykl (poprzedni)"
+  },
+  "commandSwitchDescription": {
+    "message": "Zmień podpis wł./wył."
+  },
+  "composeOptions": {
+    "message": "Opcje"
+  },
+  "composeSwitchOff": {
+    "message": "Wyłącz"
+  },
+  "composeSwitchOn": {
+    "message": "Włącz"
+  },
+  "extensionDescription": {
+    "message": "Włączanie/wyłączanie podpisu lub wybór nowego z predefiniowanego zestawu."
+  },
+  "extensionName": {
+    "message": "Przełącznik podpisów"
+  },
+  "menuOnOff": {
+    "message": "Włącz / Wyłącz"
+  },
+  "menuOptions": {
+    "message": "Opcje"
+  },
+  "nativeMessagingDescription1": {
+    "message": "Natywne wiadomości mogą być używane do wstawiania dynamicznej zawartości do podpisu otrzymanego z natywnej aplikacji zainstalowanej na komputerze."
+  },
+  "nativeMessagingDescription2": {
+    "message": "Jednak zmuszenie Thunderbirda do rozmowy z natywną aplikacją jest dosyć kłopotliwe. Dodatkowo jeszcze bardziej skomplikowane jest dostarczenie/wdrożenie aplikacji, która zachowuje się dokładnie tak, jak oczekuje 'Native Messaging API' (głównie dlatego, że przesyłane dane muszą być w określonym \"formacie\")."
+  },
+  "nativeMessagingDescription3": {
+    "message": "Aby uzyskać szczegółowe informacje i działający przykładowy kod, proszę sprawdzić dokumentację na GitHubie przed kontynuacją:"
+  },
+  "nativeMessagingMessage": {
+    "message": "Wiadomość:"
+  },
+  "nativeMessagingMessageTooltip": {
+    "message": "Przypomina to wiadomość, która jest wysyłana do aplikacji natywnej za pośrednictwem natywnych wiadomości. Poza twoim tagiem, wszystkie inne wartości zostaną wypełnione automatycznie."
+  },
+  "nativeMessagingMessageValidationFailure": {
+    "message": "Niewłaściwa!"
+  },
+  "nativeMessagingMessageValidationSuccess": {
+    "message": "Właściwa."
+  },
+  "nativeMessagingResponse": {
+    "message": "Odpowiedź:"
+  },
+  "nativeMessagingResponseTooltip": {
+    "message": "To powinno pokazać wiadomość, którą zwróciła twoja natywna aplikacja. Musi to być obiekt JSON zawierający atrybut - 'message'."
+  },
+  "nativeMessagingResponseValidationFailure": {
+    "message": "Niepowodzenie!"
+  },
+  "nativeMessagingResponseValidationInvalid": {
+    "message": "Nieprawidłowy lub niepełny wynik!"
+  },
+  "nativeMessagingResponseValidationSuccess": {
+    "message": "Powodzenie."
+  },
+  "nativeMessagingSend": {
+    "message": "Wyślij wiadomość"
+  },
+  "nativeMessagingTestHeader": {
+    "message": "Test natywnych wiadomości"
+  },
+  "nativeMessagingTestHint": {
+    "message": "Konfiguracja natywnych wiadomości dla Przełącznika podpisów może być zweryfikowana przez wykonanie testowego żądania z poniższą (modelową) wiadomością. Jeśli ci się uda zobaczysz odpowiedź aplikacji natywnej."
+  },
+  "nativeMessagingUsageCode": {
+    "message": "Moe Zilla<br>\nemail: <a href=\"mailto:moe@zilla.org\">moe@zilla.org</a><br>\n<br>\nMój adres IP: __IP__"
+  },
+  "nativeMessagingUsageDescription": {
+    "message": "Arbitralna nazwa tagu - otoczona podwójnym podkreśleniem - może być użyta w podpisie, aby wysłać wiadomość do aplikacji natywnej; i mieć tag zastąpiony zwróconą treścią."
+  },
+  "nativeMessagingUsageExample": {
+    "message": "Na przykład:"
+  },
+  "nativeMessagingUsageHeader": {
+    "message": "Użycie:"
+  },
+  "optionsAddFortuneCookies": {
+    "message": "Dodaj nowe ciasteczka z wróżbą"
+  },
+  "optionsAddImage": {
+    "message": "Dodaj nowy obraz"
+  },
+  "optionsAddSignature": {
+    "message": "Dodaj nowy podpis"
+  },
+  "optionsAutoSwitch": {
+    "message": "Przełączanie automatyczne"
+  },
+  "optionsAutoSwitchIncludeBcc": {
+    "message": "Uwzględniaj odbiorców Udw."
+  },
+  "optionsAutoSwitchIncludeCc": {
+    "message": "Uwzględniaj odbiorców Dw."
+  },
+  "optionsCommandKeyComma": {
+    "message": "Przecinek"
+  },
+  "optionsCommandKeyDelete": {
+    "message": "Usuń"
+  },
+  "optionsCommandKeyDown": {
+    "message": "Strzałka w dół"
+  },
+  "optionsCommandKeyEnd": {
+    "message": "End"
+  },
+  "optionsCommandKeyHome": {
+    "message": "Home"
+  },
+  "optionsCommandKeyInsert": {
+    "message": "Insert"
+  },
+  "optionsCommandKeyLeft": {
+    "message": "Strzałka w lewo"
+  },
+  "optionsCommandKeyPageDown": {
+    "message": "PageDown"
+  },
+  "optionsCommandKeyPageUp": {
+    "message": "PageUp"
+  },
+  "optionsCommandKeyPeriod": {
+    "message": "Kropka"
+  },
+  "optionsCommandKeyRight": {
+    "message": "Strzałka w prawo"
+  },
+  "optionsCommandKeySpace": {
+    "message": "Spacja"
+  },
+  "optionsCommandKeyUp": {
+    "message": "Strzałka w górę"
+  },
+  "optionsCommandLabelNext": {
+    "message": "Cykl (następny):"
+  },
+  "optionsCommandLabelPrevious": {
+    "message": "Cykl (poprzedni):"
+  },
+  "optionsCommandLabelSwitch": {
+    "message": "Przełącz (wł./wył.):"
+  },
+  "optionsCommandReset": {
+    "message": "Wyzeruj"
+  },
+  "optionsCommands": {
+    "message": "Skróty klawiszowe"
+  },
+  "optionsDefaultAction": {
+    "message": "Czynność domyślna"
+  },
+  "optionsDefaultActionDescription": {
+    "message": "Podczas otwierania okna z nową wiadomością ..."
+  },
+  "optionsDefaultActionInsert": {
+    "message": "Wstaw domyślny podpis"
+  },
+  "optionsDefaultActionNothing": {
+    "message": "Nic nie rób"
+  },
+  "optionsDefaultActionOff": {
+    "message": "Wyłącz podpis"
+  },
+  "optionsFortuneCookies": {
+    "message": "Ciasteczka z wróżbą"
+  },
+  "optionsFortuneCookiesEditModalClose": {
+    "message": "Zamknij"
+  },
+  "optionsFortuneCookiesEditModalFileImport": {
+    "message": "Importuj z pliku:"
+  },
+  "optionsFortuneCookiesEditModalLabel": {
+    "message": "Ciasteczka"
+  },
+  "optionsFortuneCookiesEditModalPlaceholder": {
+    "message": "Chuck Norris potrafi dzielić przez zero. Chuck Norris potrafi zabić dwa kamienie jednym ptakiem.\n%\nChuck Norris odwiedził kiedyś Wyspy Dziewicze.\nTeraz są Te Wyspy.\n%\nChuck Norris policzył do nieskończoności - trzy razy.\n%\nChuck Norris potrafi zatrzasnąć drzwi obrotowe."
+  },
+  "optionsFortuneCookiesEditModalSave": {
+    "message": "Zapisz"
+  },
+  "optionsFortuneCookiesEditModalTitle": {
+    "message": "Edytuj ciastka z wróżbą"
+  },
+  "optionsFortuneCookiesEditModalTooltip": {
+    "message": "Ciasteczka, oddzielone linią - '%'."
+  },
+  "optionsFortuneCookiesRemoveModalNo": {
+    "message": "Nie"
+  },
+  "optionsFortuneCookiesRemoveModalQuestion": {
+    "message": "Czy naprawdę chcesz usunąć te ciasteczka z wróżbą?"
+  },
+  "optionsFortuneCookiesRemoveModalTitle": {
+    "message": "Usuń ciasteczka z wróżbą"
+  },
+  "optionsFortuneCookiesRemoveModalYes": {
+    "message": "Tak"
+  },
+  "optionsFortuneCookiesUsage1": {
+    "message": "utwórz nowy zestaw ciasteczek z wróżbą klikając na przycisk powyżej"
+  },
+  "optionsFortuneCookiesUsage2": {
+    "message": "nadaj zestawowi opisową nazwę"
+  },
+  "optionsFortuneCookiesUsage3": {
+    "message": "ważne: zdefiniuj UNIKALNĄ nazwę tagu!"
+  },
+  "optionsFortuneCookiesUsage4": {
+    "message": "kliknij pole tekstowe, aby edytować pliki cookie"
+  },
+  "optionsFortuneCookiesUsage5": {
+    "message": "użyj nazwy tagu (w podwójnych kwadratowych nawiasach) w podpisach w miejscu, gdzie powinno pojawić się losowe ciasteczko"
+  },
+  "optionsFortuneCookiesUsageExample": {
+    "message": "Na przykład:"
+  },
+  "optionsFortuneCookiesUsageExampleCode": {
+    "message": "Moe Zilla<br>\nemail: <a href=\"mailto:moe@zilla.org\">moe@zilla.org</a><br>\n<br>\nFakt dnia Chucka Norrisa:<br>\n<pre>\n[[chuck]]\n</pre>"
+  },
+  "optionsFortuneCookiesUsageHeader": {
+    "message": "Użycie:"
+  },
+  "optionsForwardings": {
+    "message": "Przekazywania"
+  },
+  "optionsForwardingsDisableAutoSwitch": {
+    "message": "Wyłącz automatyczne przełączanie podczas przekazywania poczty."
+  },
+  "optionsForwardingsNoDefaultAction": {
+    "message": "Nie stosuj domyślnej akcji przy przekazywaniu poczty."
+  },
+  "optionsHeader": {
+    "message": "$1"
+  },
+  "optionsHeaderSecondary": {
+    "message": "Preferencje"
+  },
+  "optionsHelp": {
+    "message": "Pomoc"
+  },
+  "optionsHelpOr": {
+    "message": "lub"
+  },
+  "optionsHelpSupport1": {
+    "message": "Jeśli podoba ci się ten dodatek i chcesz wesprzeć autora, odwiedź stronę"
+  },
+  "optionsHelpSupport2": {
+    "message": "i wpłacić darowiznę. Dzięki!"
+  },
+  "optionsHelpText": {
+    "message": "Szczegółowe instrukcje lub pomoc znajdziesz na stronie"
+  },
+  "optionsIdentities": {
+    "message": "Tożsamości"
+  },
+  "optionsIdentitiesLabel": {
+    "message": "Twoje aktualne tożsamości:"
+  },
+  "optionsIdentitiesOverruleDefaultAction": {
+    "message": "Przypisane podpisy zastępują domyślne działanie (wstawiania/usuwania podpisu) przy rozpoczynaniu nowej poczty."
+  },
+  "optionsIdentitiesSwitchSignatureUponChange": {
+    "message": "Automatyczne przełączanie na przypisany podpis przy zmianie tożsamości."
+  },
+  "optionsIdentitiesTooltip": {
+    "message": "Ta lista zawiera wszystkie tożsamości pocztowe, utworzone w ustawieniach konta w Thunderbirdzie."
+  },
+  "optionsIdentitiesUseAssignedSignatureOnReplyOrForwarding": {
+    "message": "Użyj przypisanego podpisu podczas rozpoczynania odpowiedzi lub przekazywania dalej."
+  },
+  "optionsImageRemoveModalNo": {
+    "message": "Nie"
+  },
+  "optionsImageRemoveModalQuestion": {
+    "message": "Czy naprawdę chcesz usunąć ten obraz?"
+  },
+  "optionsImageRemoveModalTitle": {
+    "message": "Usuń obraz"
+  },
+  "optionsImageRemoveModalYes": {
+    "message": "Tak"
+  },
+  "optionsImageUsage1": {
+    "message": "utwórz nowy wpis klikając na przycisk powyżej"
+  },
+  "optionsImageUsage2": {
+    "message": "ckliknij przycisk \"Przeglądaj...\" aby wybrać i dodać plik graficzny"
+  },
+  "optionsImageUsage3": {
+    "message": "nadaj obrazowi opisową nazwę"
+  },
+  "optionsImageUsage4": {
+    "message": "ważne: zdefiniuj UNIKALNĄ nazwę tagu!"
+  },
+  "optionsImageUsage5": {
+    "message": "użyj nazwy znacznika (ujętej w podwójne nawiasy klamrowe) w podpisie HTML wraz z atrybutem src, w elemencie obrazu"
+  },
+  "optionsImageUsageExample": {
+    "message": "Na przykład:"
+  },
+  "optionsImageUsageExampleCode": {
+    "wiadomość": "<img src=\"{{logo}}\" border=\"0\" width=\"150\" height=\"100\">"
+  },
+  "optionsImageUsageHeader": {
+    "wiadomość": "Użycie:"
+  },
+  "optionsImageUsageNote": {
+    "wiadomość": "UWAGA: Prosimy o ostrożne obchodzenie się z przechowywaniem danych obrazów w tym miejscu. Dodanie zbyt wielu i/lub zbyt dużych obrazów może pogorszyć ogólną wydajność i zmarnować miejsce na dysku. Używaj tylko zoptymalizowanych zasobów naprawdę potrzebnych do tworzenia podpisu."
+  },
+  "optionsImages": {
+    "message": "Obrazy"
+  },
+  "optionsImportExport": {
+    "message": "Importuj / Eksportuj"
+  },
+  "optionsImportExportClipboard": {
+    "message": "Schowek"
+  },
+  "optionsImportExportConfirmationModalNo": {
+    "message": "Nie"
+  },
+  "optionsImportExportConfirmationModalQuestion": {
+    "message": "Czy naprawdę chcesz zaimportować dane JSON i nadpisać wszystkie aktualnie przechowywane podpisy, obrazy i ciasteczka z wróżbą?"
+  },
+  "optionsImportExportConfirmationModalTitle": {
+    "message": "Importuj dane"
+  },
+  "optionsImportExportConfirmationModalYes": {
+    "message": "Tak"
+  },
+  "optionsImportExportDataLabel": {
+    "message": "Dane:"
+  },
+  "optionsImportExportDescription": {
+    "message": "Ta funkcja jest przeznaczona przede wszystkim do tworzenia kopii zapasowych/przywracania danych. Eksportuj swoje dane; skopiuj je do schowka; wklej do edytora tekstu; zapisz do pliku. (Odwrotnie: wklej tutaj dane z poprzedniej kopii zapasowej, a następnie zaimportuj je)."
+  },
+  "optionsImportExportExport": {
+    "message": "Exportuj"
+  },
+  "optionsImportExportImport": {
+    "message": "Importuj"
+  },
+  "optionsImportExportIncludeFortuneCookies": {
+    "message": "Eksportuj ciasteczka z wróżbą"
+  },
+  "optionsImportExportIncludeImages": {
+    "message": "Eksportuj obrazy"
+  },
+  "optionsImportExportSuccessModalInfo": {
+    "message": "Dane zostały pomyślnie zaimportowane."
+  },
+  "optionsImportExportSuccessModalOk": {
+    "message": "Ok"
+  },
+  "optionsImportExportSuccessModalTitle": {
+    "message": "Import danych"
+  },
+  "optionsImportExportValidationFailure": {
+    "message": "Nieprawidłowo!"
+  },
+  "optionsImportExportValidationSuccess": {
+    "message": "Prawidłowo."
+  },
+  "optionsMiscellaneous": {
+    "message": "Różne"
+  },
+  "optionsNativeMessaging": {
+    "message": "Natywne przesyłanie wiadomości"
+  },
+  "optionsReloadIdentities": {
+    "message": "Przeładuj"
+  },
+  "optionsReplies": {
+    "message": "Odpowiedzi"
+  },
+  "optionsRepliesDisableAutoSwitch": {
+    "message": "Wyłącz automatyczne przełączanie przy odpowiedziach."
+  },
+  "optionsRepliesNoDefaultAction": {
+    "message": "Nie stosuj domyślnej akcji przy odpowiadaniu na maila."
+  },
+  "optionsSignatureComposeSeparator": {
+    "message": "Pokaż wizualny separator podpisu podczas komponowania. (Nie jest wysyłany razem z wiadomością ani pokazywany przy wydruku)."
+  },
+  "optionsSignatureEditModalAutoSwitch": {
+    "message": "Przełączaj automatycznie"
+  },
+  "optionsSignatureEditModalAutoSwitchMatchAll": {
+    "message": "Wszyscy odbiorcy muszą spełniać jedno z podanych kryteriów."
+  },
+  "optionsSignatureEditModalAutoSwitchPlaceholder": {
+    "message": "*@firma.com, *kowalski*@*.de, moe@zilla.com"
+  },
+  "optionsSignatureEditModalAutoSwitchTooltip": {
+    "message": "Rozdzielona przecinkami lista adresów e-mail, które po wykryciu jako odbiorcy automatycznie spowoduje wstawienie tego podpisu. (UWAGA: Znak gwiazdki może być użyty jako symbol wieloznaczny)."
+  },
+  "optionsSignatureEditModalClose": {
+    "message": "Zamknij"
+  },
+  "optionsSignatureEditModalContent": {
+    "message": "Treść"
+  },
+  "optionsSignatureEditModalContentTooltip": {
+    "message": "W zależności od trybu użytego podczas tworzenia wiadomości (zwykły tekst lub HTML), zostanie użyta odpowiednia treść podpisu."
+  },
+  "optionsSignatureEditModalHtml": {
+    "message": "HTML"
+  },
+  "optionsSignatureEditModalHtmlPlaceholder": {
+    "message": "<b>Moe Zilla<b><br>\nemail: <a href=\"mailto:moe@zilla.org\">moe@zilla.org</a><br>\ntelefon: (600) 12345"
+  },
+  "optionsSignatureEditModalName": {
+    "message": "Nazwa"
+  },
+  "optionsSignatureEditModalNamePlaceholder": {
+    "message": "Podpis biznesowy"
+  },
+  "optionsSignatureEditModalNameTooltip": {
+    "message": "Nazwa, która jest wyświetlana podczas wybierania podpisu za pomocą przycisku lub menu kontekstowego."
+  },
+  "optionsSignatureEditModalPlaintext": {
+    "message": "Zwykły tekst"
+  },
+  "optionsSignatureEditModalSave": {
+    "message": "Zapisz"
+  },
+  "optionsSignatureEditModalTextPlaceholder": {
+    "message": "Moe Zilla\nemail: moe@zilla.org\ntelefon: (600) 12345"
+  },
+  "optionsSignatureEditModalTitle": {
+    "message": "Edytuj podpis"
+  },
+  "optionsSignatureNewName": {
+    "message": "Nowy podpis"
+  },
+  "optionsSignaturePlacement": {
+    "message": "Umiejscowienie"
+  },
+  "optionsSignaturePlacementAboveQuoteOrForwarding": {
+    "message": "Umieść podpis nad odpowiedzią-cytatem / przekazywaną wiadomością."
+  },
+  "optionsSignaturePlacementAboveQuoteOrForwardingNotRecommended": {
+    "message": "nie zaleca się"
+  },
+  "optionsSignatureRemoveModalNo": {
+    "message": "Nie"
+  },
+  "optionsSignatureRemoveModalQuestion": {
+    "message": "Czy naprawdę chcesz usunąć ten podpis?"
+  },
+  "optionsSignatureRemoveModalTitle": {
+    "message": "Usuń podpis"
+  },
+  "optionsSignatureRemoveModalYes": {
+    "message": "Tak"
+  },
+  "optionsSignatureSeparator": {
+    "message": "Separator"
+  },
+  "optionsSignatureSeparatorHtml": {
+    "message": "Automatyczne dodawanie rozdzielacza podpisu ('--\\n') do podpisów HTML."
+  },
+  "optionsSignatures": {
+    "message": "Podpisy"
+  },
+  "optionsTableColumnFortuneCookiesDelete": {
+    "message": "Usuń"
+  },
+  "optionsTableColumnFortuneCookiesFortuneCookies": {
+    "message": "Ciasteczka"
+  },
+  "optionsTableColumnFortuneCookiesName": {
+    "message": "Nazwa"
+  },
+  "optionsTableColumnFortuneCookiesNamePlaceholder": {
+    "message": "Chuck Norris"
+  },
+  "optionsTableColumnFortuneCookiesTag": {
+    "message": "Tag"
+  },
+  "optionsTableColumnFortuneCookiesTagPlaceholder": {
+    "message": "chuck"
+  },
+  "optionsTableColumnIdentityAssignedSignature": {
+    "message": "Przypisany podpis"
+  },
+  "optionsTableColumnIdentityName": {
+    "message": "Tożsamość"
+  },
+  "optionsTableColumnImagesDelete": {
+    "message": "Usuń"
+  },
+  "optionsTableColumnImagesImage": {
+    "message": "Obraz"
+  },
+  "optionsTableColumnImagesName": {
+    "message": "Nazwa"
+  },
+  "optionsTableColumnImagesNamePlaceholder": {
+    "message": "Logo firmy"
+  },
+  "optionsTableColumnImagesTag": {
+    "message": "Tag"
+  },
+  "optionsTableColumnImagesTagPlaceholder": {
+    "message": "logo"
+  },
+  "optionsTableColumnSignaturesAction": {
+    "message": "Czynność"
+  },
+  "optionsTableColumnSignaturesDefault": {
+    "message": "Domyślnie"
+  },
+  "optionsTableColumnSignaturesName": {
+    "message": "Nazwa"
+  },
+  "signaturePlacementConfirmationModalNo-1": {
+    "message": "Nie"
+  },
+  "signaturePlacementConfirmationModalNo-2": {
+    "message": "No."
+  },
+  "signaturePlacementConfirmationModalNo-3": {
+    "message": "Lepiej nie."
+  },
+  "signaturePlacementConfirmationModalQuestion-1": {
+    "message": "Z kilku powodów nie zaleca się umieszczania podpisu emailowego w innym miejscu niż na samym końcu całej wiadomości. Pamiętaj, że e-maile są przetwarzane przez wiele różnych programów klienckich. Odstępstwa od standardów mogą nie tylko ograniczyć funkcjonalność po twojej stronie, ale także wpłynąć na wrażenia użytkowania u odbiorcy. Czy naprawdę chcesz aktywować tę opcję?"
+  },
+  "signaturePlacementConfirmationModalQuestion-2": {
+    "message": "Podczas umieszczania podpisów nad cytatem odpowiedzi lub przekazywaną wiadomością, \"standardowy ogranicznik/rozdzielacz podpisu\" ('--\\n'; patrz: RFC 3676) będzie musiał być pominięty. Utrudni to/uniemożliwi łatwe wykrycie poprzednio wstawionych podpisów; co zepsuje inne funkcjonalności tego dodatku (np. przełączanie podpisów podczas ponownej edycji zapisanych szkiców w zwykłym tekście, itp.) Więc... czy naprawdę chcesz to zrobić?"
+  },
+  "signaturePlacementConfirmationModalQuestion-3": {
+    "message": "OK. Pamiętaj również, że wszelkie wsparcie/pomoc ze strony autora tego dodatku wygasa po użyciu tej opcji. Aby to zaakceptować i ostatecznie aktywować opcję, proszę wcisnąć w odpowiedniej kolejności wymienione poniżej klawisze."
+  },
+  "signaturePlacementConfirmationModalTitle-1": {
+    "message": "Umiejscowienie podpisu"
+  },
+  "signaturePlacementConfirmationModalTitle-2": {
+    "message": "Umiejscowienie podpisu"
+  },
+  "signaturePlacementConfirmationModalTitle-3": {
+    "message": "Umiejscowienie podpisu"
+  },
+  "signaturePlacementConfirmationModalYes-1": {
+    "message": "Tak"
+  },
+  "signaturePlacementConfirmationModalYes-2": {
+    "message": "Tak, zdecydowanie!"
+  }
+}

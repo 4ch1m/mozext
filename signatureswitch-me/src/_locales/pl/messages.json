@@ -21,7 +21,7 @@
     "message": "Włączanie/wyłączanie podpisu lub wybór nowego z predefiniowanego zestawu."
   },
   "extensionName": {
-    "message": "Przełącznik podpisów"
+    "message": "Signature Switch"
   },
   "menuOnOff": {
     "message": "Włącz / Wyłącz"
@@ -33,10 +33,10 @@
     "message": "Natywne wiadomości mogą być używane do wstawiania dynamicznej zawartości do podpisu otrzymanego z natywnej aplikacji zainstalowanej na komputerze."
   },
   "nativeMessagingDescription2": {
-    "message": "Jednak zmuszenie Thunderbirda do rozmowy z natywną aplikacją jest dosyć kłopotliwe. Dodatkowo jeszcze bardziej skomplikowane jest dostarczenie/wdrożenie aplikacji, która zachowuje się dokładnie tak, jak oczekuje 'Native Messaging API' (głównie dlatego, że przesyłane dane muszą być w określonym \"formacie\")."
+    "message": "Jednak zmuszenie Thunderbird do rozmowy z natywną aplikacją jest dosyć kłopotliwe. Dodatkowo jeszcze bardziej skomplikowane jest dostarczenie/wdrożenie aplikacji, która zachowuje się dokładnie tak, jak oczekuje 'Native Messaging API' (głównie dlatego, że przesyłane dane muszą być w określonym \"formacie\")."
   },
   "nativeMessagingDescription3": {
-    "message": "Aby uzyskać szczegółowe informacje i działający przykładowy kod, proszę sprawdzić dokumentację na GitHubie przed kontynuacją:"
+    "message": "Aby uzyskać szczegółowe informacje i działający przykładowy kod, proszę sprawdzić dokumentację na GitHub przed kontynuacją:"
   },
   "nativeMessagingMessage": {
     "message": "Wiadomość:"
@@ -72,19 +72,19 @@
     "message": "Test natywnych wiadomości"
   },
   "nativeMessagingTestHint": {
-    "message": "Konfiguracja natywnych wiadomości dla Przełącznika podpisów może być zweryfikowana przez wykonanie testowego żądania z poniższą (modelową) wiadomością. Jeśli ci się uda zobaczysz odpowiedź aplikacji natywnej."
+    "message": "Konfiguracja natywnych wiadomości dla dodatku 'Signature Switch' może być zweryfikowana przez wykonanie testowego żądania z poniższą (modelową) wiadomością. Jeśli ci się uda zobaczysz odpowiedź aplikacji natywnej."
   },
   "nativeMessagingUsageCode": {
     "message": "Moe Zilla<br>\nemail: <a href=\"mailto:moe@zilla.org\">moe@zilla.org</a><br>\n<br>\nMój adres IP: __IP__"
   },
   "nativeMessagingUsageDescription": {
-    "message": "Arbitralna nazwa tagu - otoczona podwójnym podkreśleniem - może być użyta w podpisie, aby wysłać wiadomość do aplikacji natywnej; i mieć tag zastąpiony zwróconą treścią."
+    "message": "Arbitralna nazwa tagu - otoczona podwójnym podkreśleniem - może być użyta w podpisie, aby wysłać wiadomość do aplikacji natywnej oraz mieć tag zastąpiony zwróconą treścią."
   },
   "nativeMessagingUsageExample": {
     "message": "Na przykład:"
   },
   "nativeMessagingUsageHeader": {
-    "message": "Użycie:"
+    "message": "Jak korzystać:"
   },
   "optionsAddFortuneCookies": {
     "message": "Dodaj nowe ciasteczka z wróżbą"
@@ -96,7 +96,7 @@
     "message": "Dodaj nowy podpis"
   },
   "optionsAutoSwitch": {
-    "message": "Przełączanie automatyczne"
+    "message": "Przełącznik automatyczny"
   },
   "optionsAutoSwitchIncludeBcc": {
     "message": "Uwzględniaj odbiorców Udw."
@@ -210,7 +210,7 @@
     "message": "Tak"
   },
   "optionsFortuneCookiesUsage1": {
-    "message": "utwórz nowy zestaw ciasteczek z wróżbą klikając na przycisk powyżej"
+    "message": "utwórz nowy zestaw ciasteczek z wróżbą klikając powyższy przycisk"
   },
   "optionsFortuneCookiesUsage2": {
     "message": "nadaj zestawowi opisową nazwę"
@@ -219,25 +219,25 @@
     "message": "ważne: zdefiniuj UNIKALNĄ nazwę tagu!"
   },
   "optionsFortuneCookiesUsage4": {
-    "message": "kliknij pole tekstowe, aby edytować pliki cookie"
+    "message": "kliknij pole tekstowe, aby wyedytować ciasteczka"
   },
   "optionsFortuneCookiesUsage5": {
-    "message": "użyj nazwy tagu (w podwójnych kwadratowych nawiasach) w podpisach w miejscu, gdzie powinno pojawić się losowe ciasteczko"
+    "message": "w podpisach używaj nazwy tagu (w podwójnych kwadratowych nawiasach) w miejscu, gdzie powinno pojawić się losowe ciasteczko"
   },
   "optionsFortuneCookiesUsageExample": {
     "message": "Na przykład:"
   },
   "optionsFortuneCookiesUsageExampleCode": {
-    "message": "Moe Zilla<br>\nemail: <a href=\"mailto:moe@zilla.org\">moe@zilla.org</a><br>\n<br>\nFakt dnia Chucka Norrisa:<br>\n<pre>\n[[chuck]]\n</pre>"
+    "message": "Moe Zilla<br>\nemail: <a href=\"mailto:moe@zilla.org\">moe@zilla.org</a><br>\n<br>\nFakt z dnia Chucka Norrisa:<br>\n<pre>\n[[chuck]]\n</pre>"
   },
   "optionsFortuneCookiesUsageHeader": {
-    "message": "Użycie:"
+    "message": "Jak korzystać:"
   },
   "optionsForwardings": {
     "message": "Przekazywania"
   },
   "optionsForwardingsDisableAutoSwitch": {
-    "message": "Wyłącz automatyczne przełączanie podczas przekazywania poczty."
+    "message": "Wyłącz automatyczne przełączanie przy przekazywaniu poczty."
   },
   "optionsForwardingsNoDefaultAction": {
     "message": "Nie stosuj domyślnej akcji przy przekazywaniu poczty."
@@ -270,22 +270,22 @@
     "message": "Twoje aktualne tożsamości:"
   },
   "optionsIdentitiesOverruleDefaultAction": {
-    "message": "Przypisane podpisy zastępują domyślne działanie (wstawiania/usuwania podpisu) przy rozpoczynaniu nowej poczty."
+    "message": "Przydzielone podpisy zastępują domyślne działanie (wstawiania/usuwania podpisu) przy rozpoczynaniu nowej korespondencji."
   },
   "optionsIdentitiesSwitchSignatureUponChange": {
-    "message": "Automatyczne przełączanie na przypisany podpis przy zmianie tożsamości."
+    "message": "Automatyczne przełączanie na przydzielony podpis przy zmianie tożsamości."
   },
   "optionsIdentitiesTooltip": {
-    "message": "Ta lista zawiera wszystkie tożsamości pocztowe, utworzone w ustawieniach konta w Thunderbirdzie."
+    "message": "Ta lista zawiera wszystkie tożsamości pocztowe, utworzone w ustawieniach konta w Thunderbird."
   },
   "optionsIdentitiesUseAssignedSignatureOnReplyOrForwarding": {
-    "message": "Użyj przypisanego podpisu podczas rozpoczynania odpowiedzi lub przekazywania dalej."
+    "message": "Użyj przydzielonego podpisu przy odpowiadaniu lub przekazywaniu wiadomości."
   },
   "optionsImageRemoveModalNo": {
     "message": "Nie"
   },
   "optionsImageRemoveModalQuestion": {
-    "message": "Czy naprawdę chcesz usunąć ten obraz?"
+    "message": "Czy na pewno chcesz usunąć ten obraz?"
   },
   "optionsImageRemoveModalTitle": {
     "message": "Usuń obraz"
@@ -294,10 +294,10 @@
     "message": "Tak"
   },
   "optionsImageUsage1": {
-    "message": "utwórz nowy wpis klikając na przycisk powyżej"
+    "message": "utwórz nowy wpis klikając powyższy przycisk"
   },
   "optionsImageUsage2": {
-    "message": "ckliknij przycisk \"Przeglądaj...\" aby wybrać i dodać plik graficzny"
+    "message": "kliknij przycisk \"Przeglądaj...\", aby wybrać i dodać plik graficzny"
   },
   "optionsImageUsage3": {
     "message": "nadaj obrazowi opisową nazwę"
@@ -315,7 +315,7 @@
     "message": "<img src=\"{{logo}}\" border=\"0\" width=\"150\" height=\"100\">"
   },
   "optionsImageUsageHeader": {
-    "message": "Użycie:"
+    "message": "Jak korzystać:"
   },
   "optionsImageUsageNote": {
     "message": "UWAGA: Prosimy o ostrożne obchodzenie się z przechowywaniem danych obrazów w tym miejscu. Dodanie zbyt wielu i/lub zbyt dużych obrazów może pogorszyć ogólną wydajność i zmarnować miejsce na dysku. Używaj tylko zoptymalizowanych zasobów naprawdę potrzebnych do tworzenia podpisu."
@@ -333,7 +333,7 @@
     "message": "Nie"
   },
   "optionsImportExportConfirmationModalQuestion": {
-    "message": "Czy naprawdę chcesz zaimportować dane JSON i nadpisać wszystkie aktualnie przechowywane podpisy, obrazy i ciasteczka z wróżbą?"
+    "message": "Czy na pewno chcesz zaimportować dane JSON i nadpisać wszystkie aktualnie przechowywane podpisy, obrazy i ciasteczka z wróżbą?"
   },
   "optionsImportExportConfirmationModalTitle": {
     "message": "Importuj dane"
@@ -393,7 +393,7 @@
     "message": "Nie stosuj domyślnej akcji przy odpowiadaniu na maila."
   },
   "optionsSignatureComposeSeparator": {
-    "message": "Pokaż wizualny separator podpisu podczas komponowania. (Nie jest wysyłany razem z wiadomością ani pokazywany przy wydruku)."
+    "message": "Pokaż wizualny oddzielacz podpisu podczas komponowania. (Nie jest wysyłany razem z wiadomością ani pokazywany przy wydruku)."
   },
   "optionsSignatureEditModalAutoSwitch": {
     "message": "Przełączaj automatycznie"
@@ -405,7 +405,7 @@
     "message": "*@firma.com, *kowalski*@*.de, moe@zilla.com"
   },
   "optionsSignatureEditModalAutoSwitchTooltip": {
-    "message": "Rozdzielona przecinkami lista adresów e-mail, które po wykryciu jako odbiorcy automatycznie spowoduje wstawienie tego podpisu. (UWAGA: Znak gwiazdki może być użyty jako symbol wieloznaczny)."
+    "message": "Automatyczne wstawienie podpisu nastąpi w momencie, gdy adres z listy (rozdzielonej przecinkami) zostanie rozpoznany jako odbiorca (UWAGA: Znak gwiazdki może być użyty jako symbol wieloznaczny)."
   },
   "optionsSignatureEditModalClose": {
     "message": "Zamknij"
@@ -459,7 +459,7 @@
     "message": "Nie"
   },
   "optionsSignatureRemoveModalQuestion": {
-    "message": "Czy naprawdę chcesz usunąć ten podpis?"
+    "message": "Czy na pewno chcesz usunąć ten podpis?"
   },
   "optionsSignatureRemoveModalTitle": {
     "message": "Usuń podpis"
@@ -468,10 +468,10 @@
     "message": "Tak"
   },
   "optionsSignatureSeparator": {
-    "message": "Separator"
+    "message": "Oddzielacz"
   },
   "optionsSignatureSeparatorHtml": {
-    "message": "Automatyczne dodawanie rozdzielacza podpisu ('--\\n') do podpisów HTML."
+    "message": "Automatyczne dodawanie oddzielacza ('--\\n') do podpisów HTML."
   },
   "optionsSignatures": {
     "message": "Podpisy"
@@ -531,19 +531,19 @@
     "message": "Nie"
   },
   "signaturePlacementConfirmationModalNo-2": {
-    "message": "No."
+    "message": "Nie."
   },
   "signaturePlacementConfirmationModalNo-3": {
     "message": "Lepiej nie."
   },
   "signaturePlacementConfirmationModalQuestion-1": {
-    "message": "Z kilku powodów nie zaleca się umieszczania podpisu emailowego w innym miejscu niż na samym końcu całej wiadomości. Pamiętaj, że e-maile są przetwarzane przez wiele różnych programów klienckich. Odstępstwa od standardów mogą nie tylko ograniczyć funkcjonalność po twojej stronie, ale także wpłynąć na wrażenia użytkowania u odbiorcy. Czy naprawdę chcesz aktywować tę opcję?"
+    "message": "Z kilku powodów nie zaleca się umieszczania podpisu wiadomości e-mail w innym miejscu niż na samym końcu całej wiadomości. Pamiętaj, że e-maile są przetwarzane przez wiele różnych programów klienckich. Odstępstwa od standardów mogą nie tylko ograniczyć funkcjonalność po twojej stronie, ale także wpłynąć na wrażenia użytkowania u odbiorcy. Czy na pewno chcesz aktywować tę opcję?"
   },
   "signaturePlacementConfirmationModalQuestion-2": {
-    "message": "Podczas umieszczania podpisów nad cytatem odpowiedzi lub przekazywaną wiadomością, \"standardowy ogranicznik/rozdzielacz podpisu\" ('--\\n'; patrz: RFC 3676) będzie musiał być pominięty. Utrudni to/uniemożliwi łatwe wykrycie poprzednio wstawionych podpisów; co zepsuje inne funkcjonalności tego dodatku (np. przełączanie podpisów podczas ponownej edycji zapisanych szkiców w zwykłym tekście, itp.) Więc... czy naprawdę chcesz to zrobić?"
+    "message": "Podczas umieszczania podpisów nad cytatem odpowiedzi lub przekazywaną wiadomością, \"standardowy ogranicznik/oddzielacz podpisu\" ('--\\n'; patrz: RFC 3676) będzie musiał być pominięty. Utrudni to/uniemożliwi łatwe wykrycie poprzednio wstawionych podpisów; co zepsuje inne funkcjonalności tego dodatku (np. przełączanie podpisów podczas ponownej edycji zapisanych szkiców w zwykłym tekście, itp.) Więc... czy na pewno chcesz to zrobić?"
   },
   "signaturePlacementConfirmationModalQuestion-3": {
-    "message": "OK. Pamiętaj również, że wszelkie wsparcie/pomoc ze strony autora tego dodatku wygasa po użyciu tej opcji. Aby to zaakceptować i ostatecznie aktywować opcję, proszę wcisnąć w odpowiedniej kolejności wymienione poniżej klawisze."
+    "message": "OK. Pamiętaj również, że wszelkie wsparcie/pomoc ze strony autora tego dodatku wygasa po użyciu tej opcji. Aby to zaakceptować i ostatecznie aktywować opcję, wciśnij w odpowiedniej kolejności wymienione poniżej klawisze."
   },
   "signaturePlacementConfirmationModalTitle-1": {
     "message": "Umiejscowienie podpisu"

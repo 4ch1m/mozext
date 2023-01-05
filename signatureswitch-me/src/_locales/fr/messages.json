@@ -1,0 +1,563 @@
+{
+  "commandNextDescription": {
+    "message": "Apposer la suivante"
+  },
+  "commandPreviousDescription": {
+    "message": "Apposer la précédente"
+  },
+  "commandSwitchDescription": {
+    "message": "Activer ou désactiver"
+  },
+  "composeOptions": {
+    "message": "Options"
+  },
+  "composeSwitchOff": {
+    "message": "Désactiver"
+  },
+  "composeSwitchOn": {
+    "message": "Activer"
+  },
+  "extensionDescription": {
+    "message": "Activez ou désactivez la signature des messages. Choisissez une signature parmi celles que vous aurez préalablement définies."
+  },
+  "extensionName": {
+    "message": "Signature Switch"
+  },
+  "menuOnOff": {
+    "message": "Activer / Désactiver"
+  },
+  "menuOptions": {
+    "message": "Options"
+  },
+  "nativeMessagingDescription1": {
+    "message": "La messagerie native permet d’insérer dans une signature du contenu dynamique reçu d’une application native installée sur l’ordinateur."
+  },
+  "nativeMessagingDescription2": {
+    "message": "Toutefois, faire communiquer Thunderbird et l’application native est assez laborieux et concevoir une application adaptée à l’interface de programmation de messagerie native est encore plus compliqué (à cause principalement de la nécessité de convertir les données transférées dans un « format » spécifique)."
+  },
+  "nativeMessagingDescription3": {
+    "message": "Pour des informations détaillées et un exemple de code fonctionnel, consultez la documentation sur GitHub avant de continuer :"
+  },
+  "nativeMessagingMessage": {
+    "message": "Message :"
+  },
+  "nativeMessagingMessageTooltip": {
+    "message": "Modèle du message envoyé à l’application native via la messagerie native. En dehors de l’étiquette, toutes les valeurs seront renseignées automatiquement."
+  },
+  "nativeMessagingMessageValidationFailure": {
+    "message": "Échec"
+  },
+  "nativeMessagingMessageValidationSuccess": {
+    "message": "Succès"
+  },
+  "nativeMessagingResponse": {
+    "message": "Réponse :"
+  },
+  "nativeMessagingResponseTooltip": {
+    "message": "Le message retourné par l’application native doit s’afficher sous la forme d’un objet JSON avec l’attribut « message »."
+  },
+  "nativeMessagingResponseValidationFailure": {
+    "message": "Échec"
+  },
+  "nativeMessagingResponseValidationInvalid": {
+    "message": "Résultat incorrect ou incomplet"
+  },
+  "nativeMessagingResponseValidationSuccess": {
+    "message": "Succès"
+  },
+  "nativeMessagingSend": {
+    "message": "Envoyer le message"
+  },
+  "nativeMessagingTestHeader": {
+    "message": "Test de la messagerie native"
+  },
+  "nativeMessagingTestHint": {
+    "message": "Vous pouvez vérifier l’installation de la messagerie native en effectuant un test avec le message (fictif) ci-dessous. En cas de succès, vous obtiendrez la réponse de l’application native."
+  },
+  "nativeMessagingUsageCode": {
+    "message": "Mo Zilla<br>\ncourriel : <a href=\"mailto:mo@zilla.org\">mo@zilla.org</a><br>\n<br>\nmon adresse IP actuelle : __IP__"
+  },
+  "nativeMessagingUsageDescription": {
+    "message": "Intégrez à votre signature un nom d’étiquette arbitraire (enserré dans des doubles traits de soulignement). Un message sera envoyé à l’application native et l’étiquette sera remplacée par le contenu obtenu."
+  },
+  "nativeMessagingUsageExample": {
+    "message": "Exemple :"
+  },
+  "nativeMessagingUsageHeader": {
+    "message": "Mode d’emploi :"
+  },
+  "optionsAddFortuneCookies": {
+    "message": "Ajouter un nouveau jeu de biscuits chinois"
+  },
+  "optionsAddImage": {
+    "message": "Ajouter une nouvelle image"
+  },
+  "optionsAddSignature": {
+    "message": "Ajouter une nouvelle signature"
+  },
+  "optionsAutoSwitch": {
+    "message": "Signature automatique"
+  },
+  "optionsAutoSwitchIncludeBcc": {
+    "message": "Inclure les destinataires en copie cachée"
+  },
+  "optionsAutoSwitchIncludeCc": {
+    "message": "Inclure les destinataires en copie"
+  },
+  "optionsCommandKeyComma": {
+    "message": "Virgule"
+  },
+  "optionsCommandKeyDelete": {
+    "message": "Suppr"
+  },
+  "optionsCommandKeyDown": {
+    "message": "Bas"
+  },
+  "optionsCommandKeyEnd": {
+    "message": "Fin"
+  },
+  "optionsCommandKeyHome": {
+    "message": "Début"
+  },
+  "optionsCommandKeyInsert": {
+    "message": "Inser"
+  },
+  "optionsCommandKeyLeft": {
+    "message": "Gauche"
+  },
+  "optionsCommandKeyPageDown": {
+    "message": "PageSuiv"
+  },
+  "optionsCommandKeyPageUp": {
+    "message": "PagePréc"
+  },
+  "optionsCommandKeyPeriod": {
+    "message": "Point"
+  },
+  "optionsCommandKeyRight": {
+    "message": "Droite"
+  },
+  "optionsCommandKeySpace": {
+    "message": "Espace"
+  },
+  "optionsCommandKeyUp": {
+    "message": "Haut"
+  },
+  "optionsCommandLabelNext": {
+    "message": "Apposer la suivante :"
+  },
+  "optionsCommandLabelPrevious": {
+    "message": "Apposer la précédente :"
+  },
+  "optionsCommandLabelSwitch": {
+    "message": "Activer ou désactiver :"
+  },
+  "optionsCommandReset": {
+    "message": "Réinitialiser"
+  },
+  "optionsCommands": {
+    "message": "Raccourcis clavier"
+  },
+  "optionsDefaultAction": {
+    "message": "Action par défaut"
+  },
+  "optionsDefaultActionDescription": {
+    "message": "À l’ouverture d’une nouvelle fenêtre de rédaction…"
+  },
+  "optionsDefaultActionInsert": {
+    "message": "Apposer la signature par défaut"
+  },
+  "optionsDefaultActionNothing": {
+    "message": "Ne rien faire"
+  },
+  "optionsDefaultActionOff": {
+    "message": "Désactiver la signature"
+  },
+  "optionsFortuneCookies": {
+    "message": "Biscuits chinois"
+  },
+  "optionsFortuneCookiesEditModalClose": {
+    "message": "Fermer"
+  },
+  "optionsFortuneCookiesEditModalFileImport": {
+    "message": "Importer du fichier :"
+  },
+  "optionsFortuneCookiesEditModalLabel": {
+    "message": "Biscuits chinois"
+  },
+  "optionsFortuneCookiesEditModalPlaceholder": {
+    "message": "Chuck Norris est capable de diviser par zéro.\n%\nChuck Norris peut tuer deux pierres avec un oiseau.\n%\nChuck Norris a visité une fois les Îles Vierges.\nElles s’appellent maintenant les Îles.\n%\nChuck Norris a compté jusqu’à l’infini… trois fois.\n%\nChuck Norris est capable de claquer une porte tournante."
+  },
+  "optionsFortuneCookiesEditModalSave": {
+    "message": "Enregistrer"
+  },
+  "optionsFortuneCookiesEditModalTitle": {
+    "message": "Éditer les biscuits chinois"
+  },
+  "optionsFortuneCookiesEditModalTooltip": {
+    "message": "Ensemble d’aphorismes séparés par une ligne constituée du symbole « % »"
+  },
+  "optionsFortuneCookiesRemoveModalNo": {
+    "message": "Non"
+  },
+  "optionsFortuneCookiesRemoveModalQuestion": {
+    "message": "Voulez-vous vraiment supprimer ces biscuits chinois ?"
+  },
+  "optionsFortuneCookiesRemoveModalTitle": {
+    "message": "Supprimer les biscuits chinois"
+  },
+  "optionsFortuneCookiesRemoveModalYes": {
+    "message": "Oui"
+  },
+  "optionsFortuneCookiesUsage1": {
+    "message": "Créez un nouveau jeu de biscuits chinois en cliquant sur le bouton ci-dessus."
+  },
+  "optionsFortuneCookiesUsage2": {
+    "message": "Donnez-lui un nom."
+  },
+  "optionsFortuneCookiesUsage3": {
+    "message": "Important : Attribuez-lui une étiquette UNIQUE !"
+  },
+  "optionsFortuneCookiesUsage4": {
+    "message": "Cliquez dans la boîte de texte pour éditer les messages."
+  },
+  "optionsFortuneCookiesUsage5": {
+    "message": "Placez l’étiquette (entre des crochets doubles) dans votre signature à l’endroit où le message aléatoire doit apparaître."
+  },
+  "optionsFortuneCookiesUsageExample": {
+    "message": "Exemple :"
+  },
+  "optionsFortuneCookiesUsageExampleCode": {
+    "message": "Mo Zilla<br>\ncourriel : <a href=\"mailto:mo@zilla.org\">mo@zilla.org</a><br>\n<br>\nChuck Norris, le fait du jour :<br>\n<pre>\n[[chuck]]\n</pre>"
+  },
+  "optionsFortuneCookiesUsageHeader": {
+    "message": "Mode d’emploi :"
+  },
+  "optionsForwardings": {
+    "message": "Transferts"
+  },
+  "optionsForwardingsDisableAutoSwitch": {
+    "message": "Désactiver la signature automatique en cas de transfert"
+  },
+  "optionsForwardingsNoDefaultAction": {
+    "message": "Ne pas appliquer l’action par défaut lors du transfert d’un message"
+  },
+  "optionsHeader": {
+    "message": "$1"
+  },
+  "optionsHeaderSecondary": {
+    "message": "Préférences"
+  },
+  "optionsHelp": {
+    "message": "Aide"
+  },
+  "optionsHelpOr": {
+    "message": "ou"
+  },
+  "optionsHelpSupport1": {
+    "message": "Si vous aimez cette extension et souhaitez soutenir l’auteur, rendez-vous sur"
+  },
+  "optionsHelpSupport2": {
+    "message": "et faites un don. Merci !"
+  },
+  "optionsHelpText": {
+    "message": "Pour des instructions détaillées ou de l’aide, rendez-vous sur"
+  },
+  "optionsIdentities": {
+    "message": "Identités"
+  },
+  "optionsIdentitiesLabel": {
+    "message": "Vos identités actuelles :"
+  },
+  "optionsIdentitiesOverruleDefaultAction": {
+    "message": "Ne pas tenir compte de l’action par défaut (apposer ou désactiver la signature) en présence d’une signature attribuée"
+  },
+  "optionsIdentitiesSwitchSignatureUponChange": {
+    "message": "Apposer automatiquement la signature attribuée au changement d’identité"
+  },
+  "optionsIdentitiesTooltip": {
+    "message": "Liste de toutes les identités de messagerie créées dans les paramètres des comptes de Thunderbird"
+  },
+  "optionsIdentitiesUseAssignedSignatureOnReplyOrForwarding": {
+    "message": "Utiliser la signature attribuée pour les réponses et les transferts"
+  },
+  "optionsImageRemoveModalNo": {
+    "message": "Non"
+  },
+  "optionsImageRemoveModalQuestion": {
+    "message": "Voulez-vous vraiment supprimer cette image ?"
+  },
+  "optionsImageRemoveModalTitle": {
+    "message": "Supprimer l’image"
+  },
+  "optionsImageRemoveModalYes": {
+    "message": "Oui"
+  },
+  "optionsImageUsage1": {
+    "message": "Créez une nouvelle entrée en cliquant sur le bouton ci-dessus."
+  },
+  "optionsImageUsage2": {
+    "message": "Cliquez sur le bouton « Parcourir… » pour sélectionner et ajouter votre image."
+  },
+  "optionsImageUsage3": {
+    "message": "Donnez-lui un nom."
+  },
+  "optionsImageUsage4": {
+    "message": "Important : Attribuez-lui une étiquette UNIQUE !"
+  },
+  "optionsImageUsage5": {
+    "message": "Intégrez l’étiquette (entre des accolades doubles) à l’attribut src de l’élément image que vous utiliserez dans votre signature HTML."
+  },
+  "optionsImageUsageExample": {
+    "message": "Exemple :"
+  },
+  "optionsImageUsageExampleCode": {
+    "message": "<img src=\"{{logo-g}}\" border=\"0\" width=\"150\" height=\"100\">"
+  },
+  "optionsImageUsageHeader": {
+    "message": "Mode d’emploi :"
+  },
+  "optionsImageUsageNote": {
+    "message": "NOTE : Veillez à bien gérer le stockage des données d’image. L’ajout d’un trop grand nombre d’images et/ou d’images trop grandes peut dégrader les performances globales et gaspiller de l’espace de stockage. N’utilisez que les ressources optimisées réellement nécessaires à la création des signatures."
+  },
+  "optionsImages": {
+    "message": "Images"
+  },
+  "optionsImportExport": {
+    "message": "Importation et exportation"
+  },
+  "optionsImportExportClipboard": {
+    "message": "Copier"
+  },
+  "optionsImportExportConfirmationModalNo": {
+    "message": "Non"
+  },
+  "optionsImportExportConfirmationModalQuestion": {
+    "message": "Voulez-vous vraiment importer ces données JSON et remplacer les signatures, images et biscuits chinois actuellement stockés ?"
+  },
+  "optionsImportExportConfirmationModalTitle": {
+    "message": "Importer des données"
+  },
+  "optionsImportExportConfirmationModalYes": {
+    "message": "Oui"
+  },
+  "optionsImportExportDataLabel": {
+    "message": "Données :"
+  },
+  "optionsImportExportDescription": {
+    "message": "Cette fonction est principalement destinée à des fins de sauvegarde et de restauration. Pour sauvegarder : exportez vos données, copiez-les dans le presse-papiers, collez-les dans l’éditeur de texte de votre choix et enregistrez le fichier. Pour restaurer : collez ci-dessous les données précédemment sauvegardées puis importez-les."
+  },
+  "optionsImportExportExport": {
+    "message": "Exporter"
+  },
+  "optionsImportExportImport": {
+    "message": "Importer"
+  },
+  "optionsImportExportIncludeFortuneCookies": {
+    "message": "Exporter les biscuits chinois"
+  },
+  "optionsImportExportIncludeImages": {
+    "message": "Exporter les images"
+  },
+  "optionsImportExportSuccessModalInfo": {
+    "message": "Les données ont été importées avec succès."
+  },
+  "optionsImportExportSuccessModalOk": {
+    "message": "OK"
+  },
+  "optionsImportExportSuccessModalTitle": {
+    "message": "Importation de données"
+  },
+  "optionsImportExportValidationFailure": {
+    "message": "Incorrect"
+  },
+  "optionsImportExportValidationSuccess": {
+    "message": "Correct"
+  },
+  "optionsMiscellaneous": {
+    "message": "Divers"
+  },
+  "optionsNativeMessaging": {
+    "message": "Messagerie native"
+  },
+  "optionsReloadIdentities": {
+    "message": "Recharger"
+  },
+  "optionsReplies": {
+    "message": "Réponses"
+  },
+  "optionsRepliesDisableAutoSwitch": {
+    "message": "Désactiver la signature automatique en cas de réponse"
+  },
+  "optionsRepliesNoDefaultAction": {
+    "message": "Ne pas appliquer l’action par défaut en cas de réponse à un message"
+  },
+  "optionsSignatureComposeSeparator": {
+    "message": "Afficher un séparateur de signature présent uniquement pendant la rédaction (absent du message envoyé et à l’impression)"
+  },
+  "optionsSignatureEditModalAutoSwitch": {
+    "message": "Signature automatique"
+  },
+  "optionsSignatureEditModalAutoSwitchMatchAll": {
+    "message": "N’apposer que si tous les destinataires correspondent à l’un des critères indiqués"
+  },
+  "optionsSignatureEditModalAutoSwitchPlaceholder": {
+    "message": "*@entreprise.com, *dupont*@*.fr, mo@zilla.com"
+  },
+  "optionsSignatureEditModalAutoSwitchTooltip": {
+    "message": "Liste des adresses électroniques, séparées par une virgule, qui déclenchent automatiquement l’insertion de la signature quand elles sont détectées comme destinataires. (NOTE : L’astérisque peut être utilisé comme caractère de remplacement.)"
+  },
+  "optionsSignatureEditModalClose": {
+    "message": "Fermer"
+  },
+  "optionsSignatureEditModalContent": {
+    "message": "Contenu"
+  },
+  "optionsSignatureEditModalContentTooltip": {
+    "message": "La version appropriée de la signature est choisie en fonction du mode utilisé (texte ou HTML) pour la rédaction du message."
+  },
+  "optionsSignatureEditModalHtml": {
+    "message": "HTML"
+  },
+  "optionsSignatureEditModalHtmlPlaceholder": {
+    "message": "<b>Mo Zilla<b><br>\ncourriel : <a href=\"mailto:mo@zilla.org\">mo@zilla.org</a><br>\ntéléphone : (666) 12345"
+  },
+  "optionsSignatureEditModalName": {
+    "message": "Nom"
+  },
+  "optionsSignatureEditModalNamePlaceholder": {
+    "message": "Signature professionnelle"
+  },
+  "optionsSignatureEditModalNameTooltip": {
+    "message": "Nom affiché à la sélection de la signature via le bouton ou le menu contextuel"
+  },
+  "optionsSignatureEditModalPlaintext": {
+    "message": "Texte"
+  },
+  "optionsSignatureEditModalSave": {
+    "message": "Enregistrer"
+  },
+  "optionsSignatureEditModalTextPlaceholder": {
+    "message": "Mo Zilla\ncourriel : mo@zilla.org\ntéléphone : (666) 12345"
+  },
+  "optionsSignatureEditModalTitle": {
+    "message": "Éditer la signature"
+  },
+  "optionsSignatureNewName": {
+    "message": "Nouvelle signature"
+  },
+  "optionsSignaturePlacement": {
+    "message": "Position de la signature"
+  },
+  "optionsSignaturePlacementAboveQuoteOrForwarding": {
+    "message": "Placer la signature au-dessus de la citation ou du message transféré"
+  },
+  "optionsSignaturePlacementAboveQuoteOrForwardingNotRecommended": {
+    "message": "déconseillé"
+  },
+  "optionsSignatureRemoveModalNo": {
+    "message": "Non"
+  },
+  "optionsSignatureRemoveModalQuestion": {
+    "message": "Voulez-vous vraiment supprimer cette signature ?"
+  },
+  "optionsSignatureRemoveModalTitle": {
+    "message": "Supprimer la signature"
+  },
+  "optionsSignatureRemoveModalYes": {
+    "message": "Oui"
+  },
+  "optionsSignatureSeparator": {
+    "message": "Délimiteur de signature"
+  },
+  "optionsSignatureSeparatorHtml": {
+    "message": "Ajouter automatiquement le délimiteur « -- \\n » aux signatures HTML"
+  },
+  "optionsSignatures": {
+    "message": "Signatures"
+  },
+  "optionsTableColumnFortuneCookiesDelete": {
+    "message": "Supprimer"
+  },
+  "optionsTableColumnFortuneCookiesFortuneCookies": {
+    "message": "Biscuits chinois"
+  },
+  "optionsTableColumnFortuneCookiesName": {
+    "message": "Nom"
+  },
+  "optionsTableColumnFortuneCookiesNamePlaceholder": {
+    "message": "Chuck Norris"
+  },
+  "optionsTableColumnFortuneCookiesTag": {
+    "message": "Étiquette"
+  },
+  "optionsTableColumnFortuneCookiesTagPlaceholder": {
+    "message": "chuck"
+  },
+  "optionsTableColumnIdentityAssignedSignature": {
+    "message": "Signature attribuée"
+  },
+  "optionsTableColumnIdentityName": {
+    "message": "Identité"
+  },
+  "optionsTableColumnImagesDelete": {
+    "message": "Supprimer"
+  },
+  "optionsTableColumnImagesImage": {
+    "message": "Image"
+  },
+  "optionsTableColumnImagesName": {
+    "message": "Nom"
+  },
+  "optionsTableColumnImagesNamePlaceholder": {
+    "message": "Logo de l’entreprise"
+  },
+  "optionsTableColumnImagesTag": {
+    "message": "Étiquette"
+  },
+  "optionsTableColumnImagesTagPlaceholder": {
+    "message": "logo"
+  },
+  "optionsTableColumnSignaturesAction": {
+    "message": "Action"
+  },
+  "optionsTableColumnSignaturesDefault": {
+    "message": "Défaut"
+  },
+  "optionsTableColumnSignaturesName": {
+    "message": "Nom"
+  },
+  "signaturePlacementConfirmationModalNo-1": {
+    "message": "Non"
+  },
+  "signaturePlacementConfirmationModalNo-2": {
+    "message": "Non"
+  },
+  "signaturePlacementConfirmationModalNo-3": {
+    "message": "Renoncer"
+  },
+  "signaturePlacementConfirmationModalQuestion-1": {
+    "message": "Pour diverses raisons, il n’est pas conseillé de placer la signature ailleurs qu’à la toute fin du message. Les courriels étant traités par différents clients de messagerie, le fait de s’écarter des standards peut non seulement limiter certaines fonctionnalités mais aussi impacter le destinataire. Souhaitez-vous vraiment activer cette option ?"
+  },
+  "signaturePlacementConfirmationModalQuestion-2": {
+    "message": "Le placement de la signature au-dessus de la citation ou du message transféré entraîne la suppression du délimiteur de signature standard « -- \\n » (voir RFC 3676). Il sera donc plus difficile voire impossible de détecter les signatures précédemment apposées, ce qui rendra inopérantes d’autres fonctionnalités (comme le changement de signature dans les brouillons enregistrés en texte brut par exemple). Êtes-vous toujours certain de vouloir activer cette option ?"
+  },
+  "signaturePlacementConfirmationModalQuestion-3": {
+    "message": "Pour finir, sachez qu’après avoir activé cette option, vous devrez renoncer à toute assistance de la part de l’auteur. Veuillez confirmer en appuyant sur les touches ci-dessous dans l’ordre indiqué."
+  },
+  "signaturePlacementConfirmationModalTitle-1": {
+    "message": "Position de la signature"
+  },
+  "signaturePlacementConfirmationModalTitle-2": {
+    "message": "Position de la signature"
+  },
+  "signaturePlacementConfirmationModalTitle-3": {
+    "message": "Position de la signature"
+  },
+  "signaturePlacementConfirmationModalYes-1": {
+    "message": "Oui"
+  },
+  "signaturePlacementConfirmationModalYes-2": {
+    "message": "Oui, absolument"
+  }
+}

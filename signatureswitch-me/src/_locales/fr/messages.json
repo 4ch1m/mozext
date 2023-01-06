@@ -99,10 +99,10 @@
     "message": "Signature automatique"
   },
   "optionsAutoSwitchIncludeBcc": {
-    "message": "Inclure les destinataires en copie cachée"
+    "message": "Inclure les destinataires en copie cachée ('Bcc')"
   },
   "optionsAutoSwitchIncludeCc": {
-    "message": "Inclure les destinataires en copie"
+    "message": "Inclure les destinataires en copie ('Cc')"
   },
   "optionsCommandKeyComma": {
     "message": "Virgule"
@@ -150,7 +150,7 @@
     "message": "Signature précédente :"
   },
   "optionsCommandLabelSwitch": {
-    "message": "Activer ou désactiver :"
+    "message": "Activer ou désactiver :"
   },
   "optionsCommandReset": {
     "message": "Réinitialiser"
@@ -459,7 +459,7 @@
     "message": "Non"
   },
   "optionsSignatureRemoveModalQuestion": {
-    "message": "Voulez-vous vraiment supprimer cette signature ?"
+    "message": "Voulez-vous vraiment supprimer cette signature ?"
   },
   "optionsSignatureRemoveModalTitle": {
     "message": "Supprimer la signature"

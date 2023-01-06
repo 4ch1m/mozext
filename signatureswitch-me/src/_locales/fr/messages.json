@@ -33,7 +33,7 @@
     "message": "La messagerie native permet d’insérer dans une signature du contenu dynamique reçu d’une application native installée sur l’ordinateur."
   },
   "nativeMessagingDescription2": {
-    "message": "Toutefois, faire communiquer Thunderbird et l’application native est assez laborieux et concevoir une application adaptée à l’interface de programmation de messagerie native est encore plus compliqué (à cause principalement de la nécessité de convertir les données transférées dans un « format » spécifique)."
+    "message": "Toutefois, faire communiquer Thunderbird et l’application native est assez laborieux et concevoir une application adaptée à l’interface de programmation de messagerie native est encore plus compliqué (à cause principalement de la nécessité de convertir les données transférées dans un 'format' spécifique)."
   },
   "nativeMessagingDescription3": {
     "message": "Pour des informations détaillées et un exemple de code fonctionnel, consultez la documentation sur GitHub avant de continuer :"
@@ -54,7 +54,7 @@
     "message": "Réponse :"
   },
   "nativeMessagingResponseTooltip": {
-    "message": "Le message retourné par l’application native doit s’afficher sous la forme d’un objet JSON avec l’attribut « message »."
+    "message": "Le message retourné par l’application native doit s’afficher sous la forme d’un objet JSON avec l’attribut 'message'."
   },
   "nativeMessagingResponseValidationFailure": {
     "message": "Échec"
@@ -195,7 +195,7 @@
     "message": "Éditer les biscuits chinois"
   },
   "optionsFortuneCookiesEditModalTooltip": {
-    "message": "Ensemble d’aphorismes séparés par une ligne constituée du symbole « % »"
+    "message": "Ensemble d’aphorismes séparés par une ligne constituée du symbole '%'"
   },
   "optionsFortuneCookiesRemoveModalNo": {
     "message": "Non"
@@ -540,7 +540,7 @@
     "message": "Pour diverses raisons, il n’est pas conseillé de placer la signature ailleurs qu’à la toute fin du message. Les courriels étant traités par différents clients de messagerie, le fait de s’écarter des standards peut non seulement limiter certaines fonctionnalités mais aussi impacter le destinataire. Souhaitez-vous vraiment activer cette option ?"
   },
   "signaturePlacementConfirmationModalQuestion-2": {
-    "message": "Le placement de la signature au-dessus de la citation ou du message transféré entraîne la suppression du délimiteur de signature standard « -- \\n » (voir RFC 3676). Il sera donc plus difficile voire impossible de détecter les signatures précédemment apposées, ce qui rendra inopérantes d’autres fonctionnalités (comme le changement de signature dans les brouillons enregistrés en texte brut par exemple). Êtes-vous toujours certain de vouloir activer cette option ?"
+    "message": "Le placement de la signature au-dessus de la citation ou du message transféré entraîne la suppression du délimiteur de signature standard '-- \\n' (voir RFC 3676). Il sera donc plus difficile voire impossible de détecter les signatures précédemment apposées, ce qui rendra inopérantes d’autres fonctionnalités (comme le changement de signature dans les brouillons enregistrés en texte brut par exemple). Êtes-vous toujours certain de vouloir activer cette option ?"
   },
   "signaturePlacementConfirmationModalQuestion-3": {
     "message": "Pour finir, sachez qu’après avoir activé cette option, vous devrez renoncer à toute assistance de la part de l’auteur. Veuillez confirmer en appuyant sur les touches ci-dessous dans l’ordre indiqué."

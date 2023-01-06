@@ -99,10 +99,10 @@
     "message": "Przełącznik automatyczny"
   },
   "optionsAutoSwitchIncludeBcc": {
-    "message": "Uwzględniaj odbiorców Udw."
+    "message": "Uwzględniaj odbiorców Udw. ('Bcc')"
   },
   "optionsAutoSwitchIncludeCc": {
-    "message": "Uwzględniaj odbiorców Dw."
+    "message": "Uwzględniaj odbiorców Dw. ('Cc')"
   },
   "optionsCommandKeyComma": {
     "message": "Przecinek"

@@ -1,5 +1,7 @@
 # mozext
-> Extensions / Add-Ons for Mozilla Firefox and Mozilla Thunderbird
+> **Moz**illa Thunderbird/Firefox **Ext**ensions
+
+## Table of Contents
 
 * [WebExtensions / MailExtensions](#webextensions--mailextensions--)
   * [Thunderbird](#thunderbird)
@@ -50,7 +52,8 @@ This will create an installable XPI-file.
 
 Please check my dedicated website for more detailed information:
 
-&rarr; [www.achimonline.de/mozext/](https://www.achimonline.de/mozext/)
+* [https://www.achimonline.de/mozext/](https://www.achimonline.de/mozext/)
 
 ## License
+
 Please read the [LICENSE](LICENSE) file.

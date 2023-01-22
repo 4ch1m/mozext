@@ -113,6 +113,21 @@ const MISCELLANEOUS_TAB_PANE = `
             <span id="signaturePlacementModals">
             </span>
         </div>
+       <!-- theme -->
+        <div class="mt-3">
+            <h5><b data-i18n="optionsTheme"></b></h5>
+            <hr class="w-100">
+            <div>
+                <div class="ms-3">
+                    <div>
+                        <input type="checkbox" class="form-check-input" id="darkTheme">
+                        <label for="darkTheme" data-i18n="optionsThemeDark"></label>
+                    </div>
+                </div>
+            </div>
+            <span id="signaturePlacementModals">
+            </span>
+        </div>
     </div>
 `;
 

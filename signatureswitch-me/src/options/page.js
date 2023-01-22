@@ -130,6 +130,7 @@ ready(() => {
     browser.storage.local.get().then(async localStorage => {
         // ensure that default values for bool preferences are set (otherwise would be 'undefined')
         await validateDefaultsForBoolPreferences(localStorage, [
+            {name: "darkTheme", default: false},
             {name: "identitiesSwitchSignatureOnChange", default: false},
             {name: "identitiesUseAssignedSignatureOnReplyOrForwarding", default: false},
             {name: "identitiesOverruleDefaultAction", default: true},
@@ -155,6 +156,13 @@ ready(() => {
  */
 
 async function initUI(localStorage) {
+    /* -------
+        Theme
+       ------- */
+    if (localStorage.darkTheme) {
+        document.getElementById("mdbCss").href = `/_libraries/mdb.dark.min.css`;
+    }
+
     /* -----------------
         Navigation Tabs
        ----------------- */
@@ -795,6 +803,13 @@ async function initUI(localStorage) {
         signaturePlacementConfirmationModal3Element.addEventListener("keydown", signaturePlacementConfirmationModal3EventListener);
         clearSignaturePlacementConfirmationCodeInput();
         signaturePlacementConfirmationModal3.show();
+    });
+
+    // theme
+    let darkTheme = document.getElementById("darkTheme");
+    darkTheme.checked = localStorage.darkTheme;
+    darkTheme.addEventListener("click", () => {
+        addOrUpdateStoredValue("darkTheme", darkTheme.checked);
     });
 
     /* ------------------

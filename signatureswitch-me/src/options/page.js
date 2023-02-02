@@ -159,9 +159,7 @@ async function initUI(localStorage) {
     /* -------
         Theme
        ------- */
-    if (localStorage.darkTheme) {
-        document.getElementById("mdbCss").href = `/_libraries/mdb.dark.min.css`;
-    }
+    setTheme();
 
     /* -----------------
         Navigation Tabs

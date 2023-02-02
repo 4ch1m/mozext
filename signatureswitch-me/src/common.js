@@ -120,3 +120,11 @@ async function getAllSignatureIds(signaturesArray) {
 
     return ids;
 }
+
+function setTheme() {
+    browser.storage.local.get().then(localStorage => {
+        if (localStorage.darkTheme) {
+            document.getElementById("mdbCss").href = `/_libraries/mdb.dark.min.css`;
+        }
+    });
+}

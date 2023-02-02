@@ -4,6 +4,7 @@ let ready = (callback) => {
 }
 
 ready(() => {
+    setTheme();
     dataI18n();
 
     // initially check if a signature is already present

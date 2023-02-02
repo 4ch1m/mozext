@@ -527,12 +527,6 @@
   "optionsTableColumnSignaturesName": {
     "message": "Nom"
   },
-  "optionsTheme": {
-    "message": "Thème"
-  },
-  "optionsThemeDark": {
-    "message": "Utiliser le thème sombre sur cette page"
-  },
   "signaturePlacementConfirmationModalNo-1": {
     "message": "Non"
   },

@@ -104,6 +104,8 @@ let ready = (callback) => {
 }
 
 ready(() => {
+    setTheme();
+
     document.body.innerHTML = Mustache.render(BODY, {
         navItems: [
             { status: "active", id: "signaturesTab",      href: "#signaturesTabContent",      i18n: "optionsSignatures"      },
@@ -130,7 +132,6 @@ ready(() => {
     browser.storage.local.get().then(async localStorage => {
         // ensure that default values for bool preferences are set (otherwise would be 'undefined')
         await validateDefaultsForBoolPreferences(localStorage, [
-            {name: "darkTheme", default: false},
             {name: "identitiesSwitchSignatureOnChange", default: false},
             {name: "identitiesUseAssignedSignatureOnReplyOrForwarding", default: false},
             {name: "identitiesOverruleDefaultAction", default: true},
@@ -156,11 +157,6 @@ ready(() => {
  */
 
 async function initUI(localStorage) {
-    /* -------
-        Theme
-       ------- */
-    setTheme();
-
     /* -----------------
         Navigation Tabs
        ----------------- */
@@ -801,13 +797,6 @@ async function initUI(localStorage) {
         signaturePlacementConfirmationModal3Element.addEventListener("keydown", signaturePlacementConfirmationModal3EventListener);
         clearSignaturePlacementConfirmationCodeInput();
         signaturePlacementConfirmationModal3.show();
-    });
-
-    // theme
-    let darkTheme = document.getElementById("darkTheme");
-    darkTheme.checked = localStorage.darkTheme;
-    darkTheme.addEventListener("click", () => {
-        addOrUpdateStoredValue("darkTheme", darkTheme.checked);
     });
 
     /* ------------------

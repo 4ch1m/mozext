@@ -544,12 +544,7 @@ async function initUI(localStorage) {
     // commands
     let commandsContainer = document.getElementById("commandsContainer");
     let commandNames = [];
-    // TODO
-    // Temporary workaround until this issue is fixed:
-    //    https://developer.thunderbird.net/add-ons/updating/tb78#replacing-options
-    //
-    // browser.commands.getAll().then(commands => {
-    await (await browser.runtime.getBackgroundPage()).browser.commands.getAll().then(commands => {
+    await browser.commands.getAll().then(commands => {
         for (let command of commands) {
             commandNames.push(command.name);
 
@@ -1066,14 +1061,8 @@ function validateImportExportData() {
 }
 
 async function resetCommand(name) {
-    // TODO
-    // Temporary workaround until this issue is fixed:
-    //    https://developer.thunderbird.net/add-ons/updating/tb78#replacing-options
-    //
-    // browser.commands.reset(name);
-    await (await browser.runtime.getBackgroundPage()).browser.commands.reset(name);
-    // browser.commands.getAll().then(commands => {
-    (await browser.runtime.getBackgroundPage()).browser.commands.getAll().then(commands => {
+    await browser.commands.reset(name);
+    browser.commands.getAll().then(commands => {
         commands.forEach(command => {
             if (command.name === name) {
                 // TODO refactor - this will only work if the default command consists of three values
@@ -1199,12 +1188,7 @@ async function validateDefaultsForBoolPreferences(localStorage, preferences) {
  */
 
 async function updateCommand(name, shortcut) {
-    // TODO
-    // Temporary workaround until this issue is fixed:
-    //    https://developer.thunderbird.net/add-ons/updating/tb78#replacing-options
-    //
-    // browser.commands.update({
-    return (await browser.runtime.getBackgroundPage()).browser.commands.update({
+    return browser.commands.update({
         name: name,
         shortcut: shortcut
     });

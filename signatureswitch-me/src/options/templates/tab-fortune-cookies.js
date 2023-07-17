@@ -68,7 +68,7 @@ const FORTUNE_COOKIES_ROW = `
     </td>
     <!-- content -->
     <td>
-        <textarea id="fortuneCookiesCookies-{{id}}" type="text" class="form-control w-100" rows="1" readonly>{{cookies}}</textarea>
+        <textarea id="fortuneCookiesCookies-{{id}}" class="form-control w-100" rows="1" readonly>{{cookies}}</textarea>
     </td>
     <!-- remove -->
     <td>

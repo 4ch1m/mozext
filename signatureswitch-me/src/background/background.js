@@ -81,7 +81,7 @@ function createContextMenu() {
         menuItems.push({
             id: MENU_ROOT_ID,
             title: i18n("extensionName"),
-            contexts: [ "page" ]
+            contexts: [ "compose_body" ]
         });
 
         menuItems.push({

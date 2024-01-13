@@ -1,5 +1,5 @@
 # override TB version
-product_version: "115.0"
+product_version: "115.6.1"
 
 # used for "move_devtools_window" playbook
 x_coord: 3841

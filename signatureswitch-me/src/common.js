@@ -122,7 +122,8 @@ async function getAllSignatureIds(signaturesArray) {
 }
 
 function setTheme() {
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.getElementById("mdbCss").href = `/_libraries/mdb.dark.min.css`;
+    if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        document.documentElement.setAttribute("data-mdb-theme", "dark");
+        document.getElementById("mdbCss").href = "/_libraries/mdb.dark.min.css";
     }
 }

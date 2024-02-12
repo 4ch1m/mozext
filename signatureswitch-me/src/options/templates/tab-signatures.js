@@ -102,7 +102,7 @@ const SIGNATURE_EDIT_MODAL = `
                         <input type="text" class="form-control" id="signatureModalName-{{id}}" placeholder="{{namePlaceholder}}" value="{{name}}">
                     </div>
                     <div class="mt-3">
-                        <label for="signatureEditAccordion-{{id}}">
+                        <label for="signatureModalContent-{{id}}">
                             {{contentLabel}}
                             <span data-bs-toggle="tooltip" title="{{contentTooltip}}">
                                 <svg class="bi" width="1em" height="1em" fill="currentColor">
@@ -110,40 +110,37 @@ const SIGNATURE_EDIT_MODAL = `
                                 </svg>
                             </span>
                         </label>
-                        <div class="accordion" id="signatureEditAccordion-{{id}}">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="signatureEditAccordionPlaintextHeader-{{id}}">
-                                    <button class="accordion-button" type="button" data-mdb-toggle="collapse" data-mdb-target="#signatureEditAccordionPlaintext-{{id}}" aria-expanded="true">
-                                        <svg class="bi mr-3" width="2em" height="2em" fill="currentColor">
-                                            <use xlink:href="/_images/bootstrap-icons.svg#type"/>
-                                        </svg>
-                                        &nbsp;&nbsp;&nbsp;
-                                        {{textHeading}}&nbsp;&hellip;
-                                    </button>
-                                </h2>
-                                <div id="signatureEditAccordionPlaintext-{{id}}" class="accordion-collapse collapse show" data-mdb-parent="#signatureEditAccordion-{{id}}">
-                                    <div class="accordion-body">
-                                        <textarea class="form-control" style="font-family:monospace;" id="signatureModalText-{{id}}" rows="5" spellcheck="false" placeholder="{{textPlaceholder}}">{{text}}</textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="signatureEditAccordionHtmlHeader-{{id}}">
-                                    <button class="accordion-button collapsed" type="button" data-mdb-toggle="collapse" data-mdb-target="#signatureEditAccordionHtml-{{id}}" aria-expanded="false">
-                                        <svg class="bi mr-3" width="2em" height="2em" fill="currentColor">
-                                            <use xlink:href="/_images/bootstrap-icons.svg#code-slash"/>
-                                        </svg>
-                                        &nbsp;&nbsp;&nbsp;
-                                        {{htmlHeading}}&nbsp;&hellip;
-                                    </button>
-                                </h2>
-                                <div id="signatureEditAccordionHtml-{{id}}" class="accordion-collapse collapse" data-mdb-parent="#signatureEditAccordion-{{id}}">
-                                    <div class="accordion-body">
-                                        <textarea class="form-control" id="signatureModalHtml-{{id}}" rows="5" spellcheck="false" placeholder="{{htmlPlaceholder}}">{{html}}</textarea>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="input-group" id="signatureModalContent-{{id}}">
+                            <div class="form-floating">
+                                <!-- plaintext content -->
+                                <textarea
+                                    style="height: 200px; font-family:monospace;"
+                                    class="form-control form-floating-placeholder-fix"
+                                    placeholder="{{textPlaceholder}}"
+                                    spellcheck="false"
+                                    id="signatureModalText-{{id}}">{{text}}</textarea>
+                                <label for="signatureModalText-{{id}}">
+                                <svg class="bi mr-3" width="1em" height="1em" fill="currentColor">
+                                    <use xlink:href="/_images/bootstrap-icons.svg#type"/>
+                                </svg>
+                                {{textLabel}}
+                                </label>
+                            </div>                    
+                            <div class="form-floating">
+                                <!-- HTML content -->
+                                <textarea
+                                    style="height: 200px;"
+                                    class="form-control form-floating-placeholder-fix"
+                                    placeholder="{{htmlPlaceholder}}"
+                                    spellcheck="false"
+                                    id="signatureModalHtml-{{id}}">{{html}}</textarea>
+                                <label for="signatureModalHtml-{{id}}">
+                                <svg class="bi mr-3" width="1em" height="1em" fill="currentColor">
+                                    <use xlink:href="/_images/bootstrap-icons.svg#code-slash"/>
+                                </svg>
+                                {{htmlLabel}}
+                              </label>
+                            </div>                    
                         </div>
                     </div>
                     <div class="mt-3">

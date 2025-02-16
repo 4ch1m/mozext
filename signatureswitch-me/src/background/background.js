@@ -66,6 +66,7 @@ let recipientChangeListeners = new Map();
     addWindowCreateListener();
     addOnBeforeSendListener();
     addIdentityChangeListener();
+    showAnnouncements();
 })();
 
 /* =====================================================================================================================
@@ -800,4 +801,24 @@ async function waitForComposeMessageListener(tabId) {
             result = await browser.tabs.sendMessage(tabId, { type: "ping" }) === "";
         } catch(e) {}
     }
+}
+
+function showAnnouncements() {
+    let browserStorageLocal = browser.storage.local;
+
+    browserStorageLocal.get().then(localStorage => {
+        let announcements = localStorage.announcements ? localStorage.announcements : new Map();
+
+        const TWENTY_YEAR_ANNIVERSARY = "20-year-anniversary";
+        if (!announcements.has(TWENTY_YEAR_ANNIVERSARY) || !announcements.get(TWENTY_YEAR_ANNIVERSARY)) {
+            if (new Date() >= new Date("2025-03-05")) {
+                browser.tabs.create({url: "/announcements/20-years-anniversary.html"});
+                announcements.set(TWENTY_YEAR_ANNIVERSARY, true);
+            }
+        }
+
+        localStorage.announcements = announcements;
+
+        browserStorageLocal.set(localStorage);
+    });
 }

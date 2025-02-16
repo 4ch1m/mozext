@@ -39,7 +39,7 @@ const HELP_TAB_PANE = `
                     </div>
                     <div class="col-md-11">
                         <span data-i18n="optionsHelpSupport1"></span>&nbsp;&hellip;<br>
-                        <a href="https://www.achimonline.de/mozext/contact/">Achim's Mozilla Extensions <small><small>(https://www.achimonline.de/mozext/contact/)</small></small></a><br>
+                        <a href="https://www.achimonline.de/mozext/contact/" class="link-primary">Achim's Mozilla Extensions <small><small>(https://www.achimonline.de/mozext/contact/)</small></small></a><br>
                         &hellip;&nbsp;<span data-i18n="optionsHelpSupport2"></span>
                     </div>
                 </div>

@@ -17,8 +17,6 @@ copy.each([
     "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js.map",
     "node_modules/mdb-ui-kit/css/mdb.min.css",
     "node_modules/mdb-ui-kit/css/mdb.min.css.map",
-    "node_modules/mdb-ui-kit/css/mdb.dark.min.css",
-    "node_modules/mdb-ui-kit/css/mdb.dark.min.css.map",
     "node_modules/mdb-ui-kit/js/mdb.umd.min.js",
     "node_modules/mdb-ui-kit/js/mdb.umd.min.js.map",
     "node_modules/@popperjs/core/dist/umd/popper.min.js",

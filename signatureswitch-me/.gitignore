@@ -1,7 +1,9 @@
-bin
-node_modules
+bin/
+node_modules/
 *.xpi
-ansible-mozdev
+ansible-mozdev/
 publish-*.sh
-web-ext-artifacts
-rollup_dist
+web-ext-artifacts/
+rollup_dist/
+REVIEWER_README.md
+sources*.lst

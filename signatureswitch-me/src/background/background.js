@@ -66,6 +66,8 @@ let recipientChangeListeners = new Map();
     addWindowCreateListener();
     addOnBeforeSendListener();
     addIdentityChangeListener();
+
+    // announcements
     showAnnouncements();
 })();
 

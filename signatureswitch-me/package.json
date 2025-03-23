@@ -6,15 +6,15 @@
     "bootstrap-icons": "^1.11.3",
     "mdb-ui-kit": "^8.2.0",
     "mustache": "^4.2.0",
-    "uuid": "^11.0.5"
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "copy": "^0.3.2",
     "jest": "^29.7.0",
     "rewire": "^7.0.0",
-    "web-ext": "^8.4.0",
-    "rollup": "^4.34.7",
-    "@rollup/plugin-node-resolve": "^16.0.0",
+    "web-ext": "^8.5.0",
+    "rollup": "^4.36.0",
+    "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-terser": "^0.4.4"
   },
   "config": {

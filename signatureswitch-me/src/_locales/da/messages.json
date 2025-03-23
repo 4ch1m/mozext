@@ -1,0 +1,563 @@
+{
+  "commandNextDescription": {
+    "message": "Gennemløb (næste)"
+  },
+  "commandPreviousDescription": {
+    "message": "Gennemløb (forrige)"
+  },
+  "commandSwitchDescription": {
+    "message": "Skift signatur til/fra"
+  },
+  "composeOptions": {
+    "message": "Indstillinger"
+  },
+  "composeSwitchOff": {
+    "message": "Slå fra"
+  },
+  "composeSwitchOn": {
+    "message": "Slå til"
+  },
+  "extensionDescription": {
+    "message": "Slå signaturen til/fra eller vælg en ny fra dit foruddefineret sæt."
+  },
+  "extensionName": {
+    "message": "Signature Switch"
+  },
+  "menuOnOff": {
+    "message": "Til / Fra"
+  },
+  "menuOptions": {
+    "message": "Indstillinger"
+  },
+  "nativeMessagingDescription1": {
+    "message": "Native messaging kan bruges til at indsætte dynamisk indhold i din signatur modtaget fra en lokal applikation installeret på din computer."
+  },
+  "nativeMessagingDescription2": {
+    "message": "Det er dog ret besværligt at få Thunderbird til at tale med den lokale applikation. Derudover er det endnu mere kompliceret at levere/implementere en applikation, der opfører sig nøjagtigt som 'Native Messaging API' forventer (hovedsagelig fordi de overførte data skal være i en bestemt \"format\")."
+  },
+  "nativeMessagingDescription3": {
+    "message": "For detaljeret information og fungerende eksempelkode, tjek venligst dokumentationen på GitHub, før du fortsætter:"
+  },
+  "nativeMessagingMessage": {
+    "message": "Meddelelser:"
+  },
+  "nativeMessagingMessageTooltip": {
+    "message": "Dette repræsenterer den meddelelse, der sendes til den lokale applikation via native messaging. Bortset fra dit 'tag', vil alle andre værdier blive udfyldt automatisk."
+  },
+  "nativeMessagingMessageValidationFailure": {
+    "message": "Ugyldig!"
+  },
+  "nativeMessagingMessageValidationSuccess": {
+    "message": "Gyldig."
+  },
+  "nativeMessagingResponse": {
+    "message": "Svar:"
+  },
+  "nativeMessagingResponseTooltip": {
+    "message": "Dette skulle vise beskeden, som din lokale applikation returnerede. Det skal være et JSON-objekt, der indeholder en 'message'-attribut."
+  },
+  "nativeMessagingResponseValidationFailure": {
+    "message": "Fiasko!"
+  },
+  "nativeMessagingResponseValidationInvalid": {
+    "message": "Ugyldigt eller ufuldstændigt resultat!"
+  },
+  "nativeMessagingResponseValidationSuccess": {
+    "message": "Succes."
+  },
+  "nativeMessagingSend": {
+    "message": "Send meddelelse"
+  },
+  "nativeMessagingTestHeader": {
+    "message": "Native Messaging-test"
+  },
+  "nativeMessagingTestHint": {
+    "message": "'Native Messaging-opsætning' for Signature Switch kan verificeres ved at lave en testanmodning med (mockup)-beskeden nedenfor. Efter succes skal du se svaret fra den lokale applikation."
+  },
+  "nativeMessagingUsageCode": {
+    "message": "Moe Zilla<br>\nmail: <a href=\"mailto:moe@zilla.org\">moe@zilla.org</a><br>\n<br>\nMin nuværende IP-adresse: __IP__"
+  },
+  "nativeMessagingUsageDescription": {
+    "message": "Et vilkårligt tag-navn - omgivet af dobbelte understregninger - kan bruges i din signatur til at sende en besked til den lokale applikation; og få tag'et udskiftet med det returnerede indhold."
+  },
+  "nativeMessagingUsageExample": {
+    "message": "For eksempel:"
+  },
+  "nativeMessagingUsageHeader": {
+    "message": "Brug:"
+  },
+  "optionsAddFortuneCookies": {
+    "message": "Tilføj nye fortune cookies"
+  },
+  "optionsAddImage": {
+    "message": "Tilføj nyt billede"
+  },
+  "optionsAddSignature": {
+    "message": "Tilføj ny signatur"
+  },
+  "optionsAutoSwitch": {
+    "message": "Autoskift"
+  },
+  "optionsAutoSwitchIncludeBcc": {
+    "message": "Inkluder 'Bcc'-modtagere."
+  },
+  "optionsAutoSwitchIncludeCc": {
+    "message": "Inkluder 'Cc'modtagere."
+  },
+  "optionsCommandKeyComma": {
+    "message": "Komma"
+  },
+  "optionsCommandKeyDelete": {
+    "message": "Delete"
+  },
+  "optionsCommandKeyDown": {
+    "message": "Ned"
+  },
+  "optionsCommandKeyEnd": {
+    "message": "End"
+  },
+  "optionsCommandKeyHome": {
+    "message": "Home"
+  },
+  "optionsCommandKeyInsert": {
+    "message": "Insert"
+  },
+  "optionsCommandKeyLeft": {
+    "message": "Venstre"
+  },
+  "optionsCommandKeyPageDown": {
+    "message": "PageDown"
+  },
+  "optionsCommandKeyPageUp": {
+    "message": "PageUp"
+  },
+  "optionsCommandKeyPeriod": {
+    "message": "Punktum"
+  },
+  "optionsCommandKeyRight": {
+    "message": "Højre"
+  },
+  "optionsCommandKeySpace": {
+    "message": "Mellemrum"
+  },
+  "optionsCommandKeyUp": {
+    "message": "Op"
+  },
+  "optionsCommandLabelNext": {
+    "message": "Gennemløb (næste):"
+  },
+  "optionsCommandLabelPrevious": {
+    "message": "Gennemløb (forrige):"
+  },
+  "optionsCommandLabelSwitch": {
+    "message": "Slå (til/fra):"
+  },
+  "optionsCommandReset": {
+    "message": "Nulstil"
+  },
+  "optionsCommands": {
+    "message": "Tastaturgenveje"
+  },
+  "optionsDefaultAction": {
+    "message": "Standardhandling"
+  },
+  "optionsDefaultActionDescription": {
+    "message": "Når du åbner et nyt skrivevindue ..."
+  },
+  "optionsDefaultActionInsert": {
+    "message": "Indsæt standardsignaturen"
+  },
+  "optionsDefaultActionNothing": {
+    "message": "Gør intet"
+  },
+  "optionsDefaultActionOff": {
+    "message": "Slå signaturen fra"
+  },
+  "optionsFortuneCookies": {
+    "message": "Fortune Cookies"
+  },
+  "optionsFortuneCookiesEditModalClose": {
+    "message": "Luk"
+  },
+  "optionsFortuneCookiesEditModalFileImport": {
+    "message": "Importer fra fil:"
+  },
+  "optionsFortuneCookiesEditModalLabel": {
+    "message": "Cookies"
+  },
+  "optionsFortuneCookiesEditModalPlaceholder": {
+    "message": "Chuck Norris kan dividere med nul.\n%\nDa Chuck Norris blev udsat for coronavirus, blev virussen isoleret.\n%\nChuck Norris kender det sidste ciffer i tallet pi.\n%\nI Chuck Norris' hus er der ingen døre; han går igennem væggene.\n%\nChuck Norris har engang spillet russisk roulette med en fuldt ladt pistol – Og vundet!"
+  },
+  "optionsFortuneCookiesEditModalSave": {
+    "message": "Gem"
+  },
+  "optionsFortuneCookiesEditModalTitle": {
+    "message": "Rediger fortune cookies"
+  },
+  "optionsFortuneCookiesEditModalTooltip": {
+    "message": "Cookies, separerede af '%'-linje."
+  },
+  "optionsFortuneCookiesRemoveModalNo": {
+    "message": "Nej"
+  },
+  "optionsFortuneCookiesRemoveModalQuestion": {
+    "message": "Vil du virkelig fjerne disse fortune cookies?"
+  },
+  "optionsFortuneCookiesRemoveModalTitle": {
+    "message": "Fjern fortune cookies"
+  },
+  "optionsFortuneCookiesRemoveModalYes": {
+    "message": "Ja"
+  },
+  "optionsFortuneCookiesUsage1": {
+    "message": "opret et nyt sæt fortune cookies ved at klikke på knappen ovenfor"
+  },
+  "optionsFortuneCookiesUsage2": {
+    "message": "giv sættet et beskrivende navn"
+  },
+  "optionsFortuneCookiesUsage3": {
+    "message": "vigtigt: angiv et UNIKT etiketnavn!!"
+  },
+  "optionsFortuneCookiesUsage4": {
+    "message": "klik i tekstfeltet for at redigere cookies"
+  },
+  "optionsFortuneCookiesUsage5": {
+    "message": "brug etiketnavnet (omsluttet af dobbelte firkantede parenteser) i dine signaturer det sted, hvor den tilfældige cookie skal vises"
+  },
+  "optionsFortuneCookiesUsageExample": {
+    "message": "For eksempel:"
+  },
+  "optionsFortuneCookiesUsageExampleCode": {
+    "message": "Moe Zilla<br>\nmail: <a href=\"mailto:moe@zilla.org\">moe@zilla.org</a><br>\n<br>\nDagens fakta om Chuck Norris:<br>\n<pre>\n[[chuck]]\n</pre>"
+  },
+  "optionsFortuneCookiesUsageHeader": {
+    "message": "Brug:"
+  },
+  "optionsForwardings": {
+    "message": "Videresendelser"
+  },
+  "optionsForwardingsDisableAutoSwitch": {
+    "message": "Deaktiver autoskift ved videresendelser."
+  },
+  "optionsForwardingsNoDefaultAction": {
+    "message": "Anvend ikke standardhandling, når der videresendes en mail."
+  },
+  "optionsHeader": {
+    "message": "$1"
+  },
+  "optionsHeaderSecondary": {
+    "message": "Indstillinger"
+  },
+  "optionsHelp": {
+    "message": "Hjælp"
+  },
+  "optionsHelpOr": {
+    "message": "eller"
+  },
+  "optionsHelpSupport1": {
+    "message": "Hvis du kan lide denne tilføjelse og vil støtte udvikleren, så besøg"
+  },
+  "optionsHelpSupport2": {
+    "message": "og giv et bidrag. Tak!"
+  },
+  "optionsHelpText": {
+    "message": "For detaljeret vejledning eller hjælp, besøg"
+  },
+  "optionsIdentities": {
+    "message": "Identiteter"
+  },
+  "optionsIdentitiesLabel": {
+    "message": "Dine nuværende identiteter:"
+  },
+  "optionsIdentitiesOverruleDefaultAction": {
+    "message": "Tildelte signaturer tilsidesætter standardhandlingen (indsæt/fjern signatur), når du starter en ny mail."
+  },
+  "optionsIdentitiesSwitchSignatureUponChange": {
+    "message": "Skift automatisk til tildelt signatur ved ændring af identitet."
+  },
+  "optionsIdentitiesTooltip": {
+    "message": "Denne liste viser alle mail-identiteter, du har oprettet i Thunderbirds kontoindstillinger."
+  },
+  "optionsIdentitiesUseAssignedSignatureOnReplyOrForwarding": {
+    "message": "Anvend den tildelte signatur, når du starter et svar eller videresender."
+  },
+  "optionsImageRemoveModalNo": {
+    "message": "Nej"
+  },
+  "optionsImageRemoveModalQuestion": {
+    "message": "Vil du virkelig fjerne dette billede?"
+  },
+  "optionsImageRemoveModalTitle": {
+    "message": "Fjern billede"
+  },
+  "optionsImageRemoveModalYes": {
+    "message": "Ja"
+  },
+  "optionsImageUsage1": {
+    "message": "opret et nyt element ved at klikke på knappen ovenfor"
+  },
+  "optionsImageUsage2": {
+    "message": "klik på knappen \"Gennemse...\" for at vælge og tilføje en billedfil"
+  },
+  "optionsImageUsage3": {
+    "message": "giv billedet et beskrivende navn"
+  },
+  "optionsImageUsage4": {
+    "message": "vigtigt: angiv et UNIKT etiketnavn!"
+  },
+  "optionsImageUsage5": {
+    "message": "brug etiketnavnet (omsluttet af dobbelte krøllede parenteser) i dine HTML-signaturer sammen med src-attributten i et billedelement"
+  },
+  "optionsImageUsageExample": {
+    "message": "For eksempel:"
+  },
+  "optionsImageUsageExampleCode": {
+    "message": "<img src=\"{{logo}}\" border=\"0\" width=\"150\" height=\"100\">"
+  },
+  "optionsImageUsageHeader": {
+    "message": "Brug:"
+  },
+  "optionsImageUsageNote": {
+    "message": "BEMÆRK: Håndter opbevaringen af ​​billeddata her med omhu. Tilføjelse af for mange og/eller for store billeder kan forringe den generelle ydeevne og spilde lagerplads. Brug kun optimerede aktiver, der virkelig er nødvendige for at oprette signaturer."
+  },
+  "optionsImages": {
+    "message": "Billeder"
+  },
+  "optionsImportExport": {
+    "message": "Importer / Eksporter"
+  },
+  "optionsImportExportClipboard": {
+    "message": "Udklipsholder"
+  },
+  "optionsImportExportConfirmationModalNo": {
+    "message": "Nej"
+  },
+  "optionsImportExportConfirmationModalQuestion": {
+    "message": "Vil du virkelig importere JSON-dataene og overskrive alle nuværende gemte signaturer, billeder og fortune-cookies?"
+  },
+  "optionsImportExportConfirmationModalTitle": {
+    "message": "Importer data"
+  },
+  "optionsImportExportConfirmationModalYes": {
+    "message": "Ja"
+  },
+  "optionsImportExportDataLabel": {
+    "message": "Data:"
+  },
+  "optionsImportExportDescription": {
+    "message": "Denne funktion er primært beregnet til sikkerhedskopiering/gendannelse. Eksporter dine data; kopier dem til udklipsholderen; indsæt dem i en teksteditor; gem dem i en fil. (Omvendt: Indsæt tidligere sikkerhedskopierede data her og importer dem derefter.)"
+  },
+  "optionsImportExportExport": {
+    "message": "Eksporter"
+  },
+  "optionsImportExportImport": {
+    "message": "Importer"
+  },
+  "optionsImportExportIncludeFortuneCookies": {
+    "message": "Eksporter fortune cookies"
+  },
+  "optionsImportExportIncludeImages": {
+    "message": "Eksporter billeder"
+  },
+  "optionsImportExportSuccessModalInfo": {
+    "message": "Data importeret."
+  },
+  "optionsImportExportSuccessModalOk": {
+    "message": "Ok"
+  },
+  "optionsImportExportSuccessModalTitle": {
+    "message": "Data-import"
+  },
+  "optionsImportExportValidationFailure": {
+    "message": "Ugyldig!"
+  },
+  "optionsImportExportValidationSuccess": {
+    "message": "Gyldig."
+  },
+  "optionsMiscellaneous": {
+    "message": "Diverse"
+  },
+  "optionsNativeMessaging": {
+    "message": "Native Messaging"
+  },
+  "optionsReloadIdentities": {
+    "message": "Genindlæs"
+  },
+  "optionsReplies": {
+    "message": "Svar"
+  },
+  "optionsRepliesDisableAutoSwitch": {
+    "message": "Deaktiver autoskift ved svar."
+  },
+  "optionsRepliesNoDefaultAction": {
+    "message": "Anvend ikke standardhandling, når der svares på en mail."
+  },
+  "optionsSignatureComposeSeparator": {
+    "message": "Vis en visuel signaturseparator, mens du skriver. (Sendes ikke med den faktiske meddelelse eller vist, når den udskrives.)"
+  },
+  "optionsSignatureEditModalAutoSwitch": {
+    "message": "Autoskift"
+  },
+  "optionsSignatureEditModalAutoSwitchMatchAll": {
+    "message": "Alle modtagere skal matche et af de givne kriterier."
+  },
+  "optionsSignatureEditModalAutoSwitchPlaceholder": {
+    "message": "*@firma.com, *hansen*@*.dk, moe@zilla.com"
+  },
+  "optionsSignatureEditModalAutoSwitchTooltip": {
+    "message": "En kommasepareret liste over mailadresser, som - når de registreres som modtager - automatisk vil udløse indsættelse af denne signatur. (BEMÆRK: Stjernetegnet kan bruges som jokertegn.)"
+  },
+  "optionsSignatureEditModalClose": {
+    "message": "Luk"
+  },
+  "optionsSignatureEditModalContent": {
+    "message": "Indhold"
+  },
+  "optionsSignatureEditModalContentTooltip": {
+    "message": "Afhængigt af den tilstand, der bruges, når du skriver en mail (ren tekst eller HTML), vil det relevante signaturindhold blive brugt."
+  },
+  "optionsSignatureEditModalHtml": {
+    "message": "HTML"
+  },
+  "optionsSignatureEditModalHtmlPlaceholder": {
+    "message": "<b>Moe Zilla<b><br>\nmail: <a href=\"mailto:moe@zilla.org\">moe@zilla.org</a><br>\ntelefon: +45 12345678"
+  },
+  "optionsSignatureEditModalName": {
+    "message": "Navn"
+  },
+  "optionsSignatureEditModalNamePlaceholder": {
+    "message": "Virksomheds-signatur"
+  },
+  "optionsSignatureEditModalNameTooltip": {
+    "message": "Navnet, der bliver vist, når du vælger din signatur via knap eller genvejsmenu."
+  },
+  "optionsSignatureEditModalPlaintext": {
+    "message": "Ren tekst"
+  },
+  "optionsSignatureEditModalSave": {
+    "message": "Gem"
+  },
+  "optionsSignatureEditModalTextPlaceholder": {
+    "message": "Moe Zilla\nmail: moe@zilla.org\ntelefon: +45 12345678"
+  },
+  "optionsSignatureEditModalTitle": {
+    "message": "Rediger signatur"
+  },
+  "optionsSignatureNewName": {
+    "message": "Ny signatur"
+  },
+  "optionsSignaturePlacement": {
+    "message": "Placering"
+  },
+  "optionsSignaturePlacementAboveQuoteOrForwarding": {
+    "message": "Placer signatur over svar-citat / videresendt meddelelse."
+  },
+  "optionsSignaturePlacementAboveQuoteOrForwardingNotRecommended": {
+    "message": "ikke anbefalet"
+  },
+  "optionsSignatureRemoveModalNo": {
+    "message": "Nej"
+  },
+  "optionsSignatureRemoveModalQuestion": {
+    "message": "Vil du virkelig fjerne denne signatur?"
+  },
+  "optionsSignatureRemoveModalTitle": {
+    "message": "Fjern signatur"
+  },
+  "optionsSignatureRemoveModalYes": {
+    "message": "Ja"
+  },
+  "optionsSignatureSeparator": {
+    "message": "Separator"
+  },
+  "optionsSignatureSeparatorHtml": {
+    "message": "Tilføj automatisk signatur-separator ('-- \\n') til HTML-signaturer."
+  },
+  "optionsSignatures": {
+    "message": "Signaturer"
+  },
+  "optionsTableColumnFortuneCookiesDelete": {
+    "message": "Slet"
+  },
+  "optionsTableColumnFortuneCookiesFortuneCookies": {
+    "message": "Cookies"
+  },
+  "optionsTableColumnFortuneCookiesName": {
+    "message": "Navn"
+  },
+  "optionsTableColumnFortuneCookiesNamePlaceholder": {
+    "message": "Chuck Norris"
+  },
+  "optionsTableColumnFortuneCookiesTag": {
+    "message": "Etiket"
+  },
+  "optionsTableColumnFortuneCookiesTagPlaceholder": {
+    "message": "chuck"
+  },
+  "optionsTableColumnIdentityAssignedSignature": {
+    "message": "Tildelt signatur"
+  },
+  "optionsTableColumnIdentityName": {
+    "message": "Identitet"
+  },
+  "optionsTableColumnImagesDelete": {
+    "message": "Slet"
+  },
+  "optionsTableColumnImagesImage": {
+    "message": "Billede"
+  },
+  "optionsTableColumnImagesName": {
+    "message": "Navn"
+  },
+  "optionsTableColumnImagesNamePlaceholder": {
+    "message": "Firma-logo"
+  },
+  "optionsTableColumnImagesTag": {
+    "message": "Etiket"
+  },
+  "optionsTableColumnImagesTagPlaceholder": {
+    "message": "logo"
+  },
+  "optionsTableColumnSignaturesAction": {
+    "message": "Handling"
+  },
+  "optionsTableColumnSignaturesDefault": {
+    "message": "Standard"
+  },
+  "optionsTableColumnSignaturesName": {
+    "message": "Navn"
+  },
+  "signaturePlacementConfirmationModalNo-1": {
+    "message": "Nej"
+  },
+  "signaturePlacementConfirmationModalNo-2": {
+    "message": "Nej."
+  },
+  "signaturePlacementConfirmationModalNo-3": {
+    "message": "Må hellere lade være."
+  },
+  "signaturePlacementConfirmationModalQuestion-1": {
+    "message": "Det anbefales ikke at placere en mail-signatur andre steder end i slutningen af ​​hele meddelelsen af ​​flere årsager. Husk, at mails behandles af en række forskellige klientprogrammer. Afvigelse fra standarder kan ikke kun begrænse funktionaliteten på din side, men også påvirke modtagerens brugeroplevelse. Vil du virkelig aktivere denne mulighed?"
+  },
+  "signaturePlacementConfirmationModalQuestion-2": {
+    "message": "Når du placerer signaturer over svarcitatet eller en videresendt meddelelse, skal \"standard-signaturafgrænsningen/separatoren\" ('-- \\n'; se: RFC 3676) udelades. Dette vil gøre det sværere/umuligt nemt at opdage tidligere indsatte signaturer; som bryder andre funktioner i denne tilføjelse (f.eks. skift af signaturer ved genredigering af gemte kladder i ren tekst osv.). Så... er du virkelig sikker på, at du vil gøre dette?"
+  },
+  "signaturePlacementConfirmationModalQuestion-3": {
+    "message": "OK. Vær også opmærksom på, at enhver support/hjælp fra udvikleren af ​​denne tilføjelse vil udløbe, når denne mulighed bruges. For at acceptere dette og til sidst aktivere muligheden, skal du trykke på tasterne nedenfor i den rigtige rækkefølge."
+  },
+  "signaturePlacementConfirmationModalTitle-1": {
+    "message": "Signaturplacering"
+  },
+  "signaturePlacementConfirmationModalTitle-2": {
+    "message": "Signaturplacering"
+  },
+  "signaturePlacementConfirmationModalTitle-3": {
+    "message": "Signaturplacering"
+  },
+  "signaturePlacementConfirmationModalYes-1": {
+    "message": "Ja"
+  },
+  "signaturePlacementConfirmationModalYes-2": {
+    "message": "Ja, helt klart!"
+  }
+}

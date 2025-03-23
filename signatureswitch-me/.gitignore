@@ -6,4 +6,4 @@ publish-*.sh
 web-ext-artifacts/
 rollup_dist/
 REVIEWER_README.md
-sources*.lst
+source_submission/

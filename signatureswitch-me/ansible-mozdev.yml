@@ -1,5 +1,8 @@
 # override TB version
-product_version: "128.0.1esr"
+product_version: "140.1.0esr"
+
+# override d/l url (package changed from 'tar.b2' to 'tar.xz')
+download_url: "https://releases.mozilla.org/pub/thunderbird/releases/140.1.0esr/linux-x86_64/en-US/thunderbird-140.1.0esr.tar.xz"
 
 # used for "move_devtools_window" playbook
 x_coord: 3841

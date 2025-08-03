@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "__MSG_extensionName__",
   "description": "__MSG_extensionDescription__",
-  "version": "2.18.4",
+  "version": "2.18.5",
   "default_locale": "en",
   "author": "Achim Seufert",
   "homepage_url": "https://www.achimonline.de/mozext/",
@@ -55,9 +55,6 @@
     }
   },
   "background": {
-    "scripts": [
-      "/background/background.js"
-    ],
     "page": "/background/background.html"
   },
   "options_ui": {

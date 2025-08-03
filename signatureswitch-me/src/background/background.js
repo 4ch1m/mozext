@@ -810,10 +810,11 @@ function showAnnouncements() {
 
     browserStorageLocal.get().then(localStorage => {
         let announcements = localStorage.announcements ? localStorage.announcements : new Map();
+        let currentDate = new Date();
 
         const TWENTY_YEAR_ANNIVERSARY = "20-year-anniversary";
         if (!announcements.has(TWENTY_YEAR_ANNIVERSARY) || !announcements.get(TWENTY_YEAR_ANNIVERSARY)) {
-            if (new Date() >= new Date("2025-03-05")) {
+            if (currentDate >= new Date("2025-03-05") && currentDate <= new Date("2025-12-31")) {
                 browser.tabs.create({url: "/announcements/20-years-anniversary.html"});
                 announcements.set(TWENTY_YEAR_ANNIVERSARY, true);
             }

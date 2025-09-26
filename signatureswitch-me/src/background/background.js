@@ -557,53 +557,60 @@ async function searchSignatureInComposer(tabId = composeActionTabId) {
     })).signatureId;
 }
 
-function autoSwitchBasedOnRecipients(tabId = composeActionTabId, recipients) {
-    if (recipients.length === 0) {
+async function autoSwitchBasedOnRecipients(tabId = composeActionTabId, recipients) {
+    if (!recipients || recipients.length === 0) {
         return;
     }
 
-    let anyAutoSwitchItemMatchesWithAnyRecipient = (autoSwitchItems, recipients) => {
-        for (let autoSwitchItem of autoSwitchItems) {
-            let regEx = createRegexFromAutoSwitchString(autoSwitchItem.trim());
-            for (let recipient of recipients) {
-                if (regEx.test(recipient)) {
-                    return true;
-                }
-            }
-        }
-        return false;
+    const anyAutoSwitchItemMatchesWithAnyRecipient = (autoSwitchItems, recipients) => {
+        return autoSwitchItems.some(item => {
+            let regEx = createRegexFromAutoSwitchString(item.trim());
+            return recipients.some(recipient => regEx.test(recipient));
+        });
     };
 
-    let anyAutoSwitchItemMatchesWithAllRecipients = (autoSwitchItems, recipients) => {
-        for (let recipient of recipients) {
-            for (let autoSwitchItem of autoSwitchItems) {
-                if (createRegexFromAutoSwitchString(autoSwitchItem.trim()).test(recipient)) {
+    const anyAutoSwitchItemMatchesWithAllRecipients = (autoSwitchItems, recipients) => {
+        return recipients.every(recipient =>
+            autoSwitchItems.some(item =>
+                createRegexFromAutoSwitchString(item.trim()).test(recipient)
+            )
+        );
+    };
+
+    const localStorage = await browser.storage.local.get();
+    let signatureMatched = false;
+
+    if (localStorage.signatures && Array.isArray(localStorage.signatures)) {
+        for (const signature of localStorage.signatures) {
+            if (signature.autoSwitch && signature.autoSwitch.trim() !== "") {
+                const autoSwitchItems = signature.autoSwitch.split(",");
+                const match = signature.autoSwitchMatchAll
+                    ? anyAutoSwitchItemMatchesWithAllRecipients(autoSwitchItems, recipients)
+                    : anyAutoSwitchItemMatchesWithAnyRecipient(autoSwitchItems, recipients);
+
+                if (match) {
+                    await appendSignatureViaIdToComposer(signature.id, tabId);
+                    signatureMatched = true;
                     break;
                 }
-                return false;
             }
         }
-        return true;
     }
 
-    browser.storage.local.get().then(localStorage => {
-        if (localStorage.signatures) {
-            for (let signature of localStorage.signatures) {
-                if (signature.autoSwitch && signature.autoSwitch.trim() !== "") {
-                    let autoSwitchItems = signature.autoSwitch.split(",");
-
-                    let match = signature.autoSwitchMatchAll ?
-                        anyAutoSwitchItemMatchesWithAllRecipients(autoSwitchItems, recipients) :
-                        anyAutoSwitchItemMatchesWithAnyRecipient(autoSwitchItems, recipients)
-
-                    if (match) {
-                        appendSignatureViaIdToComposer(signature.id, tabId);
-                        return;
-                    }
+    if (!signatureMatched) {
+        try {
+            const details = await browser.compose.getComposeDetails(tabId);
+            const identityId = details.identityId;
+            if (localStorage.identities && Array.isArray(localStorage.identities)) {
+                const identity = localStorage.identities.find(i => i.id === identityId);
+                if (identity && identity.signatureId) {
+                    await appendSignatureViaIdToComposer(identity.signatureId, tabId);
+                    return;
                 }
             }
-        }
-    });
+        } catch (e) {}
+        await removeSignatureFromComposer(tabId);
+    }
 }
 
 /* =====================================================================================================================

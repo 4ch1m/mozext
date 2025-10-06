@@ -2,19 +2,19 @@
   "name": "signatureswitch",
   "dependencies": {
     "@popperjs/core": "^2.11.8",
-    "bootstrap": "^5.3.7",
+    "bootstrap": "^5.3.8",
     "bootstrap-icons": "^1.13.1",
-    "mdb-ui-kit": "^9.1.0",
+    "mdb-ui-kit": "^9.2.0",
     "mustache": "^4.2.0",
-    "uuid": "^11.1.0"
+    "uuid": "^13.0.0"
   },
   "devDependencies": {
     "copy": "^0.3.2",
-    "jest": "^30.0.5",
+    "jest": "^30.2.0",
     "rewire": "^9.0.1",
-    "web-ext": "^8.9.0",
-    "rollup": "^4.48.1",
-    "@rollup/plugin-node-resolve": "^16.0.1",
+    "web-ext": "^8.10.0",
+    "rollup": "^4.52.4",
+    "@rollup/plugin-node-resolve": "^16.0.2",
     "@rollup/plugin-terser": "^0.4.4"
   },
   "config": {

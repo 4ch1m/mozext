@@ -15,5 +15,5 @@ function chunk(input, name) {
 }
 
 export default [
-    chunk('./node_modules/uuid/dist/esm-browser/v4.js', 'uuidv4')
+    chunk('./node_modules/uuid/dist/v4.js', 'uuidv4')
 ];

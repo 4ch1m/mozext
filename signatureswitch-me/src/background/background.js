@@ -31,6 +31,8 @@ const REGEXP_IMAGES = new RegExp("\\{\\{(.*?)\\}\\}");
 const REGEXP_FORTUNE_COOKIES = new RegExp("\\[\\[(.*?)\\]\\]");
 const REGEXP_NATIVE_MESSAGING = new RegExp("_{2}([^_].+)_{2}");
 
+const ANNOUNCEMENT_TWENTY_YEAR_ANNIVERSARY = "20-year-anniversary";
+
 // ---------------------------------------------------------------------------------------------------------------------
 
 let composeActionTabId;
@@ -562,14 +564,14 @@ async function autoSwitchBasedOnRecipients(tabId = composeActionTabId, recipient
         return;
     }
 
-    const anyAutoSwitchItemMatchesWithAnyRecipient = (autoSwitchItems, recipients) => {
+    let anyAutoSwitchItemMatchesWithAnyRecipient = (autoSwitchItems, recipients) => {
         return autoSwitchItems.some(item => {
             let regEx = createRegexFromAutoSwitchString(item.trim());
             return recipients.some(recipient => regEx.test(recipient));
         });
     };
 
-    const anyAutoSwitchItemMatchesWithAllRecipients = (autoSwitchItems, recipients) => {
+    let anyAutoSwitchItemMatchesWithAllRecipients = (autoSwitchItems, recipients) => {
         return recipients.every(recipient =>
             autoSwitchItems.some(item =>
                 createRegexFromAutoSwitchString(item.trim()).test(recipient)
@@ -577,14 +579,14 @@ async function autoSwitchBasedOnRecipients(tabId = composeActionTabId, recipient
         );
     };
 
-    const localStorage = await browser.storage.local.get();
+    let localStorage = await browser.storage.local.get();
     let signatureMatched = false;
 
     if (localStorage.signatures && Array.isArray(localStorage.signatures)) {
-        for (const signature of localStorage.signatures) {
+        for (let signature of localStorage.signatures) {
             if (signature.autoSwitch && signature.autoSwitch.trim() !== "") {
-                const autoSwitchItems = signature.autoSwitch.split(",");
-                const match = signature.autoSwitchMatchAll
+                let autoSwitchItems = signature.autoSwitch.split(",");
+                let match = signature.autoSwitchMatchAll
                     ? anyAutoSwitchItemMatchesWithAllRecipients(autoSwitchItems, recipients)
                     : anyAutoSwitchItemMatchesWithAnyRecipient(autoSwitchItems, recipients);
 
@@ -599,10 +601,10 @@ async function autoSwitchBasedOnRecipients(tabId = composeActionTabId, recipient
 
     if (!signatureMatched) {
         try {
-            const details = await browser.compose.getComposeDetails(tabId);
-            const identityId = details.identityId;
+            let details = await browser.compose.getComposeDetails(tabId);
+            let identityId = details.identityId;
             if (localStorage.identities && Array.isArray(localStorage.identities)) {
-                const identity = localStorage.identities.find(i => i.id === identityId);
+                let identity = localStorage.identities.find(i => i.id === identityId);
                 if (identity && identity.signatureId) {
                     await appendSignatureViaIdToComposer(identity.signatureId, tabId);
                     return;
@@ -819,11 +821,10 @@ function showAnnouncements() {
         let announcements = localStorage.announcements ? localStorage.announcements : new Map();
         let currentDate = new Date();
 
-        const TWENTY_YEAR_ANNIVERSARY = "20-year-anniversary";
-        if (!announcements.has(TWENTY_YEAR_ANNIVERSARY) || !announcements.get(TWENTY_YEAR_ANNIVERSARY)) {
+        if (!announcements.has(ANNOUNCEMENT_TWENTY_YEAR_ANNIVERSARY) || !announcements.get(ANNOUNCEMENT_TWENTY_YEAR_ANNIVERSARY)) {
             if (currentDate >= new Date("2025-03-05") && currentDate <= new Date("2025-12-31")) {
                 browser.tabs.create({url: "/announcements/20-years-anniversary.html"});
-                announcements.set(TWENTY_YEAR_ANNIVERSARY, true);
+                announcements.set(ANNOUNCEMENT_TWENTY_YEAR_ANNIVERSARY, true);
             }
         }
 

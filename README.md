@@ -57,3 +57,8 @@ Please check my dedicated website for more detailed information:
 ## License
 
 Please read the [LICENSE](LICENSE) file.
+
+---
+
+### Powered by
+[![IntelliJ IDEA logo.](https://resources.jetbrains.com/storage/products/company/brand/logos/IntelliJ_IDEA.svg)](https://jb.gg/OpenSource)

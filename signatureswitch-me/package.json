@@ -12,9 +12,9 @@
     "copy": "^0.3.2",
     "jest": "^30.2.0",
     "rewire": "^9.0.1",
-    "web-ext": "^8.10.0",
+    "web-ext": "^9.0.0",
     "rollup": "^4.52.4",
-    "@rollup/plugin-node-resolve": "^16.0.2",
+    "@rollup/plugin-node-resolve": "^16.0.3",
     "@rollup/plugin-terser": "^0.4.4"
   },
   "config": {

@@ -542,7 +542,7 @@ async function initUI(localStorage) {
     });
 
     // commands
-    let commandsContainer = document.getElementById("commandsContainer");
+    let commandRowsHtml = "";
     let commandNames = [];
     await browser.commands.getAll().then(commands => {
         for (let command of commands) {
@@ -629,7 +629,7 @@ async function initUI(localStorage) {
                 });
             }
 
-            commandsContainer.innerHTML += Mustache.render(MISCELLANEOUS_COMMAND_ROW, {
+            commandRowsHtml += Mustache.render(MISCELLANEOUS_COMMAND_ROW, {
                 id: command.name,
                 label: label,
                 modifierOptions1: modifierOptions1,
@@ -639,6 +639,8 @@ async function initUI(localStorage) {
             });
         }
     });
+    let commandsContainer = document.getElementById("commandsContainer");
+    commandsContainer.innerHTML = commandRowsHtml;
     commandNames.forEach(commandName => {
         let modifier1Element = document.getElementById(`command-${commandName}-modifier1`);
         let modifier2Element = document.getElementById(`command-${commandName}-modifier2`);
@@ -748,9 +750,11 @@ async function initUI(localStorage) {
         });
     };
     let signaturePlacementConfirmationModals = document.getElementById("signaturePlacementModals");
-    signaturePlacementConfirmationModals.innerHTML += renderSignaturePlacementConfirmationModal(1);
-    signaturePlacementConfirmationModals.innerHTML += renderSignaturePlacementConfirmationModal(2);
-    signaturePlacementConfirmationModals.innerHTML += renderSignaturePlacementConfirmationModal(3, false, true, true);
+    signaturePlacementConfirmationModals.innerHTML = `
+        ${renderSignaturePlacementConfirmationModal(1)}
+        ${renderSignaturePlacementConfirmationModal(2)}
+        ${renderSignaturePlacementConfirmationModal(3, false, true, true)}
+    `
     let signaturePlacementConfirmationModal1Element = document.getElementById("signaturePlacementConfirmationModal-1");
     let signaturePlacementConfirmationModal2Element = document.getElementById("signaturePlacementConfirmationModal-2");
     let signaturePlacementConfirmationModal3Element = document.getElementById("signaturePlacementConfirmationModal-3");

@@ -139,6 +139,7 @@ ready(() => {
             {name: "repliesNoDefaultAction", default: false},
             {name: "forwardingsDisableAutoSwitch", default: false},
             {name: "forwardingsNoDefaultAction", default: false},
+            {name: "autoSwitchBackToDefault", default: false},
             {name: "autoSwitchIncludeCc", default: false},
             {name: "autoSwitchIncludeBcc", default: false},
             {name: "signatureSeparatorHtml", default: false},

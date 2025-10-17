@@ -98,6 +98,9 @@
   "optionsAutoSwitch": {
     "message": "Auto Switch"
   },
+  "optionsAutoSwitchBackToDefault": {
+    "message": "Automatically switch back to default signature when recipients don't contain an Auto Switch match anymore."
+  },
   "optionsAutoSwitchIncludeBcc": {
     "message": "Include 'Bcc' recipients."
   },

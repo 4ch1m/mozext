@@ -98,6 +98,9 @@
   "optionsAutoSwitch": {
     "message": "Auto Switch"
   },
+  "optionsAutoSwitchBackToDefault": {
+    "message": "Automatisch zur Standardsignatur zurückwechseln, sobald die Empfängerliste keinen Auto Switch-Treffer mehr enthält."
+  },
   "optionsAutoSwitchIncludeBcc": {
     "message": "'Bcc' Empfänger miteinbeziehen."
   },

@@ -78,6 +78,10 @@ const MISCELLANEOUS_TAB_PANE = `
                         <input type="checkbox" class="form-check-input" id="autoSwitchIncludeBcc">
                         <label for="autoSwitchIncludeBcc" data-i18n="optionsAutoSwitchIncludeBcc"></label>
                     </div>
+                    <div>
+                        <input type="checkbox" class="form-check-input" id="autoSwitchBackToDefault">
+                        <label for="autoSwitchBackToDefault" data-i18n="optionsAutoSwitchBackToDefault"></label>
+                    </div>
                 </div>
             </div>
         </div>

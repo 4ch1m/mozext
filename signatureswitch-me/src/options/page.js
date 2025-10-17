@@ -716,6 +716,11 @@ async function initUI(localStorage) {
     autoSwitchIncludeBcc.addEventListener("click", () => {
         addOrUpdateStoredValue("autoSwitchIncludeBcc", autoSwitchIncludeBcc.checked);
     });
+    let autoSwitchBackToDefault = document.getElementById("autoSwitchBackToDefault");
+    autoSwitchBackToDefault.checked = localStorage.autoSwitchBackToDefault;
+    autoSwitchBackToDefault.addEventListener("click", () => {
+        addOrUpdateStoredValue("autoSwitchBackToDefault", autoSwitchBackToDefault.checked);
+    });
 
     // signature separator
     let signatureSeparatorHtml = document.getElementById("signatureSeparatorHtml");

@@ -336,7 +336,7 @@ function addWindowCreateListener() {
                 // don't trigger recipient-based auto-switch for replies/forwardings if disabled in options
                 if (!(isReply && storage.repliesDisableAutoSwitch) &&
                     !(isForward && storage.forwardingsDisableAutoSwitch)) {
-                    startRecipientChangeListener(tabId, 1000, "", storage.autoSwitchIncludeCc, storage.autoSwitchIncludeBcc);
+                    startRecipientChangeListener(tabId, 1000, "", storage.autoSwitchIncludeCc, storage.autoSwitchIncludeBcc, storage.autoSwitchBackToDefault);
                 }
             });
         }
@@ -559,7 +559,7 @@ async function searchSignatureInComposer(tabId = composeActionTabId) {
     })).signatureId;
 }
 
-async function autoSwitchBasedOnRecipients(tabId = composeActionTabId, recipients) {
+async function autoSwitchBasedOnRecipients(tabId = composeActionTabId, recipients, backToDefault) {
     if (!recipients || recipients.length === 0) {
         return;
     }
@@ -599,7 +599,7 @@ async function autoSwitchBasedOnRecipients(tabId = composeActionTabId, recipient
         }
     }
 
-    if (!signatureMatched) {
+    if (backToDefault && !signatureMatched) {
         try {
             let details = await browser.compose.getComposeDetails(tabId);
             let identityId = details.identityId;
@@ -712,7 +712,7 @@ async function searchAndReplaceNativeMessagingPlaceholder(content, composeDetail
    helpers ...
  */
 
-async function startRecipientChangeListener(tabId, timeout = 1000, previousRecipients = "", includeCc = false, includeBcc = false) {
+async function startRecipientChangeListener(tabId, timeout = 1000, previousRecipients = "", includeCc = false, includeBcc = false, backToDefault = false) {
     try {
         let details = await browser.compose.getComposeDetails(tabId);
         let serializedRecipients = await serializeRecipients(details.to);
@@ -726,11 +726,11 @@ async function startRecipientChangeListener(tabId, timeout = 1000, previousRecip
 
         let currentRecipients = serializedRecipients.join("|");
         if (currentRecipients !== previousRecipients) {
-            autoSwitchBasedOnRecipients(tabId, serializedRecipients);
+            autoSwitchBasedOnRecipients(tabId, serializedRecipients, backToDefault);
         }
 
         let timeoutId = setTimeout(() => {
-            startRecipientChangeListener(tabId, timeout, currentRecipients, includeCc, includeBcc);
+            startRecipientChangeListener(tabId, timeout, currentRecipients, includeCc, includeBcc, backToDefault);
         }, timeout);
 
         recipientChangeListeners.set(tabId, timeoutId);

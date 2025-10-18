@@ -98,6 +98,9 @@
   "optionsAutoSwitch": {
     "message": "Signature automatique"
   },
+  "optionsAutoSwitchBackToDefault": {
+    "message": "Revenir automatiquement à la signature par défaut lorsque les destinataires ne correspondent plus à une signature automatique"
+  },
   "optionsAutoSwitchIncludeBcc": {
     "message": "Inclure les destinataires en copie cachée ('Bcc')"
   },

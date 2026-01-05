@@ -46,9 +46,9 @@ The actual data being sent from Signature Switch to the native app is a JSON-obj
 
 ```
 {
-    tag: "yourArbitraryTag"
-    isPlainText: true,
-    type: "reply"
+    "tag": "yourArbitraryTag",
+    "isPlainText": true,
+    "type": "reply"
 }
 ```
 The values for ...
@@ -64,7 +64,7 @@ Signature Switch expects the native application to send back a JSON-object with 
 
 ```
 {
-    message: "individual content"
+    "message": "individual content"
 }
 ```
 

@@ -1,7 +1,7 @@
 {
   "name": "nestedquoteremover",
   "devDependencies": {
-    "web-ext": "^7.6.2"
+    "web-ext": "^9.2.0"
   },
   "config": {
     "ANSIBLE": "ansible-playbook --extra-vars @ansible-mozdev.yml"

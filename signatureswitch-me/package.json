@@ -4,18 +4,18 @@
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.8",
     "bootstrap-icons": "^1.13.1",
-    "mdb-ui-kit": "^9.2.0",
+    "mdb-ui-kit": "^9.3.0",
     "mustache": "^4.2.0",
-    "uuid": "^13.0.0"
+    "uuid": "^14.0.2"
   },
   "devDependencies": {
     "copy": "^0.3.2",
-    "jest": "^30.2.0",
+    "jest": "^30.5.1",
     "rewire": "^9.0.1",
-    "web-ext": "^9.0.0",
-    "rollup": "^4.52.4",
+    "web-ext": "^10.6.0",
+    "rollup": "^4.63.3",
     "@rollup/plugin-node-resolve": "^16.0.3",
-    "@rollup/plugin-terser": "^0.4.4"
+    "@rollup/plugin-terser": "^1.0.0"
   },
   "config": {
     "ANSIBLE": "ansible-playbook --extra-vars @ansible-mozdev.yml"
